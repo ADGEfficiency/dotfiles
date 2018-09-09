@@ -102,9 +102,8 @@ chmod u+x ~/git/research/aws/kill_instances.sh
 alias spin_instance='spin_instance.sh'
 
 copydotfiles () {
-    cp ~/.vimrc ~/git/dotfiles/
-    cp ~/.bash_profile ~/git/dotfiles/
-    cp ~/.tmux.conf ~/git/dotfiles/
+    cp ~/.vimrc ~/git/personal/dotfiles/
+    cp ~/.bash_profile ~/git/personal/dotfiles/
 }
 
 copydotfiles
