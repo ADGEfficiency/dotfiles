@@ -1,4 +1,3 @@
-
 # added by Anaconda3 5.0.1 installer
 export PATH="/Users/adam/anaconda3/bin:$PATH"
 
@@ -41,8 +40,9 @@ alias actions='vim ~/git/personal/readme.md'
 alias todo='vim ~/git/personal/readme.md'
 alias tempus='vim ~/git/personal/projects/tempus.md'
 
-alias bashrc='vim ~/.bash_profile'
-alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/git/dotfiles/.bash_profile'
+alias vimrc='vim ~/git/dotfiles/.vimrc'
+alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 
 alias wd='cd ~/git/natural-adversary'
 
@@ -96,22 +96,18 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Adding bash script folder to path
 export PATH="$PATH:~/git/personal/bash"
 chmod u+x ~/git/personal/bash/preview.sh
+chmod u+x ~/git/personal/bash/show.sh
+chmod u+x ~/git/personal/bash/add.sh
+chmod u+x ~/git/personal/bash/todo.sh
 export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
 alias spin_instance='spin_instance.sh'
 
-copydotfiles () {
-    cp ~/.vimrc ~/git/personal/dotfiles/
-    cp ~/.bash_profile ~/git/personal/dotfiles/
-}
-
-copydotfiles
-
 st () {
     test -z "$TMUX"
     cd ~/git/personal
-    tmux new-session -d -s main 
+    tmux new-session -d -s main
     # tmux split-window -v
     tmux attach-session -t main
 }
@@ -119,3 +115,4 @@ st () {
 # # shell history
 # . '~/git/shell-history/shellhistory.sh'
 # shellhistory enable
+
