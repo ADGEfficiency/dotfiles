@@ -62,7 +62,7 @@ set guifont=Iosevka\ Nerd\ Font\ 13
 " theme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme duoduo
+colorscheme papercolor
 
 " underline spelling mistakes
 hi clear SpellBad
