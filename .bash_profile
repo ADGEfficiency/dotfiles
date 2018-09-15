@@ -113,3 +113,7 @@ HISTSIZE=10000000
 # updating the history length
 HISTFILESIZE=10000000
 HISTSIZE=10000000
+
+goo() {
+   IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+    }
