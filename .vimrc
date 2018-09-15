@@ -35,6 +35,7 @@ Plugin 'itchyny/vim-gitbranch'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'yggdroot/indentline'
 Plugin 'simeji/winresizer'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 "  themes
 Plugin 'joshdick/onedark.vim'
@@ -113,7 +114,7 @@ augroup python
     autocmd FileType python setlocal expandtab
     autocmd FileType python setlocal shiftwidth=4
     autocmd FileType python setlocal textwidth=80
-    autocmd FileType python setlocal colorcolumn=+1
+    autocmd FileType python setlocal colorcolumn=80
     autocmd FileType python setlocal softtabstop=4
     autocmd FileType python setlocal tabstop=4
     autocmd FileType python setlocal autoindent

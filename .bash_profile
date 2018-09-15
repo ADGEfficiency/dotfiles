@@ -1,10 +1,6 @@
 # added by Anaconda3 5.0.1 installer
 export PATH="/Users/adam/anaconda3/bin:$PATH"
 
-# updating the history length
-HISTFILESIZE=10000000
-HISTSIZE=10000000
-
 alias ll='ls -ax'
 alias ls='ls -aGl'
 alias awsc='aws cloudformation'
@@ -29,8 +25,9 @@ alias dsr='cd ~/git/dsr_rl'
 alias blog='cd ~/git/adgefficiency.github.io'
 
 alias flow='cd ~/git/flow'
-alias flow='cd ~/git/flow'
 alias fc='cd ~/git/forecast'
+alias wgan='cd ~/git/AI_Safety/WGAN'
+alias mcts='cd ~/git/monte_carlo_tree_search'
 
 alias per='cd ~/git/personal'
 alias drafts='cd ~/git/personal/drafts'
@@ -95,10 +92,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Adding bash script folder to path
 export PATH="$PATH:~/git/personal/bash"
-chmod u+x ~/git/personal/bash/preview.sh
-chmod u+x ~/git/personal/bash/show.sh
-chmod u+x ~/git/personal/bash/add.sh
-chmod u+x ~/git/personal/bash/todo.sh
+chmod u+x ~/git/personal/bash/bob
 export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
@@ -112,7 +106,10 @@ st () {
     tmux attach-session -t main
 }
 
-# # shell history
-# . '~/git/shell-history/shellhistory.sh'
-# shellhistory enable
+# updating the history length
+HISTFILESIZE=10000000
+HISTSIZE=10000000
 
+# updating the history length
+HISTFILESIZE=10000000
+HISTSIZE=10000000
