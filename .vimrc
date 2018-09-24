@@ -127,6 +127,7 @@ augroup markdown
     autocmd FileType markdown setlocal shiftwidth=4
     autocmd FileType markdown setlocal softtabstop=4
     autocmd FileType markdown setlocal tabstop=4
+    autocmd FileType markdown setlocal background=light
 	set complete+=k
 augroup end
 

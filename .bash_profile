@@ -14,6 +14,9 @@ alias ga='git add -u'
 alias gc='git commit -m '
 alias gp='git push origin '
 
+alias tn='tmux new -s '
+alias tl='tmux ls'
+
 alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
 
 alias ep='cd ~/git/energy-py/energypy'
@@ -23,25 +26,26 @@ alias eptalk='cd ~/git/energy-py-talk/'
 alias res='cd ~/git/research'
 alias dsr='cd ~/git/dsr_rl'
 alias blog='cd ~/git/adgefficiency.github.io'
+alias dotfiles='cd ~/git/dotfiles'
 
 alias flow='cd ~/git/flow'
 alias fc='cd ~/git/forecast'
 alias wgan='cd ~/git/AI_Safety/WGAN'
 alias mcts='cd ~/git/monte_carlo_tree_search'
+alias ten='cd ~/git/ten_thousand'
 
 alias per='cd ~/git/personal'
 alias drafts='cd ~/git/personal/drafts'
 alias principles='cd ~/git/personal/drafts/principles'
 alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias actions='vim ~/git/personal/readme.md'
-alias todo='vim ~/git/personal/readme.md'
 alias tempus='vim ~/git/personal/projects/tempus.md'
 
 alias bashrc='vim ~/git/dotfiles/.bash_profile'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 
-alias wd='cd ~/git/natural-adversary'
+alias wd='cd ~/git/research/data/customers'
 
 alias exut='exit'
 alias eixt='exit'
@@ -99,11 +103,11 @@ chmod u+x ~/git/research/aws/kill_instances.sh
 alias spin_instance='spin_instance.sh'
 
 st () {
-    test -z "$TMUX"
-    cd ~/git/personal
-    tmux new-session -d -s main
-    # tmux split-window -v
-    tmux attach-session -t main
+test -z "$TMUX"
+tmux new-session -d -s main -n personal -c ~/git/personal
+tmux send-keys -t main:personal "cat ~/git/personal/readme.md" Enter
+tmux new-session -d -s work -n code -c ~/git/
+tmux attach -t main:personal
 }
 
 # updating the history length
@@ -115,5 +119,5 @@ HISTFILESIZE=10000000
 HISTSIZE=10000000
 
 goo() {
-   IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+   IFS=+ w3m -num https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
     }
