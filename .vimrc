@@ -79,8 +79,11 @@ hi ALEWarning cterm=underline ctermfg=red
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+imap jj <esc> 
+
 " macros
 let @p='iimport pdb; pdb.set_trace()'
+let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
 
 " start with folds open
 set foldlevelstart=20

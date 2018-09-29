@@ -59,7 +59,7 @@ quote () {
     # printing random quote
     # have to manually put in the number of lines - TODO
     # TODO use multiple files!!!
-    FILE=/Users/adam/git/personal/lists/quotes_snippets.md
+    FILE=/Users/adam/git/personal/lists/random_snippets.md
     X=$((1 + RANDOM % 106))
     # extract X-th line
     sed -n ${X}p ${FILE}
