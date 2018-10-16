@@ -24,7 +24,8 @@ alias eptest='cd ~/git/energy-py/energypy && source activate energy_py && pytest
 alias eptalk='cd ~/git/energy-py-talk/'
 
 alias res='cd ~/git/research'
-alias dsr='cd ~/git/dsr_rl'
+alias aw='cd ~/git/research/aws'
+alias dsr='cd ~/git/dsr-rl'
 alias blog='cd ~/git/adgefficiency.github.io'
 alias dotfiles='cd ~/git/dotfiles'
 
@@ -33,6 +34,7 @@ alias fc='cd ~/git/forecast'
 alias wgan='cd ~/git/AI_Safety/WGAN'
 alias mcts='cd ~/git/monte_carlo_tree_search'
 alias ten='cd ~/git/ten_thousand'
+alias nemweb='cd ~/git/nemweb'
 
 alias per='cd ~/git/personal'
 alias drafts='cd ~/git/personal/drafts'
@@ -59,7 +61,7 @@ quote () {
     # printing random quote
     # have to manually put in the number of lines - TODO
     # TODO use multiple files!!!
-    FILE=/Users/adam/git/personal/lists/random_snippets.md
+    FILE=$HOME/git/personal/lists/random_snippets.md
     X=$((1 + RANDOM % 106))
     # extract X-th line
     sed -n ${X}p ${FILE}
@@ -72,7 +74,7 @@ quote
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # for pipenv
-export PATH="/Users/adam/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # changing the color of folder in ls command
 # default is LSCOLORS=exfxcxdxbxegedabagacad
@@ -106,7 +108,6 @@ st () {
 test -z "$TMUX"
 tmux new-session -d -s main -n personal -c ~/git/personal
 tmux send-keys -t main:personal "cat ~/git/personal/readme.md" Enter
-tmux new-session -d -s work -n code -c ~/git/
 tmux attach -t main:personal
 }
 

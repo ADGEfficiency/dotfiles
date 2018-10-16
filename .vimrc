@@ -39,15 +39,16 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 "  themes
 Plugin 'joshdick/onedark.vim'
-Plugin  'altercation/vim-colors-solarized'
-Plugin  'NLKNguyen/papercolor-theme'
-Plugin  'tomasr/molokai'
-Plugin  'Yggdroot/duoduo'
-Plugin  'jnurmine/Zenburn'
-Plugin  'rakr/vim-one'
-Plugin  'morhetz/gruvbox'
-Plugin  'nightsense/carbonized'
-Plugin  'fenetikm/falcon'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'tomasr/molokai'
+Plugin 'Yggdroot/duoduo'
+Plugin 'jnurmine/Zenburn'
+Plugin 'rakr/vim-one'
+Plugin 'morhetz/gruvbox'
+Plugin 'nightsense/carbonized'
+Plugin 'fenetikm/falcon'
+Plugin 'cormacrelf/vim-colors-github'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,27 +64,28 @@ set guifont=Iosevka\ Nerd\ Font\ 13
 " theme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme PaperColor
+colorscheme zenburn
 
 " underline spelling mistakes
-hi clear SpellBad
-hi SpellBad cterm=underline ctermfg=red
-hi SpellCap cterm=underline ctermfg=red
-hi SpellRare cterm=underline ctermfg=red
-hi SpellLocal cterm=underline ctermfg=red
+" hi clear SpellBad
+" hi SpellBad cterm=underline ctermfg=red
+" hi SpellCap cterm=underline ctermfg=red
+" hi SpellRare cterm=underline ctermfg=red
+" hi SpellLocal cterm=underline ctermfg=red
 
-hi ALEError cterm=underline ctermfg=red
-hi ALEWarning cterm=underline ctermfg=red
+" hi ALEError cterm=underline ctermfg=red
+" hi ALEWarning cterm=underline ctermfg=red
 
 " scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-imap jj <esc> 
+imap jj <esc>
 
 " macros
 let @p='iimport pdb; pdb.set_trace()'
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
+let @y='i[youtube](jjAi)'
 
 " start with folds open
 set foldlevelstart=20
@@ -131,6 +133,7 @@ augroup markdown
     autocmd FileType markdown setlocal softtabstop=4
     autocmd FileType markdown setlocal tabstop=4
     autocmd FileType markdown setlocal background=light
+    autocmd FileType markdown colorscheme github
 	set complete+=k
 augroup end
 
@@ -178,10 +181,6 @@ syn match math '\$[^$].\{-}\$'
 
 " actually highlight the region we defined as math
 hi link math Statement
-
-" dictionary autocomplete
-" http://vim.wikia.com/wiki/Dictionary_completions
-set complete+=k
 
 " remap the shortcut for window resizer
 let g:winresizer_start_key='<C-a>'
