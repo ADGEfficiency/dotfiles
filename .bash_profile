@@ -47,7 +47,7 @@ alias bashrc='vim ~/git/dotfiles/.bash_profile'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 
-alias wd='cd ~/git/research/data/customers'
+alias wd='cd ~/git/research/marginal_carbon'
 
 alias exut='exit'
 alias eixt='exit'

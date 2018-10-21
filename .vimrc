@@ -64,22 +64,23 @@ set guifont=Iosevka\ Nerd\ Font\ 13
 " theme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme zenburn
+colorscheme duoduo
 
 " underline spelling mistakes
-" hi clear SpellBad
-" hi SpellBad cterm=underline ctermfg=red
-" hi SpellCap cterm=underline ctermfg=red
-" hi SpellRare cterm=underline ctermfg=red
-" hi SpellLocal cterm=underline ctermfg=red
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+hi SpellCap cterm=underline ctermfg=red
+hi SpellRare cterm=underline ctermfg=red
+hi SpellLocal cterm=underline ctermfg=red
 
-" hi ALEError cterm=underline ctermfg=red
-" hi ALEWarning cterm=underline ctermfg=red
+hi ALEError cterm=underline ctermfg=red
+hi ALEWarning cterm=underline ctermfg=red
 
 " scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+"  remap escape
 imap jj <esc>
 
 " macros
@@ -132,9 +133,7 @@ augroup markdown
     autocmd FileType markdown setlocal shiftwidth=4
     autocmd FileType markdown setlocal softtabstop=4
     autocmd FileType markdown setlocal tabstop=4
-    autocmd FileType markdown setlocal background=light
-    autocmd FileType markdown colorscheme github
-	set complete+=k
+    set complete+=k
 augroup end
 
 
