@@ -33,7 +33,7 @@ alias flow='cd ~/git/flow'
 alias fc='cd ~/git/forecast'
 alias wgan='cd ~/git/AI_Safety/WGAN'
 alias mcts='cd ~/git/monte_carlo_tree_search'
-alias ten='cd ~/git/ten_thousand'
+alias ten='cd ~/git/ten-thousand'
 alias nemweb='cd ~/git/nemweb'
 
 alias per='cd ~/git/personal'
