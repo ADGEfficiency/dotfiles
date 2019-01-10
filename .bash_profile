@@ -138,3 +138,10 @@ export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 
 # mongodb
 export PATH=$PATH:/usr/local/mongodb/bin
+
+# mongo hadoop
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+# set correct java version to work with mongodb
+# Java 1.8
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
