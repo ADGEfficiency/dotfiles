@@ -49,12 +49,13 @@ Plugin 'morhetz/gruvbox'
 Plugin 'nightsense/carbonized'
 Plugin 'fenetikm/falcon'
 Plugin 'cormacrelf/vim-colors-github'
+Plugin 'ErichDonGubler/vim-sublime-monokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" VISUAL SETUP
+" visual setup
 syntax enable
 set cursorline
 set number relativenumber   " row numbers
@@ -62,9 +63,11 @@ set number relativenumber   " row numbers
 set guifont=Iosevka\ Nerd\ Font\ 13
 
 " theme
-set background=dark
-let g:solarized_termcolors=256
-colorscheme duoduo
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme duoduo
+
+colorscheme sublimemonokai
 
 " underline spelling mistakes
 hi clear SpellBad
@@ -72,7 +75,6 @@ hi SpellBad cterm=underline ctermfg=red
 hi SpellCap cterm=underline ctermfg=red
 hi SpellRare cterm=underline ctermfg=red
 hi SpellLocal cterm=underline ctermfg=red
-
 hi ALEError cterm=underline ctermfg=red
 hi ALEWarning cterm=underline ctermfg=red
 
@@ -88,8 +90,21 @@ let @p='iimport pdb; pdb.set_trace()'
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
 let @y='i[youtube](jjAi)'
 
+" abbreviations
+ab uncertanity uncertainty
+ab uncertantity uncertainty
+ab impementing implementing
+ab reccomendations recommendations
+
 " start with folds open
 set foldlevelstart=20
+
+"  remember folds
+" augroup remember_folds
+"   autocmd!
+"   autocmd BufWinLeave *.* mkview
+"   autocmd BufWinEnter *.* loadview
+" augroup END
 
 " config for lightline
 set laststatus=2
@@ -111,9 +126,9 @@ let g:lightline = {
       \ },
       \ }
 
-" VIM SETUP
 set autoindent
 set splitright  "  split tabs to the right
+set hlsearch
 
 augroup python
     autocmd!
@@ -126,6 +141,8 @@ augroup python
     autocmd FileType python setlocal autoindent
 augroup end
 
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 augroup markdown
     autocmd!
     autocmd FileType markdown setlocal spell spelllang=en_nz
@@ -136,23 +153,12 @@ augroup markdown
     set complete+=k
 augroup end
 
+"  markdown folding
+let g:vim_markdown_folding_style_pythonic = 1
 
 let python_highlight_all=1
 
-" read markdown files correctly
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
-"  highlight search enabled (use * to search)
-set hlsearch
-
-"  remember folds
-" augroup remember_folds
-"   autocmd!
-"   autocmd BufWinLeave *.* mkview
-"   autocmd BufWinEnter *.* loadview
-" augroup END
-
-"  PLUGIN CONFIGS
+"  plugin configs
 
 "  NERD_tree
 let NERDTreeChDirMode=2
@@ -162,14 +168,16 @@ let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
 "  fzf
-map ; :Files<CR>
+map <space> :Files<CR>
 
 "  tagbar
 nmap <F8> :TagbarToggle<CR>
 
+"  pandoc
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 
+"  you complete me
 let g:ycm_filetype_blacklist = {}
 
 " This gets rid of the nasty _ italic bug in tpope's vim-markdown
@@ -183,6 +191,3 @@ hi link math Statement
 
 " remap the shortcut for window resizer
 let g:winresizer_start_key='<C-a>'
-
-"  markdown folding
-let g:vim_markdown_folding_style_pythonic = 1

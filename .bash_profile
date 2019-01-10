@@ -42,12 +42,14 @@ alias principles='cd ~/git/personal/drafts/principles'
 alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias actions='vim ~/git/personal/readme.md'
 alias tempus='vim ~/git/personal/projects/tempus.md'
+alias projects='cd ~/git/personal/projects'
+alias adg='cd ~/git/adg/agile-data-science'
 
 alias bashrc='vim ~/git/dotfiles/.bash_profile'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 
-alias wd='cd ~/git/research/marginal_carbon'
+alias wd='cd ~/git/research/env-model'
 
 alias exut='exit'
 alias eixt='exit'
@@ -61,7 +63,7 @@ quote () {
     # printing random quote
     # have to manually put in the number of lines - TODO
     # TODO use multiple files!!!
-    FILE=$HOME/git/personal/lists/random_snippets.md
+    FILE=$HOME/git/personal/lists/quotes_snippets.md
     X=$((1 + RANDOM % 106))
     # extract X-th line
     sed -n ${X}p ${FILE}
@@ -98,7 +100,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Adding bash script folder to path
 export PATH="$PATH:~/git/personal/bash"
-chmod u+x ~/git/personal/bash/bob
+chmod u+x ~/git/org/src.sh
+source ~/git/org/src.sh
 export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
@@ -122,3 +125,16 @@ HISTSIZE=10000000
 goo() {
    IFS=+ w3m -num https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
     }
+
+# hadoop
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+export HADOOP_CLASSPATH=$(hadoop classpath)
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+
+# spark
+export PATH=$PATH:/usr/local/spark/bin
+export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
+
+# mongodb
+export PATH=$PATH:/usr/local/mongodb/bin
