@@ -133,6 +133,7 @@ export HADOOP_CLASSPATH=$(hadoop classpath)
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
 # spark
+export SPARK_HOME=/usr/local/spark
 export PATH=$PATH:/usr/local/spark/bin
 export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 
