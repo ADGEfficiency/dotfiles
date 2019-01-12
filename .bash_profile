@@ -44,6 +44,8 @@ alias actions='vim ~/git/personal/readme.md'
 alias tempus='vim ~/git/personal/projects/tempus.md'
 alias projects='cd ~/git/personal/projects'
 alias adg='cd ~/git/adg/agile-data-science'
+alias agile='cd ~/git/Agile_Data_Code_2'
+alias org='cd ~/git/org'
 
 alias bashrc='vim ~/git/dotfiles/.bash_profile'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
@@ -100,8 +102,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Adding bash script folder to path
 export PATH="$PATH:~/git/personal/bash"
-chmod u+x ~/git/org/src.sh
-source ~/git/org/src.sh
+source ~/git/org/src/org.sh
 export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
@@ -126,23 +127,18 @@ goo() {
    IFS=+ w3m -num https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
     }
 
-# hadoop
-export HADOOP_HOME=/usr/local/hadoop
+# AGILE DATA SCIENCE SETUP
+export PROJECT_HOME=/Users/adam/git/adg
+
+# Hadoop environment setup
+export HADOOP_HOME=$PROJECT_HOME/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 export HADOOP_CLASSPATH=$(hadoop classpath)
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
-# spark
-export SPARK_HOME=/usr/local/spark
-export PATH=$PATH:/usr/local/spark/bin
+# Spark environment setup
+export SPARK_HOME=$PROJECT_HOME/spark
+export HADOOP_CONF_DIR=$PROJECT_HOME/hadoop/etc/hadoop/
 export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
-
-# mongodb
-export PATH=$PATH:/usr/local/mongodb/bin
-
-# mongo hadoop
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib
-
-# set correct java version to work with mongodb
-# Java 1.8
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH=$PATH:$SPARK_HOME/bin
+export PATH=$PATH:$PROJECT_HOME/mongodb/bin

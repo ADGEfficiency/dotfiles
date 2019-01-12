@@ -141,6 +141,9 @@ augroup python
     autocmd FileType python setlocal autoindent
 augroup end
 
+autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
+autocmd Filetype sh setlocal ts=2 sw=2 expandtab
+
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 augroup markdown
