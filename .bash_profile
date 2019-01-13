@@ -20,6 +20,7 @@ alias tl='tmux ls'
 alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
 
 alias ep='cd ~/git/energy-py/energypy'
+alias epl='cd ~/git/energy-py-linear'
 alias eptest='cd ~/git/energy-py/energypy && source activate energy_py && pytest tests'
 alias eptalk='cd ~/git/energy-py-talk/'
 

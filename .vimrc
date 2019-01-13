@@ -63,20 +63,50 @@ set number relativenumber   " row numbers
 set guifont=Iosevka\ Nerd\ Font\ 13
 
 " theme
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme duoduo
+set background=dark
+let g:solarized_termcolors=256
+colorscheme duoduo
+" colorscheme sublimemonokai
 
-colorscheme sublimemonokai
-
-" underline spelling mistakes
+" spell check formatting
 hi clear SpellBad
-hi SpellBad cterm=underline ctermfg=red
-hi SpellCap cterm=underline ctermfg=red
+hi SpellBad cterm=underline,bold ctermfg=red
+hi clear SpellRare
 hi SpellRare cterm=underline ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=underline ctermfg=red
+hi clear SpellLocal
 hi SpellLocal cterm=underline ctermfg=red
+hi clear ALEERROR
 hi ALEError cterm=underline ctermfg=red
+hi clear ALEWarning
 hi ALEWarning cterm=underline ctermfg=red
+
+augroup markdown
+    autocmd!
+    autocmd FileType markdown setlocal spell spelllang=en_nz
+    autocmd FileType markdown setlocal expandtab
+    autocmd FileType markdown setlocal shiftwidth=4
+    autocmd FileType markdown setlocal softtabstop=4
+    autocmd FileType markdown setlocal tabstop=4
+    set complete+=k
+
+    autocmd Filetype markdown colorscheme one
+    autocmd Filetype markdown setlocal background=light
+
+    autocmd FileType markdown hi clear SpellBad
+    autocmd FileType markdown hi SpellBad cterm=underline,bold ctermfg=red
+    autocmd FileType markdown hi clear SpellRare
+    autocmd FileType markdown hi SpellRare cterm=underline,bold ctermfg=red
+    autocmd FileType markdown hi clear SpellCap
+    autocmd FileType markdown hi SpellCap cterm=underline,bold ctermfg=red
+    autocmd FileType markdown hi clear SpellLocal
+    autocmd FileType markdown hi SpellLocal cterm=underline,bold ctermfg=red
+    autocmd FileType markdown hi clear ALEERROR
+    autocmd FileType markdown hi ALEError cterm=underline,bold ctermfg=red
+    autocmd FileType markdown hi clear ALEWarning
+    autocmd FileType markdown hi ALEWarning cterm=underline,bold ctermfg=red
+augroup end
 
 " scrolling speed
 nnoremap <C-e> 3<C-e>
@@ -146,22 +176,10 @@ autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-augroup markdown
-    autocmd!
-    autocmd FileType markdown setlocal spell spelllang=en_nz
-    autocmd FileType markdown setlocal expandtab
-    autocmd FileType markdown setlocal shiftwidth=4
-    autocmd FileType markdown setlocal softtabstop=4
-    autocmd FileType markdown setlocal tabstop=4
-    set complete+=k
-augroup end
-
 "  markdown folding
 let g:vim_markdown_folding_style_pythonic = 1
 
 let python_highlight_all=1
-
-"  plugin configs
 
 "  NERD_tree
 let NERDTreeChDirMode=2
