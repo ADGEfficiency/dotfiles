@@ -1,6 +1,8 @@
 # added by Anaconda3 5.0.1 installer
 export PATH="$HOME/anaconda3/bin:$PATH"
 
+alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
+
 alias ll='ls -ax'
 alias ls='ls -aGl'
 alias awsc='aws cloudformation'
@@ -45,7 +47,7 @@ alias actions='vim ~/git/personal/readme.md'
 alias tempus='vim ~/git/personal/projects/tempus.md'
 alias projects='cd ~/git/personal/projects'
 alias adg='cd ~/git/adg/agile-data-science'
-alias agile='cd ~/git/Agile_Data_Code_2'
+alias agile='cd ~/git/Agile_Data_Code_2/ch04'
 alias org='cd ~/git/org'
 
 alias bashrc='vim ~/git/dotfiles/.bash_profile'
@@ -72,6 +74,9 @@ quote () {
     sed -n ${X}p ${FILE}
     echo
 }
+
+echo
+echo "Don't ignore your dreams; don't work too much; say what you think; cultivate friendships; be happy."
 
 quote
 
@@ -142,4 +147,11 @@ export SPARK_HOME=$PROJECT_HOME/spark
 export HADOOP_CONF_DIR=$PROJECT_HOME/hadoop/etc/hadoop/
 export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 export PATH=$PATH:$SPARK_HOME/bin
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 export PATH=$PATH:$PROJECT_HOME/mongodb/bin
+
+alias tmux-adg='bash ~/git/adg/agile-data-science/tmux-adg'
+chmod u+x $PROJECT_HOME/agile-data-science/tmux-adg
+
+alias tmux-per='bash ~/git/personal/tmux-per'
+chmod u+x ~/git/personal/tmux-per

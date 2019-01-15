@@ -46,7 +46,6 @@ Plugin 'Yggdroot/duoduo'
 Plugin 'jnurmine/Zenburn'
 Plugin 'rakr/vim-one'
 Plugin 'morhetz/gruvbox'
-Plugin 'nightsense/carbonized'
 Plugin 'fenetikm/falcon'
 Plugin 'cormacrelf/vim-colors-github'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
@@ -65,8 +64,7 @@ set guifont=Iosevka\ Nerd\ Font\ 13
 " theme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme duoduo
-" colorscheme sublimemonokai
+colorscheme one
 
 " spell check formatting
 hi clear SpellBad
@@ -91,8 +89,7 @@ augroup markdown
     autocmd FileType markdown setlocal tabstop=4
     set complete+=k
 
-    autocmd Filetype markdown colorscheme one
-    autocmd Filetype markdown setlocal background=light
+    autocmd Filetype markdown colorscheme sublimemonokai
 
     autocmd FileType markdown hi clear SpellBad
     autocmd FileType markdown hi SpellBad cterm=underline,bold ctermfg=red
@@ -125,6 +122,7 @@ ab uncertanity uncertainty
 ab uncertantity uncertainty
 ab impementing implementing
 ab reccomendations recommendations
+ab recongizing recognizing
 
 " start with folds open
 set foldlevelstart=20
@@ -189,7 +187,7 @@ let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
 "  fzf
-map <space> :Files<CR>
+map <space> :Files /Users/adam/git/<CR>
 
 "  tagbar
 nmap <F8> :TagbarToggle<CR>
