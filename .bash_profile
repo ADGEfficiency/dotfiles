@@ -122,12 +122,8 @@ tmux attach -t main:personal
 }
 
 # updating the history length
-HISTFILESIZE=10000000
-HISTSIZE=10000000
-
-# updating the history length
-HISTFILESIZE=10000000
-HISTSIZE=10000000
+export HISTFILESIZE=10000000
+export HISTSIZE=10000000
 
 goo() {
    IFS=+ w3m -num https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"

@@ -66,6 +66,10 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme one
 
+"  set the background of the highlight menu
+hi Pmenu ctermbg=gray guibg=gray
+hi PmenuSel ctermbg=white ctermfg=black
+
 " spell check formatting
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red
