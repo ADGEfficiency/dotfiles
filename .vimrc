@@ -36,6 +36,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'yggdroot/indentline'
 Plugin 'simeji/winresizer'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 "  themes
 Plugin 'joshdick/onedark.vim'
@@ -49,6 +52,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'fenetikm/falcon'
 Plugin 'cormacrelf/vim-colors-github'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,7 +62,6 @@ filetype plugin indent on    " required
 syntax enable
 set cursorline
 set number relativenumber   " row numbers
-
 set guifont=Iosevka\ Nerd\ Font\ 13
 
 " theme
@@ -113,6 +116,9 @@ augroup end
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" persisent undo
+set undodir=~/.vim/undodir
+
 "  remap escape
 imap jj <esc>
 
@@ -127,6 +133,10 @@ ab uncertantity uncertainty
 ab impementing implementing
 ab reccomendations recommendations
 ab recongizing recognizing
+ab parameterizing parametrizing
+ab parameterize parametrize
+ab commmunication communication
+ab specifc specific
 
 " start with folds open
 set foldlevelstart=20
@@ -213,4 +223,17 @@ syn match math '\$[^$].\{-}\$'
 hi link math Statement
 
 " remap the shortcut for window resizer
-let g:winresizer_start_key='<C-a>'
+let g:winresizer_start_key='<C-z>'
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+"
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+"  infinite undo
+set undofile
+set undodir=~/.vim/undodir

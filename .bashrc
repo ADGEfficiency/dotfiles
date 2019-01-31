@@ -10,5 +10,3 @@ update_terminal_cwd() {
     local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
     printf '\e]7;%s\a' "$PWD_URL"
 }
-
-source $HOME/git/dotfiles/.bash_profile

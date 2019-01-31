@@ -1,0 +1,59 @@
+alias wd='cd ~/git/research/env-model'
+
+#  bash
+alias c='clear'
+alias cls='clear && ls'
+alias ll='ls -ax'
+alias ls='ls -aGl'
+alias la='ls -GlR'
+
+alias exut='exit'
+alias eixt='exit'
+alias exot='exit'
+alias ext='exit'
+alias eit='exit'
+
+#  dotfiles
+alias aliases='vim ~/git/dotfiles/.aliases'
+alias bashrc='vim ~/git/dotfiles/.bash_profile'
+alias vimrc='vim ~/git/dotfiles/.vimrc'
+alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
+alias zshrc='vim ~/git/dotfiles/.zshrc'
+
+#  aws cli
+alias awsc='aws cloudformation'
+alias awscb='aws cloudformation describe-stacks --stack-name'
+alias awscd='aws cloudformation delete-stack --stack-name'
+
+#  git
+alias gs='git status'
+alias ga='git add -u'
+alias gc='git commit -m '
+alias gp='git push origin '
+alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
+
+#  tmux
+alias tn='tmux new -s '
+alias tl='tmux ls'
+
+#  misc
+alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
+alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
+
+#  projects
+alias adg='cd ~/git/adg/'
+alias agile='cd ~/git/Agile_Data_Code_2/ch04'
+alias dotfiles='cd ~/git/dotfiles'
+alias ep='cd ~/git/energy-py/energypy'
+alias epl='cd ~/git/energy-py-linear'
+alias org='cd ~/git/org'
+alias nemweb='cd ~/git/nemweb'
+alias res='cd ~/git/research'
+alias rl-book='cd ~/git/personal/projects/rl-book'
+
+#  personal
+alias drafts='cd ~/git/personal/projects/drafts'
+alias per='cd ~/git/personal'
+alias principles='cd ~/git/personal/projects/principles'
+alias projects='cd ~/git/personal/projects'
+

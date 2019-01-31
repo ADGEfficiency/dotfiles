@@ -1,84 +1,24 @@
 # added by Anaconda3 5.0.1 installer
 export PATH="$HOME/anaconda3/bin:$PATH"
 
-alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
-
-alias ll='ls -ax'
-alias ls='ls -aGl'
-alias awsc='aws cloudformation'
-alias awscb='aws cloudformation describe-stacks --stack-name'
-alias awscd='aws cloudformation delete-stack --stack-name'
-
-alias cls='clear && ls'
-
-alias gs='git status'
-alias ga='git add -u'
-alias gc='git commit -m '
-alias gp='git push origin '
-
-alias tn='tmux new -s '
-alias tl='tmux ls'
-
-alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
-
-alias ep='cd ~/git/energy-py/energypy'
-alias epl='cd ~/git/energy-py-linear'
-alias eptest='cd ~/git/energy-py/energypy && source activate energy_py && pytest tests'
-alias eptalk='cd ~/git/energy-py-talk/'
-
-alias res='cd ~/git/research'
-alias aw='cd ~/git/research/aws'
-alias dsr='cd ~/git/dsr-rl'
-alias blog='cd ~/git/adgefficiency.github.io'
-alias dotfiles='cd ~/git/dotfiles'
-
-alias flow='cd ~/git/flow'
-alias fc='cd ~/git/forecast'
-alias wgan='cd ~/git/AI_Safety/WGAN'
-alias mcts='cd ~/git/monte_carlo_tree_search'
-alias ten='cd ~/git/ten-thousand'
-alias nemweb='cd ~/git/nemweb'
-
-alias per='cd ~/git/personal'
-alias drafts='cd ~/git/personal/drafts'
-alias principles='cd ~/git/personal/drafts/principles'
-alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
-alias actions='vim ~/git/personal/readme.md'
-alias tempus='vim ~/git/personal/projects/tempus.md'
-alias projects='cd ~/git/personal/projects'
-alias adg='cd ~/git/adg/agile-data-science'
-alias agile='cd ~/git/Agile_Data_Code_2/ch04'
-alias org='cd ~/git/org'
-
-alias bashrc='vim ~/git/dotfiles/.bash_profile'
-alias vimrc='vim ~/git/dotfiles/.vimrc'
-alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
-
-alias wd='cd ~/git/research/env-model'
-
-alias exut='exit'
-alias eixt='exit'
-alias exot='exit'
-alias ext='exit'
-
-alias c='clear'
+source /Users/adam/git/dotfiles/.aliases
 
 quote () {
-    echo
-    # printing random quote
-    # have to manually put in the number of lines - TODO
-    # TODO use multiple files!!!
-    FILE=$HOME/git/personal/lists/quotes_snippets.md
-    X=$((1 + RANDOM % 106))
-    # extract X-th line
-    sed -n ${X}p ${FILE}
-    echo
+    QUOTES=$HOME/git/personal/lists/quotes_snippets.md
+    NUM_LINES=$(wc -l $QUOTES | awk '{print $1'})
+    LINE=$((1 + RANDOM % $NUM_LINES))
+    sed -n ${LINE}p ${QUOTES}
+}
+
+function cheat_unix() {
+  curl cht.sh/$1
 }
 
 echo
-echo "Don't ignore your dreams; don't work too much; say what you think; cultivate friendships; be happy."
-
 quote
+echo
+quote
+echo
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -96,12 +36,14 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 # http://bashrcgenerator.com/
 export PS1="\[\033[0;32m\]\u@\h\[\033[1;37m\]:\[\033[0;34m\]\w \$ \[$(tput sgr0)\]"
 
-# updating bash history earlier
-# avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups
+# updating the history length
+export HISTFILESIZE=10000000
+export HISTSIZE=10000000
 
 # append history entries..
 shopt -s histappend
+
+export HISTCONTROL=ignoredups:erasedups
 
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -113,17 +55,6 @@ export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
 alias spin_instance='spin_instance.sh'
-
-st () {
-test -z "$TMUX"
-tmux new-session -d -s main -n personal -c ~/git/personal
-tmux send-keys -t main:personal "cat ~/git/personal/readme.md" Enter
-tmux attach -t main:personal
-}
-
-# updating the history length
-export HISTFILESIZE=10000000
-export HISTSIZE=10000000
 
 goo() {
    IFS=+ w3m -num https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
@@ -146,8 +77,11 @@ export PATH=$PATH:$SPARK_HOME/bin
 export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 export PATH=$PATH:$PROJECT_HOME/mongodb/bin
 
-alias tmux-adg='bash ~/git/adg/agile-data-science/tmux-adg'
-chmod u+x $PROJECT_HOME/agile-data-science/tmux-adg
+#  pymongo setup
+export PYTHONPATH=$PYTHONPATH:$PROJECT_HOME/lib
+
+alias tmux-adg='bash ~/git/adg/adg-tmux'
+chmod u+x $PROJECT_HOME/adg-tmux
 
 alias tmux-per='bash ~/git/personal/tmux-per'
 chmod u+x ~/git/personal/tmux-per
