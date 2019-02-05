@@ -30,6 +30,7 @@ alias gs='git status'
 alias ga='git add -u'
 alias gc='git commit -m '
 alias gp='git push origin '
+alias gls='clear && git status'
 alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
 
 #  tmux

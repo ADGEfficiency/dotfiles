@@ -39,6 +39,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'tpope/vim-fugitive'
 
 "  themes
 Plugin 'joshdick/onedark.vim'
@@ -53,6 +54,7 @@ Plugin 'fenetikm/falcon'
 Plugin 'cormacrelf/vim-colors-github'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'chriskempson/base16-vim'
+Plugin 'junegunn/seoul256.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,9 +67,15 @@ set number relativenumber   " row numbers
 set guifont=Iosevka\ Nerd\ Font\ 13
 
 " theme
-set background=dark
-let g:solarized_termcolors=256
-colorscheme one
+let g:solarized_termcolors=256  
+
+" ONE
+" colorscheme one
+" set background=dark
+
+"  SEOUL
+let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+colorscheme seoul256
 
 "  set the background of the highlight menu
 hi Pmenu ctermbg=gray guibg=gray
@@ -228,7 +236,7 @@ let g:winresizer_start_key='<C-z>'
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-"
+
 " " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
@@ -237,3 +245,8 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 "  infinite undo
 set undofile
 set undodir=~/.vim/undodir
+
+" goyo
+let g:goyo_width=140
+let g:goyo_height=95
+let g:goyo_linear=0
