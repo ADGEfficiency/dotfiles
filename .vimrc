@@ -131,7 +131,9 @@ set undodir=~/.vim/undodir
 imap jj <esc>
 
 " macros
-let @p='iimport pdb; pdb.set_trace()'
+" let @p='iimport pdb; pdb.set_trace()'
+let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
+let @i="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
 let @y='i[youtube](jjAi)'
 
@@ -145,6 +147,9 @@ ab parameterizing parametrizing
 ab parameterize parametrize
 ab commmunication communication
 ab specifc specific
+ab gurantees guarantees
+ab probabilities probabilities
+ab horizion horizon
 
 " start with folds open
 set foldlevelstart=20
@@ -193,6 +198,7 @@ augroup end
 
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
+autocmd Filetype js setlocal ts=2 sw=2 expandtab
 
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 

@@ -13,6 +13,13 @@ alias exot='exit'
 alias ext='exit'
 alias eit='exit'
 
+#  vim and python
+alias v='vim'
+alias vi='vim'
+alias py='python'
+
+alias dl_you='python ~/git/personal/bash/download_youtube.py'
+
 #  dotfiles
 alias aliases='vim ~/git/dotfiles/.aliases'
 alias bashrc='vim ~/git/dotfiles/.bash_profile'
@@ -34,7 +41,7 @@ alias gls='clear && git status'
 alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
 
 #  tmux
-alias tn='tmux new -s '
+alias tn='tmux new'
 alias tl='tmux ls'
 
 #  misc
