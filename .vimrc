@@ -150,7 +150,7 @@ ab specifc specific
 ab gurantees guarantees
 ab probabilities probabilities
 ab horizion horizon
-
+ab repititon repetition 
 " start with folds open
 set foldlevelstart=20
 
