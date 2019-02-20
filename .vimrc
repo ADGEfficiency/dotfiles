@@ -151,6 +151,11 @@ ab gurantees guarantees
 ab probabilities probabilities
 ab horizion horizon
 ab repititon repetition 
+ab contraditions contradictions
+ab unprecented unprecedented 
+ab specalization specialization
+ab recieved received
+"
 " start with folds open
 set foldlevelstart=20
 

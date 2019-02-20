@@ -80,8 +80,11 @@ export PATH=$PATH:$PROJECT_HOME/mongodb/bin
 #  pymongo setup
 export PYTHONPATH=$PYTHONPATH:$PROJECT_HOME/lib
 
-alias tmux-adg='bash ~/git/adg/adg-tmux'
-chmod u+x $PROJECT_HOME/adg-tmux
+alias startadg='bash ~/git/adg/start-dev-server'
+chmod u+x $PROJECT_HOME/start-dev-server
 
-alias tmux-per='bash ~/git/personal/tmux-per'
-chmod u+x ~/git/personal/tmux-per
+alias startper='bash ~/git/personal/start-personal'
+chmod u+x ~/git/personal/start-personal
+
+#  tempus
+export RESEARCH_DIR=/Users/adam/git/research
