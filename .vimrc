@@ -55,6 +55,8 @@ Plugin 'cormacrelf/vim-colors-github'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'chriskempson/base16-vim'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'mattly/iterm-colors-pencil'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,16 +68,13 @@ set cursorline
 set number relativenumber   " row numbers
 set guifont=Iosevka\ Nerd\ Font\ 13
 
-" theme
-let g:solarized_termcolors=256  
-
 " ONE
-" colorscheme one
-" set background=dark
+colorscheme one
+set background=dark
 
 "  SEOUL
-let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-colorscheme seoul256
+" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+" colorscheme seoul256
 
 "  set the background of the highlight menu
 hi Pmenu ctermbg=gray guibg=gray
@@ -97,8 +96,11 @@ hi ALEWarning cterm=underline ctermfg=red
 
 augroup markdown
     autocmd!
+    autocmd filetype plugin indent off
     autocmd FileType markdown setlocal spell spelllang=en_nz
     autocmd FileType markdown setlocal expandtab
+    autocmd FileType markdown setlocal noautoindent
+    autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal shiftwidth=4
     autocmd FileType markdown setlocal softtabstop=4
     autocmd FileType markdown setlocal tabstop=4
@@ -155,7 +157,7 @@ ab contraditions contradictions
 ab unprecented unprecedented 
 ab specalization specialization
 ab recieved received
-"
+ab eaisly easily
 " start with folds open
 set foldlevelstart=20
 
@@ -194,7 +196,6 @@ augroup python
     autocmd!
     autocmd FileType python setlocal expandtab
     autocmd FileType python setlocal shiftwidth=4
-    autocmd FileType python setlocal textwidth=80
     autocmd FileType python setlocal colorcolumn=80
     autocmd FileType python setlocal softtabstop=4
     autocmd FileType python setlocal tabstop=4
@@ -203,7 +204,7 @@ augroup end
 
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
-autocmd Filetype js setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
 
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
