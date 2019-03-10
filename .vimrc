@@ -40,6 +40,8 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kana/vim-textobj-user'
+Plugin 'bps/vim-textobj-python'
 
 "  themes
 Plugin 'joshdick/onedark.vim'
@@ -57,10 +59,21 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'mattly/iterm-colors-pencil'
+Plugin 'ajh17/spacegray.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+set autoindent
+set smartindent
+
+set splitright
+
+set hlsearch
+set ignorecase
+set smartcase
+
 
 " visual setup
 syntax enable
@@ -94,13 +107,21 @@ hi ALEError cterm=underline ctermfg=red
 hi clear ALEWarning
 hi ALEWarning cterm=underline ctermfg=red
 
+set ts=4 sw=4 sts=4
+
+autocmd FileType python setlocal expandtab colorcolumn=80
+autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
+autocmd Filetype sh setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
+
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 augroup markdown
     autocmd!
-    autocmd filetype plugin indent off
     autocmd FileType markdown setlocal spell spelllang=en_nz
-    autocmd FileType markdown setlocal expandtab
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
+    autocmd FileType markdown setlocal noexpandtab
     autocmd FileType markdown setlocal shiftwidth=4
     autocmd FileType markdown setlocal softtabstop=4
     autocmd FileType markdown setlocal tabstop=4
@@ -120,20 +141,26 @@ augroup markdown
     autocmd FileType markdown hi ALEError cterm=underline,bold ctermfg=red
     autocmd FileType markdown hi clear ALEWarning
     autocmd FileType markdown hi ALEWarning cterm=underline,bold ctermfg=red
+
 augroup end
+
+set foldmethod=syntax
+set foldlevelstart=20
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " persisent undo
+set undofile
 set undodir=~/.vim/undodir
 
 "  remap escape
 imap jj <esc>
 
 " macros
-" let @p='iimport pdb; pdb.set_trace()'
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @i="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
@@ -152,21 +179,13 @@ ab specifc specific
 ab gurantees guarantees
 ab probabilities probabilities
 ab horizion horizon
-ab repititon repetition 
+ab repititon repetition
 ab contraditions contradictions
-ab unprecented unprecedented 
+ab unprecented unprecedented
 ab specalization specialization
 ab recieved received
 ab eaisly easily
-" start with folds open
-set foldlevelstart=20
-
-"  remember folds
-" augroup remember_folds
-"   autocmd!
-"   autocmd BufWinLeave *.* mkview
-"   autocmd BufWinEnter *.* loadview
-" augroup END
+ab detailled detailed
 
 " config for lightline
 set laststatus=2
@@ -187,29 +206,6 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
-
-set autoindent
-set splitright  "  split tabs to the right
-set hlsearch
-
-augroup python
-    autocmd!
-    autocmd FileType python setlocal expandtab
-    autocmd FileType python setlocal shiftwidth=4
-    autocmd FileType python setlocal colorcolumn=80
-    autocmd FileType python setlocal softtabstop=4
-    autocmd FileType python setlocal tabstop=4
-    autocmd FileType python setlocal autoindent
-augroup end
-
-autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
-autocmd Filetype sh setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
-
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
-"  markdown folding
-let g:vim_markdown_folding_style_pythonic = 1
 
 let python_highlight_all=1
 
@@ -253,10 +249,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
-"  infinite undo
-set undofile
-set undodir=~/.vim/undodir
 
 " goyo
 let g:goyo_width=140

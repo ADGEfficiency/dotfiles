@@ -12,6 +12,7 @@ alias eixt='exit'
 alias exot='exit'
 alias ext='exit'
 alias eit='exit'
+alias q='exit'
 
 #  vim and python
 alias v='vim'
@@ -49,6 +50,7 @@ alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 
 #  projects
+alias home='cd ~/git'
 alias adg='cd ~/git/adg/'
 alias agile='cd ~/git/Agile_Data_Code_2/ch04'
 alias dotfiles='cd ~/git/dotfiles'
