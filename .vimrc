@@ -162,7 +162,7 @@ imap jj <esc>
 
 " macros
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
-let @i="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
+let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
 let @y='i[youtube](jjAi)'
 
@@ -186,6 +186,7 @@ ab specalization specialization
 ab recieved received
 ab eaisly easily
 ab detailled detailed
+ab guranteed guaranteed
 
 " config for lightline
 set laststatus=2
