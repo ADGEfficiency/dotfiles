@@ -69,6 +69,7 @@ set autoindent
 set smartindent
 
 set splitright
+set splitbelow
 
 set hlsearch
 set ignorecase
@@ -176,7 +177,6 @@ ab parameterizing parametrizing
 ab parameterize parametrize
 ab commmunication communication
 ab specifc specific
-ab gurantees guarantees
 ab probabilities probabilities
 ab horizion horizon
 ab repititon repetition
@@ -186,7 +186,13 @@ ab specalization specialization
 ab recieved received
 ab eaisly easily
 ab detailled detailed
+ab gurantee guarantee
 ab guranteed guaranteed
+ab gurantees guarantees
+ab convienent convenient
+ab convienet convenient
+ab graident gradient
+ab differnet different
 
 " config for lightline
 set laststatus=2

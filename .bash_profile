@@ -50,7 +50,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Adding bash script folder to path
 export PATH="$PATH:~/git/personal/bash"
-source ~/git/org/src/org.sh
 export PATH="$PATH:~/git/research/aws"
 chmod u+x ~/git/research/aws/spin_instance.sh
 chmod u+x ~/git/research/aws/kill_instances.sh
@@ -88,3 +87,8 @@ chmod u+x ~/git/personal/start-personal
 
 #  tempus
 export RESEARCH_DIR=/Users/adam/git/research
+
+#  org
+export ORG_HOME="/Users/adam/git/org"
+export ORG_DATA_HOME="/Users/adam/Google Drive/org-backup"
+source $ORG_HOME/src/org.sh
