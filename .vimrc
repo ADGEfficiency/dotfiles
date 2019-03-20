@@ -165,7 +165,7 @@ imap jj <esc>
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
-let @y='i[youtube](jjAi)'
+let @i="A\<cr><img src height width>\<esc>"
 
 " abbreviations
 ab uncertanity uncertainty

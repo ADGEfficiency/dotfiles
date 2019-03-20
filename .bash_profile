@@ -90,5 +90,5 @@ export RESEARCH_DIR=/Users/adam/git/research
 
 #  org
 export ORG_HOME="/Users/adam/git/org"
-export ORG_DATA_HOME="/Users/adam/Google Drive/org-backup"
+export ORG_DATA_HOME="/Users/adam/GoogleDrive/org-backup"
 source $ORG_HOME/src/org.sh
