@@ -23,7 +23,8 @@ alias dl_you='python ~/git/personal/bash/download_youtube.py'
 
 #  dotfiles
 alias aliases='vim ~/git/dotfiles/.aliases'
-alias bashrc='vim ~/git/dotfiles/.bash_profile'
+alias bashrc='vim ~/git/dotfiles/.bashrc'
+alias bashprofile='vim ~/git/dotfiles/.bash_profile'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 alias zshrc='vim ~/git/dotfiles/.zshrc'
@@ -51,7 +52,9 @@ alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 
 #  projects
 alias home='cd ~/git'
-alias adg='cd ~/git/adg/'
+alias adg='cd ~/git/adg-website/'
+alias adg2='cd ~/git/adg-website-v2/'
+alias website='cd ~/website'
 alias agile='cd ~/git/Agile_Data_Code_2/ch04'
 alias dotfiles='cd ~/git/dotfiles'
 alias ep='cd ~/git/energy-py/energypy'

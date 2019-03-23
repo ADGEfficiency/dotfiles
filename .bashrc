@@ -10,3 +10,8 @@ update_terminal_cwd() {
     local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
     printf '\e]7;%s\a' "$PWD_URL"
 }
+
+# vi mode
+set -o vi
+
+export HISTCONTROL=ignoreboth:erasedups

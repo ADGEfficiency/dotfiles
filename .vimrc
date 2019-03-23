@@ -1,112 +1,40 @@
-" ENCODING
-set encoding=utf8
-scriptencoding utf-8
+" plugins
 
-" VUNDLE SETUP
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
+"" vundle
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" plugins
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nvie/vim-flake8.git'
-Plugin 'tpope/vim-commentary'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'itchyny/vim-gitbranch'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'yggdroot/indentline'
+Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'simeji/winresizer'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kana/vim-textobj-user'
-Plugin 'bps/vim-textobj-python'
 
-"  themes
-Plugin 'joshdick/onedark.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'tomasr/molokai'
+"  text editing
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-commentary'
+
+"" visual plugins
+Plugin 'itchyny/lightline.vim'
+
+"" themes
 Plugin 'Yggdroot/duoduo'
-Plugin 'jnurmine/Zenburn'
-Plugin 'rakr/vim-one'
-Plugin 'morhetz/gruvbox'
-Plugin 'fenetikm/falcon'
-Plugin 'cormacrelf/vim-colors-github'
-Plugin 'ErichDonGubler/vim-sublime-monokai'
-Plugin 'chriskempson/base16-vim'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'mattly/iterm-colors-pencil'
-Plugin 'ajh17/spacegray.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
-set autoindent
-set smartindent
+set encoding=utf8
 
 set splitright
 set splitbelow
 
-set hlsearch
-set ignorecase
-set smartcase
-
-
-" visual setup
-syntax enable
-set cursorline
-set number relativenumber   " row numbers
-set guifont=Iosevka\ Nerd\ Font\ 13
-
-" ONE
-colorscheme one
-set background=dark
-
-"  SEOUL
-" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-" colorscheme seoul256
-
-"  set the background of the highlight menu
-hi Pmenu ctermbg=gray guibg=gray
-hi PmenuSel ctermbg=white ctermfg=black
-
-" spell check formatting
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=red
-hi clear SpellRare
-hi SpellRare cterm=underline ctermfg=red
-hi clear SpellCap
-hi SpellCap cterm=underline ctermfg=red
-hi clear SpellLocal
-hi SpellLocal cterm=underline ctermfg=red
-hi clear ALEERROR
-hi ALEError cterm=underline ctermfg=red
-hi clear ALEWarning
-hi ALEWarning cterm=underline ctermfg=red
+set autoindent
+set smartindent
 
 set ts=4 sw=4 sts=4
 
@@ -115,7 +43,61 @@ autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
 
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+set hlsearch
+set ignorecase
+
+syntax enable
+set cursorline
+set number relativenumber
+
+" persisent undo
+set undofile
+set undodir=~/.vim/undodir
+
+" scrolling speed
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+colorscheme duoduo
+
+
+" plugin config
+
+"" lightline
+set laststatus=2
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'percent'],
+      \              [ 'lineinfo'],
+      \              [ 'cwd', 'filetype' ] ],
+      \ },
+      \ 'component': {
+      \   'cwd': 'cwd is %{getcwd()}'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
+
+"" fzf
+set rtp+=~/.fzf
+map <space> :Files /Users/adam/git/<CR>
+
+"" window resizer
+let g:winresizer_start_key='<C-x>'
+
+" filetype specific
+
+"" markdown
+
+set foldlevelstart=20
+set conceallevel=2
+let g:vim_markdown_new_list_item_indent = 0
 
 augroup markdown
     autocmd!
@@ -123,12 +105,7 @@ augroup markdown
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal noexpandtab
-    autocmd FileType markdown setlocal shiftwidth=4
-    autocmd FileType markdown setlocal softtabstop=4
-    autocmd FileType markdown setlocal tabstop=4
     set complete+=k
-
-    autocmd Filetype markdown colorscheme sublimemonokai
 
     autocmd FileType markdown hi clear SpellBad
     autocmd FileType markdown hi SpellBad cterm=underline,bold ctermfg=red
@@ -145,29 +122,14 @@ augroup markdown
 
 augroup end
 
-set foldmethod=syntax
-set foldlevelstart=20
-let g:vim_markdown_folding_style_pythonic = 1
-let g:vim_markdown_new_list_item_indent = 0
 
-" scrolling speed
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+" adg specific
 
-" persisent undo
-set undofile
-set undodir=~/.vim/undodir
-
-"  remap escape
-imap jj <esc>
-
-" macros
+"" macros
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
-let @l='i(https://github.com/ADGEfficiency/personal/blob/master/'
-let @i="A\<cr><img src height width>\<esc>"
 
-" abbreviations
+"" abbreviations
 ab uncertanity uncertainty
 ab uncertantity uncertainty
 ab impementing implementing
@@ -193,71 +155,3 @@ ab convienent convenient
 ab convienet convenient
 ab graident gradient
 ab differnet different
-
-" config for lightline
-set laststatus=2
-
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent'],
-      \              [ 'lineinfo'],
-      \              [ 'cwd', 'filetype' ] ],
-      \ },
-      \ 'component': {
-      \   'cwd': 'cwd is %{getcwd()}'
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
-
-let python_highlight_all=1
-
-"  NERD_tree
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-let NERDTreeShowBookmarks=1
-map <F3> :NERDTreeToggle<CR>
-
-"  fzf
-map <space> :Files /Users/adam/git/<CR>
-
-"  tagbar
-nmap <F8> :TagbarToggle<CR>
-
-"  pandoc
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 0
-
-"  you complete me
-let g:ycm_filetype_blacklist = {}
-
-" This gets rid of the nasty _ italic bug in tpope's vim-markdown
-" " block $$...$$
-syn region math start=/\$\$/ end=/\$\$/
-" " inline math
-syn match math '\$[^$].\{-}\$'
-
-" actually highlight the region we defined as math
-hi link math Statement
-
-" remap the shortcut for window resizer
-let g:winresizer_start_key='<C-z>'
-
-" vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
-" goyo
-let g:goyo_width=140
-let g:goyo_height=95
-let g:goyo_linear=0
