@@ -1,3 +1,5 @@
+source $HOME/git/dotfiles/.aliases
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # https://github.com/platformio/platformio-atom-ide-terminal/issues/196
@@ -15,3 +17,9 @@ update_terminal_cwd() {
 set -o vi
 
 export HISTCONTROL=ignoreboth:erasedups
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
