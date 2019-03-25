@@ -18,6 +18,7 @@ Plugin 'simeji/winresizer'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -155,3 +156,4 @@ ab convienent convenient
 ab convienet convenient
 ab graident gradient
 ab differnet different
+ab determinsitc deterministic
