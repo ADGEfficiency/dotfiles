@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'simeji/winresizer'
 
 "  text editing
+Plugin 'dkarter/bullets.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
