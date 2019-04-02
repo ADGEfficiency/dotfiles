@@ -49,11 +49,12 @@ alias tl='tmux ls'
 #  misc
 alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
+alias quotes='vim ~/git/personal/lists/quotes.md'
 
 #  projects
 alias home='cd ~/git'
 alias adg='cd ~/git/adg-website/'
-alias adg2='cd ~/git/adg-website-v2/'
+alias adg2='cd ~/git/adg-website-v2/website'
 alias website='cd ~/website'
 alias agile='cd ~/git/Agile_Data_Code_2/ch04'
 alias dotfiles='cd ~/git/dotfiles'
@@ -63,6 +64,7 @@ alias org='cd ~/git/org'
 alias nemweb='cd ~/git/nemweb'
 alias res='cd ~/git/research'
 alias rl-book='cd ~/git/personal/projects/rl-book'
+alias rl-course='cd ~/git/new-rl-course-dev'
 
 #  personal
 alias drafts='cd ~/git/personal/projects/drafts'

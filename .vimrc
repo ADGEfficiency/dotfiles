@@ -10,9 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
-
-Plugin 'simeji/winresizer'
 
 "  text editing
 Plugin 'dkarter/bullets.vim'
@@ -23,8 +22,12 @@ Plugin 'tpope/vim-surround'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'simeji/winresizer'
 
 "" themes
+Plugin 'junegunn/seoul256.vim'
+Plugin 'rakr/vim-one'
 Plugin 'Yggdroot/duoduo'
 
 call vundle#end()
@@ -60,7 +63,9 @@ set undodir=~/.vim/undodir
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-colorscheme duoduo
+" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+set background=dark
+colorscheme one
 
 
 " plugin config
