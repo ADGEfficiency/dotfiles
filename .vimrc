@@ -19,11 +19,13 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'simeji/winresizer'
+Plugin 'Yggdroot/indentLine'
 
 "" themes
 Plugin 'junegunn/seoul256.vim'
@@ -63,9 +65,9 @@ set undodir=~/.vim/undodir
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
 set background=dark
-colorscheme one
+let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+colorscheme seoul256
 
 
 " plugin config
@@ -98,13 +100,12 @@ map <space> :Files /Users/adam/git/<CR>
 "" window resizer
 let g:winresizer_start_key='<C-x>'
 
+"" turn on indent line
+let g:indentLine_enabled = 1
+
 " filetype specific
 
 "" markdown
-
-set foldlevelstart=20
-set conceallevel=2
-let g:vim_markdown_new_list_item_indent = 0
 
 augroup markdown
     autocmd!
@@ -129,6 +130,9 @@ augroup markdown
 
 augroup end
 
+set foldlevelstart=20
+set conceallevel=0
+let g:vim_markdown_new_list_item_indent = 0
 
 " adg specific
 
@@ -163,3 +167,5 @@ ab convienet convenient
 ab graident gradient
 ab differnet different
 ab determinsitc deterministic
+ab reccomended recommended 
+

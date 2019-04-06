@@ -40,3 +40,12 @@ quote
 echo
 
 source ~/website/.bashrc
+
+#  xonsh
+#  ignore aliases remap log message
+export FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE=True
+export XONSH_COLOR_STYLE='algol_nu'
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
