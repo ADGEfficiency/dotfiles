@@ -1,13 +1,13 @@
 alias wd='cd ~/git/research/env-model'
 
 #  bash
-alias ll='ls -ax'
-alias la='ls -GlR'
-alias lc='ls --color=auto'
+alias ll='ls -a'
+alias lt='ls -aGltr'
 alias ls='ls -aGl'
 
 alias c='clear'
 alias cls='clear && ls'
+alias ctree='clear && tree'
 
 alias exut='exit'
 alias eixt='exit'
@@ -22,6 +22,7 @@ alias tree='tree -I '*pycache*''
 alias v='vim'
 alias vi='vim'
 alias py='python'
+
 
 alias dl_you='python ~/git/personal/bash/download_youtube.py'
 
@@ -57,6 +58,8 @@ alias quotes='vim ~/git/personal/lists/quotes.md'
 
 #  projects
 alias home='cd ~/git'
+alias mono='cd ~/git/mono'
+alias dsr='cd ~/git/mono/dsr'
 alias adg='cd ~/git/adg-website/'
 alias adg2='cd ~/git/adg-website-v2/website'
 alias website='cd ~/website'
@@ -69,7 +72,7 @@ alias nemweb='cd ~/git/nemweb'
 alias res='cd ~/git/research'
 alias rl-book='cd ~/git/personal/projects/rl-book'
 alias rl-course='cd ~/git/new-rl-course-dev'
-alias wm='cd ~/git/world-models'
+alias wm='cd ~/git/mono/world-models'
 
 #  personal
 alias drafts='cd ~/git/personal/projects/drafts'

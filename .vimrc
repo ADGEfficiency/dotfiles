@@ -31,11 +31,20 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'rakr/vim-one'
 Plugin 'Yggdroot/duoduo'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'dracula/vim'
+Plugin 'cseelus/vim-colors-tone'
+Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'Lokaltog/vim-distinguished'
 
 call vundle#end()
 filetype plugin indent on
 
 set encoding=utf8
+
+set incsearch
+set wildmenu
 
 set splitright
 set splitbelow
@@ -66,9 +75,12 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 set background=dark
-let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-colorscheme seoul256
+" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+" colorscheme seoul256
 
+" colorscheme dracula
+" colorscheme gruvbox
+colorscheme hybrid
 
 " plugin config
 
@@ -77,7 +89,7 @@ set laststatus=2
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
@@ -105,28 +117,29 @@ let g:indentLine_enabled = 1
 
 " filetype specific
 
-"" markdown
 
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+hi clear SpellRare
+hi SpellRare cterm=underline,bold ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=underline,bold ctermfg=red
+hi clear SpellLocal
+hi SpellLocal cterm=underline,bold ctermfg=red
+hi clear ALEERROR
+hi ALEError cterm=underline,bold ctermfg=red
+hi clear ALEWarning
+hi ALEWarning cterm=underline,bold ctermfg=red
+
+"" markdown
 augroup markdown
     autocmd!
     autocmd FileType markdown setlocal spell spelllang=en_nz
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal noexpandtab
+	autocmd FileType markdown let g:indentLine_enabled=0
     set complete+=k
-
-    autocmd FileType markdown hi clear SpellBad
-    autocmd FileType markdown hi SpellBad cterm=underline,bold ctermfg=red
-    autocmd FileType markdown hi clear SpellRare
-    autocmd FileType markdown hi SpellRare cterm=underline,bold ctermfg=red
-    autocmd FileType markdown hi clear SpellCap
-    autocmd FileType markdown hi SpellCap cterm=underline,bold ctermfg=red
-    autocmd FileType markdown hi clear SpellLocal
-    autocmd FileType markdown hi SpellLocal cterm=underline,bold ctermfg=red
-    autocmd FileType markdown hi clear ALEERROR
-    autocmd FileType markdown hi ALEError cterm=underline,bold ctermfg=red
-    autocmd FileType markdown hi clear ALEWarning
-    autocmd FileType markdown hi ALEWarning cterm=underline,bold ctermfg=red
 
 augroup end
 
@@ -168,4 +181,3 @@ ab graident gradient
 ab differnet different
 ab determinsitc deterministic
 ab reccomended recommended 
-

@@ -49,3 +49,11 @@ export XONSH_COLOR_STYLE='algol_nu'
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
+
+# https://stackoverflow.com/questions/947810/how-to-save-a-python-interactive-session
+export PYTHONSTARTUP=$HOME/.pystartup
+
+#  ruby install via brew
+export PATH=/usr/local/opt/ruby/bin:$PATH
+
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
