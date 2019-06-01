@@ -15,11 +15,14 @@ Plugin 'Valloric/YouCompleteMe'
 
 "  text editing
 Plugin 'dkarter/bullets.vim'
+Plugin 'FooSoft/vim-argwrap'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'tmsvg/pear-tree'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -62,6 +65,9 @@ autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
 set hlsearch
 set ignorecase
 
+" turn off search highlight
+nnoremap ,<space> :noh<cr>
+
 syntax enable
 set cursorline
 set number relativenumber
@@ -77,11 +83,28 @@ nnoremap <C-y> 3<C-y>
 set background=dark
 " let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
 " colorscheme seoul256
-
 " colorscheme dracula
 " colorscheme gruvbox
 colorscheme hybrid
 
+" Stay in visual mode when indenting. You will never have to run gv after
+" " performing an indentation.
+vnoremap < <gv
+vnoremap > >gv
+
+" trying this out
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap gj j
+nnoremap gk k
+
+" Move around splits with <C-[hjkl]> in normal mode
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l 
 " plugin config
 
 "" lightline
@@ -109,14 +132,24 @@ let g:lightline = {
 set rtp+=~/.fzf
 map <space> :Files /Users/adam/git/<CR>
 
-"" window resizer
-let g:winresizer_start_key='<C-x>'
 
 "" turn on indent line
 let g:indentLine_enabled = 1
 
-" filetype specific
+" argmap
+nnoremap <silent> ,a :ArgWrap<CR>
 
+" win resize
+"" window resizer
+let g:winresizer_start_key=',t'
+nnoremap <silent> ,x :WinResizerStartResize<CR>
+
+" autocomplete in markdown
+let g:ycm_filetype_blacklist = {}
+
+let g:pear_tree_ft_disabled = ['markdown']
+
+" filetype specific
 
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red
@@ -140,12 +173,15 @@ augroup markdown
     autocmd FileType markdown setlocal noexpandtab
 	autocmd FileType markdown let g:indentLine_enabled=0
     set complete+=k
-
 augroup end
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set foldlevelstart=20
 set conceallevel=0
 let g:vim_markdown_new_list_item_indent = 0
+
+let python_highlight_all = 1
 
 " adg specific
 
@@ -180,4 +216,13 @@ ab convienet convenient
 ab graident gradient
 ab differnet different
 ab determinsitc deterministic
-ab reccomended recommended 
+ab reccomended recommended
+ab artifical artificial
+ab recongition recognition
+ab eaiser easier 
+ab typicial typical 
+ab certantity certainty
+
+
+
+

@@ -22,6 +22,7 @@ alias tree='tree -I '*pycache*''
 alias v='vim'
 alias vi='vim'
 alias py='python'
+alias ipy='ipython'
 
 
 alias dl_you='python ~/git/personal/bash/download_youtube.py'
@@ -73,6 +74,7 @@ alias res='cd ~/git/research'
 alias rl-book='cd ~/git/personal/projects/rl-book'
 alias rl-course='cd ~/git/new-rl-course-dev'
 alias wm='cd ~/git/mono/world-models'
+alias blog='cd ~/git/adgefficiency.github.io'
 
 #  personal
 alias drafts='cd ~/git/personal/projects/drafts'
