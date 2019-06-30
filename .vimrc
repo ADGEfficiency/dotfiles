@@ -3,7 +3,16 @@
 "" vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+
+let uname = substitute(system('uname'), '\n', '', '')
+" Example values: Linux, Darwin, MINGW64_NT-10.0, MINGW32_NT-6.1
+"
+if uname == 'Linux' || uname == 'Darwin'
+	set rtp+=/home/ubuntu/.vim/bundle/Vundle.vim
+else 
+	set rtp+=~/.vim/bundle/Vundle.vim
+endif
+
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
