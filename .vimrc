@@ -40,6 +40,7 @@ Plugin 'cseelus/vim-colors-tone'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'Lokaltog/vim-distinguished'
+Plugin 'arcticicestudio/nord-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -55,9 +56,9 @@ set splitbelow
 set autoindent
 set smartindent
 
-set ts=4 sw=4 sts=4
+set ts=2 sw=2 sts=2
 
-autocmd FileType python setlocal expandtab colorcolumn=80
+autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
@@ -68,9 +69,16 @@ set ignorecase
 " turn off search highlight
 nnoremap ,<space> :noh<cr>
 
+" no more ex mode type visual
+nnoremap Q <Nop>
+
+
 syntax enable
 set cursorline
 set number relativenumber
+
+" yank to clipboard
+set clipboard=unnamed
 
 " persisent undo
 set undofile
@@ -81,22 +89,19 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 set background=dark
-" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-" colorscheme seoul256
+let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+colorscheme seoul256
 " colorscheme dracula
 " colorscheme gruvbox
-colorscheme hybrid
+" colorscheme hybrid
 
 " Stay in visual mode when indenting. You will never have to run gv after
 " " performing an indentation.
 vnoremap < <gv
 vnoremap > >gv
 
-" trying this out
-
 nnoremap j gj
 nnoremap k gk
-
 nnoremap gj j
 nnoremap gk k
 
@@ -132,7 +137,6 @@ let g:lightline = {
 set rtp+=~/.fzf
 map <space> :Files /Users/adam/git/<CR>
 
-
 "" turn on indent line
 let g:indentLine_enabled = 1
 
@@ -146,6 +150,8 @@ nnoremap <silent> ,x :WinResizerStartResize<CR>
 
 " autocomplete in markdown
 let g:ycm_filetype_blacklist = {}
+
+let g:ycm_min_num_of_chars_for_completion = 1
 
 let g:pear_tree_ft_disabled = ['markdown']
 
@@ -188,6 +194,7 @@ let python_highlight_all = 1
 "" macros
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
+let @s="i#!/usr/bin/env bash"
 
 "" abbreviations
 ab uncertanity uncertainty
@@ -222,7 +229,4 @@ ab recongition recognition
 ab eaiser easier 
 ab typicial typical 
 ab certantity certainty
-
-
-
-
+ab amoung among 

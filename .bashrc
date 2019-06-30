@@ -18,10 +18,10 @@ set -o vi
 
 # don't add duplicates
 export HISTCONTROL=ignoreboth:erasedups
+
 # remember a lot
 export HISTFILESIZE=10000000
 export HISTSIZE=10000000
+
 # after each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-export RESEARCH_DIR="$HOME/git/research"

@@ -13,6 +13,9 @@ fi
 alias vim='mvim -v'
 alias gdrive='cd "$HOME/GoogleDrive"'
 
+#  while in dev
+source ~/git/mono/adg-aws/ec2.sh
+
 # Powerline
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1

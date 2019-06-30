@@ -1,9 +1,9 @@
-alias wd='cd ~/git/research/env-model'
-
 #  bash
 alias ll='ls -a'
 alias lt='ls -aGltr'
 alias ls='ls -aGl'
+
+alias df='df -h'
 
 alias c='clear'
 alias cls='clear && ls'
@@ -16,15 +16,16 @@ alias ext='exit'
 alias eit='exit'
 alias q='exit'
 
+alias rm='rm -rf'
+
 alias tree='tree -I '*pycache*''
 
 #  vim and python
 alias v='vim'
 alias vi='vim'
+alias python='python3'
 alias py='python'
 alias ipy='ipython'
-
-
 alias dl_you='python ~/git/personal/bash/download_youtube.py'
 
 #  dotfiles
@@ -35,10 +36,7 @@ alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 alias zshrc='vim ~/git/dotfiles/.zshrc'
 
-#  aws cli
-alias awsc='aws cloudformation'
-alias awscb='aws cloudformation describe-stacks --stack-name'
-alias awscd='aws cloudformation delete-stack --stack-name'
+alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
 #  git
 alias gs='git status'
