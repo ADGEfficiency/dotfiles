@@ -4,15 +4,7 @@
 set nocompatible
 filetype off
 
-let uname = substitute(system('uname'), '\n', '', '')
-" Example values: Linux, Darwin, MINGW64_NT-10.0, MINGW32_NT-6.1
-"
-if uname == 'Linux' || uname == 'Darwin'
-	set rtp+=/home/ubuntu/.vim/bundle/Vundle.vim
-else 
-	set rtp+=~/.vim/bundle/Vundle.vim
-endif
-
+set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -81,7 +73,6 @@ nnoremap ,<space> :noh<cr>
 " no more ex mode type visual
 nnoremap Q <Nop>
 
-
 syntax enable
 set cursorline
 set number relativenumber
@@ -98,11 +89,11 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 set background=dark
-let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-colorscheme seoul256
+" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
+" colorscheme seoul256
 " colorscheme dracula
 " colorscheme gruvbox
-" colorscheme hybrid
+colorscheme hybrid
 
 " Stay in visual mode when indenting. You will never have to run gv after
 " " performing an indentation.
@@ -157,6 +148,9 @@ nnoremap <silent> ,a :ArgWrap<CR>
 let g:winresizer_start_key=',t'
 nnoremap <silent> ,x :WinResizerStartResize<CR>
 
+" redraw
+nnoremap <silent> ,r :redraw!<CR>
+
 " autocomplete in markdown
 let g:ycm_filetype_blacklist = {}
 
@@ -197,6 +191,9 @@ set conceallevel=0
 let g:vim_markdown_new_list_item_indent = 0
 
 let python_highlight_all = 1
+
+" Open markdown files with Chrome.
+autocmd BufEnter *.md exe 'noremap <F5> :!start C:\Users\tomas\AppData\Local\Google\Chrome\Application\chrome.exe %:p<CR>'
 
 " adg specific
 

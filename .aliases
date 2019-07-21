@@ -3,8 +3,6 @@ alias ll='ls -a'
 alias lt='ls -aGltr'
 alias ls='ls -aGl'
 
-alias df='df -h'
-
 alias c='clear'
 alias cls='clear && ls'
 alias ctree='clear && tree'
@@ -17,8 +15,10 @@ alias eit='exit'
 alias q='exit'
 
 alias rm='rm -rf'
+alias mkdir='mkdir -p'
+alias df='df -h'
 
-alias tree='tree -I '*pycache*''
+alias tree="tree -I '*pycache*'"
 
 #  vim and python
 alias v='vim'
@@ -64,7 +64,7 @@ alias adg2='cd ~/git/adg-website-v2/website'
 alias website='cd ~/website'
 alias agile='cd ~/git/Agile_Data_Code_2/ch04'
 alias dotfiles='cd ~/git/dotfiles'
-alias ep='cd ~/git/energy-py/energypy'
+alias ep='cd ~/git/energy-py'
 alias epl='cd ~/git/energy-py-linear'
 alias org='cd ~/git/org'
 alias nemweb='cd ~/git/nemweb'
@@ -73,10 +73,14 @@ alias rl-book='cd ~/git/personal/projects/rl-book'
 alias rl-course='cd ~/git/new-rl-course-dev'
 alias wm='cd ~/git/mono/world-models'
 alias blog='cd ~/git/adgefficiency.github.io'
+alias prog='cd ~/git/programming-resources'
+alias teach='cd ~/git/teaching-monolith'
 
 #  personal
 alias drafts='cd ~/git/personal/projects/drafts'
 alias per='cd ~/git/personal'
 alias principles='cd ~/git/personal/projects/principles'
 alias projects='cd ~/git/personal/projects'
+
+alias sshdsr='ssh af-2@af2-H110M-PRO-D'
 

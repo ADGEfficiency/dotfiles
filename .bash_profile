@@ -36,11 +36,11 @@ quote () {
     LINE=$((1 + RANDOM % $NUM_LINES))
     echo $(sed -n ${LINE}p ${QUOTES})
 }
-echo
-quote
-echo
-quote
-echo
+# echo
+# quote
+# echo
+# quote
+# echo
 
 source ~/website/.bashrc
 
