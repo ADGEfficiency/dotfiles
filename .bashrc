@@ -1,5 +1,4 @@
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # https://github.com/platformio/platformio-atom-ide-terminal/issues/196
 update_terminal_cwd() {
@@ -24,3 +23,7 @@ export HISTSIZE=10000000
 
 # after each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# aws
+export AWS_LOG_LEVEL=3
+export AWS_REGION="eu-central"

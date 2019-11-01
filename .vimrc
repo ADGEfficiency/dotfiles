@@ -30,6 +30,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
+Plugin 'arzg/vim-corvine'
 
 "" themes
 Plugin 'junegunn/seoul256.vim'
@@ -50,6 +51,7 @@ set encoding=utf8
 
 set incsearch
 set wildmenu
+set lazyredraw
 
 set splitright
 set splitbelow
@@ -89,11 +91,12 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 set background=dark
-" let g:seoul256_background = 237  " 233 - 239 (darkest - lightest) - dark
-" colorscheme seoul256
-" colorscheme dracula
-" colorscheme gruvbox
-colorscheme hybrid
+colorscheme gruvbox
+" colorscheme duoduo
+" colorscheme one
+" colorscheme hybrid
+"
+set backspace=indent,eol,start
 
 " Stay in visual mode when indenting. You will never have to run gv after
 " " performing an indentation.
@@ -109,7 +112,7 @@ nnoremap gk k
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l 
+nnoremap <C-l> <C-w>l
 " plugin config
 
 "" lightline
@@ -142,6 +145,9 @@ let g:indentLine_enabled = 1
 
 " argmap
 nnoremap <silent> ,a :ArgWrap<CR>
+
+" toggle paste
+nnoremap <silent> ,p :set paste!<CR>
 
 " win resize
 "" window resizer
@@ -232,7 +238,7 @@ ab determinsitc deterministic
 ab reccomended recommended
 ab artifical artificial
 ab recongition recognition
-ab eaiser easier 
-ab typicial typical 
+ab eaiser easier
+ab typicial typical
 ab certantity certainty
-ab amoung among 
+ab amoung among

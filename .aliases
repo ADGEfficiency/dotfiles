@@ -1,7 +1,13 @@
+alias nemd='cd $HOME/nem-data'
+alias nem='cd $HOME/git/nem-data'
+alias climate='cd $HOME/git/personal/climate-code'
+
 #  bash
-alias ll='ls -a'
+alias ll='"ls"'
 alias lt='ls -aGltr'
-alias ls='ls -aGl'
+alias ls='ls -aGlpnk'
+
+export DSR='af-H110M-PRO-D'
 
 alias c='clear'
 alias cls='clear && ls'
@@ -71,7 +77,7 @@ alias nemweb='cd ~/git/nemweb'
 alias res='cd ~/git/research'
 alias rl-book='cd ~/git/personal/projects/rl-book'
 alias rl-course='cd ~/git/new-rl-course-dev'
-alias wm='cd ~/git/mono/world-models'
+alias wm='cd ~/git/world-models'
 alias blog='cd ~/git/adgefficiency.github.io'
 alias prog='cd ~/git/programming-resources'
 alias teach='cd ~/git/teaching-monolith'
