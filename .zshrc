@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH='/Volumes/Julia-1.2.0/Julia-1.2.app/Contents/Resources/julia/bin':$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/adam/.oh-my-zsh"
 
@@ -138,10 +140,10 @@ quote () {
     echo $(sed -n ${LINE}p ${QUOTES})
 }
 
-echo
-quote
-echo
-quote
+# echo
+# quote
+# echo
+# quote
 
 #  world models config
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -198,3 +200,10 @@ POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
 POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
 
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%F{008}\uf460%F{008}'
+
+make_env() {
+  pyenv virtualenv 3.6.8 $1
+	echo $1 > .python-version
+	source activate $1
+	pip install --upgrade pip
+}

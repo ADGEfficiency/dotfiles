@@ -27,3 +27,4 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # aws
 export AWS_LOG_LEVEL=3
 export AWS_REGION="eu-central"
+ln -s $HOME/ashrae/data $HOME/git/others/kaggle-ashrae-DSR/data

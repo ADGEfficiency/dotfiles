@@ -1,17 +1,22 @@
 alias nemd='cd $HOME/nem-data'
-alias nem='cd $HOME/git/nem-data'
 alias climate='cd $HOME/git/personal/climate-code'
+alias todo='vim $HOME/git/personal/todo.md'
+alias vim='mvim -v'
+alias vi='mvim -v'
+alias sshpi='ssh pi@192.168.2.129'
+alias gdrive='cd ~/GoogleDrive'
 
 #  bash
-alias ll='"ls"'
-alias lt='ls -aGltr'
-alias ls='ls -aGlpnk'
+alias ll='"ls" -aGF'
+alias ls='ls -aGFlopnk'
 
 export DSR='af-H110M-PRO-D'
 
 alias c='clear'
 alias cls='clear && ls'
 alias ctree='clear && tree'
+
+alias b='cd ..'
 
 alias exut='exit'
 alias eixt='exit'
@@ -27,8 +32,6 @@ alias df='df -h'
 alias tree="tree -I '*pycache*'"
 
 #  vim and python
-alias v='vim'
-alias vi='vim'
 alias python='python3'
 alias py='python'
 alias ipy='ipython'

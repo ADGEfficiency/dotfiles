@@ -13,6 +13,10 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'psliwka/vim-smoothie'
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "  text editing
 Plugin 'dkarter/bullets.vim'
@@ -47,6 +51,9 @@ Plugin 'arcticicestudio/nord-vim'
 call vundle#end()
 filetype plugin indent on
 
+" enable html tag matching
+packadd! matchit
+
 set encoding=utf8
 
 set incsearch
@@ -75,6 +82,10 @@ nnoremap ,<space> :noh<cr>
 " no more ex mode type visual
 nnoremap Q <Nop>
 
+" show tabs
+set list
+set listchars=tab:>-
+
 syntax enable
 set cursorline
 set number relativenumber
@@ -91,11 +102,12 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 set background=dark
-colorscheme gruvbox
-" colorscheme duoduo
+"colorscheme gruvbox
+colorscheme duoduo
 " colorscheme one
 " colorscheme hybrid
-"
+" colorscheme nord
+
 set backspace=indent,eol,start
 
 " Stay in visual mode when indenting. You will never have to run gv after
@@ -165,6 +177,8 @@ let g:ycm_min_num_of_chars_for_completion = 1
 let g:pear_tree_ft_disabled = ['markdown']
 
 " filetype specific
+"
+au BufRead,BufNewFile *.html set filetype=html
 
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red
@@ -207,6 +221,7 @@ autocmd BufEnter *.md exe 'noremap <F5> :!start C:\Users\tomas\AppData\Local\Goo
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @s="i#!/usr/bin/env bash"
+let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\<esc>\<cr>\<tab>"
 
 "" abbreviations
 ab uncertanity uncertainty
@@ -242,3 +257,5 @@ ab eaiser easier
 ab typicial typical
 ab certantity certainty
 ab amoung among
+
+
