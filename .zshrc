@@ -3,6 +3,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH='/Volumes/Julia-1.2.0/Julia-1.2.app/Contents/Resources/julia/bin':$PATH
 
+#aws configure set default.s3.max_concurrent_requests 8
+#aws configure set default.s3.max_queue_size 8
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/adam/.oh-my-zsh"
 

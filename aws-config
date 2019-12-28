@@ -1,0 +1,5 @@
+[profile development]
+s3 =
+  max_concurrent_requests = 100
+	max_queue_size = 10000
+	use_accelerate_endpoint = true

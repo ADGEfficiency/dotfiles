@@ -12,6 +12,8 @@ alias ls='ls -aGFlopnk'
 
 export DSR='af-H110M-PRO-D'
 
+alias wd='cd ~/git/world-models/blog-post'
+
 alias c='clear'
 alias cls='clear && ls'
 alias ctree='clear && tree'

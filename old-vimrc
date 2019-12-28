@@ -1,10 +1,12 @@
-" PLUGINS
+" plugins
 
+"" vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -30,6 +32,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
 Plugin 'arzg/vim-corvine'
+Plugin 'ayu-theme/ayu-vim'
 
 "" themes
 Plugin 'junegunn/seoul256.vim'
@@ -46,15 +49,67 @@ Plugin 'arcticicestudio/nord-vim'
 call vundle#end()
 filetype plugin indent on
 
-
-" GENERAL
-
-"" enable html tag matching
+" enable html tag matching
 packadd! matchit
 
 set encoding=utf8
 
-"" show tabs
+set wildmenu
+set lazyredraw
+
+set splitright
+set splitbelow
+
+set autoindent
+set smartindent
+
+set expandtab
+set smarttab
+
+set mouse=nicr
+
+set ts=2 sw=2 sts=2
+
+autocmd FileType python setlocal colorcolumn=80 ts=4 sw=4 sts=4
+autocmd Filetype htmldjango setlocal ts=2 sw=2
+autocmd Filetype sh setlocal ts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
+
+set hlsearch
+set incsearch
+
+set ignorecase
+set smartcase
+
+" Return to last edit position when opening files 
+augroup return_to_last_edit_position
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup END
+
+" Go to last file(s) if Vim is started without arguments.
+augroup reopen_last_file
+  autocmd!
+  autocmd VimLeave * nested
+        \ if (!isdirectory($HOME . "/.vim")) |
+        \ call mkdir($HOME . "/.vim") |
+        \ endif |
+        \ execute "mksession! " . $HOME . "/.vim/Session.vim"
+  autocmd VimEnter * nested
+        \ if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
+        \ execute "source " . $HOME . "/.vim/Session.vim"
+augroup END
+
+" turn off search highlight
+nnoremap ,<space> :noh<cr>
+
+" no more ex mode type visual
+nnoremap Q <Nop>
+
+" show tabs
 set list
 set listchars=tab:>-
 
@@ -69,41 +124,24 @@ set clipboard=unnamed
 set undofile
 set undodir=~/.vim/undodir
 
-set incsearch
-set hlsearch
-set ignorecase
-
-set wildmenu
-set lazyredraw
-
-set splitright
-set splitbelow
-
-set autoindent
-set smartindent
-
-set foldlevelstart=20
-set conceallevel=0
-
-set backspace=indent,eol,start
-
-set ts=2 sw=2 sts=2
-
-
-" REMAPS
-
-"" scrolling speed
+" scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-"" turn off search highlight
-nnoremap ,<space> :noh<cr>
+set background=dark
+"colorscheme gruvbox
+colorscheme duoduo
+" colorscheme one
+" colorscheme hybrid
+" colorschemnord
+"
+set term=xterm
+set t_Co=256
 
-"" no more ex mode type visual
-nnoremap Q <Nop>
+set backspace=indent,eol,start
 
-"" Stay in visual mode when indenting. You will never have to run gv after
-"" performing an indentation.
+" Stay in visual mode when indenting. You will never have to run gv after
+" " performing an indentation.
 vnoremap < <gv
 vnoremap > >gv
 
@@ -117,36 +155,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" argmap
-nnoremap <silent> ,a :ArgWrap<CR>
-
-" toggle paste
-nnoremap <silent> ,p :set paste!<CR>
-
-" win resize
-nnoremap <silent> ,x :WinResizerStartResize<CR>
-
-
-" visual
-set background=dark
-colorscheme gruvbox
-
-"" must be after colo!
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=red
-hi clear SpellRare
-hi SpellRare cterm=underline,bold ctermfg=red
-hi clear SpellCap
-hi SpellCap cterm=underline,bold ctermfg=red
-hi clear SpellLocal
-hi SpellLocal cterm=underline,bold ctermfg=red
-hi clear ALEERROR
-hi ALEError cterm=underline,bold ctermfg=red
-hi clear ALEWarning
-hi ALEWarning cterm=underline,bold ctermfg=red
-
-
 " plugin config
 
 "" lightline
@@ -174,71 +182,83 @@ let g:lightline = {
 set rtp+=~/.fzf
 map <space> :Files /Users/adam/git/<CR>
 
-"" indent line
+"" turn on indent line
 let g:indentLine_enabled = 1
 
-"" autocomplete in markdown
-"" https://github.com/ycm-core/YouCompleteMe#options
+let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+"
+let g:ycm_auto_trigger = 1
+
+
+" argmap
+nnoremap <silent> ,a :ArgWrap<CR>
+
+" toggle paste
+nnoremap <silent> ,p :set paste!<CR>
+
+" win resize
+"" window resizer
+let g:winresizer_start_key=',t'
+nnoremap <silent> ,x :WinResizerStartResize<CR>
+
+" redraw
+nnoremap <silent> ,r :redraw!<CR>
+
+" autocomplete in markdown
 let g:ycm_filetype_blacklist = {}
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 0
-
-let g:ycm_max_num_candidates = 10
-let g:ycm_max_num_identifier_candidates = 10
-let g:ycm_auto_trigger = 1
-let g:ycm_add_preview_to_completeopt = 1
-
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-"" pear tree
-""" needed to get markdown list stop working
-let g:pear_tree_ft_disabled = ['markdown']
-
-"" vim markdown
-let g:vim_markdown_new_list_item_indent = 0
-
+"let g:pear_tree_ft_disabled = ['markdown']
 
 " filetype specific
 
-autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
-autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
-autocmd Filetype sh setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
-
 au BufRead,BufNewFile *.html set filetype=html
 
-autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+hi clear SpellRare
+hi SpellRare cterm=underline,bold ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=underline,bold ctermfg=red
+hi clear SpellLocal
+hi SpellLocal cterm=underline,bold ctermfg=red
+hi clear ALEERROR
+hi ALEError cterm=underline,bold ctermfg=red
+hi clear ALEWarning
+hi ALEWarning cterm=underline,bold ctermfg=red
 
+"" markdown
 augroup markdown
     autocmd!
     autocmd FileType markdown setlocal spell spelllang=en_nz
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal noexpandtab
-	autocmd FileType markdown let g:indentLine_enabled=0
-    set complete+=k
+	  autocmd FileType markdown let g:indentLine_enabled=0
+    autocmd FileType markdown set complete+=k
 augroup end
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+set foldlevelstart=20
+set conceallevel=0
+let g:vim_markdown_new_list_item_indent = 0
+
+let python_highlight_all = 1
+
+" Open markdown files with Chrome.
+autocmd BufEnter *.md exe 'noremap <F5> :!start C:\Users\tomas\AppData\Local\Google\Chrome\Application\chrome.exe %:p<CR>'
 
 
-" MACROS
+" adg specific
 
+"" macros
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\<esc>\<cr>\<tab>"
 
-
-" ABBREVIATIONS
-
+"" abbreviations
 ab uncertanity uncertainty
 ab uncertantity uncertainty
 ab impementing implementing
@@ -273,11 +293,4 @@ ab typicial typical
 ab certantity certainty
 ab amoung among
 
-" Return to last edit position when opening files (You want this!)
-augroup return_to_last_edit_position
-  autocmd!
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-augroup END
+
