@@ -3,9 +3,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH='/Volumes/Julia-1.2.0/Julia-1.2.app/Contents/Resources/julia/bin':$PATH
 
-#aws configure set default.s3.max_concurrent_requests 8
-#aws configure set default.s3.max_queue_size 8
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/adam/.oh-my-zsh"
 
@@ -143,10 +140,10 @@ quote () {
     echo $(sed -n ${LINE}p ${QUOTES})
 }
 
-# echo
-# quote
-# echo
-# quote
+echo
+quote
+echo
+quote
 
 #  world models config
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -210,3 +207,8 @@ make_env() {
 	source activate $1
 	pip install --upgrade pip
 }
+
+delete_env() {
+  pyenv virtualenv-delete $1
+}
+

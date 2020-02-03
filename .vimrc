@@ -20,9 +20,11 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tmsvg/pear-tree'
+Plugin 'ron89/thesaurus_query.vim'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -48,6 +50,9 @@ filetype plugin indent on
 
 
 " GENERAL
+
+"" gf command working with unsaved buffer
+set hidden
 
 "" enable html tag matching
 packadd! matchit
@@ -92,6 +97,8 @@ set ts=2 sw=2 sts=2
 
 " REMAPS
 
+let mapleader=","
+
 "" scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -125,12 +132,15 @@ nnoremap <silent> ,a :ArgWrap<CR>
 nnoremap <silent> ,p :set paste!<CR>
 
 " win resize
+"let g:winresizer_start_key=',t'
 nnoremap <silent> ,x :WinResizerStartResize<CR>
+
+nnoremap <silent> ,t :ThesaurusQueryReplaceCurrentWord<CR>
 
 
 " visual
 set background=dark
-colorscheme gruvbox
+colorscheme duoduo
 
 "" must be after colo!
 hi clear SpellBad
@@ -154,7 +164,7 @@ set laststatus=2
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'ayu_mirage',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
@@ -163,12 +173,18 @@ let g:lightline = {
       \              [ 'cwd', 'filetype' ] ],
       \ },
       \ 'component': {
-      \   'cwd': 'cwd is %{getcwd()}'
+      \   'cwd': '%{getcwd()}',
+      \   'lineinfo': '%3l:%-2v%<',
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
+      \   'gitbranch': 'gitbranch#name',
+      \   'fileformat': 'LightlineFileformat',
       \ },
       \ }
+
+function! LightlineFileformat()
+	  return winwidth(0) > 70 ? &fileformat : ''
+	endfunction
 
 "" fzf
 set rtp+=~/.fzf
@@ -210,7 +226,6 @@ autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
-
 au BufRead,BufNewFile *.html set filetype=html
 
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
@@ -226,7 +241,6 @@ augroup markdown
 augroup end
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 
 
 " MACROS
@@ -281,3 +295,17 @@ augroup return_to_last_edit_position
         \   exe "normal! g`\"" |
         \ endif
 augroup END
+
+" problem == only looks at match on file name (not folders as well)
+command LI read !find $HOME/git/programming-resources -name "**vim**" | grep -v "png" | grep -v "jpg" | grep -v ".swp"
+
+" all good :)
+command LIN read !grep -Rl --include="*vim*" vim $HOME/git/programming-resources
+
+function! s:MyFunc(myParam)
+	echom a:myParam
+	let l:incl=a:myParam
+	read !grep -Rl --include="*vim*" l:incl $HOME/git/programming-resources
+endfunction
+
+command! -nargs=1 LINK call s:MyFunc(<f-args>)
