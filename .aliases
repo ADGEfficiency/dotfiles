@@ -1,3 +1,5 @@
+
+
 alias nemd='cd $HOME/nem-data'
 alias climate='cd $HOME/git/personal/climate-code'
 alias todo='vim $HOME/git/personal/todo.md'
@@ -8,22 +10,25 @@ alias gdrive='cd ~/GoogleDrive'
 
 alias draft='vim ~/git/adgefficiency.github.io/_posts/2019-12-25-world-models-draft.md'
 
+alias nlphome='cd ~/climate-nlp'
+alias nlpdata='cd ~/climate-nlp'
+
 #  bash
 alias ll='"ls" -aGF'
 alias ls='ls -aGFlopnk'
 
 export DSR='af-H110M-PRO-D'
 
-alias wd='cd ~/git/world-models/blog-post'
+alias wd='cd ~/git/cook/minicomp-news-stock-prices-solution'
+alias wdd='cd ~/minicomp-news-stock-prices-solution'
 
 alias c='clear'
+alias c='[ $[$RANDOM % 50] = 0 ] && gtimeout 3 cmatrix; clear || clear'
 alias cls='clear && ls'
 alias ctree='clear && tree'
 
 alias nlpd='cd /Users/adam/climate-nlp/'
 
-alias wd='/Users/adam/git/ds-bowl-from-scratch'
-alias wdd='/Users/adam/ds-bowl-from-scratch'
 
 alias b='cd ..'
 

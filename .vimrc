@@ -25,6 +25,8 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tmsvg/pear-tree'
 Plugin 'ron89/thesaurus_query.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-python/python-syntax'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -32,6 +34,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
 Plugin 'arzg/vim-corvine'
+Plugin 'airblade/vim-gitgutter'
 
 "" themes
 Plugin 'junegunn/seoul256.vim'
@@ -132,15 +135,19 @@ nnoremap <silent> ,a :ArgWrap<CR>
 nnoremap <silent> ,p :set paste!<CR>
 
 " win resize
-"let g:winresizer_start_key=',t'
+let g:winresizer_start_key=',x'
 nnoremap <silent> ,x :WinResizerStartResize<CR>
 
 nnoremap <silent> ,t :ThesaurusQueryReplaceCurrentWord<CR>
 
+"  no more errors on :W
+command W write
+command Wq write | quit!
+
 
 " visual
 set background=dark
-colorscheme duoduo
+colorscheme dracula
 
 "" must be after colo!
 hi clear SpellBad
@@ -219,16 +226,23 @@ let g:pear_tree_ft_disabled = ['markdown']
 "" vim markdown
 let g:vim_markdown_new_list_item_indent = 0
 
+"" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
+"" python syntax
+let g:python_highlight_all = 1
+
 
 " filetype specific
 
 autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.html set filetype=html
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
+autocmd Filetype html setlocal ts=2 sw=2 sts=2
 
-autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+"autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 augroup markdown
     autocmd!
@@ -241,6 +255,7 @@ augroup markdown
 augroup end
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 
 
 " MACROS
@@ -286,6 +301,8 @@ ab eaiser easier
 ab typicial typical
 ab certantity certainty
 ab amoung among
+
+
 
 " Return to last edit position when opening files (You want this!)
 augroup return_to_last_edit_position

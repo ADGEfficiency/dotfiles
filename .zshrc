@@ -140,10 +140,11 @@ quote () {
     echo $(sed -n ${LINE}p ${QUOTES})
 }
 
-echo
-quote
-echo
-quote
+# echo
+# quote
+# echo
+# quote
+# echo
 
 #  world models config
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -202,7 +203,7 @@ POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%F{008}\uf460%F{008}'
 
 make_env() {
-  pyenv virtualenv 3.6.8 $1
+  pyenv virtualenv 3.7.2 $1
 	echo $1 > .python-version
 	source activate $1
 	pip install --upgrade pip
