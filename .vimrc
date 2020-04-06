@@ -5,28 +5,30 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"" package manager
 Plugin 'VundleVim/Vundle.vim'
 
+"" core
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'w0rp/ale'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'psliwka/vim-smoothie'
+Plugin 'Valloric/YouCompleteMe'
 
-"  text editing
+"" text editing
+Plugin 'w0rp/ale'
 Plugin 'dkarter/bullets.vim'
-Plugin 'FooSoft/vim-argwrap'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tmsvg/pear-tree'
 Plugin 'ron89/thesaurus_query.vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'FooSoft/vim-argwrap'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'tpope/vim-commentary'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'vim-python/python-syntax'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'pangloss/vim-javascript'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -138,11 +140,13 @@ nnoremap <silent> ,p :set paste!<CR>
 let g:winresizer_start_key=',x'
 nnoremap <silent> ,x :WinResizerStartResize<CR>
 
+" thesaurus 
 nnoremap <silent> ,t :ThesaurusQueryReplaceCurrentWord<CR>
 
-"  no more errors on :W
+"  no more errors on :W, :WQ, :Q
 command W write
 command Wq write | quit!
+command Q quit
 
 
 " visual
@@ -303,6 +307,7 @@ ab certantity certainty
 ab amoung among
 
 
+" MISC
 
 " Return to last edit position when opening files (You want this!)
 augroup return_to_last_edit_position
@@ -312,6 +317,8 @@ augroup return_to_last_edit_position
         \   exe "normal! g`\"" |
         \ endif
 augroup END
+
+" DEV - note system (will probably throw away :)
 
 " problem == only looks at match on file name (not folders as well)
 command LI read !find $HOME/git/programming-resources -name "**vim**" | grep -v "png" | grep -v "jpg" | grep -v ".swp"
