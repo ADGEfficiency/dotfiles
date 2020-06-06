@@ -333,3 +333,6 @@ function! s:MyFunc(myParam)
 endfunction
 
 command! -nargs=1 LINK call s:MyFunc(<f-args>)
+
+cabbrev v vsp
+cabbrev s sp

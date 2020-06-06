@@ -12,6 +12,7 @@ HISTSIZE=100000
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#
 ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -53,6 +54,8 @@ POWERLEVEL9K_PYTHON_ICON='\UE73C'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(command_execution_time pyenv vcs dir newline vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv command_execution_time vi_mode dir)
+
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
 
@@ -121,14 +124,15 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 #
 export FZF_BASE=/usr/local/bin/fzf
-plugins=(git osx python fzf pyenv)
-
+plugins=(git osx python fzf pyenv zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 source /Users/adam/git/dotfiles/.aliases
 
 bindkey -v
 source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
 
 source ~/git/org/org
 source ~/git/mono/adg-aws/ec2.sh
@@ -203,9 +207,9 @@ POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%F{008}\uf460%F{008}'
 
 make_env() {
-  pyenv virtualenv 3.7.2 $1
-	echo $1 > .python-version
-	source activate $1
+  pyenv virtualenv $1 $2
+	echo $2 > .python-version
+	source activate $2
 	pip install --upgrade pip
 }
 

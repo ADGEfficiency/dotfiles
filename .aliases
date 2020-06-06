@@ -1,57 +1,54 @@
+alias wd='cd ~/git/climate-newspaper-downloader'
 
+# be polite!
+alias please='sudo'
 
-alias nemd='cd $HOME/nem-data'
-alias climate='cd $HOME/git/personal/climate-code'
+# files
 alias todo='vim $HOME/git/personal/todo.md'
-alias vim='mvim -v'
-alias vi='mvim -v'
-alias sshpi='ssh pi@192.168.2.129'
+
+# folders
+alias b='cd $HOME/git/adgefficiency.github.io/'
+alias cc='cd $HOME/git/climate-code'
 alias gdrive='cd ~/GoogleDrive'
+alias h='cd ~/git'
+alias ep='cd ~/git/energy-py'
+alias p='cd $HOME/git/personal'
+alias pb='cd $HOME/git/pb'
+alias per='cd ~/git/personal'
+alias nlpd='cd ~/git/climate-nlp'
+alias nlph='cd ~/git/climate-nlp-dev'
+alias prog='cd ~/git/programming-resources'
+alias teach='cd ~/git/teaching-monolith'
 
-alias draft='vim ~/git/adgefficiency.github.io/_posts/2019-12-25-world-models-draft.md'
-
-alias nlphome='cd ~/climate-nlp'
-alias nlpdata='cd ~/climate-nlp'
-
-#  bash
-alias ll='"ls" -aGF'
-alias ls='ls -aGFlopnk'
-
-export DSR='af-H110M-PRO-D'
-
-alias wd='cd ~/git/cook/minicomp-news-stock-prices-solution'
-alias wdd='cd ~/minicomp-news-stock-prices-solution'
-
+# programs
+alias b='cd ..'
 alias c='clear'
-alias c='[ $[$RANDOM % 50] = 0 ] && gtimeout 3 cmatrix; clear || clear'
+alias cat='bat'
 alias cls='clear && ls'
 alias ctree='clear && tree'
+alias less='bat'
+alias ll='"ls" -aGF'
+alias ipy='ipython'
+alias ls='ls -aGFlopnk'
+alias py='python'
+alias rm='rm -rf'
+alias mkdir='mkdir -p'
+alias df='df -h'
+alias tree="tree -I '*pycache*'"
+alias v='mvim -v'
+alias vi='mvim -v'
+alias vim='mvim -v'
 
-alias nlpd='cd /Users/adam/climate-nlp/'
-
-
-alias b='cd ..'
-
+# spelling
 alias exut='exit'
 alias eixt='exit'
 alias exot='exit'
 alias ext='exit'
 alias eit='exit'
 alias q='exit'
+alias zi='vi'
 
-alias rm='rm -rf'
-alias mkdir='mkdir -p'
-alias df='df -h'
-
-alias tree="tree -I '*pycache*'"
-
-#  vim and python
-alias python='python3'
-alias py='python'
-alias ipy='ipython'
-alias dl_you='python ~/git/personal/bash/download_youtube.py'
-
-#  dotfiles
+# dotfiles
 alias aliases='vim ~/git/dotfiles/.aliases'
 alias bashrc='vim ~/git/dotfiles/.bashrc'
 alias bashprofile='vim ~/git/dotfiles/.bash_profile'
@@ -67,7 +64,6 @@ alias ga='git add -u'
 alias gc='git commit -m '
 alias gp='git push origin '
 alias gls='clear && git status'
-alias notes='git add -u && git add * && git commit -m "notes" && git push origin master'
 
 #  tmux
 alias tn='tmux new'
@@ -77,33 +73,3 @@ alias tl='tmux ls'
 alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 alias quotes='vim ~/git/personal/lists/quotes.md'
-
-#  projects
-alias h='cd ~/git'
-alias mono='cd ~/git/mono'
-alias dsr='cd ~/git/mono/dsr'
-alias adg='cd ~/git/adg-website/'
-alias adg2='cd ~/git/adg-website-v2/website'
-alias website='cd ~/website'
-alias agile='cd ~/git/Agile_Data_Code_2/ch04'
-alias dotfiles='cd ~/git/dotfiles'
-alias ep='cd ~/git/energy-py/energypy'
-alias epl='cd ~/git/energy-py-linear'
-alias org='cd ~/git/org'
-alias nemweb='cd ~/git/nemweb'
-alias res='cd ~/git/research'
-alias rl-book='cd ~/git/personal/projects/rl-book'
-alias rl-course='cd ~/git/new-rl-course-dev'
-alias wm='cd ~/git/world-models'
-alias blog='cd ~/git/adgefficiency.github.io'
-alias prog='cd ~/git/programming-resources'
-alias teach='cd ~/git/teaching-monolith'
-
-#  personal
-alias drafts='cd ~/git/personal/projects/drafts'
-alias per='cd ~/git/personal'
-alias principles='cd ~/git/personal/projects/principles'
-alias projects='cd ~/git/personal/projects'
-
-alias sshdsr='ssh af-2@af2-H110M-PRO-D'
-
