@@ -15,7 +15,7 @@ Plugin 'psliwka/vim-smoothie'
 Plugin 'Valloric/YouCompleteMe'
 
 "" text editing
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'dkarter/bullets.vim'
 Plugin 'tmsvg/pear-tree'
 Plugin 'ron89/thesaurus_query.vim'
@@ -29,6 +29,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'pangloss/vim-javascript'
+Plugin 'jiangmiao/auto-pairs'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -49,6 +50,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'sickill/vim-monokai'
 
 call vundle#end()
 filetype plugin indent on
@@ -148,10 +150,14 @@ command W write
 command Wq write | quit!
 command Q quit
 
+"  buffers
+:nnoremap <C-n> :bnext<CR>:redraw<CR>
+:nnoremap <C-p> :bprevious<CR>:redraw<CR>
+
 
 " visual
 set background=dark
-colorscheme dracula
+colorscheme default
 
 "" must be after colo!
 hi clear SpellBad
@@ -232,9 +238,12 @@ let g:vim_markdown_new_list_item_indent = 0
 
 "" vim-javascript
 let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_chain_indent = 1
 
 "" python syntax
 let g:python_highlight_all = 1
+
+
 
 
 " filetype specific
@@ -243,17 +252,15 @@ autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 au BufRead,BufNewFile *.html set filetype=html
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
+autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2 smarttab cindent
 autocmd Filetype html setlocal ts=2 sw=2 sts=2
-
-"autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 augroup markdown
     autocmd!
     autocmd FileType markdown setlocal spell spelllang=en_nz
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
-    autocmd FileType markdown setlocal noexpandtab
+    autocmd FileType markdown setlocal expandtab
 	autocmd FileType markdown let g:indentLine_enabled=0
     set complete+=k
 augroup end
@@ -305,7 +312,7 @@ ab eaiser easier
 ab typicial typical
 ab certantity certainty
 ab amoung among
-
+ab oppourtunity opportunity
 
 " MISC
 

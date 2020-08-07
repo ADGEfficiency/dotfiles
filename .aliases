@@ -8,10 +8,12 @@ alias todo='vim $HOME/git/personal/todo.md'
 
 # folders
 alias b='cd $HOME/git/adgefficiency.github.io/'
+alias back='cd -'
 alias cc='cd $HOME/git/climate-code'
 alias gdrive='cd ~/GoogleDrive'
 alias h='cd ~/git'
 alias ep='cd ~/git/energy-py'
+alias g='grep -rl '
 alias p='cd $HOME/git/personal'
 alias pb='cd $HOME/git/pb'
 alias per='cd ~/git/personal'
@@ -19,6 +21,7 @@ alias nlpd='cd ~/git/climate-nlp'
 alias nlph='cd ~/git/climate-nlp-dev'
 alias prog='cd ~/git/programming-resources'
 alias teach='cd ~/git/teaching-monolith'
+alias syl='cd ~/git/mkdocs-material/syllabus'
 
 # programs
 alias b='cd ..'
@@ -27,8 +30,13 @@ alias cat='bat'
 alias cls='clear && ls'
 alias ctree='clear && tree'
 alias less='bat'
+alias l='"ls" -aGF'
 alias ll='"ls" -aGF'
 alias ipy='ipython'
+alias python='python3'
+alias pip='pip3'
+alias jl='jupyter lab'
+alias je='bundle exec jekyll serve --incremental'
 alias ls='ls -aGFlopnk'
 alias py='python'
 alias rm='rm -rf'
@@ -47,6 +55,7 @@ alias ext='exit'
 alias eit='exit'
 alias q='exit'
 alias zi='vi'
+alias wi='vi'
 
 # dotfiles
 alias aliases='vim ~/git/dotfiles/.aliases'
@@ -60,7 +69,7 @@ alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
 #  git
 alias gs='git status'
-alias ga='git add -u'
+alias ga='git add -u && git add *'
 alias gc='git commit -m '
 alias gp='git push origin '
 alias gls='clear && git status'
@@ -73,3 +82,13 @@ alias tl='tmux ls'
 alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 alias quotes='vim ~/git/personal/lists/quotes.md'
+
+#  grip
+alias grip='source ~/git/personal/github-pass.sh; grip --user $guser --pass $gpass'
+
+alias resize='sips -z '
+alias im='exiv2 '
+alias home='cd ~/git/climate-code'
+
+alias vff="$FZF_DEFAULT_COMMAND | fzf"
+alias vv='vim $(vff)'

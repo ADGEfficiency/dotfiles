@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -52,9 +54,9 @@ POWERLEVEL9K_PYENV_BACKGROUND='none'
 POWERLEVEL9K_PYTHON_ICON='\UE73C'
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv command_execution_time vi_mode vcs dir newline)
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(command_execution_time pyenv vcs dir newline vi_mode)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv command_execution_time vi_mode dir)
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
@@ -99,7 +101,7 @@ POWERLEVEL9K_ETC_ICON=''
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -132,6 +134,8 @@ source /Users/adam/git/dotfiles/.aliases
 bindkey -v
 source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
 
 source ~/git/org/org
@@ -187,6 +191,9 @@ export AWS_LOG_LEVEL=3
 export PATH="/Users/adam/.gem/ruby/2.6.0/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0:$PATH"
 
+# autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -211,9 +218,17 @@ make_env() {
 	echo $2 > .python-version
 	source activate $2
 	pip install --upgrade pip
+	pip install -r requirements.txt
 }
 
 delete_env() {
   pyenv virtualenv-delete $1
 }
 
+# https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142
+# tkinter 
+export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
+export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
+export PATH=$PATH:/usr/local/opt/tcl-tk/bin
+
+#zprof
