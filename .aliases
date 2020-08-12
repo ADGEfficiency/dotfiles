@@ -43,9 +43,17 @@ alias rm='rm -rf'
 alias mkdir='mkdir -p'
 alias df='df -h'
 alias tree="tree -I '*pycache*'"
-alias v='mvim -v'
-alias vi='mvim -v'
-alias vim='mvim -v'
+
+# OS specific
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias v='mvim -v'
+  alias vi='mvim -v'
+  alias vim='mvim -v'
+else
+  alias v='vim -v'
+  alias vi='vim -v'
+  alias vim='vim -v'
+fi
 
 # spelling
 alias exut='exit'
@@ -92,3 +100,7 @@ alias home='cd ~/git/climate-code'
 
 alias vff="$FZF_DEFAULT_COMMAND | fzf"
 alias vv='vim $(vff)'
+
+alias cp='cp -r '
+
+alias sshp='ssh adamg33@ssh.pythonanywhere.com'

@@ -231,4 +231,13 @@ export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PATH=$PATH:/usr/local/opt/tcl-tk/bin
 
-#zprof
+tmuxvideo() {
+	tmux -f /Users/adam/git/dotfiles/.tmux.conf.video new 
+}
+zshrcvideo() {
+	source ~/git/dotfiles/.zshrc.video
+}
+vimvideo() {
+	vim -u /Users/adam/git/dotfiles/.vimrc.video
+}
+

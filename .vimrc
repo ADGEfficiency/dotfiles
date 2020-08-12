@@ -30,6 +30,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/goyo.vim'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -72,7 +73,8 @@ set listchars=tab:>-
 
 syntax enable
 set cursorline
-set number relativenumber
+set number
+set norelativenumber
 
 " yank to clipboard
 set clipboard=unnamed
@@ -247,6 +249,8 @@ let g:python_highlight_all = 1
 
 
 " filetype specific
+
+set expandtab
 
 autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
