@@ -1,4 +1,4 @@
-alias wd='cd ~/git/climate-newspaper-downloader'
+alias wd='cd ~/git/climate-newspaper-downloader/climatedb'
 
 # be polite!
 alias please='sudo'
@@ -69,9 +69,11 @@ alias wi='vi'
 alias aliases='vim ~/git/dotfiles/.aliases'
 alias bashrc='vim ~/git/dotfiles/.bashrc'
 alias bashprofile='vim ~/git/dotfiles/.bash_profile'
+alias dotfiles='cd ~/git/dotfiles'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 alias zshrc='vim ~/git/dotfiles/.zshrc'
+alias zs='source ~/.zshrc'
 
 alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
