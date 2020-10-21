@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 "" core
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'psliwka/vim-smoothie'
 Plugin 'Valloric/YouCompleteMe'
 
 "" text editing
@@ -24,7 +23,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-commentary'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'vim-python/python-syntax'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
@@ -34,6 +33,7 @@ Plugin 'junegunn/goyo.vim'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
+Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
@@ -59,6 +59,11 @@ filetype plugin indent on
 
 " GENERAL
 
+syntax enable
+set cursorline
+set number
+set norelativenumber
+
 "" gf command working with unsaved buffer
 set hidden
 
@@ -70,11 +75,6 @@ set encoding=utf8
 "" show tabs
 set list
 set listchars=tab:>-
-
-syntax enable
-set cursorline
-set number
-set norelativenumber
 
 " yank to clipboard
 set clipboard=unnamed
@@ -141,8 +141,8 @@ nnoremap <silent> ,a :ArgWrap<CR>
 nnoremap <silent> ,p :set paste!<CR>
 
 " win resize
+let g:winresizer_enable = 1
 let g:winresizer_start_key=',x'
-nnoremap <silent> ,x :WinResizerStartResize<CR>
 
 " thesaurus 
 nnoremap <silent> ,t :ThesaurusQueryReplaceCurrentWord<CR>
@@ -154,7 +154,7 @@ command Q quit
 
 "  buffers
 :nnoremap <C-n> :bnext<CR>:redraw<CR>
-:nnoremap <C-p> :bprevious<CR>:redraw<CR>
+:nnoremap <C-t> :bprevious<CR>:redraw<CR>
 
 
 " visual
@@ -182,28 +182,48 @@ hi ALEWarning cterm=underline,bold ctermfg=red
 set laststatus=2
 set noshowmode
 
+" old before buffer in tagline
+" let g:lightline = {
+"       \ 'colorscheme': 'ayu_mirage',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+"       \   'right': [ [ 'percent'],
+"       \              [ 'lineinfo'],
+"       \              [ 'cwd', 'filetype' ] ],
+"       \ },
+"       \ 'component': {
+"       \   'cwd': '%{getcwd()}',
+"       \   'lineinfo': '%3l:%-2v%<',
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'gitbranch#name',
+"       \   'fileformat': 'LightlineFileformat',
+"       \ },
+"       \ }
+" function! LightlineFileformat()
+" 	  return winwidth(0) > 70 ? &fileformat : ''
+" 	endfunction
+
 let g:lightline = {
-      \ 'colorscheme': 'ayu_mirage',
+      \ 'colorscheme': 'one',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent'],
-      \              [ 'lineinfo'],
-      \              [ 'cwd', 'filetype' ] ],
+      \   'left': [ [ 'mode', 'paste', 'buffers', 'modified' ] ],
+      \   'right': [ [ 'filetype' ], [ 'lineinfo'], [ 'percent' ]],
       \ },
-      \ 'component': {
-      \   'cwd': '%{getcwd()}',
-      \   'lineinfo': '%3l:%-2v%<',
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
       \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name',
-      \   'fileformat': 'LightlineFileformat',
-      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
       \ }
 
-function! LightlineFileformat()
-	  return winwidth(0) > 70 ? &fileformat : ''
-	endfunction
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[Nameless]'
+let g:lightline#bufferline#enable_nerdfont = 1
+
 
 "" fzf
 set rtp+=~/.fzf
@@ -214,7 +234,10 @@ let g:indentLine_enabled = 1
 
 "" autocomplete in markdown
 "" https://github.com/ycm-core/YouCompleteMe#options
-let g:ycm_filetype_blacklist = {}
+let g:ycm_filetype_blacklist = {
+      \ 'markdown': 1,
+      \}
+
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
 
@@ -281,6 +304,20 @@ let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\<esc>\<cr>\<tab>"
 
 
+" SHORTCUTS
+
+map <F5> :!python %:p <enter>
+map <F6> :!ipython -i %:p <enter>
+" run line
+map <F7> :'.w !python <enter>
+" run block
+map <F8> :'<,'>w !python <enter>
+map <F9> :e ~/git/dotfiles/.vimrc <enter>
+map <F10> :e ~/git/dotfiles/.zshrc <enter>
+map <F11> :e ~/git/dotfiles/.aliases <enter>
+
+:cnoremap qb bd
+
 " ABBREVIATIONS
 
 ab uncertanity uncertainty
@@ -317,6 +354,8 @@ ab typicial typical
 ab certantity certainty
 ab amoung among
 ab oppourtunity opportunity
+ab stragety strategy
+ab strageties strategies 
 
 " MISC
 
@@ -347,3 +386,6 @@ command! -nargs=1 LINK call s:MyFunc(<f-args>)
 
 cabbrev v vsp
 cabbrev s sp
+
+" ale
+let g:ale_sign_column_always = 1

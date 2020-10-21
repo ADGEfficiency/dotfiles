@@ -8,6 +8,9 @@ export PATH='/Volumes/Julia-1.2.0/Julia-1.2.app/Contents/Resources/julia/bin':$P
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/adam/.oh-my-zsh"
 
+# pytube
+export PATH=$HOME/git/pytube:$PATH
+
 HISTSIZE=100000
 
 # Set name of the theme to load --- if set to "random", it will
@@ -15,7 +18,8 @@ HISTSIZE=100000
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$' '
@@ -54,7 +58,7 @@ POWERLEVEL9K_PYENV_BACKGROUND='none'
 POWERLEVEL9K_PYTHON_ICON='\UE73C'
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv command_execution_time vi_mode vcs dir newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vi_mode vcs dir newline)
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 

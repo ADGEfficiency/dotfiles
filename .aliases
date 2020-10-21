@@ -1,4 +1,13 @@
-alias wd='cd ~/git/climate-newspaper-downloader/climatedb'
+export TODO=$HOME/git/personal/todo.md
+export VIMRC=$HOME/git/dotfiles/.vimrc
+export CHEAT=$HOME/git/personal/lists/cheat_sheet.md
+
+alias wd='cd ~/git/climate-newspaper-downloader'
+alias cookie='cd /Users/adam/git/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
+
+alias search='vim $(fzf)'
+alias s='vim $(fzf)'
+alias v='vim'
 
 # be polite!
 alias please='sudo'
@@ -10,6 +19,8 @@ alias todo='vim $HOME/git/personal/todo.md'
 alias b='cd $HOME/git/adgefficiency.github.io/'
 alias back='cd -'
 alias cc='cd $HOME/git/climate-code'
+alias web='cd $HOME/git/climate-code/website'
+alias website='cd $HOME/git/climate-code/website'
 alias gdrive='cd ~/GoogleDrive'
 alias h='cd ~/git'
 alias ep='cd ~/git/energy-py'
@@ -36,7 +47,7 @@ alias ipy='ipython'
 alias python='python3'
 alias pip='pip3'
 alias jl='jupyter lab'
-alias je='bundle exec jekyll serve --incremental'
+alias je='bundle exec jekyll serve --drafts'
 alias ls='ls -aGFlopnk'
 alias py='python'
 alias rm='rm -rf'
@@ -46,11 +57,9 @@ alias tree="tree -I '*pycache*'"
 
 # OS specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias v='mvim -v'
   alias vi='mvim -v'
   alias vim='mvim -v'
 else
-  alias v='vim -v'
   alias vi='vim -v'
   alias vim='vim -v'
 fi
@@ -70,6 +79,7 @@ alias aliases='vim ~/git/dotfiles/.aliases'
 alias bashrc='vim ~/git/dotfiles/.bashrc'
 alias bashprofile='vim ~/git/dotfiles/.bash_profile'
 alias dotfiles='cd ~/git/dotfiles'
+alias vrc='vim ~/git/dotfiles/.vimrc'
 alias vimrc='vim ~/git/dotfiles/.vimrc'
 alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
 alias zshrc='vim ~/git/dotfiles/.zshrc'
@@ -79,12 +89,14 @@ alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
 #  git
 alias gs='git status'
-alias ga='git add -u && git add *'
+alias ga='git add '
 alias gc='git commit -m '
 alias gp='git push origin '
 alias gls='clear && git status'
+alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 
 #  tmux
+alias t='tmux new'
 alias tn='tmux new'
 alias tl='tmux ls'
 
