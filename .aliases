@@ -1,9 +1,11 @@
 export TODO=$HOME/git/personal/todo.md
 export VIMRC=$HOME/git/dotfiles/.vimrc
 export CHEAT=$HOME/git/personal/lists/cheat_sheet.md
+export PER=$HOME/git/personal/
 
 alias wd='cd ~/git/climate-newspaper-downloader'
 alias cookie='cd /Users/adam/git/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
+alias ideas='cd /Users/adam/git/climate-code/notes/content'
 
 alias search='vim $(fzf)'
 alias s='vim $(fzf)'
@@ -21,10 +23,10 @@ alias back='cd -'
 alias cc='cd $HOME/git/climate-code'
 alias web='cd $HOME/git/climate-code/website'
 alias website='cd $HOME/git/climate-code/website'
-alias gdrive='cd ~/GoogleDrive'
+alias gdr='cd ~/GoogleDrive'
 alias h='cd ~/git'
 alias ep='cd ~/git/energy-py'
-alias g='grep -rl '
+alias g='grep -irl '
 alias p='cd $HOME/git/personal'
 alias pb='cd $HOME/git/pb'
 alias per='cd ~/git/personal'
@@ -88,11 +90,12 @@ alias zs='source ~/.zshrc'
 alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
 #  git
-alias gs='git status'
+alias gs='git status --short'
 alias ga='git add '
 alias gc='git commit -m '
+alias gca='git commit --amend'
 alias gp='git push origin '
-alias gls='clear && git status'
+alias gls='clear && gs'
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 
 #  tmux

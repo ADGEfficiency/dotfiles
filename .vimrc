@@ -106,8 +106,6 @@ set ts=2 sw=2 sts=2
 
 " REMAPS
 
-let mapleader=","
-
 "" scrolling speed
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -142,9 +140,9 @@ nnoremap <silent> ,p :set paste!<CR>
 
 " win resize
 let g:winresizer_enable = 1
-let g:winresizer_start_key=',x'
+nnoremap <silent> ,x :WinResizerStartResize<CR>
 
-" thesaurus 
+" thesaurus
 nnoremap <silent> ,t :ThesaurusQueryReplaceCurrentWord<CR>
 
 "  no more errors on :W, :WQ, :Q
@@ -231,6 +229,7 @@ map <space> :Files /Users/adam/git/<CR>
 
 "" indent line
 let g:indentLine_enabled = 1
+let g:indentLine_setConceal = 0
 
 "" autocomplete in markdown
 "" https://github.com/ycm-core/YouCompleteMe#options
@@ -306,15 +305,20 @@ let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pa
 
 " SHORTCUTS
 
+"  run file
 map <F5> :!python %:p <enter>
-map <F6> :!ipython -i %:p <enter>
-" run line
-map <F7> :'.w !python <enter>
 " run block
-map <F8> :'<,'>w !python <enter>
+map <F6> :'<,'>w !python <enter>
+
+" "run file interactive
+" map <F6> :!ipython -i %:p <enter>
+" "run line
+" map <F7> :'.w !python <enter>
+
 map <F9> :e ~/git/dotfiles/.vimrc <enter>
 map <F10> :e ~/git/dotfiles/.zshrc <enter>
 map <F11> :e ~/git/dotfiles/.aliases <enter>
+map <F12> :e ~/git/personal/lists/cheat_sheet.md <enter>
 
 :cnoremap qb bd
 
@@ -336,6 +340,7 @@ ab contraditions contradictions
 ab unprecented unprecedented
 ab specalization specialization
 ab recieved received
+ab recieves receives 
 ab eaisly easily
 ab detailled detailed
 ab gurantee guarantee
@@ -355,7 +360,10 @@ ab certantity certainty
 ab amoung among
 ab oppourtunity opportunity
 ab stragety strategy
-ab strageties strategies 
+ab strageties strategies
+ab intitution intuition
+ab infomation information
+ab timestup timestep
 
 " MISC
 

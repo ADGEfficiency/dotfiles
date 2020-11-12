@@ -152,8 +152,8 @@ quote () {
     echo $(sed -n ${LINE}p ${QUOTES})
 }
 
-# echo
-# quote
+#echo
+quote
 # echo
 # quote
 # echo
