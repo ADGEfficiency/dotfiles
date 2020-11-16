@@ -24,6 +24,7 @@ alias cc='cd $HOME/git/climate-code'
 alias web='cd $HOME/git/climate-code/website'
 alias website='cd $HOME/git/climate-code/website'
 alias gdr='cd ~/GoogleDrive'
+alias gdr2='cd ~/GoogleDriveadgefficiency'
 alias h='cd ~/git'
 alias ep='cd ~/git/energy-py'
 alias g='grep -irl '
@@ -90,12 +91,12 @@ alias zs='source ~/.zshrc'
 alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
 
 #  git
-alias gs='git status --short'
+alias gs='git status'
 alias ga='git add '
 alias gc='git commit -m '
 alias gca='git commit --amend'
 alias gp='git push origin '
-alias gls='clear && gs'
+alias gls='clear && git status --short'
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 
 #  tmux
