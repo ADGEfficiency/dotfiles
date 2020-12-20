@@ -5,6 +5,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH='/Volumes/Julia-1.2.0/Julia-1.2.app/Contents/Resources/julia/bin':$PATH
 
+# brew
+export PATH="/usr/local/sbin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/adam/.oh-my-zsh"
 
@@ -245,3 +248,10 @@ vimvideo() {
 	vim -u /Users/adam/git/dotfiles/.vimrc.video
 }
 
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
+export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
+export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/shims:$PATH"
