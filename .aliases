@@ -1,45 +1,47 @@
-export TODO=$HOME/git/personal/todo.md
-export VIMRC=$HOME/git/dotfiles/.vimrc
-export CHEAT=$HOME/git/personal/lists/cheat_sheet.md
-export PER=$HOME/git/personal/
+export TODO=$HME/personal/todo.md
+export VIMRC=$HME/dotfiles/.vimrc
+export CHEAT=$HME/personal/lists/cheat_sheet.md
+export PER=$HME/personal/
 export GDR=$HOME/GoogleDrive
-
-alias wd='cd ~/git/climate-newspaper-downloader'
-alias cookie='cd /Users/adam/git/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
-alias similar='cd /Users/adam/git/similar-day-forecasting-vae'
-alias ideas='vi /Users/adam/git/climate-code/notes/content/ideas/readme.md'
 
 alias search='vim $(fzf)'
 alias s='vim $(fzf)'
 alias v='vim'
 
+alias cp='cp -r '
+alias sshp='ssh adamg33@ssh.pythonanywhere.com'
+
 # be polite!
 alias please='sudo'
 
 # files
-alias todo='vim $HOME/git/personal/todo.md'
+alias todo='vim $HME/personal/todo.md'
+alias ideas='vim /Users/adam/git/climate-code/notes/content/ideas/readme.md'
 
 # folders
-alias blog='cd $HOME/git/adgefficiency.github.io/'
+alias wd='cd $HME/climate-newspaper-downloader'
+alias cookie='cd /Users/adam/git/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
+alias similar='cd /Users/adam/git/similar-day-forecasting-vae'
+alias blog='cd $HME/adgefficiency.github.io/'
 alias back='cd -'
-alias cc='cd $HOME/git/climate-code'
-alias web='cd $HOME/git/climate-code/website'
-alias website='cd $HOME/git/climate-code/website'
+alias cc='cd $HME/climate-code'
+alias web='cd $HME/climate-code/website'
+alias website='cd $HME/climate-code/website'
 alias gdr='cd ~/GoogleDrive'
 alias gdr2='cd ~/GoogleDriveadgefficiency'
-alias h='cd ~/git'
-alias ep='cd ~/git/energy-py'
-alias ep2='cd ~/git/energy-py-two'
+alias h='cd $HME'
+alias ep='cd $HME/energy-py'
+alias ep2='cd $HME/energy-py-two'
 alias g='grep -irl '
-alias p='cd $HOME/git/personal'
-alias pb='cd $HOME/git/pb'
-alias new-pb='cd $HOME/git/new-pb/Bonso'
-alias per='cd ~/git/personal'
-alias nlpd='cd ~/git/climate-nlp'
-alias nlph='cd ~/git/climate-nlp-dev'
-alias prog='cd ~/git/programming-resources'
-alias teach='cd ~/git/teaching-monolith'
-alias syl='cd ~/git/mkdocs-material/syllabus'
+alias p='cd $HME/personal'
+alias pb='cd $HME/pb'
+alias new-pb='cd $HME/new-pb/Bonso'
+alias per='cd $HME/personal'
+alias nlpd='cd $HME/climate-nlp'
+alias nlph='cd $HME/climate-nlp-dev'
+alias prog='cd $HME/programming-resources'
+alias teach='cd $HME/teaching-monolith'
+alias syl='cd $HME/mkdocs-material/syllabus'
 
 # programs
 alias b='cd ..'
@@ -83,17 +85,17 @@ alias zi='vi'
 alias wi='vi'
 
 # dotfiles
-alias aliases='vim ~/git/dotfiles/.aliases'
-alias bashrc='vim ~/git/dotfiles/.bashrc'
-alias bashprofile='vim ~/git/dotfiles/.bash_profile'
-alias dotfiles='cd ~/git/dotfiles'
-alias vrc='vim ~/git/dotfiles/.vimrc'
-alias vimrc='vim ~/git/dotfiles/.vimrc'
-alias tmuxc='vim ~/git/dotfiles/.tmux.conf'
-alias zshrc='vim ~/git/dotfiles/.zshrc'
+alias aliases='vim $HME/dotfiles/.aliases'
+alias bashrc='vim $HME/dotfiles/.bashrc'
+alias bashprofile='vim $HME/dotfiles/.bash_profile'
+alias dotfiles='cd $HME/dotfiles'
+alias vrc='vim $HME/dotfiles/.vimrc'
+alias vimrc='vim $HME/dotfiles/.vimrc'
+alias tmuxc='vim $HME/dotfiles/.tmux.conf'
+alias zshrc='vim $HME/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
 
-alias ec2='vim ~/git/mono/adg-aws/ec2.sh'
+alias ec2='vim $HME/mono/adg-aws/ec2.sh'
 
 #  git
 alias gs='git status'
@@ -110,20 +112,9 @@ alias tn='tmux new'
 alias tl='tmux ls'
 
 #  misc
-alias cheat='vim ~/git/personal/lists/cheat_sheet.md'
+alias cheat='vim $HME/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
-alias quotes='vim ~/git/personal/lists/quotes.md'
+alias quotes='vim $HME/personal/lists/quotes.md'
 
 #  grip
-alias grip='source ~/git/personal/github-pass.sh; grip --user $guser --pass $gpass'
-
-alias resize='sips -z '
-alias im='exiv2 '
-alias home='cd ~/git/climate-code'
-
-alias vff="$FZF_DEFAULT_COMMAND | fzf"
-alias vv='vim $(vff)'
-
-alias cp='cp -r '
-
-alias sshp='ssh adamg33@ssh.pythonanywhere.com'
+alias grip='source $HME/personal/github-pass.sh; grip --user $guser --pass $gpass'
