@@ -1,5 +1,3 @@
-#zmodload zsh/zprof
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -21,8 +19,7 @@ HISTSIZE=100000
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$' '
@@ -136,8 +133,6 @@ export FZF_BASE=/usr/local/bin/fzf
 plugins=(git osx python fzf pyenv zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-source /Users/adam/git/dotfiles/.aliases
-
 bindkey -v
 source ~/.fzf.zsh
 
@@ -145,18 +140,17 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
 
-source ~/git/org/org
-source ~/git/mono/adg-aws/ec2.sh
+# source ~/dotfiles/ec2.sh
 
-quote () {
-    QUOTES="$HOME/git/personal/lists/quotes_snippets.md"
-    NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-    LINE=$((1 + RANDOM % $NUM_LINES))
-    echo $(sed -n ${LINE}p ${QUOTES})
-}
+# quote () {
+#     QUOTES="$HOME/git/personal/lists/quotes_snippets.md"
+#     NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+#     LINE=$((1 + RANDOM % $NUM_LINES))
+#     echo $(sed -n ${LINE}p ${QUOTES})
+# }
 
 #echo
-quote
+#quote
 # echo
 # quote
 # echo
@@ -203,8 +197,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="012"
 POWERLEVEL9K_DIR_FOREGROUND='010'
@@ -248,6 +240,16 @@ vimvideo() {
 	vim -u /Users/adam/git/dotfiles/.vimrc.video
 }
 
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# readline
+export LDFLAGS="-L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/readline/include"
+export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
+
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
@@ -255,3 +257,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/shims:$PATH"
+
+#  init pyenv
+eval "$(pyenv init -)"

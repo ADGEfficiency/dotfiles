@@ -44,7 +44,6 @@ alias syl='cd ~/git/mkdocs-material/syllabus'
 # programs
 alias b='cd ..'
 alias c='clear'
-alias cat='bat'
 alias cls='clear && ls'
 alias ctree='clear && tree'
 alias less='bat'
