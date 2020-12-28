@@ -1,0 +1,15 @@
+**/*.DS_Store
+**/*.egg
+**/*.pytest_cache
+**/*.swp
+**/*.hypothesis
+**/*.ipynb_checkpoints
+**/*.egg-info
+dist
+**/__pycache__
+**/*.pyc
+.python-version
+*.virtual_documents/
+.eslintrc.js
+node_modules/
+package-lock.json
