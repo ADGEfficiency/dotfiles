@@ -225,7 +225,7 @@ let g:lightline#bufferline#enable_nerdfont = 1
 
 "" fzf
 set rtp+=~/.fzf
-map <space> :Files /Users/adam/git/<CR>
+map <space> :Files $HOME<CR>
 
 "" indent line
 let g:indentLine_enabled = 1
