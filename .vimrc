@@ -226,6 +226,8 @@ let g:lightline#bufferline#enable_nerdfont = 1
 "" fzf
 set rtp+=~/.fzf
 map <space> :Files $HOME<CR>
+let g:fzf_preview_window = 'right:70%:hidden'
+let g:fzf_height = '30%'
 
 "" indent line
 let g:indentLine_enabled = 1
@@ -308,18 +310,18 @@ let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pa
 
 "  run file
 map <F5> :!python %:p <enter>
-" "run file interactive
-map <F6> :!ipython -i %:p <enter>
 " run block
-map <F7> :'<,'>w !python <enter>
+map <F6> :'<,'>w !python <enter>
 
+" " "run file interactive
+" map <F6> :!ipython -i %:p <enter>
 " "run line
 " map <F7> :'.w !python <enter>
 
-map <F9> :e ~/git/dotfiles/.vimrc <enter>
-map <F10> :e ~/git/dotfiles/.zshrc <enter>
-map <F11> :e ~/git/dotfiles/.aliases <enter>
-map <F12> :e ~/git/personal/lists/cheat_sheet.md <enter>
+map <F8> :e ~/dotfiles/.vimrc <enter>
+map <F9> :e ~/dotfiles/.zshrc <enter>
+map <F10> :e ~/dotfiles/.aliases <enter>
+map <F12> :e ~/personal/lists/cheat_sheet.md <enter>
 
 :cnoremap qb bd
 
@@ -400,3 +402,6 @@ cabbrev s sp
 
 " ale
 let g:ale_sign_column_always = 1
+
+"  ignore paths
+set wildignore+=*.egg-info/**

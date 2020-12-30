@@ -128,7 +128,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#
+
 export FZF_BASE=/usr/local/bin/fzf
 plugins=(git osx python fzf pyenv zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
@@ -224,12 +224,6 @@ delete_env() {
   pyenv virtualenv-delete $1
 }
 
-# https://stackoverflow.com/questions/22550068/python-not-configured-for-tk/31299142
-# tkinter 
-export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
-export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
-export PATH=$PATH:/usr/local/opt/tcl-tk/bin
-
 tmuxvideo() {
 	tmux -f /Users/adam/git/dotfiles/.tmux.conf.video new 
 }
@@ -240,24 +234,14 @@ vimvideo() {
 	vim -u /Users/adam/git/dotfiles/.vimrc.video
 }
 
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/tcl-tk/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip3/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/tcl-tk/include"
+
+export PATH=$PATH:/usr/local/opt/tcl-tk/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-
-# readline
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
-
-# zlib
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
-export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
-export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
+export PATH="/usr/local/opt/bzip2/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -268,7 +252,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # ruby
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 #  defaults for aliases
 export HME=$HOME
+
+#  autocomplete ignores
+#  https://www.reddit.com/r/zsh/comments/5ghouo/is_there_a_way_to_have_zsh_ignore_certain_file/
+fignore=(.egg-info)
