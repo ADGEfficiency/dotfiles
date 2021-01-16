@@ -16,12 +16,15 @@ alias please='sudo'
 
 # files
 alias todo='vim $HME/personal/todo.md'
-alias ideas='vim /Users/adam/git/climate-code/notes/content/ideas/readme.md'
+alias ideas='vim $HME/climate-code/notes/content/ideas/readme.md'
 
 # folders
 alias wd='cd $HME/climate-news-db'
-alias cookie='cd /Users/adam/git/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
-alias similar='cd /Users/adam/git/similar-day-forecasting-vae'
+alias grid='cd $HME/gridcog'
+alias gridp='cd $HME/gridcog-personal'
+alias challenge='cd $HME/gridcognition-challenge'
+alias cookie='cd $HME/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
+alias similar='cd $HME/similar-day-forecasting-vae'
 alias blog='cd $HME/adgefficiency.github.io/'
 alias back='cd -'
 alias cc='cd $HME/climate-code'
@@ -64,15 +67,6 @@ alias tree="tree -I '*pycache*'"
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'
 alias jed='bundle exec jekyll serve --drafts > /dev/null 2>&1 &'
 
-# OS specific
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias vi='mvim -v'
-  alias vim='mvim -v'
-else
-  alias vi='vim -v'
-  alias vim='vim -v'
-fi
-
 # spelling
 alias exut='exit'
 alias eixt='exit'
@@ -84,14 +78,16 @@ alias zi='vi'
 alias wi='vi'
 
 # dotfiles
+alias dots='cd $HME/dotfiles'
+alias dotfiles=dots
 alias aliases='vim $HME/dotfiles/.aliases'
 alias bashrc='vim $HME/dotfiles/.bashrc'
 alias bashprofile='vim $HME/dotfiles/.bash_profile'
-alias dots='cd $HME/dotfiles'
 alias vrc='vim $HME/dotfiles/.vimrc'
 alias vimrc='vim $HME/dotfiles/.vimrc'
 alias tmuxc='vim $HME/dotfiles/.tmux.conf'
 alias z='vim $HME/dotfiles/.zshrc'
+alias zshrc=z
 alias zs='source ~/.zshrc'
 
 alias ec2='vim $HME/mono/adg-aws/ec2.sh'

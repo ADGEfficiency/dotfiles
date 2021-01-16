@@ -136,7 +136,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!Music/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
 
@@ -188,9 +188,6 @@ export AWS_LOG_LEVEL=3
 #
 # Set username to consider a default context, which by default will not be shown.
 # https://github.com/bhilburn/powerlevel9k/blob/next/segments/context/README.md
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/Users/adam/.gem/ruby/2.6.0/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0:$PATH"
 
 # autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
@@ -241,7 +238,6 @@ export PATH=$PATH:/usr/local/opt/tcl-tk/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export PATH="/usr/local/opt/bzip2/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -252,6 +248,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # ruby
+eval "$(rbenv init -)"
+rbenv shell 2.7.2
 
 #  defaults for aliases
 export HME=$HOME
