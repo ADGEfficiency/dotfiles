@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 "" core
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 "" text editing
 Plugin 'dense-analysis/ale'
@@ -94,7 +94,7 @@ set autoindent
 set smartindent
 
 set foldlevelstart=20
-set conceallevel=0
+set conceallevel=1
 
 set backspace=indent,eol,start
 
@@ -230,30 +230,29 @@ let g:fzf_height = '30%'
 let g:indentLine_enabled = 1
 let g:indentLine_setConceal = 0
 
-"" autocomplete in markdown
-"" https://github.com/ycm-core/YouCompleteMe#options
-let g:ycm_filetype_blacklist = {
-      \ 'markdown': 1,
-      \}
+"" coc
+let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-yaml', 'coc-jedi']
 
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 0
+" use tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:ycm_max_num_candidates = 10
-let g:ycm_max_num_identifier_candidates = 10
-let g:ycm_auto_trigger = 1
-let g:ycm_auto_hover = 1
 
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
 
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-set completeopt=menu
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+set completeopt=menu,preview
 
 "" pear tree
 """ needed to get markdown list stop working
@@ -287,7 +286,7 @@ augroup markdown
     autocmd FileType markdown setlocal noautoindent
     autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal expandtab
-	autocmd FileType markdown let g:indentLine_enabled=0
+	  autocmd FileType markdown let g:indentLine_enabled=0
     set complete+=k
 augroup end
 
@@ -399,6 +398,8 @@ cabbrev s sp
 
 " ale
 let g:ale_sign_column_always = 1
+let g:ale_disable_lsp = 1
+let g:ale_set_highlights = 0
 
 "  ignore paths
 set wildignore+=*.egg-info/**

@@ -58,7 +58,7 @@ POWERLEVEL9K_PYENV_BACKGROUND='none'
 POWERLEVEL9K_PYTHON_ICON='\UE73C'
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vi_mode vcs dir newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda pyenv vi_mode vcs dir newline)
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -140,7 +140,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!Music/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
 
-# source ~/dotfiles/ec2.sh
+source ~/dotfiles/aws/ec2.sh
 
 # quote () {
 #     QUOTES="$HOME/git/personal/lists/quotes_snippets.md"
@@ -257,3 +257,21 @@ export HME=$HOME
 #  autocomplete ignores
 #  https://www.reddit.com/r/zsh/comments/5ghouo/is_there_a_way_to_have_zsh_ignore_certain_file/
 fignore=(.egg-info)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# disable automatic init of base
+conda config --set auto_activate_base false

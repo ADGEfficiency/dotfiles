@@ -27,15 +27,15 @@ export ADGAWSPROFILE="adg"
 
 run-instance() {
   INSTANCE=${1:-t2.micro}
-  SIZE=${2:-8}
+  SIZE=${2:-32}
   IAM="access-s3"
 
-  INSTANCEID=$(aws ec2 run-instances --profile $ADGAWSPROFILE --image-id $AMI --count 1 --instance-type $INSTANCE --key-name $KEYNAME --user-data file://$USERDATA --output text --iam-instance-profile Name=$IAM | awk '/INSTANCE/{print $7}')
-  echo "INSTANCEID $INSTANCEID" > /dev/stderr
-  sleep 10
-  VOLID=$(aws ec2 describe-volumes --profile $ADGAWSPROFILE --filters Name=attachment.instance-id,Values=$INSTANCEID --output text | awk '/VOLUMES/{print $9}') > /dev/stderr
+  INSTANCEID=$(aws ec2 run-instances --profile $ADGAWSPROFILE --image-id $AMI --count 1 --instance-type $INSTANCE --key-name $KEYNAME --user-data file://$USERDATA --output json --iam-instance-profile Name=$IAM | jq -r '.Instances[0].InstanceId')
+  echo "\nINSTANCEID $INSTANCEID"
+  sleep 20
+  VOLID=$(aws ec2 describe-volumes --profile $ADGAWSPROFILE --filters Name=attachment.instance-id,Values=$INSTANCEID --output json | jq -r '.Volumes[0].VolumeId')
+  echo "\nVOLID $VOLID"
   aws ec2 modify-volume --profile $ADGAWSPROFILE --volume-id $VOLID --size $SIZE > /dev/stderr
-  echo $INSTANCEID
 }
 
 running-instances () {

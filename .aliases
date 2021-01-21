@@ -20,9 +20,6 @@ alias ideas='vim $HME/climate-code/notes/content/ideas/readme.md'
 
 # folders
 alias wd='cd $HME/climate-news-db'
-alias grid='cd $HME/gridcog'
-alias gridp='cd $HME/gridcog-personal'
-alias challenge='cd $HME/gridcognition-challenge'
 alias cookie='cd $HME/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
 alias similar='cd $HME/similar-day-forecasting-vae'
 alias blog='cd $HME/adgefficiency.github.io/'
@@ -90,7 +87,7 @@ alias z='vim $HME/dotfiles/.zshrc'
 alias zshrc=z
 alias zs='source ~/.zshrc'
 
-alias ec2='vim $HME/mono/adg-aws/ec2.sh'
+alias ec2='vim $HME/dotfiles/aws/ec2.sh'
 
 #  git
 alias gs='git status'
@@ -113,3 +110,11 @@ alias quotes='vim $HME/personal/lists/quotes.md'
 
 #  grip
 alias grip='source $HME/personal/github-pass.sh; grip --user $guser --pass $gpass'
+
+
+# gridcog
+alias act='conda activate gridcog'
+alias dact='conda deactivate'
+alias grid='cd $HME/gridcog'
+alias gridp='cd $HME/gridcog-personal'
+alias res='cd $HME/research'
