@@ -1,9 +1,16 @@
+## jupyter lab
+
 pip install jupyterlab==1.2.0
 jupyter labextension install jupyterlab_vim
 
 ## ipython
 
-profile_default/startup/start.py profile_default/ipython_config.py
+```sh
+cp ~/dotfiles/ipython/start.py ~/.ipython/profile_default/startup/start.py 
+mkdir -p ~/dotfiles/ipython/profile_default/
+cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+```
+
 
 ## vim
 
