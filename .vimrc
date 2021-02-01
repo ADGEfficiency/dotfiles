@@ -237,6 +237,28 @@ let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-t
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" https://www.reddit.com/r/neovim/comments/ejznuz/what_do_your_coc_settings_look_like/
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=no
+endif
+
 
 
 " Use K to show documentation in preview window.
