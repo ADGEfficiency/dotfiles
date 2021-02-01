@@ -94,14 +94,18 @@ set autoindent
 set smartindent
 
 set foldlevelstart=20
-set conceallevel=1
 
 set backspace=indent,eol,start
 
 set ts=2 sw=2 sts=2
 
+"" ignore paths
+set wildignore+=*.egg-info/**
+
 
 " REMAPS
+cabbrev v vsp
+cabbrev s sp
 
 "" scrolling speed
 nnoremap <C-e> 3<C-e>
@@ -227,8 +231,8 @@ let g:fzf_preview_window = 'right:70%:hidden'
 let g:fzf_height = '30%'
 
 "" indent line
+set conceallevel=1
 let g:indentLine_enabled = 1
-let g:indentLine_setConceal = 0
 
 "" coc
 let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-yaml', 'coc-jedi']
@@ -309,6 +313,7 @@ augroup markdown
     autocmd FileType markdown setlocal nosmartindent
     autocmd FileType markdown setlocal expandtab
 	  autocmd FileType markdown let g:indentLine_enabled=0
+	  autocmd FileType markdown setlocal conceallevel=0
     set complete+=k
 augroup end
 
@@ -339,6 +344,7 @@ map <F6> :'<,'>w !python <enter>
 map <F8> :e ~/dotfiles/.vimrc <enter>
 map <F9> :e ~/dotfiles/.zshrc <enter>
 map <F10> :e ~/dotfiles/.aliases <enter>
+noremap <F11> <Esc>:syntax sync fromstart<CR>
 map <F12> :e ~/personal/lists/cheat_sheet.md <enter>
 
 :cnoremap qb bd
@@ -361,7 +367,7 @@ ab contraditions contradictions
 ab unprecented unprecedented
 ab specalization specialization
 ab recieved received
-ab recieves receives 
+ab recieves receives
 ab eaisly easily
 ab detailled detailed
 ab gurantee guarantee
@@ -399,29 +405,9 @@ augroup return_to_last_edit_position
         \ endif
 augroup END
 
-" DEV - note system (will probably throw away :)
-
-" problem == only looks at match on file name (not folders as well)
-command LI read !find $HOME/git/programming-resources -name "**vim**" | grep -v "png" | grep -v "jpg" | grep -v ".swp"
-
-" all good :)
-command LIN read !grep -Rl --include="*vim*" vim $HOME/git/programming-resources
-
-function! s:MyFunc(myParam)
-	echom a:myParam
-	let l:incl=a:myParam
-	read !grep -Rl --include="*vim*" l:incl $HOME/git/programming-resources
-endfunction
-
-command! -nargs=1 LINK call s:MyFunc(<f-args>)
-
-cabbrev v vsp
-cabbrev s sp
 
 " ale
 let g:ale_sign_column_always = 1
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 
-"  ignore paths
-set wildignore+=*.egg-info/**
