@@ -58,7 +58,7 @@ POWERLEVEL9K_PYENV_BACKGROUND='none'
 POWERLEVEL9K_PYTHON_ICON='\UE73C'
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vi_mode vcs dir newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda pyenv vi_mode vcs dir newline)
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -274,4 +274,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # disable automatic init of base
-conda config --set auto_activate_base false
+conda deactivate
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}

@@ -102,6 +102,8 @@ set ts=2 sw=2 sts=2
 "" ignore paths
 set wildignore+=*.egg-info/**
 
+set mouse=a
+
 
 " REMAPS
 cabbrev v vsp
@@ -154,6 +156,10 @@ command Q quit
 "  buffers
 :nnoremap <C-n> :bnext<CR>:redraw<CR>
 :nnoremap <C-t> :bprevious<CR>:redraw<CR>
+
+" leader to ,
+let mapleader = ","
+let g:mapleader = ","
 
 
 " visual

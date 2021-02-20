@@ -1,0 +1,17 @@
+{
+  "diagnostic.displayByAle": true,
+  "diagnostic.enableSign": false,
+  "jedi.enable": true,
+  "jedi.startupMessage": false,
+  "jedi.markupKindPreferred": "plaintext",
+  "jedi.trace.server": "off",
+  "jedi.jediSettings.autoImportModules": ["numpy", "pandas", "os"],
+  "jedi.executable.command": "~/.pyenv/versions/general/bin/jedi-language-server",
+  "jedi.executable.args": [],
+  "jedi.completion.disableSnippets": false,
+  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didSave": true,
+  "jedi.workspace.extraPaths": []
+}

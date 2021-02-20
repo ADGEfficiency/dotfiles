@@ -4,6 +4,8 @@ export CHEAT=$HME/personal/lists/cheat_sheet.md
 export PER=$HME/personal/
 export GDR=$HOME/GoogleDrive
 
+export LAP=192.168.178.195
+
 alias search='vim $(fzf)'
 alias s='vim $(fzf)'
 alias v='vim'
@@ -118,3 +120,6 @@ alias dact='conda deactivate'
 alias grid='cd $HME/gridcog'
 alias gridp='cd $HME/gridcog-personal'
 alias res='cd $HME/research'
+
+alias wd='$HME/research/research/uncertain'
+
