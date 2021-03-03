@@ -115,11 +115,11 @@ alias grip='source $HME/personal/github-pass.sh; grip --user $guser --pass $gpas
 
 
 # gridcog
-alias act='conda activate gridcog'
-alias dact='conda deactivate'
+alias ca='conda activate gridcog'
+alias dac='conda deactivate'
 alias grid='cd $HME/gridcog'
 alias gridp='cd $HME/gridcog-personal'
-alias res='cd $HME/research'
+alias res='cd $HME/research/research'
 
 alias wd='$HME/research/research/uncertain'
 

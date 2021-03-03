@@ -36,6 +36,7 @@ Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
 Plugin 'arzg/vim-corvine'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'pedrohdz/vim-yaml-folds'
 
 "" themes
 Plugin 'junegunn/seoul256.vim'
@@ -305,7 +306,7 @@ let g:python_highlight_all = 1
 
 set expandtab
 
-autocmd FileType python setlocal expandtab colorcolumn=80 ts=4 sw=4 sts=4
+autocmd FileType python setlocal expandtab colorcolumn=100 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=2 sw=2 expandtab
 au BufRead,BufNewFile *.html set filetype=html
