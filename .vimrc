@@ -270,7 +270,16 @@ else
   set signcolumn=no
 endif
 
+set conceallevel=1
+let g:indentLine_conceallevel=1
 
+let g:indentLine_color_term = 239
+
+"" autocomplete in markdown
+"" https://github.com/ycm-core/YouCompleteMe#options
+let g:ycm_filetype_blacklist = {
+      \ 'markdown': 1,
+\}
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
