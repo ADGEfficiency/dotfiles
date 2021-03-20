@@ -285,3 +285,7 @@ tunnel() {
   port=$1
   userhost=$2
 }
+
+hours() {
+  python ~/personal/scripts/hours.py
+}
