@@ -1,12 +1,9 @@
-export TODO=$HME/personal/todo.md
+export todo=$HME/personal/todo.md
 export VIMRC=$HME/dotfiles/.vimrc
 export CHEAT=$HME/personal/lists/cheat_sheet.md
 export PER=$HME/personal/
 export GDR=$HOME/GoogleDrive
 
-export LAP=192.168.178.195
-
-alias search='vim $(fzf)'
 alias s='vim $(fzf)'
 alias v='vim'
 
@@ -32,8 +29,9 @@ alias website='cd $HME/climate-code/website'
 alias gdr='cd ~/GoogleDrive'
 alias gdr2='cd ~/GoogleDriveadgefficiency'
 alias h='cd $HME'
-alias ep='cd $HME/energy-py'
-alias ep2='cd $HME/energy-py-two'
+alias ep='cd $HME/energy-py-3-dev'
+alias epl='cd $HME/energy-py-linear'
+alias expt='cd $HME/energy-py-experiments/experiment-0
 alias g='grep -irl '
 alias p='cd $HME/personal'
 alias pb='cd $HME/pb'
@@ -113,13 +111,11 @@ alias quotes='vim $HME/personal/lists/quotes.md'
 #  grip
 alias grip='source $HME/personal/github-pass.sh; grip --user $guser --pass $gpass'
 
-
 # gridcog
 alias ca='conda activate gridcog'
 alias dac='conda deactivate'
 alias grid='cd $HME/gridcog'
+alias gridd='cd $HME/gridcog/gridcog/data_ingestion'
+alias perg='cd $HME/gridcog-personal'
 alias gridp='cd $HME/gridcog-personal'
 alias res='cd $HME/research/research'
-
-alias wd='$HME/research/research/uncertain'
-

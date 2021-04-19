@@ -162,6 +162,9 @@ command Q quit
 let mapleader = ","
 let g:mapleader = ","
 
+" paste absolute file path
+nnoremap <silent> ,r :r! echo %:p<CR>
+
 
 " visual
 set background=dark
@@ -350,16 +353,16 @@ let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pa
 "  run file
 map <F5> :!python %:p <enter>
 " run block
-"map <F6> :'<,'>w !python <enter>
+map <F9> :'<,'>w !python <enter>
 
-" " "run file interactive
+" run file interactive
 " map <F6> :!ipython -i %:p <enter>
 " "run line
 " map <F7> :'.w !python <enter>
 
+map <F6> :1,$d <enter>
 map <F7> :%y+ <enter>
-map <F8> :1,$d <enter>
-map <F9> :e ~/dotfiles/.vimrc <enter>
+map <F8> :e ~/dotfiles/.vimrc <enter>
 
 "map <F9> :e ~/dotfiles/.zshrc <enter>
 "map <F10> :e ~/dotfiles/.aliases <enter>
