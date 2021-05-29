@@ -131,5 +131,5 @@ parquet() {
 tunnel() {
   port=$1
   userhost=$2
-  ssh -N -L "localhost:${port}:localhost:${port}" $userhost
+  ssh -i ~/.ssh/adam-aws-may-2020.pem -N -L "localhost:${port}:localhost:${port}" $userhost
 }

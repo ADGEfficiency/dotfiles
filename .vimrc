@@ -2,6 +2,7 @@
 
 set nocompatible
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -28,6 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'nvie/vim-rst-tables'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -168,7 +170,7 @@ nnoremap <silent> ,r :r! echo %:p<CR>
 
 " visual
 set background=dark
-colorscheme duoduo
+colorscheme gruvbox
 
 "" must be after colo!
 hi clear SpellBad
@@ -428,8 +430,7 @@ augroup return_to_last_edit_position
 augroup END
 
 
-" ale
+" ale - need to be before plugins loaded
 let g:ale_sign_column_always = 1
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
-

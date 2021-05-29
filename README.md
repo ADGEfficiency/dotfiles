@@ -11,7 +11,19 @@ mkdir -p ~/dotfiles/ipython/profile_default/
 cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 ```
 
+## linux
+sudo apt-get update
+sudo apt install python3-pip
+
 ## vim
+
+on linux to upgrade to 8.0
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update; sudo apt install vim
+
+also need node for coc
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
 

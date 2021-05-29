@@ -9,5 +9,4 @@ echo "source $HOME/dotfiles/.tmux.conf" >> "$HOME/.tmux.conf"
 
 cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
 
-
 git config --global core.excludesfile $HOME/dotfiles/.gitignore
