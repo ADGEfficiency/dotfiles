@@ -80,6 +80,11 @@ init_fzf() {
   source ~/.fzf.zsh
 }
 
+# change github remote - useful when changing to ssh
+remote() {
+  git remote set-url origin $1
+}
+
 
 # # ------ 3rd party inits -------
 init_pyenv
@@ -97,12 +102,6 @@ export PATH="/usr/local/opt/bzip2/bin:$PATH"
 
 
 # # ------ custom -------
-quote () {
-  QUOTES="$HOME/personal/lists/quotes_snippets.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
 
 make_env() {
   pyenv virtualenv $1 $2
@@ -133,3 +132,15 @@ tunnel() {
   userhost=$2
   ssh -i ~/.ssh/adam-aws-may-2020.pem -N -L "localhost:${port}:localhost:${port}" $userhost
 }
+
+#  some stuff needs to be done before powerlevel10k
+quote () {
+  QUOTES="$HOME/personal/lists/quotes_snippets.md"
+  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+  LINE=$((1 + RANDOM % $NUM_LINES))
+  echo $(sed -n ${LINE}p ${QUOTES})
+ }
+
+quote
+echo ""
+quote
