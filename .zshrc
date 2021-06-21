@@ -90,6 +90,8 @@ remote() {
 init_pyenv
 init_fzf
 
+eval "$(zoxide init zsh)"
+
 
 # # ------ complilation flags -------
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/tcl-tk/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib"
@@ -141,6 +143,6 @@ quote () {
   echo $(sed -n ${LINE}p ${QUOTES})
  }
 
-quote
-echo ""
-quote
+# quote
+# echo ""
+# quote

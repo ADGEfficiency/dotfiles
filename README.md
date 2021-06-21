@@ -1,3 +1,10 @@
+## mac
+
+brew install exa
+npm install gtop -g
+brew install zoxide
+
+
 ## jupyter lab
 
 pip install jupyterlab==1.2.0
@@ -14,6 +21,7 @@ cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_confi
 ## linux
 sudo apt-get update
 sudo apt install python3-pip
+exa, zoxide
 
 ## vim
 
