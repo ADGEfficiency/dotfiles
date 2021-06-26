@@ -126,7 +126,11 @@ csv() {
 }
 
 parquet() {
-  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.iloc[:3, :7])"
+  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
+}
+
+parqueti() {
+  python -ic "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
 }
 
 tunnel() {
