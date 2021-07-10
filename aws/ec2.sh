@@ -4,7 +4,7 @@ KEYNAME=adam
 AMI=ami-090f10efc254eaf55
 
 #  ap-southeast-2, 18.04
-KEY=~/.ssh/adam-sydney.pem
+KEY=~/.ssh/adam-aws-may-2020.pem
 KEYNAME=adam-sydney
 AMI=ami-0987943c813a8426b
 

@@ -29,7 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'nvie/vim-rst-tables'
+Plugin 'psf/black'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -173,6 +173,7 @@ set background=dark
 colorscheme gruvbox
 
 "" must be after colo!
+"" highlight
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red
 hi clear SpellRare
@@ -345,6 +346,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " MACROS
 
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
+let @p="A\<cr>breakpoint()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\<esc>\<cr>\<tab>"
@@ -430,7 +432,10 @@ augroup return_to_last_edit_position
 augroup END
 
 
-" ale - need to be before plugins loaded
-let g:ale_sign_column_always = 1
+" ale
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 0
+
+" black
+autocmd BufWritePost *.py silent! execute ':Black'

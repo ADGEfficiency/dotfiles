@@ -80,10 +80,17 @@ init_fzf() {
   source ~/.fzf.zsh
 }
 
+# change github remote - useful when changing to ssh
+remote() {
+  git remote set-url origin $1
+}
+
 
 # # ------ 3rd party inits -------
 init_pyenv
 init_fzf
+
+eval "$(zoxide init zsh)"
 
 
 # # ------ complilation flags -------
@@ -97,12 +104,6 @@ export PATH="/usr/local/opt/bzip2/bin:$PATH"
 
 
 # # ------ custom -------
-quote () {
-  QUOTES="$HOME/personal/lists/quotes_snippets.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
 
 make_env() {
   pyenv virtualenv $1 $2
@@ -125,7 +126,11 @@ csv() {
 }
 
 parquet() {
-  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.iloc[:3, :7])"
+  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
+}
+
+parqueti() {
+  python -ic "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
 }
 
 tunnel() {
@@ -133,3 +138,15 @@ tunnel() {
   userhost=$2
   ssh -i ~/.ssh/adam-aws-may-2020.pem -N -L "localhost:${port}:localhost:${port}" $userhost
 }
+
+#  some stuff needs to be done before powerlevel10k
+quote () {
+  QUOTES="$HOME/personal/lists/quotes_snippets.md"
+  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+  LINE=$((1 + RANDOM % $NUM_LINES))
+  echo $(sed -n ${LINE}p ${QUOTES})
+ }
+
+# quote
+# echo ""
+# quote
