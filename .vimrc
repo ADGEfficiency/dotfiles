@@ -12,10 +12,10 @@ Plugin 'VundleVim/Vundle.vim'
 "" core
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 "" text editing
 Plugin 'dense-analysis/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'dkarter/bullets.vim'
 Plugin 'tmsvg/pear-tree'
 Plugin 'ron89/thesaurus_query.vim'
@@ -170,7 +170,7 @@ nnoremap <silent> ,r :r! echo %:p<CR>
 
 " visual
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 
 "" must be after colo!
 "" highlight
@@ -188,51 +188,42 @@ hi clear ALEWarning
 hi ALEWarning cterm=underline,bold ctermfg=red
 
 
-" plugin config
+" plugin configs
 
 "" lightline
 set laststatus=2
 set noshowmode
 
-" old before buffer in tagline
-" let g:lightline = {
-"       \ 'colorscheme': 'ayu_mirage',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-"       \   'right': [ [ 'percent'],
-"       \              [ 'lineinfo'],
-"       \              [ 'cwd', 'filetype' ] ],
-"       \ },
-"       \ 'component': {
-"       \   'cwd': '%{getcwd()}',
-"       \   'lineinfo': '%3l:%-2v%<',
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'gitbranch#name',
-"       \   'fileformat': 'LightlineFileformat',
-"       \ },
-"       \ }
-" function! LightlineFileformat()
-" 	  return winwidth(0) > 70 ? &fileformat : ''
-" 	endfunction
-
+" \   'right': [ ['lineinfo'], [ 'percent' ]],
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste', 'buffers', 'modified' ] ],
-      \   'right': [ [ 'filetype' ], [ 'lineinfo'], [ 'percent' ]],
+      \   'left': [ [ 'mode', 'paste', 'modified', 'buffers' ] ],
+      \   'right': [ ],
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers'
       \ },
       \ 'component_type': {
       \   'buffers': 'tabsel'
-      \ }
+      \ },
+      \ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
       \ }
 
 let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[Nameless]'
 let g:lightline#bufferline#enable_nerdfont = 1
 
@@ -246,11 +237,13 @@ let g:fzf_height = '30%'
 "" indent line
 set conceallevel=1
 let g:indentLine_enabled = 1
+let g:indentLine_conceallevel=1
+let g:indentLine_color_term = 239
 
 "" coc
 let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-yaml', 'coc-jedi']
 
-" use tab
+" use tab for coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -275,11 +268,6 @@ if has("patch-8.1.1564")
 else
   set signcolumn=no
 endif
-
-set conceallevel=1
-let g:indentLine_conceallevel=1
-
-let g:indentLine_color_term = 239
 
 "" autocomplete in markdown
 "" https://github.com/ycm-core/YouCompleteMe#options
@@ -359,14 +347,14 @@ map <F5> :!python %:p <enter>
 " run block
 map <F9> :'<,'>w !python <enter>
 
+map <F6> :1,$d <enter>
+map <F7> :%y+ <enter>
+map <F8> :e ~/dotfiles/.vimrc <enter>
+
 " run file interactive
 " map <F6> :!ipython -i %:p <enter>
 " "run line
 " map <F7> :'.w !python <enter>
-
-map <F6> :1,$d <enter>
-map <F7> :%y+ <enter>
-map <F8> :e ~/dotfiles/.vimrc <enter>
 
 "map <F9> :e ~/dotfiles/.zshrc <enter>
 "map <F10> :e ~/dotfiles/.aliases <enter>

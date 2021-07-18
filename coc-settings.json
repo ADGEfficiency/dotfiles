@@ -6,7 +6,6 @@
   "jedi.markupKindPreferred": "plaintext",
   "jedi.trace.server": "off",
   "jedi.jediSettings.autoImportModules": ["numpy", "pandas", "os"],
-  "jedi.executable.command": "~/.pyenv/versions/general/bin/jedi-language-server",
   "jedi.executable.args": [],
   "jedi.completion.disableSnippets": false,
   "jedi.diagnostics.enable": true,

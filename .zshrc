@@ -7,6 +7,9 @@ set -o vi
 export EDITOR=/usr/local/bin/vi
 export VISUAL=/usr/local/bin/vi
 
+#  make the vim undo dir - not made automatically by vim...
+mkdir -p ~/.vim/undodir
+
 
 # # ------ zsh -------
 
@@ -42,8 +45,11 @@ init_ruby() {
 
 # pyenv
 init_pyenv() {
-  eval "$(pyenv init - --no-rehash)"
-  eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+  fi
 }
 
 # conda
@@ -87,7 +93,7 @@ remote() {
 
 
 # # ------ 3rd party inits -------
-init_pyenv
+# init_pyenv
 init_fzf
 
 eval "$(zoxide init zsh)"
@@ -150,3 +156,7 @@ quote () {
 # quote
 # echo ""
 # quote
+#
+cheat_and_todo() {
+  vi ~/personal/todo.md ~/personal/lists/cheat_sheet.md
+}
