@@ -1,3 +1,7 @@
+#  used by dotfiles/.aliases
+export HME=$HOME
+HISTSIZE=100000
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # https://github.com/platformio/platformio-atom-ide-terminal/issues/196
@@ -27,3 +31,19 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # aws
 export AWS_LOG_LEVEL=3
 export AWS_REGION="eu-central"
+
+# z script
+source ~/z.sh
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+. "$HOME/.cargo/env"
+
+. ~/z.sh
+eval "$(zoxide init bash)"
+
+export EDITOR=vim
