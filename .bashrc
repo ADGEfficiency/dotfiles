@@ -1,3 +1,7 @@
+#  used by dotfiles/.aliases
+export HME=$HOME
+HISTSIZE=100000
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # https://github.com/platformio/platformio-atom-ide-terminal/issues/196
@@ -41,3 +45,5 @@ eval "$(pyenv virtualenv-init -)"
 
 . ~/z.sh
 eval "$(zoxide init bash)"
+
+export EDITOR=vim
