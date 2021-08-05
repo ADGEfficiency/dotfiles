@@ -175,17 +175,17 @@ colorscheme dracula
 "" must be after colo!
 "" highlight
 hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=red
+hi SpellBad cterm=bold ctermfg=red
 hi clear SpellRare
-hi SpellRare cterm=underline,bold ctermfg=red
+hi SpellRare cterm=bold ctermfg=red
 hi clear SpellCap
-hi SpellCap cterm=underline,bold ctermfg=red
+hi SpellCap cterm=bold ctermfg=red
 hi clear SpellLocal
-hi SpellLocal cterm=underline,bold ctermfg=red
+hi SpellLocal cterm=bold ctermfg=red
 hi clear ALEERROR
-hi ALEError cterm=underline,bold ctermfg=red
+hi ALEError cterm=bold ctermfg=red
 hi clear ALEWarning
-hi ALEWarning cterm=underline,bold ctermfg=red
+hi ALEWarning cterm=bold ctermfg=red
 
 
 " plugin configs
@@ -425,5 +425,9 @@ let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 0
 
-" black
-autocmd BufWritePost *.py silent! execute ':Black'
+" black & isort on save
+" old way
+" autocmd BufWritePost *.py silent! execute ':Black'
+let g:ale_fixers = ['black', 'isort']
+let g:ale_fix_on_save = 1
+"  :ALEFix to run manually

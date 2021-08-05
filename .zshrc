@@ -107,3 +107,7 @@ export PATH=$PATH:/usr/local/opt/tcl-tk/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export PATH="/usr/local/opt/bzip2/bin:$PATH"
+
+source $HME/dotfiles/.aliases
+source $HME/dotfiles/.funcs
+alias cd='z'

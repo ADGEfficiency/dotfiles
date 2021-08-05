@@ -1,5 +1,5 @@
 #sudo apt update
-#sudo apt upgrade 
+#sudo apt upgrade
 #sudo apt install build-essential
 #sudo apt install git
 
@@ -20,7 +20,7 @@
 # curl -sL install-node.now.sh/lts | sudo bash
 # sudo add-apt-repository ppa:jonathonf/vim
 # sudo apt update
-# sudo apt install vim 
+# sudo apt install vim
 # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #  tmux, tree

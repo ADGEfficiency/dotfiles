@@ -15,8 +15,9 @@ update_terminal_cwd() {
     printf '\e]7;%s\a' "$PWD_URL"
 }
 
-# vi mode
+# vim masterrace
 set -o vi
+export EDITOR=vim
 
 # don't add duplicates
 export HISTCONTROL=ignoreboth:erasedups
@@ -46,4 +47,3 @@ eval "$(pyenv virtualenv-init -)"
 . ~/z.sh
 eval "$(zoxide init bash)"
 
-export EDITOR=vim

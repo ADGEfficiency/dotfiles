@@ -1,9 +1,9 @@
-echo "source $HOME/dotfiles/.bashrc" >> "$HOME/.bashrc"
 echo "source $HOME/dotfiles/.aliases" >> "$HOME/.bashrc"
+echo "source $HOME/dotfiles/.bashrc" >> "$HOME/.bashrc"
 echo "source $HOME/dotfiles/.funcs" >> "$HOME/.bashrc"
 
-echo "source $HOME/dotfiles/.zshrc" >> "$HOME/.zshrc"
 echo "source $HOME/dotfiles/.aliases" >> "$HOME/.zshrc"
+echo "source $HOME/dotfiles/.zshrc" >> "$HOME/.zshrc"
 echo "source $HOME/dotfiles/.funcs" >> "$HOME/.zshrc"
 
 echo "source $HOME/dotfiles/.vimrc" >> "$HOME/.vimrc"
