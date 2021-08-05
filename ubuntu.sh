@@ -1,27 +1,24 @@
-#sudo apt update
-#sudo apt upgrade
-#sudo apt install build-essential
-#sudo apt install git
+sudo apt update
+sudo apt upgrade
+sudo apt -y install build-essential
+sudo apt install git
 
-#wget https://us.download.nvidia.com/XFree86/Linux-x86_64/460.84/NVIDIA-Linux-x86_64-460.84.run
-#sudo bash ./Downloads/NVIDIA-Linux-x86_64-460.84.run
+#  wget https://us.download.nvidia.com/XFree86/Linux-x86_64/460.84/NVIDIA-Linux-x86_64-460.84.run
+#  sudo bash ./NVIDIA-Linux-x86_64-460.84.run
 
-#sudo apt install gnome-tweaks
+sudo apt install gnome-tweaks
 
-#git clone git@github.com:ADGEfficiency/dotfiles.git
-
-# sudo apt install curl tree
-# curl https://sh.rustup.rs -sSf | sh
-# source ~/.cargo/env
-# cargo install exa zoxide
-# wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+sudo apt install curl tree
+curl https://sh.rustup.rs -sSf | sh
+source ~/.cargo/env
+cargo install exa zoxide
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
 
 #  setup vim
-# curl -sL install-node.now.sh/lts | sudo bash
-# sudo add-apt-repository ppa:jonathonf/vim
-# sudo apt update
-# sudo apt install vim
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -sL install-node.now.sh/lts | sudo bash
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt install vim 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #  tmux, tree
 sudo apt install tmux tree
