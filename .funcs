@@ -1,4 +1,12 @@
 # should work on bash or zsh
+gz() {
+  vim $(grep -irl $1 $2 | fzf)
+}
+
+# change github remote - useful when changing to ssh
+remote() {
+  git remote set-url origin $1
+}
 
 make_env() {
   pyenv virtualenv $1 $2

@@ -86,12 +86,6 @@ init_fzf() {
   source ~/.fzf.zsh
 }
 
-# change github remote - useful when changing to ssh
-remote() {
-  git remote set-url origin $1
-}
-
-
 # # ------ 3rd party inits -------
 # init_pyenv
 init_fzf
@@ -111,3 +105,8 @@ export PATH="/usr/local/opt/bzip2/bin:$PATH"
 source $HME/dotfiles/.aliases
 source $HME/dotfiles/.funcs
 alias cd='z'
+
+
+# # gridcog
+export emd_bucket="gridcognition-modelling-services-dev-account"
+export emd_prefix="external_market_data_test"

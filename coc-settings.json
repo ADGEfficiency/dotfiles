@@ -2,6 +2,7 @@
   "diagnostic.displayByAle": true,
   "diagnostic.enableSign": false,
   "jedi.enable": true,
+  "jedi.executable.command": "~/.pyenv/shims/jedi-language-server",
   "jedi.startupMessage": false,
   "jedi.markupKindPreferred": "plaintext",
   "jedi.trace.server": "off",

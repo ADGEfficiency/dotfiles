@@ -33,7 +33,9 @@ Plugin 'psf/black'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
+Plugin 'mengelbrecht/lightline-buffer'
 Plugin 'mengelbrecht/lightline-bufferline'
+Plugin 'itchyny/vim-gitbranch'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
 Plugin 'arzg/vim-corvine'
@@ -156,16 +158,17 @@ command W write
 command Wq write | quit!
 command Q quit
 
-"  buffers
-:nnoremap <C-n> :bnext<CR>:redraw<CR>
-:nnoremap <C-t> :bprevious<CR>:redraw<CR>
-
 " leader to ,
 let mapleader = ","
 let g:mapleader = ","
 
 " paste absolute file path
 nnoremap <silent> ,r :r! echo %:p<CR>
+
+"  buffers
+nnoremap <C-n> :bnext<CR>:redraw<CR>
+nnoremap <C-t> :bprevious<CR>:redraw<CR>
+nnoremap <Leader>k :ls<CR>:b<Space>
 
 
 " visual
@@ -193,13 +196,20 @@ hi ALEWarning cterm=bold ctermfg=red
 "" lightline
 set laststatus=2
 set noshowmode
+set showtabline=2
 
-" \   'right': [ ['lineinfo'], [ 'percent' ]],
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'PaperColor',
+      \ 'tabline': {
+      \   'left': [ [ 'gitbranch', 'buffers' ] ],
+      \   'right': [ ],
+      \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste', 'modified', 'buffers' ] ],
-      \   'right': [ ],
+      \   'right': [[  ]],
+      \ },
+     \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers'
@@ -238,7 +248,7 @@ let g:fzf_height = '30%'
 set conceallevel=1
 let g:indentLine_enabled = 1
 let g:indentLine_conceallevel=1
-let g:indentLine_color_term = 239
+let g:indentLine_defaultGroup = 'SpecialKey'
 
 "" coc
 let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-yaml', 'coc-jedi']
@@ -425,9 +435,10 @@ let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 0
 
-" black & isort on save
-" old way
-" autocmd BufWritePost *.py silent! execute ':Black'
-let g:ale_fixers = ['black', 'isort']
-let g:ale_fix_on_save = 1
+" black on save
+autocmd BufWritePost *.py silent! execute ':Black'
+
+
+" let g:ale_fixers = ['black']
+" let g:ale_fix_on_save = 1
 "  :ALEFix to run manually
