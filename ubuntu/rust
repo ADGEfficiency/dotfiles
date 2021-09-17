@@ -1,0 +1,5 @@
+#!/bin/bash
+curl https://sh.rustup.rs -sSf | sh
+source ~/.cargo/env
+cargo install exa zoxide
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
