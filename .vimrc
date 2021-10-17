@@ -113,6 +113,7 @@ set mouse=a
 " REMAPS
 cabbrev v vsp
 cabbrev s sp
+cabbrev f Files
 
 "" scrolling speed
 nnoremap <C-e> 3<C-e>
@@ -245,10 +246,10 @@ let g:fzf_preview_window = 'right:70%:hidden'
 let g:fzf_height = '30%'
 
 "" indent line
-set conceallevel=1
 let g:indentLine_enabled = 1
 let g:indentLine_conceallevel=1
 let g:indentLine_defaultGroup = 'SpecialKey'
+set conceallevel=2
 
 "" coc
 let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-yaml', 'coc-jedi']
@@ -278,12 +279,6 @@ if has("patch-8.1.1564")
 else
   set signcolumn=no
 endif
-
-"" autocomplete in markdown
-"" https://github.com/ycm-core/YouCompleteMe#options
-let g:ycm_filetype_blacklist = {
-      \ 'markdown': 1,
-\}
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
