@@ -1,3 +1,19 @@
+# dotfiles
+
+Setup dotfiles & git:
+
+```bash
+./setup-dotfiles.sh
+```
+
+Setup an Ubuntu machine, just how I like it:
+
+```bash
+./ubuntu-setup.sh
+```
+
+---
+
 ## mac
 
 brew install exa
