@@ -9,7 +9,7 @@ Setup dotfiles & git:
 Setup an Ubuntu machine, just how I like it:
 
 ```bash
-./ubuntu-setup.sh
+./ubuntu/main.sh
 ```
 
 ---

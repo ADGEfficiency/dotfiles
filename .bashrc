@@ -33,6 +33,15 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export AWS_LOG_LEVEL=3
 export AWS_REGION="eu-central"
 
+# # ------ complilation flags -------
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/tcl-tk/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip3/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/tcl-tk/include"
+
+export PATH=$PATH:/usr/local/opt/tcl-tk/bin
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+export PATH="/usr/local/opt/bzip2/bin:$PATH"
+
 # z script
 source ~/z.sh
 
