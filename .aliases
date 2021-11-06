@@ -67,7 +67,7 @@ alias nlpd='cd $HME/climate-nlp'
 alias nlph='cd $HME/climate-nlp-dev'
 alias prog='cd $HME/programming-resources'
 alias teach='cd $HME/teaching-monolith'
-alias syl='cd $HME/syllabus'
+alias syl='cd $HME/handbook'
 alias fd='cd $HME/feeds'
 alias emd='cd $HME/feeds/feeds/emd'
 
@@ -109,6 +109,7 @@ alias gall='git add * && git add -u && git commit -m "sync all the things" && gi
 alias amend='git commit --amend'
 alias cred='git config credential.helper store'
 alias git diff='git diff --colors-words'
+alias nb='git checkout -b'
 
 #  tmux
 alias t='tmux new'
@@ -135,3 +136,12 @@ alias res='cd $HME/research/research'
 
 alias export-prod='export AWS_PROFILE=gridcog-prod'
 alias export-dev='export AWS_PROFILE=gridcog-dev'
+
+alias wd='cd ~/feeds'
+alias fe='cd ~/feeds'
+
+alias j='z'
+
+alias mat='cmatrix'
+
+alias di='cd ~/feeds/feedsd/data_ingestion'

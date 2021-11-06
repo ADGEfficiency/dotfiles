@@ -159,17 +159,15 @@ command W write
 command Wq write | quit!
 command Q quit
 
-" leader to ,
-let mapleader = ","
-let g:mapleader = ","
-
 " paste absolute file path
 nnoremap <silent> ,r :r! echo %:p<CR>
 
 "  buffers
 nnoremap <C-n> :bnext<CR>:redraw<CR>
 nnoremap <C-t> :bprevious<CR>:redraw<CR>
-nnoremap <Leader>k :ls<CR>:b<Space>
+nnoremap ,k :ls<CR>:b<Space>
+
+nnoremap ,j :Files .<CR>
 
 
 " visual
@@ -333,6 +331,8 @@ augroup markdown
 augroup end
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
 
 
 

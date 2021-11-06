@@ -39,7 +39,8 @@ parqueti() {
 tunnel() {
   port=$1
   userhost=$2
-  ssh -i ~/.ssh/adam-aws-may-2020.pem -N -L "localhost:${port}:localhost:${port}" $userhost
+  key=$3
+  ssh -i $3 -N -L "localhost:${port}:localhost:${port}" $userhost
 }
 
 #  some stuff needs to be done before powerlevel10k
