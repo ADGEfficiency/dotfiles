@@ -3,3 +3,4 @@ curl -sL install-node.now.sh/lts | sudo bash
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt -y install vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cd ~/.vim/bundle/coc.nvim; npm install
