@@ -168,6 +168,7 @@ nnoremap <C-t> :bprevious<CR>:redraw<CR>
 nnoremap ,k :ls<CR>:b<Space>
 
 nnoremap ,j :Files .<CR>
+nnoremap <A-Space> :Files .<CR>
 
 
 " visual

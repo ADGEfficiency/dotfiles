@@ -27,7 +27,7 @@ ENABLE_CORRECTION="false"
 # disable marking untracked files under VCS as dirty - makes repository status check for large repositories faster
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git osx python fzf pyenv zsh-autosuggestions)
+plugins=(git macos python fzf pyenv zsh-autosuggestions)
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh

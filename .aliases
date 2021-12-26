@@ -56,9 +56,9 @@ alias newsletter='vi $HME/climate-code/notes/content/newsletter.md'
 alias gdr='cd ~/GoogleDrive'
 alias gdr2='cd ~/GoogleDriveadgefficiency'
 alias h='cd $HME'
-alias ep='cd $HME/energy-py-3-dev'
-alias epl='cd $HME/energy-py-linear'
-alias expt='cd $HME/energy-py-experiments/experiment-0'
+alias ep='cd $HME/energy-py-experiments/energy-py'
+alias epl='cd $HME/energy-py-experiments/energy-py-linear'
+alias expt='cd $HME/energy-py-experiments'
 alias p='cd $HME/personal'
 alias pb='cd $HME/pb'
 alias new-pb='cd $HME/new-pb/Bonso'
@@ -110,6 +110,7 @@ alias amend='git commit --amend'
 alias cred='git config credential.helper store'
 alias git diff='git diff --colors-words'
 alias nb='git checkout -b'
+alias cb='git checkout '
 
 #  tmux
 alias t='tmux new'
@@ -145,3 +146,16 @@ alias j='z'
 alias mat='cmatrix'
 
 alias di='cd ~/feeds/feedsd/data_ingestion'
+alias lo='cd ~/personal/logging-my-life'
+
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+if exists bat; then
+  alias cat='bat'
+else
+  :
+fi
+
+alias bake='make'
