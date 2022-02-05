@@ -1,6 +1,4 @@
-#  used by dotfiles/.aliases
-export HME=$HOME
-HISTSIZE=100000
+# # ------ vim -------
 
 #  vim bindings, vim as default editor
 set -o vi
@@ -12,6 +10,10 @@ mkdir -p ~/.vim/undodir
 
 
 # # ------ zsh -------
+
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 
 
 # # ------ oh-my-zsh -------
@@ -87,13 +89,13 @@ init_fzf() {
 }
 
 # # ------ 3rd party inits -------
-# init_pyenv
 init_fzf
 
 eval "$(zoxide init zsh)"
 
 
 # # ------ complilation flags -------
+
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/tcl-tk/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip3/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/tcl-tk/include"
 
@@ -102,11 +104,11 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export PATH="/usr/local/opt/bzip2/bin:$PATH"
 
-source $HME/dotfiles/.aliases
-source $HME/dotfiles/.funcs
+source $HOME/dotfiles/.aliases
+source $HOME/dotfiles/.funcs
 alias cd='z'
 
+echo "\nSuccess is being better than yesterday - RICK RUBIN\n"
+echo "There is nothing noble in being superior to your fellow men. True nobility lies in being superior to your former self - HEMINGWAY\n"
 
-# # gridcog
-export emd_bucket="gridcognition-modelling-services-dev-account"
-export emd_prefix="external_market_data_test"
+source ~/feeds/feeds/core/pg.env

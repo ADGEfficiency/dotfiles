@@ -50,7 +50,3 @@ quote () {
   LINE=$((1 + RANDOM % $NUM_LINES))
   echo $(sed -n ${LINE}p ${QUOTES})
  }
-
-# quote
-# echo ""
-# quote

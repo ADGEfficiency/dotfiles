@@ -26,9 +26,10 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'shmup/vim-sql-syntax'
+
 Plugin 'psf/black'
 
 "" visual plugins
@@ -413,6 +414,7 @@ ab infomation information
 ab timestup timestep
 ab tow two
 ab inline in-line
+ab peroid period
 
 " MISC
 
@@ -438,3 +440,24 @@ autocmd BufWritePost *.py silent! execute ':Black'
 " let g:ale_fixers = ['black']
 " let g:ale_fix_on_save = 1
 "  :ALEFix to run manually
+"
+let g:sql_type_default = 'pqsql'
+
+"  make copen open after vimgrep
+"  https://stackoverflow.com/questions/43953589/chaining-vimgrep-and-copen-with-vim
+" create a self-clearing autocommand group called 'qf'
+augroup qf
+    " clear all autocommands in this group
+    autocmd!
+
+    " do :cwindow if the quickfix command doesn't start
+    " with a 'l' (:grep, :make, etc.)
+    autocmd QuickFixCmdPost [^l]* cwindow
+
+    " do :lwindow if the quickfix command starts with
+    " a 'l' (:lgrep, :lmake, etc.)
+    autocmd QuickFixCmdPost l*    lwindow
+
+    " do :cwindow when Vim was started with the '-q' flag
+    autocmd VimEnter        *     cwindow
+augroup END

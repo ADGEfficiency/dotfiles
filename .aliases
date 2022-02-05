@@ -1,11 +1,11 @@
-export todo=$HME/personal/todo.md
-export VIMRC=$HME/dotfiles/.vimrc
-export CHEAT=$HME/personal/lists/cheat_sheet.md
-export PER=$HME/personal/
+export todo=$HOME/personal/todo.md
+export VIMRC=$HOME/dotfiles/.vimrc
+export CHEAT=$HOME/personal/lists/cheat_sheet.md
+export PER=$HOME/personal/
 export GDR=$HOME/GoogleDrive
 
 alias s='vim $(fzf)'
-alias v='vim'
+alias v='vim serverless.yml Makefile README.md'
 
 alias cp='cp -r '
 alias sshp='ssh adamg33@ssh.pythonanywhere.com'
@@ -36,40 +36,40 @@ alias please='sudo'
 
 
 # files
-alias todo='vim $HME/personal/todo.md'
+alias todo='vim $HOME/personal/todo.md'
 alias td='todo'
-alias ideas='vim $HME/climate-code/notes/content/ideas/readme.md'
+alias ideas='vim $HOME/climate-code/notes/content/ideas/readme.md'
 
 # folders
-alias db='cd $HME/climate-news-db'
-alias cookie='cd $HME/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
-alias similar='cd $HME/similar-day-forecasting-vae'
-alias blog='cd $HME/adgefficiency.github.io/'
-alias pb='cd $HME/final-personal-blog'
+alias db='cd $HOME/climate-news-db'
+alias cookie='cd $HOME/cookie-template/\{\{\ cookiecutter.repo_name\ \}\}/'
+alias similar='cd $HOME/similar-day-forecasting-vae'
+alias blog='cd $HOME/adgefficiency.github.io/'
+alias pb='cd $HOME/final-personal-blog'
 alias back='cd -'
-alias cc='cd $HME/climate-code'
-alias web='cd $HME/climate-code/website'
-alias notes='cd $HME/climate-code/notes'
-alias content='cd $HME/climate-code/notes/content'
-alias website='cd $HME/climate-code/website'
-alias newsletter='vi $HME/climate-code/notes/content/newsletter.md'
+alias cc='cd $HOME/climate-code'
+alias web='cd $HOME/climate-code/website'
+alias notes='cd $HOME/climate-code/notes'
+alias content='cd $HOME/climate-code/notes/content'
+alias website='cd $HOME/climate-code/website'
+alias newsletter='vi $HOME/climate-code/notes/content/newsletter.md'
 alias gdr='cd ~/GoogleDrive'
 alias gdr2='cd ~/GoogleDriveadgefficiency'
-alias h='cd $HME'
-alias ep='cd $HME/energy-py-experiments/energy-py'
-alias epl='cd $HME/energy-py-experiments/energy-py-linear'
-alias expt='cd $HME/energy-py-experiments'
-alias p='cd $HME/personal'
-alias pb='cd $HME/pb'
-alias new-pb='cd $HME/new-pb/Bonso'
-alias per='cd $HME/personal'
-alias nlpd='cd $HME/climate-nlp'
-alias nlph='cd $HME/climate-nlp-dev'
-alias prog='cd $HME/programming-resources'
-alias teach='cd $HME/teaching-monolith'
-alias syl='cd $HME/handbook'
-alias fd='cd $HME/feeds'
-alias emd='cd $HME/feeds/feeds/emd'
+alias h='cd $HOME'
+alias ep='cd $HOME/energy-py-experiments/energy-py'
+alias epl='cd $HOME/energy-py-experiments/energy-py-linear'
+alias expt='cd $HOME/energy-py-experiments'
+alias p='cd $HOME/personal'
+alias pb='cd $HOME/pb'
+alias new-pb='cd $HOME/new-pb/Bonso'
+alias per='cd $HOME/personal'
+alias nlpd='cd $HOME/climate-nlp'
+alias nlph='cd $HOME/climate-nlp-dev'
+alias prog='cd $HOME/programming-resources'
+alias teach='cd $HOME/teaching-monolith'
+alias syl='cd $HOME/handbook'
+alias fd='cd $HOME/feeds'
+alias emd='cd $HOME/feeds/feeds/emd'
 
 
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'
@@ -85,18 +85,18 @@ alias q='exit'
 alias wi='vi'
 
 # dotfiles
-alias dots='cd $HME/dotfiles'
+alias dots='cd $HOME/dotfiles'
 alias dotfiles=dots
-alias aliases='vim $HME/dotfiles/.aliases'
-alias bashrc='vim $HME/dotfiles/.bashrc'
-alias bashprofile='vim $HME/dotfiles/.bash_profile'
-alias vrc='vim $HME/dotfiles/.vimrc'
-alias vimrc='vim $HME/dotfiles/.vimrc'
-alias tmuxc='vim $HME/dotfiles/.tmux.conf'
-alias zshrc='vim $HME/dotfiles/.zshrc'
+alias aliases='vim $HOME/dotfiles/.aliases'
+alias bashrc='vim $HOME/dotfiles/.bashrc'
+alias bashprofile='vim $HOME/dotfiles/.bash_profile'
+alias vrc='vim $HOME/dotfiles/.vimrc'
+alias vimrc='vim $HOME/dotfiles/.vimrc'
+alias tmuxc='vim $HOME/dotfiles/.tmux.conf'
+alias zshrc='vim $HOME/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
 
-alias ec2='vim $HME/dotfiles/aws/ec2.sh'
+alias ec2='vim $HOME/dotfiles/aws/ec2.sh'
 
 #  git
 alias gs='git status'
@@ -108,9 +108,10 @@ alias gls='clear && git status --short'
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 alias amend='git commit --amend'
 alias cred='git config credential.helper store'
-alias git diff='git diff --colors-words'
+alias gd='git diff --staged'
 alias nb='git checkout -b'
 alias cb='git checkout '
+alias gmv='git mv '
 
 #  tmux
 alias t='tmux new'
@@ -119,24 +120,21 @@ alias tn='tmux new'
 alias tl='tmux ls'
 
 #  misc
-alias cheat='vim $HME/personal/lists/cheat_sheet.md'
+alias cheat='vim $HOME/personal/lists/cheat_sheet.md'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
-alias quotes='vim $HME/personal/lists/quotes.md'
+alias quotes='vim $HOME/personal/lists/quotes.md'
 
 #  grip
-alias grip='source $HME/personal/github-pass.sh; grip --user $guser --pass $gpass'
+alias grip='source $HOME/personal/github-pass.sh; grip --user $guser --pass $gpass'
 
 # gridcog
 alias ca='conda activate gridcog'
 alias dac='conda deactivate'
-alias grid='cd $HME/gridcog'
-alias gridd='cd $HME/gridcog/services/data_ingestion'
-alias perg='cd $HME/gridcog-personal'
-alias gridp='cd $HME/gridcog-personal'
-alias res='cd $HME/research/research'
-
-alias export-prod='export AWS_PROFILE=gridcog-prod'
-alias export-dev='export AWS_PROFILE=gridcog-dev'
+alias grid='cd $HOME/gridcog'
+alias gridd='cd $HOME/gridcog/services/data_ingestion'
+alias perg='cd $HOME/gridcog-personal'
+alias gridp='cd $HOME/gridcog-personal'
+alias res='cd $HOME/research/research'
 
 alias wd='cd ~/feeds'
 alias fe='cd ~/feeds'
