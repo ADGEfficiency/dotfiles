@@ -11,6 +11,11 @@ remote() {
 make_env() {
   pyenv virtualenv $1 $2
 	echo $2 > .python-version
+}
+
+make_env_pip() {
+  pyenv virtualenv $1 $2
+	echo $2 > .python-version
 	source activate $2
 	pip install --upgrade pip
 	pip install -r requirements.txt
@@ -25,15 +30,19 @@ json() {
 }
 
 csv() {
-  cat $1 | column -t -s,
+  cat $1 | head -n 8 | column -t -s,
 }
 
 parquet() {
-  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
+  python -c "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :9])"
 }
 
 parqueti() {
-  python -ic "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :7])"
+  python -ic "import pandas as pd; df = pd.read_parquet('${1}'); print(df.columns); print(df.iloc[:3, :9])"
+}
+
+parquets3() {
+  python -ic "from feeds.grid_io.files import S3Parquet; df = S3Parquet('${1}', '${2}').read(); print(df.columns); print(df.iloc[:3, :7])"
 }
 
 tunnel() {

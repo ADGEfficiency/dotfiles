@@ -108,7 +108,9 @@ source $HOME/dotfiles/.aliases
 source $HOME/dotfiles/.funcs
 alias cd='z'
 
-echo "\nSuccess is being better than yesterday - RICK RUBIN\n"
-echo "There is nothing noble in being superior to your fellow men. True nobility lies in being superior to your former self - HEMINGWAY\n"
+# echo "\nSuccess is being better than yesterday - RICK RUBIN\n"
+# echo "There is nothing noble in being superior to your fellow men. True nobility lies in being superior to your former self - HEMINGWAY\n"
 
 source ~/feeds/feeds/core/pg.env
+
+source ~/personal/extract-code-from-md/extract
