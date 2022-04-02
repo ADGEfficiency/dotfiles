@@ -3,67 +3,38 @@
 Setup dotfiles & git:
 
 ```bash
-./setup-dotfiles.sh
+$ ./setup-dotfiles.sh
 ```
 
 Setup an Ubuntu machine, just how I like it:
 
 ```bash
-./ubuntu/main.sh
+$ ./ubuntu/main.sh
 ```
 
----
 
-## mac
+## Jupyter Lab
 
-brew install exa
-npm install gtop -g
-brew install zoxide
+I like the Vim bindings for Jupyter - you need to use v1 for the plugin to work:
 
-
-## jupyter lab
-
-pip install jupyterlab==1.2.0
-jupyter labextension install jupyterlab_vim
-
-## ipython
-
-```sh
-cp ~/dotfiles/ipython/start.py ~/.ipython/profile_default/startup/start.py 
-mkdir -p ~/dotfiles/ipython/profile_default/
-cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+```shell
+$ ./jupyterlab-vim.sh
 ```
 
-## linux
-sudo apt-get update
-sudo apt install python3-pip
-exa, zoxide
+## iPython
 
-## vim
+I import some Python libraries always in iPython (`numpy`, `pandas` etc):
 
-on linux to upgrade to 8.0
-sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update; sudo apt install vim
+```shell
+$ cp ~/dotfiles/ipython/start.py ~/.ipython/profile_default/startup/start.py 
+$ mkdir -p ~/dotfiles/ipython/profile_default/
+$ cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+```
 
-also need node for coc
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
-
-https://github.com/palantir/python-language-server
+## Autocomplete in coc.vim
 
 ```sh
 pip install python-language-server
 pip install jedi
 ```
-
-## tunnels
-
-6006 = tensorboard, 8000 = jupyter lab
-
-```sh
-ssh -N -L localhost:6006:localhost:6006 $USER@$HOST
-```
-
 
