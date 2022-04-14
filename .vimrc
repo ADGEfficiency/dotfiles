@@ -274,11 +274,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-if has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=no
-endif
+ " UM???
+" if has("patch-8.1.1564")
+"   set signcolumn=number
+" else
+"   set signcolumn=no
+" endif
+
+set signcolumn=yes
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

@@ -3,19 +3,18 @@
 Setup dotfiles & git:
 
 ```bash
-$ ./setup-dotfiles.sh
+$ bash setup-dotfiles.sh
 ```
 
-Setup an Ubuntu machine, just how I like it:
+Setup an Ubuntu machine, just how I like it (this will also run the dotfiles setup):
 
 ```bash
-$ ./ubuntu/main.sh
+$ cd ubuntu; bash main.sh
 ```
-
 
 ## Jupyter Lab
 
-I like the Vim bindings for Jupyter - you need to use v1 for the plugin to work:
+The Vim bindings for Jupyter Lab - you need to use Jupyter Lab v1 for the plugin to work:
 
 ```shell
 $ ./jupyterlab-vim.sh
@@ -23,7 +22,7 @@ $ ./jupyterlab-vim.sh
 
 ## iPython
 
-I import some Python libraries always in iPython (`numpy`, `pandas` etc):
+Always import Python libraries in iPython (`numpy`, `pandas` etc):
 
 ```shell
 $ cp ~/dotfiles/ipython/start.py ~/.ipython/profile_default/startup/start.py 
@@ -37,4 +36,3 @@ $ cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_con
 pip install python-language-server
 pip install jedi
 ```
-
