@@ -49,7 +49,6 @@ alias pb='cd $HOME/final-personal-blog'
 alias back='cd -'
 alias cc='cd $HOME/climate-code'
 alias web='cd $HOME/climate-code/website'
-alias notes='cd $HOME/climate-code/notes'
 alias content='cd $HOME/climate-code/notes/content'
 alias website='cd $HOME/climate-code/website'
 alias newsletter='vi $HOME/climate-code/notes/content/newsletter.md'
@@ -111,6 +110,7 @@ alias cred='git config credential.helper store'
 alias gd='git diff --staged'
 alias nb='git checkout -b'
 alias cb='git checkout '
+alias db='git branch -D '
 alias gmv='git mv '
 
 #  tmux
@@ -157,3 +157,5 @@ else
 fi
 
 alias bake='make'
+
+alias notes='cd ~/dss/notes/neu-notes'

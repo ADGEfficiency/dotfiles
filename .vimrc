@@ -29,8 +29,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'shmup/vim-sql-syntax'
-
 Plugin 'psf/black'
+Plugin 'mattn/emmet-vim'
+Plugin 'mracos/mermaid.vim'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -339,6 +340,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
 
+au BufRead,BufNewFile *.web set filetype=Dockerfile
+
 
 
 " MACROS
@@ -439,6 +442,9 @@ let g:ale_sign_column_always = 0
 
 " black on save
 autocmd BufWritePost *.py silent! execute ':Black'
+"
+" black on save
+autocmd BufWritePost *.js silent! execute ':%!js-beautify'
 
 
 " let g:ale_fixers = ['black']

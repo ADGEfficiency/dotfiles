@@ -12,7 +12,6 @@ dist
 *.virtual_documents/
 .eslintrc.js
 node_modules/
-package-lock.json
 Music
 .pyenv
 NVIDIA*
