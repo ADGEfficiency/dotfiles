@@ -32,6 +32,8 @@ Plugin 'shmup/vim-sql-syntax'
 Plugin 'psf/black'
 Plugin 'mattn/emmet-vim'
 Plugin 'mracos/mermaid.vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'dhruvasagar/vim-table-mode'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
@@ -442,15 +444,17 @@ let g:ale_sign_column_always = 0
 
 " black on save
 autocmd BufWritePost *.py silent! execute ':Black'
-"
-" black on save
-autocmd BufWritePost *.js silent! execute ':%!js-beautify'
 
+" js-beautify on save
+autocmd BufWritePost *.js silent! execute ':%!js-beautify  --indent-size 2'
 
-" let g:ale_fixers = ['black']
-" let g:ale_fix_on_save = 1
-"  :ALEFix to run manually
-"
+ let g:ale_linters = {
+ \   'css': ['csslint'],
+ \   'html': ['tidy'],
+ \   'javascript': ['eslint'],
+ \   'python': ['flake8'],
+ \}
+
 let g:sql_type_default = 'pqsql'
 
 "  make copen open after vimgrep
