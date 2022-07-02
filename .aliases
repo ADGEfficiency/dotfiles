@@ -5,6 +5,7 @@ export PER=$HOME/personal/
 export GDR=$HOME/GoogleDrive
 
 alias s='vim $(fzf)'
+alias ns='nvim $(fzf)'
 alias v='vim serverless.yml Makefile README.md'
 
 alias cp='cp -r '
@@ -159,3 +160,4 @@ fi
 alias bake='make'
 
 alias notes='cd ~/dss/notes/neu-notes'
+alias funcs='vi ~/dotfiles/.funcs'

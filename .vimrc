@@ -119,9 +119,9 @@ cabbrev v vsp
 cabbrev s sp
 cabbrev f Files
 
-"" scrolling speed
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+"" scrolling speed - TODO
+" nnoremap <C-e> 3<C-e>
+" nnoremap <C-y> 3<C-y>
 
 "" turn off search highlight
 nnoremap ,<space> :noh<cr>
@@ -134,10 +134,11 @@ nnoremap Q <Nop>
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
+"  not sure what these do?
+" nnoremap j gj
+" nnoremap k gk
+" nnoremap gj j
+" nnoremap gk k
 
 " Move around splits with <C-[hjkl]> in normal mode
 nnoremap <C-j> <C-w>j
