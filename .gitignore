@@ -18,3 +18,8 @@ NVIDIA*
 
 pre
 gpu
+
+nvim/node_modules
+nvim/temp*
+nvim/package*
+nvim/test*

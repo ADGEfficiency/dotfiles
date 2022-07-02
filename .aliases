@@ -8,6 +8,8 @@ alias s='vim $(fzf)'
 alias ns='nvim $(fzf)'
 alias v='vim serverless.yml Makefile README.md'
 
+alias nv='nvim'
+
 alias cp='cp -r '
 alias sshp='ssh adamg33@ssh.pythonanywhere.com'
 

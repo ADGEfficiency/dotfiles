@@ -38,5 +38,8 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.wildignore = "+=*.egg-info/**"
 vim.opt.wildmenu = true
 
+vim.opt.wrap = true
+
+--fzf
 
 vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"

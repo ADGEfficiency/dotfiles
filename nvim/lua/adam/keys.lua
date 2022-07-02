@@ -16,6 +16,7 @@ km("n", "<leader>x", ":WinResizerStartResize", opts)
 km("n", "<leader>t", ":ThesaurusQueryReplaceCurrentWord<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":ls<cr>:b<space>", opts)
+km("n", "<leader>j", ":FzfLua files<cr>", opts)
 
 -- buffer nav
 km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
