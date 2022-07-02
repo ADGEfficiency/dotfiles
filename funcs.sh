@@ -1,3 +1,6 @@
+
+#!
+
 # should work on bash or zsh
 gz() {
   vim $(grep -irl $1 $2 | fzf)

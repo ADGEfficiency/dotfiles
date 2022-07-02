@@ -104,8 +104,8 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export PATH="/usr/local/opt/bzip2/bin:$PATH"
 
-source $HOME/dotfiles/.aliases
-source $HOME/dotfiles/.funcs
+source $HOME/dotfiles/aliases.sh
+source $HOME/dotfiles/funcs.sh
 alias cd='z'
 
 # echo "\nSuccess is being better than yesterday - RICK RUBIN\n"
@@ -114,3 +114,5 @@ alias cd='z'
 source ~/feeds/feeds/core/pg.env
 
 source ~/personal/extract-code-from-md/extract
+
+export EDITOR=$(which nvim)

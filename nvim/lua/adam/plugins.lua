@@ -66,6 +66,9 @@ return packer.startup(function(use)
   -- treesitter
   use {"nvim-treesitter/nvim-treesitter"}
 
+  -- which key
+  use("folke/which-key.nvim")
+
   -- colormap
   use "sainnhe/everforest"
   use "dracula/vim"
@@ -96,6 +99,7 @@ return packer.startup(function(use)
   -- text editing
   use "tpope/vim-commentary"
   use "windwp/nvim-autopairs"
+  use "honza/vim-snippets"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

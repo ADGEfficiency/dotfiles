@@ -1,4 +1,4 @@
-#  used by dotfiles/.aliases
+#  used by dotfiles/aliases.sh
 export HME=$HOME
 HISTSIZE=100000
 
