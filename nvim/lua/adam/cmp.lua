@@ -9,7 +9,7 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
-require("luasnip/loaders/from_snipmate").load({paths = "./snippets"})
+require("luasnip/loaders/from_snipmate").load({ paths = "./snippets" })
 
 -- for supertab functionality
 local check_backspace = function()
@@ -57,18 +57,18 @@ cmp.setup {
   },
   mapping = {
     ["<C-p>"] = cmp.mapping(function()
-        if cmp.visible() then
-            cmp.select_prev_item()
-        else
-            cmp.complete()
-        end
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        cmp.complete()
+      end
     end, { 'i', 'c' }),
     ["<C-n>"] = cmp.mapping(function()
-        if cmp.visible() then
-            cmp.select_next_item()
-        else
-            cmp.complete()
-        end
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        cmp.complete()
+      end
     end, { 'i', 'c' }),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
@@ -80,7 +80,7 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = false },
     -- supertab functionality
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -136,7 +136,7 @@ cmp.setup {
         get_cwd = function(params) return vim.fn.getcwd() end
       }
     },
-    { name = "buffer" },
+    { name = "buffer", get_bufnrs = function() return vim.api.nvim_list_bufs() end },
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
@@ -158,7 +158,7 @@ cmp.setup {
   }
 }
 
-for _, cmd_type in ipairs({':', '/', '?', '@'}) do
+for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
   cmp.setup.cmdline(cmd_type, {
     sources = cmp.config.sources({
       { name = 'cmdline' },
@@ -168,27 +168,26 @@ for _, cmd_type in ipairs({':', '/', '?', '@'}) do
 end
 
 require("cmp_dictionary").setup({
-		dic = {
-			["*"] = { "/usr/share/dict/words" },
-			["lua"] = "path/to/lua.dic",
-			["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
-			filename = {
-				["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
-			},
-			filepath = {
-				["%.tmux.*%.conf"] = "path/to/tmux.dic"
-			},
-			spelllang = {
-				en = "path/to/english.dic",
-			},
-		},
-		-- The following are default values.
-		exact = 2,
-		first_case_insensitive = false,
-		document = false,
-		document_command = "wn %s -over",
-		async = false, 
-		capacity = 5,
-		debug = false,
-	})
-
+  dic = {
+    ["*"] = { "/usr/share/dict/words" },
+    ["lua"] = "path/to/lua.dic",
+    ["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
+    filename = {
+      ["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
+    },
+    filepath = {
+      ["%.tmux.*%.conf"] = "path/to/tmux.dic"
+    },
+    spelllang = {
+      en = "path/to/english.dic",
+    },
+  },
+  -- The following are default values.
+  exact = 2,
+  first_case_insensitive = false,
+  document = false,
+  document_command = "wn %s -over",
+  async = false,
+  capacity = 5,
+  debug = false,
+})

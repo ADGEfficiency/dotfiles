@@ -51,10 +51,6 @@ return packer.startup(function(use)
   -- lualine (bottom)
   use { "nvim-lualine/lualine.nvim"}
 
-  -- fzf
-  use { 'junegunn/fzf', run = './install --bin', }
-  use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }}
-
   -- greeter - alpha
   use {
     'goolord/alpha-nvim',
@@ -96,10 +92,23 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim"
 
+  -- git
+  use "lewis6991/gitsigns.nvim"
+
+  -- telescope
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-fzf-native.nvim"
+
   -- text editing
   use "tpope/vim-commentary"
   use "windwp/nvim-autopairs"
   use "honza/vim-snippets"
+  use "FooSoft/vim-argwrap"
+  use "vimwiki/vimwiki"
+  use "windwp/nvim-autopairs"
+
+  -- text editing - python
+  use "Vimjas/vim-python-pep8-indent"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

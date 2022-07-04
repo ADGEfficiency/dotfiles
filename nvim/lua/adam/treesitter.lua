@@ -12,5 +12,5 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true},
+	indent = { enable = true, disable = {"python"}},
 })

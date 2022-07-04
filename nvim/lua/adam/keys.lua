@@ -16,7 +16,7 @@ km("n", "<leader>x", ":WinResizerStartResize", opts)
 km("n", "<leader>t", ":ThesaurusQueryReplaceCurrentWord<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":ls<cr>:b<space>", opts)
-km("n", "<leader>j", ":FzfLua files<cr>", opts)
+km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- buffer nav
 km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
@@ -28,7 +28,7 @@ km("n", "<leader><space>", ":noh<cr>", opts)
 -- command line abbreviations
 vim.cmd "cabbrev v vsp"
 vim.cmd "cabbrev s sp"
-vim.cmd "cabbrev f Files"
+vim.cmd "cabbrev f Telescope find_files cwd="
 
 -- fix typo of :W for :w
 vim.cmd "command W write"

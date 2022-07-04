@@ -9,6 +9,7 @@ export GDR=$HOME/GoogleDrive
 alias s='$EDITOR $(fzf)'
 alias v='$EDITOR serverless.yml Makefile README.md'
 alias vi='$EDITOR'
+alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
 alias cp='cp -r '
 

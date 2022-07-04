@@ -11,10 +11,15 @@ require('lualine').setup {
     lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end }},
     lualine_b = {
       {'branch', icon = ''},
-      'diff',
+      {
+        'diff',
+        colored = false,
+        symbols = {added = ' ', modified = ' ', removed = ' '},
+      },
       {
         'diagnostics',
-        symbols = {error = '', warn = '', info = '', hint = ''},
+        colored = false,
+        symbols = {error = ' ', warn = ' ', info = '', hint = ''},
         always_visible = true,
         sections = { 'error', 'warn'},
         update_in_insert = true,
@@ -22,14 +27,15 @@ require('lualine').setup {
     },
     lualine_c = {{
       'buffers',
-      mode = 2,
+      mode = 0,
       buffers_color = {
          active = { fg = "#50fa7b", bg = "#44475A" },
        },
+      hide_filename_extension = true,
     }},
     lualine_x = {},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_y = {},
+    lualine_z = {'progress', 'location'}
   },
   tabline = {},
   extensions = {}

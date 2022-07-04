@@ -40,6 +40,9 @@ vim.opt.wildmenu = true
 
 vim.opt.wrap = true
 
+-- global status bar (bottom one)
+vim.opt.laststatus = 3
+
 --fzf
 
 vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
