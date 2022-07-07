@@ -1,3 +1,5 @@
+local get_hex = require('cokeline/utils').get_hex;
+
 require('lualine').setup {
   options = {
     icons_enabled = false,
@@ -11,6 +13,10 @@ require('lualine').setup {
     lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end }},
     lualine_b = {
       {'branch', icon = ''},
+    },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {
       {
         'diff',
         colored = false,
@@ -25,16 +31,6 @@ require('lualine').setup {
         update_in_insert = true,
       },
     },
-    lualine_c = {{
-      'buffers',
-      mode = 0,
-      buffers_color = {
-         active = { fg = "#50fa7b", bg = "#44475A" },
-       },
-      hide_filename_extension = true,
-    }},
-    lualine_x = {},
-    lualine_y = {},
     lualine_z = {'progress', 'location'}
   },
   tabline = {},

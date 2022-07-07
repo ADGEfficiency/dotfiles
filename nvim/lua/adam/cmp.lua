@@ -46,8 +46,6 @@ local kind_icons = {
   TypeParameter = "",
 }
 
-require('cmp-npm').setup({})
-
 cmp.setup {
   -- snippet engine - required
   snippet = {
@@ -136,12 +134,15 @@ cmp.setup {
         get_cwd = function(params) return vim.fn.getcwd() end
       }
     },
-    { name = "buffer", get_bufnrs = function() return vim.api.nvim_list_bufs() end },
+    {
+      name = "buffer",
+      max_item_count = 3,
+      get_bufnrs = function() return vim.api.nvim_list_bufs() end
+    },
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
-    { name = "dictionary", keyword_length = 4 },
-    { name = "treesitter" },
+    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -167,24 +168,28 @@ for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
   })
 end
 
+cmp.setup.filetype('python', {
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "buffer", max_item_count = 3, get_bufnrs = function() return vim.api.nvim_list_bufs() end },
+    { name = "path",
+      option = {
+        get_cwd = function(params) return vim.fn.getcwd() end
+      }
+    },
+    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
+    { name = "luasnip" },
+  },
+})
+
 require("cmp_dictionary").setup({
   dic = {
-    ["*"] = { "/usr/share/dict/words" },
-    ["lua"] = "path/to/lua.dic",
-    ["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
-    filename = {
-      ["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
-    },
-    filepath = {
-      ["%.tmux.*%.conf"] = "path/to/tmux.dic"
-    },
-    spelllang = {
-      en = "path/to/english.dic",
-    },
+    ["md,txt"] = { "/usr/share/dict/words" },
+    ["python"] = "~/dotfiles/dict/python.dic",
   },
   -- The following are default values.
   exact = 2,
-  first_case_insensitive = false,
+  first_case_insensitive = true,
   document = false,
   document_command = "wn %s -over",
   async = false,

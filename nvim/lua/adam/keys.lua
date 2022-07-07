@@ -15,7 +15,7 @@ km("n", "<leader>p", ":set paste!", opts)
 km("n", "<leader>x", ":WinResizerStartResize", opts)
 km("n", "<leader>t", ":ThesaurusQueryReplaceCurrentWord<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
-km("n", "<leader>k", ":ls<cr>:b<space>", opts)
+km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- buffer nav

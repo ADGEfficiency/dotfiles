@@ -5,3 +5,6 @@ clean:
 	brew uninstall nvim
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
+
+setup:
+	brew install nvim

@@ -46,7 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- bufferline (top)
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use "noib3/nvim-cokeline"
 
   -- lualine (bottom)
   use { "nvim-lualine/lualine.nvim"}
@@ -58,12 +58,16 @@ return packer.startup(function(use)
         require'alpha'.setup(require'alpha.themes.startify'.config)
     end
   }
+  use {"kyazdani42/nvim-web-devicons"}
 
   -- treesitter
   use {"nvim-treesitter/nvim-treesitter"}
 
   -- which key
   use("folke/which-key.nvim")
+
+  -- see diagnostics
+  use "folke/trouble.nvim"
 
   -- colormap
   use "sainnhe/everforest"
@@ -91,24 +95,26 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim"
+  use "ray-x/lsp_signature.nvim"
 
   -- git
-  use "lewis6991/gitsigns.nvim"
+  -- use "lewis6991/gitsigns.nvim"
 
   -- telescope
   use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-fzf-native.nvim"
 
   -- text editing
   use "tpope/vim-commentary"
   use "windwp/nvim-autopairs"
   use "honza/vim-snippets"
   use "FooSoft/vim-argwrap"
-  use "vimwiki/vimwiki"
-  use "windwp/nvim-autopairs"
+  use "ixru/nvim-markdown"
 
   -- text editing - python
   use "Vimjas/vim-python-pep8-indent"
+
+  -- reopen last place
+  use "farmergreg/vim-lastplace"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

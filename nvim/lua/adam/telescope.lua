@@ -11,7 +11,6 @@ telescope.setup {
     selection_caret = " ",
     path_display = { "smart" },
 
-
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -89,11 +88,5 @@ telescope.setup {
       theme = "get_ivy"
     }
   },
-  extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-  },
+  extensions = {}
 }

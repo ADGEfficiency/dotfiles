@@ -117,4 +117,4 @@ source ~/personal/extract-code-from-md/extract
 
 export EDITOR=$(which nvim)
 
-export XDG_CONFIG_HOME=~/dotfiles/nvim
+export XDG_CONFIG_HOME=~/dotfiles

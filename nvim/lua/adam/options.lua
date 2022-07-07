@@ -46,3 +46,6 @@ vim.opt.laststatus = 3
 --fzf
 
 vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
+
+-- format on save
+vim.cmd [[autocmd BufWritePost *.py silent! execute ':Format']]
