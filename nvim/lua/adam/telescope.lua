@@ -10,7 +10,6 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -84,9 +83,14 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    find_files = {
-      theme = "get_ivy"
-    }
   },
-  extensions = {}
+  extensions = {
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    }
+  }
 }
+require('telescope').load_extension('fzf')

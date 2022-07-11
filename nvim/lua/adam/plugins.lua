@@ -98,10 +98,11 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
 
   -- git
-  -- use "lewis6991/gitsigns.nvim"
+  use "lewis6991/gitsigns.nvim"
 
   -- telescope
   use "nvim-telescope/telescope.nvim"
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- text editing
   use "tpope/vim-commentary"
@@ -109,6 +110,7 @@ return packer.startup(function(use)
   use "honza/vim-snippets"
   use "FooSoft/vim-argwrap"
   use "ixru/nvim-markdown"
+  use "mattn/emmet-vim"
 
   -- text editing - python
   use "Vimjas/vim-python-pep8-indent"

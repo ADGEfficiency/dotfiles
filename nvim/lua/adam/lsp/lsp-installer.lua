@@ -25,3 +25,4 @@ lsp_installer.on_server_ready(function(server)
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	server:setup(opts)
 end)
+

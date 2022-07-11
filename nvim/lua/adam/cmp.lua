@@ -171,7 +171,13 @@ end
 cmp.setup.filetype('python', {
   sources = {
     { name = "nvim_lsp" },
-    { name = "buffer", max_item_count = 3, get_bufnrs = function() return vim.api.nvim_list_bufs() end },
+    {
+      name = "buffer",
+      max_item_count = 3,
+      option = {
+        get_bufnrs = function() return vim.api.nvim_list_bufs() end
+      }
+    },
     { name = "path",
       option = {
         get_cwd = function(params) return vim.fn.getcwd() end
