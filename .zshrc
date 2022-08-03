@@ -108,13 +108,6 @@ source $HOME/dotfiles/aliases.sh
 source $HOME/dotfiles/funcs.sh
 alias cd='z'
 
-# echo "\nSuccess is being better than yesterday - RICK RUBIN\n"
-# echo "There is nothing noble in being superior to your fellow men. True nobility lies in being superior to your former self - HEMINGWAY\n"
-
-source ~/feeds/feeds/core/pg.env
-
 source ~/personal/extract-code-from-md/extract
-
 export EDITOR=$(which nvim)
-
 export XDG_CONFIG_HOME=~/dotfiles

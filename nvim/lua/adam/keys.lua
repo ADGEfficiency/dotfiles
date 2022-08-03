@@ -29,6 +29,7 @@ km("n", "<leader><space>", ":noh<cr>", opts)
 vim.cmd "cabbrev v vsp"
 vim.cmd "cabbrev s sp"
 vim.cmd "cabbrev f Telescope find_files cwd="
+vim.cmd "cabbrev t Telescope"
 
 -- fix typo of :W for :w
 vim.cmd "command W write"
@@ -51,3 +52,10 @@ km("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- change nvim behaviour of replacing buffer after ciw
 km("v", "p", '"_dP', opts)
+
+-- run python file
+km("n", "<F5>", ":!python %:p <cr>", opts )
+
+-- move up and down on display lines, not real lines
+km("n", "j", "gj", opts)
+km("n", "k", "gk", opts)

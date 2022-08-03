@@ -122,6 +122,8 @@ cabbrev f Files
 "" scrolling speed - TODO
 " nnoremap <C-e> 3<C-e>
 " nnoremap <C-y> 3<C-y>
+"
+" 
 
 "" turn off search highlight
 nnoremap ,<space> :noh<cr>

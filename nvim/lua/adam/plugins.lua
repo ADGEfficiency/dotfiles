@@ -115,6 +115,9 @@ return packer.startup(function(use)
   -- text editing - python
   use "Vimjas/vim-python-pep8-indent"
 
+  --- text editing - markdown
+  use "dhruvasagar/vim-table-mode"
+
   -- reopen last place
   use "farmergreg/vim-lastplace"
 

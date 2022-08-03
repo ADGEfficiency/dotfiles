@@ -173,7 +173,7 @@ cmp.setup.filetype('python', {
     { name = "nvim_lsp" },
     {
       name = "buffer",
-      max_item_count = 3,
+      max_item_count = 7,
       option = {
         get_bufnrs = function() return vim.api.nvim_list_bufs() end
       }
