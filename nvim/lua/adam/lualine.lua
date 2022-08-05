@@ -14,7 +14,9 @@ require('lualine').setup {
     lualine_b = {
       {'branch', icon = ''},
     },
-    lualine_c = {},
+    lualine_c = {
+      {'filename', path = 3, symbols = {modified = '', readonly = ''}}
+    },
     lualine_x = {},
     lualine_y = {
       {
@@ -34,5 +36,5 @@ require('lualine').setup {
     lualine_z = {'progress', 'location'}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'fzf'}
 }

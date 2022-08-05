@@ -27,13 +27,11 @@ require('cokeline').setup({
     },
     components.space,
     {
-      text = '',
-      fg = function(buffer)
-        if buffer.diagnostics.errors ~= 0 then
-          return get_hex('Error', 'fg')
-        end
+      text = function(buffer)
         if buffer.is_modified then
-          return get_hex('WarningMsg', 'fg')
+          return ''
+        else 
+          return ''
         end
       end,
     },
