@@ -11,6 +11,8 @@ alias v='$EDITOR serverless.yml Makefile README.md'
 alias vi='$EDITOR'
 alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
+alias sed='gsed'
+
 alias cp='cp -r '
 
 # programs
@@ -99,9 +101,9 @@ alias db='git branch -D '
 alias gmv='git mv '
 
 #  tmux
-alias t='tmux new'
+alias t='tmux new -s arjuna'
 alias ta='tmux a #'
-alias tn='tmux new'
+alias tn='tmux new -s'
 alias tl='tmux ls'
 
 #  misc
@@ -145,3 +147,26 @@ alias bake='make'
 
 alias notes='cd ~/dss/notes/neu-notes'
 alias funcs='vi ~/dotfiles/funcs.sh'
+
+#  docker
+
+ssh-docker () {
+  docker exec -it $1 /bin/sh
+}
+
+build-docker () {
+  docker build -t $1 . -f $2
+}
+
+run-docker () {
+  docker run -it $1 /bin/sh
+}
+
+build-run-docker () {
+  build-docker $1 $2
+  run-docker $1
+}
+
+alias dc='docker-compose'
+alias dk='docker'
+alias h='cd $HOME'

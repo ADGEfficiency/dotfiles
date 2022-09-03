@@ -24,3 +24,8 @@ nvim/temp*
 nvim/package*
 nvim/test*
 nvim/plugin*
+
+notes.md
+todo.md
+temp
+temp.*

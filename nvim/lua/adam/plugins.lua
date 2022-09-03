@@ -49,25 +49,22 @@ return packer.startup(function(use)
   use "noib3/nvim-cokeline"
 
   -- lualine (bottom)
-  use { "nvim-lualine/lualine.nvim"}
+  use { "nvim-lualine/lualine.nvim" }
 
   -- greeter - alpha
   use {
     'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
   }
-  use {"kyazdani42/nvim-web-devicons"}
+  use { "kyazdani42/nvim-web-devicons" }
 
   -- treesitter
-  use {"nvim-treesitter/nvim-treesitter"}
+  use { "nvim-treesitter/nvim-treesitter" }
 
   -- which key
   use("folke/which-key.nvim")
-
-  -- see diagnostics
-  use "folke/trouble.nvim"
 
   -- colormap
   use "sainnhe/everforest"
@@ -102,7 +99,8 @@ return packer.startup(function(use)
 
   -- telescope
   use "nvim-telescope/telescope.nvim"
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- text editing
   use "tpope/vim-commentary"
@@ -120,6 +118,28 @@ return packer.startup(function(use)
 
   -- reopen last place
   use "farmergreg/vim-lastplace"
+
+  -- trailing space removal
+  use "axelf4/vim-strip-trailing-whitespace"
+
+  -- better quick fix window
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+
+  -- LSP diagnostics list
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        height = 10, -- height of the trouble list when position is top or bottom
+        width = 50, -- width of the list when position is left or right
+        icons = false, -- use devicons for filenames
+        indent_lines = false, -- add an indent guide below the fold icons
+        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_close = true, -- automatically close the list when you have no diagnostics
+      }
+    end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

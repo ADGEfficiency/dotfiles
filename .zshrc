@@ -1,3 +1,21 @@
+source /Users/adam/.config/broot/launcher/bash/br
+export PATH="$HOME/.poetry/bin:$PATH"
+alias brew='arch -x86_64 brew'
+
+# # --- powerlevel10k
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
 # # ------ vim -------
 
 #  vim bindings, vim as default editor
@@ -31,7 +49,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(git macos python fzf pyenv zsh-autosuggestions)
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#  brew install romkatv/powerlevel10k/powerlevel10k
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 source $ZSH/oh-my-zsh.sh
 
 # # ------ 3rd party -------
@@ -56,19 +76,20 @@ init_pyenv() {
 
 # conda
 init_conda() {
-  # __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-  # if [ $? -eq 0 ]; then
-  #     eval "$__conda_setup"
-  # else
-  #     if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-  #         . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-  #     else
-  #         export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-  #     fi
-  # fi
-  # unset __conda_setup
-  # # disable automatic init of base
-  # conda deactivate
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+          . "/opt/anaconda3/etc/profile.d/conda.sh"
+      else
+          export PATH="/opt/anaconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
 }
 
 # aws
@@ -109,5 +130,7 @@ source $HOME/dotfiles/funcs.sh
 alias cd='z'
 
 source ~/personal/extract-code-from-md/extract
+source ~/personal/scripts/random_name
 export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=~/dotfiles
+export PATH="$HOME/checkmake:$PATH"

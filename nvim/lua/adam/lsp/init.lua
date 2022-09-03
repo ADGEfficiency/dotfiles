@@ -1,4 +1,4 @@
-local status_ok, cfg = pcall(require, "lspconfig")
+local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
 	return
 end
@@ -7,12 +7,30 @@ require("adam.lsp.lsp-installer")
 require("adam.lsp.null-ls")
 require("adam.lsp.handlers").setup()
 
-cfg.html.setup {}
+lspconfig.html.setup {}
 
 vim.diagnostic.config({
   virtual_text = false
 })
 
--- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+local util = require 'vim.lsp.util'
+
+local formatting_callback = function(client, bufnr)
+  vim.keymap.set('n', '<leader>f', function()
+    local params = util.make_formatting_params({})
+    client.request('textDocument/formatting', params, nil, bufnr)
+  end, {buffer = bufnr})
+end
+
+lspconfig.clangd.setup {
+  on_attach = function(client, bufnr)
+    formatting_callback(client, bufnr)
+    common_on_attach(client, bufnr)
+  end
+}
+
+lspconfig.ccls.setup {
+  on_attach = function(client, bufnr)
+    common_on_attach(client, bufnr)
+  end
+}

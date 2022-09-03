@@ -75,8 +75,8 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    "gc",
+    '<cmd>lua vim.diagnostic.open_float()<CR>',
     opts
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
@@ -86,6 +86,9 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == "null-ls" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)

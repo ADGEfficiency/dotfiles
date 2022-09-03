@@ -11,12 +11,17 @@ vim.g.maplocalleader = ","
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>o", ":Lex 30<cr>", opts)
-km("n", "<leader>p", ":set paste!", opts)
+-- km("n", "<leader>p", ":set paste!", opts)
 km("n", "<leader>x", ":WinResizerStartResize", opts)
 km("n", "<leader>t", ":ThesaurusQueryReplaceCurrentWord<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
+km("n", "<leader>x", ":sp ~/.zsh_history<cr>", opts)
+
+-- old macros
+km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
+km("n", "<leader>y", "A<CR>from IPython.core.debugger import set_trace; set_trace()  # fmt: skip<ESC>", opts)
 
 -- buffer nav
 km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
@@ -54,8 +59,11 @@ km("x", "K", ":move '<-2<CR>gv-gv", opts)
 km("v", "p", '"_dP', opts)
 
 -- run python file
-km("n", "<F5>", ":!python %:p <cr>", opts )
+km("n", "<F5>", ":!python %:p <cr>", opts)
 
 -- move up and down on display lines, not real lines
 km("n", "j", "gj", opts)
 km("n", "k", "gk", opts)
+
+--
+km("n", ",d", ":b#<bar>bd#<bar>b<CR>", opts)

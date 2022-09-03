@@ -6,7 +6,7 @@ Setup dotfiles & git:
 $ bash setup-dotfiles.sh
 ```
 
-Setup an Ubuntu machine, just how I like it (this will also run the dotfiles setup):
+Setup an Ubuntu machine how I like it (this will also run the dotfiles setup):
 
 ```bash
 $ cd ubuntu; bash main.sh
