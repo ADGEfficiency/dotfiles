@@ -121,7 +121,7 @@ export NVM_DIR="$HOME/dotfiles/nvm"
 
 
 # # ------ complilation flags -------
-source $HOME/dotfiles/macos/flags
+source $HOME/dotfiles/macos/pyenv-flags
 
 source $HOME/dotfiles/aliases.sh
 source $HOME/dotfiles/funcs.sh
