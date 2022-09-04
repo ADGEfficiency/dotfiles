@@ -16,3 +16,6 @@ gpu: pre
 
 ~/.pyenv/Makefile: pre
 	./ubuntu/pyenv
+
+python-general:
+	cd ./python-general/; sh setup.sh

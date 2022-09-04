@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "general"
+version = "0.1.0"
+description = ""
+authors = ["Adam Green <adam.green@adgefficiency.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.6"
+mypy = "^0.971"
+typer = "^0.6.1"
+sqlmodel = "^0.0.8"
+fastapi = "^0.81.0"
+jedi-language-server = "^0.37.0"
+pandas = "^1.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

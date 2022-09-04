@@ -1,14 +1,15 @@
-require "adam.plugins"
-require "adam.color"
-require "adam.cmp"
-require "adam.lsp"
-require "adam.lualine"
-require "adam.treesitter"
-require "adam.whichkey"
-require "adam.keys"
-require "adam.gitsigns"
-require "adam.pairs"
-require "adam.cokeline"
-require "adam.telescope"
-require "adam.augroup"
-require "adam.options"
+require("adam.plugins")
+require("adam.color")
+require("adam.cmp")
+require("adam.lsp")
+require("adam.lualine")
+require("adam.treesitter")
+require("adam.whichkey")
+require("adam.keys")
+require("adam.gitsigns")
+require("adam.pairs")
+require("adam.cokeline")
+require("adam.telescope")
+require("adam.augroup")
+require("adam.options")
+require("adam.alpha")

@@ -134,3 +134,4 @@ source ~/personal/scripts/random_name
 export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=~/dotfiles
 export PATH="$HOME/checkmake:$PATH"
+export PATH="$HOME/writing-tools:$PATH"

@@ -36,3 +36,9 @@ $ cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_con
 pip install python-language-server
 pip install jedi
 ```
+
+## Setup a General / Default Python Virtual Env
+
+```sh
+$ make python-general
+```
