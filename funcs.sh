@@ -12,8 +12,10 @@ remote() {
 }
 
 make_env() {
-  pyenv virtualenv $1 $2
-	echo $2 > .python-version
+  VERSION=$1
+  NAME=$2
+  pyenv virtualenv $VERSION $NAME
+	echo $NAME > .python-version
 }
 
 make_env_pip() {

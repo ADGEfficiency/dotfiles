@@ -13,6 +13,7 @@ sqlmodel = "^0.0.8"
 fastapi = "^0.81.0"
 jedi-language-server = "^0.37.0"
 pandas = "^1.4.4"
+proselint = "^0.13.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -21,7 +21,7 @@ null_ls.setup({
     diagnostics.eslint,
     diagnostics.proselint.with({
       command = "/Users/adam/.pyenv/versions/general/bin/proselint",
-      args = { "--json" }
+      args = { "--json" },
     }),
     diagnostics.sqlfluff,
     code_actions.shellcheck,
@@ -37,7 +37,7 @@ null_ls.setup({
     formatting.djhtml,
     formatting.tidy,
     formatting.jq,
-    formatting.prettier,
+    formatting.prettier.with({ extra_args = { "--no-prose-wrap" } }),
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

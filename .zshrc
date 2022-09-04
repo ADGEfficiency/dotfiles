@@ -114,16 +114,14 @@ init_fzf
 
 eval "$(zoxide init zsh)"
 
+#  multiple node versions
+export NVM_DIR="$HOME/dotfiles/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # # ------ complilation flags -------
-
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/tcl-tk/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip3/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/tcl-tk/include"
-
-export PATH=$PATH:/usr/local/opt/tcl-tk/bin
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
-export PATH="/usr/local/opt/bzip2/bin:$PATH"
+source $HOME/dotfiles/macos/flags
 
 source $HOME/dotfiles/aliases.sh
 source $HOME/dotfiles/funcs.sh
