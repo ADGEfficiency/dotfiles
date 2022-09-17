@@ -9,15 +9,14 @@ km("n", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+-- km("n", "<leader>o", ":Lex 30<cr>", opts)
+
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
-km("n", "<leader>o", ":Lex 30<cr>", opts)
--- km("n", "<leader>p", ":set paste!", opts)
-km("n", "<leader>x", ":WinResizerStartResize", opts)
-km("n", "<leader>t", ":ThesaurusQueryReplaceCurrentWord<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>x", ":sp ~/.zsh_history<cr>", opts)
+km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 
 -- old macros
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
@@ -65,5 +64,9 @@ km("n", "<F5>", ":!python %:p <cr>", opts)
 km("n", "j", "gj", opts)
 km("n", "k", "gk", opts)
 
---
-km("n", ",d", ":b#<bar>bd#<bar>b<CR>", opts)
+-- no idea
+-- km("n", ",d", ":b#<bar>bd#<bar>b<CR>", opts)
+
+--- open grepper quickly
+km("n", "<leader>g", ":Grepper -tool git<cr>", opts)
+km("n", "<leader>*", ":Grepper -tool rg -cword -noprompt<cr>", opts)

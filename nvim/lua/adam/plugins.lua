@@ -58,9 +58,6 @@ return packer.startup(function(use)
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter" })
 
-  -- which key
-  use("folke/which-key.nvim")
-
   -- colormap
   use("sainnhe/everforest")
   use("dracula/vim")
@@ -76,12 +73,11 @@ return packer.startup(function(use)
   use("uga-rosa/cmp-dictionary")
   use("ray-x/cmp-treesitter")
   use("David-Kunz/cmp-npm") -- npm packages (package.json)
-  use("saadparwaiz1/cmp_luasnip") -- snippet completions
   use("hrsh7th/cmp-nvim-lsp") -- lsp completions
 
   -- snippets
-  use("L3MON4D3/LuaSnip") --snippet engine
-  use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+  use("saadparwaiz1/cmp_luasnip") -- snippet completions
+  use("L3MON4D3/LuaSnip")
 
   -- lsp
   use("neovim/nvim-lspconfig")
@@ -102,7 +98,6 @@ return packer.startup(function(use)
   -- text editing
   use("tpope/vim-commentary")
   use("windwp/nvim-autopairs")
-  use("honza/vim-snippets")
   use("FooSoft/vim-argwrap")
   use("ixru/nvim-markdown")
   use("mattn/emmet-vim")
@@ -124,6 +119,14 @@ return packer.startup(function(use)
 
   use({ "simeji/winresizer" })
 
+  use({ "kylechui/nvim-surround" })
+
+  use({ "Glench/Vim-Jinja2-Syntax" })
+
+  use({ "mhinz/vim-grepper" })
+
+  use( { "github/copilot.vim"})
+
   -- LSP diagnostics list
   use({
     "folke/trouble.nvim",
@@ -135,7 +138,7 @@ return packer.startup(function(use)
         icons = false, -- use devicons for filenames
         indent_lines = false, -- add an indent guide below the fold icons
         auto_open = false, -- automatically open the list when you have diagnostics
-        auto_close = true, -- automatically close the list when you have no diagnostics
+        auto_close = false, -- automatically close the list when you have no diagnostics
       })
     end,
   })

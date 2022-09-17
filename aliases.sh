@@ -101,10 +101,15 @@ alias db='git branch -D '
 alias gmv='git mv '
 
 #  tmux
-alias t='tmux new -s arjuna'
+# alias t='tmux new -s arjuna'
 alias ta='tmux a #'
-alias tn='tmux new -s'
 alias tl='tmux ls'
+
+tn () {
+    name=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
+    tmux new -s $name
+}
+alias t='tn'
 
 #  misc
 alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
@@ -135,12 +140,12 @@ alias lo='cd ~/personal/logging-my-life'
 
 exists()
 {
-  command -v "$1" >/dev/null 2>&1
+    command -v "$1" >/dev/null 2>&1
 }
 if exists bat; then
-  alias cat='bat'
+    alias cat='bat'
 else
-  :
+    :
 fi
 
 alias bake='make'
@@ -151,20 +156,20 @@ alias funcs='vi ~/dotfiles/funcs.sh'
 #  docker
 
 ssh-docker () {
-  docker exec -it $1 /bin/sh
+    docker exec -it $1 /bin/sh
 }
 
 build-docker () {
-  docker build -t $1 . -f $2
+    docker build -t $1 . -f $2
 }
 
 run-docker () {
-  docker run -it $1 /bin/sh
+    docker run -it $1 /bin/sh
 }
 
 build-run-docker () {
-  build-docker $1 $2
-  run-docker $1
+    build-docker $1 $2
+    run-docker $1
 }
 
 alias dc='docker-compose'

@@ -14,6 +14,16 @@ fastapi = "^0.81.0"
 jedi-language-server = "^0.37.0"
 pandas = "^1.4.4"
 proselint = "^0.13.0"
+beautysh = "^6.2.1"
+zxpy = "^1.6.2"
+black = "^22.8.0"
+jedi = "^0.18.1"
+flake8 = "^5.0.4"
+isort = "^5.10.1"
+datasette = "^0.62"
+awscli = "^1.25.71"
+jupyterlab = "^3.4.7"
+jupyterlab-vim = "^0.15.1"
 
 [build-system]
 requires = ["poetry-core"]
