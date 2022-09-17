@@ -1166,6 +1166,24 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
+name = "polars"
+version = "0.14.11"
+description = "Blazingly fast DataFrame library"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+all = ["polars[connectorx,fsspec,numpy,pandas,pyarrow,timezone,xlsx2csv]"]
+connectorx = ["connectorx"]
+fsspec = ["fsspec"]
+numpy = ["numpy (>=1.16.0)"]
+pandas = ["pandas", "pyarrow (>=4.0)"]
+pyarrow = ["pyarrow (>=4.0)"]
+timezone = ["backports.zoneinfo", "tzdata"]
+xlsx2csv = ["xlsx2csv (>=0.8.0)"]
+
+[[package]]
 name = "prometheus-client"
 version = "0.14.1"
 description = "Python client for the Prometheus monitoring system."
@@ -1761,7 +1779,7 @@ dev = ["mypy", "pytest", "tox"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.6"
-content-hash = "4212c5c395b6ed473b0ad0765e3978de86a9484d9b6ba22368f4373b8e335f6a"
+content-hash = "2d7c0e92bc33b0b1d0afef0fada7bc66ad8c99adb7f9d5a3bbb1d89477078259"
 
 [metadata.files]
 aiofiles = [
@@ -2447,6 +2465,13 @@ platformdirs = [
 pluggy = [
     {file = "pluggy-1.0.0-py2.py3-none-any.whl", hash = "sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"},
     {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
+]
+polars = [
+    {file = "polars-0.14.11-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:fbc5d97e0b8fceb16130c872a1380a5a009ef128d54fe3733ef9f1edec95f330"},
+    {file = "polars-0.14.11-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:3a8f4cc6ea8aca1d44f38f4a20742a30d666f0a57f63f923a014b2a6eba64522"},
+    {file = "polars-0.14.11-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b69d31a5e0be63fdb4e639a54999b16edd51d4edc6bfd2f913459f1540fa0556"},
+    {file = "polars-0.14.11-cp37-abi3-win_amd64.whl", hash = "sha256:a4e584f1b1151a6d37d5b73d99e29179f2a67a937042b1c45c398e15dee16ee0"},
+    {file = "polars-0.14.11.tar.gz", hash = "sha256:47383d0bdc27cd42452471b3f284240c5d1fc759240c92a1cd3c8078e9c27099"},
 ]
 prometheus-client = [
     {file = "prometheus_client-0.14.1-py3-none-any.whl", hash = "sha256:522fded625282822a89e2773452f42df14b5a8e84a86433e3f8a189c1d54dc01"},
