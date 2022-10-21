@@ -56,3 +56,8 @@ vim.cmd [[hi! link SpellBad ErrorMsg]]
 -- show tabs and spaces
 vim.opt.list = true
 vim.opt.listchars = 'tab:>-'
+
+vim.opt.makeprg = gmake
+vim.opt.spell.spellang = en_nz
+
+vim.cmd[[colorscheme dracula]]

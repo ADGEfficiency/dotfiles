@@ -85,6 +85,7 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim")
   use("ray-x/lsp_signature.nvim")
 
+
   -- git
   use("lewis6991/gitsigns.nvim")
 
@@ -94,6 +95,7 @@ return packer.startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   })
+  use({"ptethng/telescope-makefile"})
 
   -- text editing
   use("tpope/vim-commentary")
@@ -119,13 +121,30 @@ return packer.startup(function(use)
 
   use({ "simeji/winresizer" })
 
-  use({ "kylechui/nvim-surround" })
+  use({ "tpope/vim-surround" })
+  use({ "tpope/vim-repeat" })
+
+  use({ "qpkorr/vim-bufkill" })
 
   use({ "Glench/Vim-Jinja2-Syntax" })
 
   use({ "mhinz/vim-grepper" })
 
-  use( { "github/copilot.vim"})
+  use {
+    'ADGEfficiency/xit.nvim',
+    opt = true, -- for lazy-loading
+    ft = 'xit', -- for lazy-loading
+    run = function(plugin)
+      plugin.config()
+      vim.cmd[[:TSInstall! xit]]
+    end,
+    config = function() require('xit').setup({
+      disable_default_highlights = false
+    }) end,
+    requires = { 'nvim-treesitter/nvim-treesitter' }
+  }
+
+  use({"nvim-treesitter/playground"})
 
   -- LSP diagnostics list
   use({

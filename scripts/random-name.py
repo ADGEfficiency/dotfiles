@@ -3,7 +3,17 @@ import random
 
 
 if __name__ == "__main__":
-    names = ["arjuna", "darwin", "carl-jung", "dylan"]
+    names = [
+        "arjuna",
+        "darwin",
+        "carl-jung",
+        "dylan",
+        "bismark",
+        "socrates",
+        "plato",
+        "shakyamuni",
+        "gautama",
+    ]
     try:
         sessions = ~"tmux ls"
         sessions = sessions.split("\n")[:-1]

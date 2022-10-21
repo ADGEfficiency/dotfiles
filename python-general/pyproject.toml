@@ -25,6 +25,10 @@ awscli = "^1.25.71"
 jupyterlab = "^3.4.7"
 jupyterlab-vim = "^0.15.1"
 polars = "^0.14.11"
+matplotlib = "^3.6.0"
+prefect = "^2.4.0"
+aws-cdk-lib = "^2.44.0"
+constructs = "^10.1.123"
 
 [build-system]
 requires = ["poetry-core"]

@@ -159,17 +159,30 @@ ssh-docker () {
     docker exec -it $1 /bin/sh
 }
 
-build-docker () {
-    docker build -t $1 . -f $2
+docker-build () {
+    NAME=$1
+    DOCKERFILE=$2
+    docker build -t $NAME . -f $DOCKERFILE
 }
 
-run-docker () {
-    docker run -it $1 /bin/sh
+docker-run () {
+    NAME=$1
+    docker run -it $NAME /bin/sh
+}
+
+docker-ip () {
+    NAME=$1
+    docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME
 }
 
 build-run-docker () {
     build-docker $1 $2
     run-docker $1
+}
+
+docker-ls () {
+  docker network list
+  docker volume list
 }
 
 alias dc='docker-compose'

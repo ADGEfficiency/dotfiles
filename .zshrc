@@ -10,6 +10,10 @@ export EDITOR=$(which nvim)
 #  put config in ~/dotfiles (instead of ~/.config)
 export XDG_CONFIG_HOME=~/dotfiles
 
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 
 # # ------  utility  -------
 
@@ -73,9 +77,21 @@ init_nvm() {
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
+init_ruby() {
+    eval "$(rbenv init -)"
+    rbenv shell 2.7.2
+    export RBENV_ROOT=/usr/local/var/rbenv
+    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+    export PATH="$HOME/.rbenv/shims:$PATH"
+}
+
 # # ------ 3rd party inits -------
 init_fzf
 init_powerlevel
+init_nvm
 eval "$(zoxide init zsh)"
 
 # set +x
+
+source ~/dotfiles/macos/brew-clang-flag
+source ~/dotfiles/macos/pyenv-flags
