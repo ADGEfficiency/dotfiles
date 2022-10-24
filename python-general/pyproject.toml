@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "general"
+version = "0.1.0"
+description = ""
+authors = ["Adam Green <adam.green@adgefficiency.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.6"
+mypy = "^0.971"
+typer = "^0.6.1"
+sqlmodel = "^0.0.8"
+fastapi = "^0.81.0"
+jedi-language-server = "^0.37.0"
+pandas = "^1.4.4"
+proselint = "^0.13.0"
+beautysh = "^6.2.1"
+zxpy = "^1.6.2"
+black = "^22.8.0"
+jedi = "^0.18.1"
+flake8 = "^5.0.4"
+isort = "^5.10.1"
+datasette = "^0.62"
+awscli = "^1.25.71"
+jupyterlab = "^3.4.7"
+jupyterlab-vim = "^0.15.1"
+polars = "^0.14.11"
+matplotlib = "^3.6.0"
+prefect = "^2.4.0"
+aws-cdk-lib = "^2.44.0"
+constructs = "^10.1.123"
+pytest = "^7.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

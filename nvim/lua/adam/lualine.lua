@@ -15,7 +15,11 @@ require('lualine').setup {
       {'branch', icon = ''},
     },
     lualine_c = {
-      {'filename', path = 3, symbols = {modified = '', readonly = ''}}
+      {'filename', path = 3, symbols = {
+        modified = ' ',
+        readonly = ' ',
+        shorting_target = 4
+      }}
     },
     lualine_x = {},
     lualine_y = {

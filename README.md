@@ -6,7 +6,7 @@ Setup dotfiles & git:
 $ bash setup-dotfiles.sh
 ```
 
-Setup an Ubuntu machine, just how I like it (this will also run the dotfiles setup):
+Setup an Ubuntu machine how I like it (this will also run the dotfiles setup):
 
 ```bash
 $ cd ubuntu; bash main.sh
@@ -35,4 +35,10 @@ $ cp ~/dotfiles/ipython/ipython_config.py ~/.ipython/profile_default/ipython_con
 ```sh
 pip install python-language-server
 pip install jedi
+```
+
+## Setup a General / Default Python Virtual Env
+
+```sh
+$ make python-general
 ```

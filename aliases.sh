@@ -11,6 +11,8 @@ alias v='$EDITOR serverless.yml Makefile README.md'
 alias vi='$EDITOR'
 alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
+alias sed='gsed'
+
 alias cp='cp -r '
 
 # programs
@@ -99,10 +101,15 @@ alias db='git branch -D '
 alias gmv='git mv '
 
 #  tmux
-alias t='tmux new'
+# alias t='tmux new -s arjuna'
 alias ta='tmux a #'
-alias tn='tmux new'
 alias tl='tmux ls'
+
+tn () {
+    name=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
+    tmux new -s $name
+}
+alias t='tn'
 
 #  misc
 alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
@@ -133,15 +140,51 @@ alias lo='cd ~/personal/logging-my-life'
 
 exists()
 {
-  command -v "$1" >/dev/null 2>&1
+    command -v "$1" >/dev/null 2>&1
 }
 if exists bat; then
-  alias cat='bat'
+    alias cat='bat'
 else
-  :
+    :
 fi
 
 alias bake='make'
 
 alias notes='cd ~/dss/notes/neu-notes'
 alias funcs='vi ~/dotfiles/funcs.sh'
+
+#  docker
+
+ssh-docker () {
+    docker exec -it $1 /bin/sh
+}
+
+docker-build () {
+    NAME=$1
+    DOCKERFILE=$2
+    docker build -t $NAME . -f $DOCKERFILE
+}
+
+docker-run () {
+    NAME=$1
+    docker run -it $NAME /bin/sh
+}
+
+docker-ip () {
+    NAME=$1
+    docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME
+}
+
+build-run-docker () {
+    build-docker $1 $2
+    run-docker $1
+}
+
+docker-ls () {
+  docker network list
+  docker volume list
+}
+
+alias dc='docker-compose'
+alias dk='docker'
+alias h='cd $HOME'

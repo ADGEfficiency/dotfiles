@@ -170,10 +170,8 @@ end
 
 cmp.setup.filetype('python', {
   sources = {
-    { name = "nvim_lsp" },
     {
       name = "buffer",
-      max_item_count = 7,
       option = {
         get_bufnrs = function() return vim.api.nvim_list_bufs() end
       }
@@ -183,8 +181,11 @@ cmp.setup.filetype('python', {
         get_cwd = function(params) return vim.fn.getcwd() end
       }
     },
-    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
     { name = "luasnip" },
+    {
+      name = "nvim_lsp"
+    },
+    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
   },
 })
 

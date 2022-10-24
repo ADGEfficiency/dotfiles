@@ -11,3 +11,5 @@ augroup markdown
     set complete+=k
 augroup end
 ]], false)
+
+vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")

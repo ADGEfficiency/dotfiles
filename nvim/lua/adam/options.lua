@@ -53,4 +53,11 @@ vim.cmd [[autocmd BufWritePost *.py silent! execute ':Format']]
 -- highlighting of spelling mistakes
 vim.cmd [[hi! link SpellBad ErrorMsg]]
 
-vim.cmd [[syn keyword Todo TODO NOTES DONE LONGTERM TECHDEBT]]
+-- show tabs and spaces
+vim.opt.list = true
+vim.opt.listchars = 'tab:>-'
+
+vim.opt.makeprg = gmake
+vim.opt.spell.spellang = en_nz
+
+vim.cmd[[colorscheme dracula]]

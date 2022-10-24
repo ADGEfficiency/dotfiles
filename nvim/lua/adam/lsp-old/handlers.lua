@@ -14,9 +14,7 @@ M.setup = function()
   end
 
   local config = {
-    -- disable virtual text
     virtual_text = false,
-    -- show signs
     signs = {
       active = signs,
     },
@@ -63,7 +61,7 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -75,8 +73,8 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    "gc",
+    '<cmd>lua vim.diagnostic.open_float()<CR>',
     opts
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
@@ -86,6 +84,9 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == "null-ls" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
