@@ -17,7 +17,7 @@ SAVEHIST=$HISTSIZE
 
 
 # # ------ oh-my-zsh -------
-export ZSH="/Users/adam/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # suggestions
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
@@ -85,7 +85,6 @@ init_fzf() {
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
   bindkey -v
-  source ~/.fzf.zsh
 }
 
 # # ------ 3rd party inits -------
