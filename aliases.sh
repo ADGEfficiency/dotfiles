@@ -7,7 +7,7 @@ export PER=$HOME/personal/
 export GDR=$HOME/GoogleDrive
 
 alias s='$EDITOR $(fzf)'
-alias v='$EDITOR serverless.yml Makefile README.md'
+alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
 alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
@@ -16,7 +16,7 @@ alias sed='gsed'
 alias cp='cp -r '
 
 # programs
-alias g='grep -irl '
+alias g='grep --exclude-dir=.mypy_cache -irl '
 alias b='cd ..'
 alias c='clear'
 alias cls='clear && ls'

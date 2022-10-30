@@ -28,7 +28,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # # --- powerlevel10k
 
 init_powerlevel() {
-  source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+  source ~/powerlevel10k/powerlevel10k.zsh-theme
 
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
@@ -36,6 +36,7 @@ init_powerlevel() {
   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
       source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   fi
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -43,30 +44,24 @@ init_powerlevel() {
 
 
 # # ------ oh-my-zsh -------
-<<<<<<< HEAD
+
 export ZSH="$HOME/.oh-my-zsh"
-
-# suggestions
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
-=======
-
-export ZSH="/Users/adam/.oh-my-zsh"
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
->>>>>>> 971fd9a921bec27f7bdb8dabd8025474d7819dd9
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ENABLE_CORRECTION="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git macos pyenv zsh-autosuggestions)
+plugins=(git macos pyenv zsh-autosuggestions fzf-zsh-plugin)
 source $ZSH/oh-my-zsh.sh
 
 # # ------ 3rd party -------
 
 init_fzf() {
-  export FZF_BASE=/usr/local/bin/fzf
-  export FZF_DEFAULT_COMMAND='rg --files --hidden'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
-  bindkey -v
+    export FZF_BASE=/usr/local/bin/fzf
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
+    source ~/.fzf.zsh
+    bindkey -v
 }
 
 init_pyenv() {
@@ -89,14 +84,15 @@ init_ruby() {
     export RBENV_ROOT=/usr/local/var/rbenv
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
     export PATH="$HOME/.rbenv/shims:$PATH"
+}
 
 # # ------ 3rd party inits -------
 init_fzf
 init_powerlevel
 init_nvm
+source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
 
 # set +x
 
-source ~/dotfiles/macos/brew-clang-flag
 source ~/dotfiles/macos/pyenv-flags
