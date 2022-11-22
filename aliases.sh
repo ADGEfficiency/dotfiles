@@ -16,7 +16,7 @@ alias sed='gsed'
 alias cp='cp -r '
 
 # programs
-alias g='grep --exclude-dir=.mypy_cache -irl '
+alias g='grep --exclude-dir=.mypy_cache --exclude-dir=__pycache__ -irl '
 alias b='cd ..'
 alias c='clear'
 alias cls='clear && ls'
@@ -35,6 +35,8 @@ alias rm='rm -rf'
 alias mkdir='mkdir -p'
 alias df='df -h'
 alias tree="tree -I '*pycache*'"
+
+export GENERAL="/Users/adam/.pyenv/versions/3.10.6/envs/general/bin"
 
 # be polite!
 alias please='sudo'

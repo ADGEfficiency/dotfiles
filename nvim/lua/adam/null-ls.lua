@@ -18,7 +18,8 @@ null_ls.setup({
     -- diagnostics.alex,
     -- diagnostics.checkmake,
     -- diagnostics.djlint,
-    -- diagnostics.eslint,
+    diagnostics.eslint,
+    diagnostics.jsonlint,
     -- diagnostics.proselint.with({
     --   command = "/Users/adam/.pyenv/versions/general/bin/proselint",
     --   args = { "--json" },
@@ -27,7 +28,7 @@ null_ls.setup({
     -- code_actions.shellcheck,
     -- code_actions.xo,
     -- code_actions.proselint,
-    -- formatting.isort,
+    formatting.isort,
     formatting.black.with({ extra_args = { "--fast" } }),
     -- formatting.stylua,
     -- formatting.beautysh,
@@ -47,7 +48,7 @@ null_ls.setup({
         buffer = bufnr,
         callback = function()
           -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          vim.lsp.buf.formatting_seq_sync()
+          vim.lsp.buf.format({bufnr=bufnr})
         end,
       })
     end

@@ -36,7 +36,6 @@ init_powerlevel() {
   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
       source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   fi
-  ZSH_THEME="powerlevel10k/powerlevel10k"
 
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -50,7 +49,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ENABLE_CORRECTION="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git macos pyenv zsh-autosuggestions fzf-zsh-plugin)
+plugins=(git macos zsh-autosuggestions fzf-zsh-plugin)
 source $ZSH/oh-my-zsh.sh
 
 # # ------ 3rd party -------
@@ -60,16 +59,17 @@ init_fzf() {
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
-    source ~/.fzf.zsh
     bindkey -v
+    source ~/.fzf.zsh
 }
 
 init_pyenv() {
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-        eval "$(pyenv init --path)"
-    fi
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path --no-rehash)"
+}
+init_pyenv_venv() {
+  eval "$(pyenv virtualenv-init -)"
 }
 
 init_nvm() {
@@ -89,10 +89,13 @@ init_ruby() {
 # # ------ 3rd party inits -------
 init_fzf
 init_powerlevel
-init_nvm
-source ~/.fzf.zsh
+# init_pyenv
+# init_pyenv_venv
+# init_nvm
 eval "$(zoxide init zsh)"
 
 # set +x
 
 source ~/dotfiles/macos/pyenv-flags
+
+zprof

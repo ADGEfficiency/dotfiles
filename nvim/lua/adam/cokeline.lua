@@ -8,6 +8,9 @@ local components = {
 }
 
 require('cokeline').setup({
+  buffers = {
+    new_buffers_position = 'next'
+  },
   default_hl = {
     fg = function(buffer)
       if buffer.is_focused then return get_hex('ColorColumn', 'fg') end

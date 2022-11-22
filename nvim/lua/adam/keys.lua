@@ -21,6 +21,7 @@ km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 -- old macros
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
 km("n", "<leader>y", "A<CR>from IPython.core.debugger import set_trace; set_trace()  # fmt: skip<ESC>", opts)
+km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 
 -- buffer nav
 km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
