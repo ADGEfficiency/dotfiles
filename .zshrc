@@ -1,6 +1,6 @@
 # set -x
 
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 
 # # ------  general  -------
@@ -17,10 +17,6 @@ SAVEHIST=$HISTSIZE
 
 # # ------  utility  -------
 
-timezsh() {
-    shell=${1-$SHELL}
-    for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
 alias brew='arch -x86_64 brew'
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -41,17 +37,6 @@ init_powerlevel() {
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 }
 
-
-# # ------ oh-my-zsh -------
-
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ENABLE_CORRECTION="false"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git macos zsh-autosuggestions fzf-zsh-plugin)
-source $ZSH/oh-my-zsh.sh
-
 # # ------ 3rd party -------
 
 init_fzf() {
@@ -63,14 +48,6 @@ init_fzf() {
     source ~/.fzf.zsh
 }
 
-init_pyenv() {
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path --no-rehash)"
-}
-init_pyenv_venv() {
-  eval "$(pyenv virtualenv-init -)"
-}
 
 init_nvm() {
   export NVM_DIR="$HOME/dotfiles/nvm"
@@ -86,11 +63,19 @@ init_ruby() {
     export PATH="$HOME/.rbenv/shims:$PATH"
 }
 
+init_pretzo() {
+  export STARSHIP_CONFIG=~/dotfiles/starship.toml
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+}
+
+init_starship() {
+  eval "$(starship init zsh)"
+}
+
 # # ------ 3rd party inits -------
+init_pretzo
+init_starship
 init_fzf
-init_powerlevel
-# init_pyenv
-# init_pyenv_venv
 # init_nvm
 eval "$(zoxide init zsh)"
 
@@ -98,4 +83,4 @@ eval "$(zoxide init zsh)"
 
 source ~/dotfiles/macos/pyenv-flags
 
-zprof
+# zprof

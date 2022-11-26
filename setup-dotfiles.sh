@@ -5,6 +5,7 @@ echo "source $HOME/dotfiles/aliases.sh" >> "$HOME/.bashrc"
 echo "source $HOME/dotfiles/.zshrc" >> "$HOME/.zshrc"
 echo "source $HOME/dotfiles/funcs.sh" >> "$HOME/.zshrc"
 echo "source $HOME/dotfiles/aliases.sh" >> "$HOME/.zshrc"
+echo "source $HOME/dotfiles/.zpreztorc" >> "$HOME/.zpreztorc"
 
 echo "source $HOME/dotfiles/.vimrc" >> "$HOME/.vimrc"
 echo "source $HOME/dotfiles/.tmux.conf" >> "$HOME/.tmux.conf"
