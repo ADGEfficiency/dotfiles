@@ -37,13 +37,10 @@ vim.opt.guifont = "monospace:h17"               -- the font used in graphical ne
 vim.opt.backspace = "indent,eol,start"
 vim.opt.wildignore = "+=*.egg-info/**"
 vim.opt.wildmenu = true
-
 vim.opt.wrap = true
 
 -- global status bar (bottom one)
 vim.opt.laststatus = 3
-
---fzf
 
 vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
 
@@ -57,7 +54,7 @@ vim.cmd [[hi! link SpellBad ErrorMsg]]
 vim.opt.list = true
 vim.opt.listchars = 'tab:>-'
 
-vim.opt.makeprg = gmake
-vim.opt.spell.spellang = en_nz
+vim.opt.makeprg = 'gmake'
+vim.opt.spell.spellang = 'en_nz'
 
 vim.cmd[[colorscheme dracula]]

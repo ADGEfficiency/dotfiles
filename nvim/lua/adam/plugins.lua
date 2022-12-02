@@ -61,6 +61,7 @@ return packer.startup(function(use)
   -- colormap
   use("sainnhe/everforest")
   use("dracula/vim")
+  use("sam4llis/nvim-tundra")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -145,6 +146,7 @@ return packer.startup(function(use)
   }
 
   use({"nvim-treesitter/playground"})
+  use({"github/copilot.vim"})
 
   -- LSP diagnostics list
   use({

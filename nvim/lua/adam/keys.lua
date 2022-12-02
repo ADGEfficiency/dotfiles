@@ -65,9 +65,5 @@ km("n", "<F5>", ":!python %:p <cr>", opts)
 km("n", "j", "gj", opts)
 km("n", "k", "gk", opts)
 
--- no idea
--- km("n", ",d", ":b#<bar>bd#<bar>b<CR>", opts)
-
---- open grepper quickly
-km("n", "<leader>g", ":Grepper -tool git<cr>", opts)
-km("n", "<leader>*", ":Grepper -tool rg -cword -noprompt<cr>", opts)
+--- open grepper and search for current word
+km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)

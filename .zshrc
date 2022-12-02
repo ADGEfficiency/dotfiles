@@ -19,6 +19,7 @@ SAVEHIST=$HISTSIZE
 
 alias brew='arch -x86_64 brew'
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/checkmake/:$PATH"
 
 
 # # --- powerlevel10k

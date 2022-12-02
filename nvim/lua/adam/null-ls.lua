@@ -16,7 +16,7 @@ null_ls.setup({
     diagnostics.flake8,
     -- diagnostics.actionlint,
     -- diagnostics.alex,
-    -- diagnostics.checkmake,
+    diagnostics.checkmake,
     -- diagnostics.djlint,
     diagnostics.eslint,
     diagnostics.jsonlint,
