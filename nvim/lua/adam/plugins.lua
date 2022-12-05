@@ -86,7 +86,6 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim")
   use("ray-x/lsp_signature.nvim")
 
-
   -- git
   use("lewis6991/gitsigns.nvim")
 
@@ -104,6 +103,8 @@ return packer.startup(function(use)
   use("FooSoft/vim-argwrap")
   use("ixru/nvim-markdown")
   use("mattn/emmet-vim")
+  use({ "tpope/vim-surround" })
+  use({ "tpope/vim-repeat" })
 
   -- text editing - python
   use("Vimjas/vim-python-pep8-indent")
@@ -121,9 +122,6 @@ return packer.startup(function(use)
   use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
   use({ "simeji/winresizer" })
-
-  use({ "tpope/vim-surround" })
-  use({ "tpope/vim-repeat" })
 
   use({ "qpkorr/vim-bufkill" })
 

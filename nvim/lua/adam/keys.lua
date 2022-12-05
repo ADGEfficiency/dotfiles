@@ -24,8 +24,10 @@ km("n", "<leader>y", "A<CR>from IPython.core.debugger import set_trace; set_trac
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 
 -- buffer nav
-km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
-km("n", "<C-t>", ":bprevious<cr>:redraw<cr>", opts)
+-- km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
+-- km("n", "<C-t>", ":bprevious<cr>:redraw<cr>", opts)
+km("n", "<C-n>", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
+km("n", "<C-t>", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- remove search highlight
 km("n", "<leader><space>", ":noh<cr>", opts)
@@ -59,7 +61,7 @@ km("x", "K", ":move '<-2<CR>gv-gv", opts)
 km("v", "p", '"_dP', opts)
 
 -- run python file
-km("n", "<F5>", ":!python %:p <cr>", opts)
+km("n", "<F6>", ":!python %:p <cr>", opts)
 
 -- move up and down on display lines, not real lines
 km("n", "j", "gj", opts)
