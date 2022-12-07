@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -sL install-node.now.sh/lts | sudo bash
+bash <(curl -sL install-node.now.sh/lts) --yes
 sudo add-apt-repository -y ppa:jonathonf/vim
 sudo apt -y install vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

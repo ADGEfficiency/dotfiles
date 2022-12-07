@@ -111,6 +111,7 @@ return packer.startup(function(use)
 
   --- text editing - markdown
   use("dhruvasagar/vim-table-mode")
+  use("dkarter/bullets.vim")
 
   -- reopen last place
   use("farmergreg/vim-lastplace")
