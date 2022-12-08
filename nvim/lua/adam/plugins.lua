@@ -51,19 +51,22 @@ return packer.startup(function(use)
   -- lualine (bottom)
   use({ "nvim-lualine/lualine.nvim" })
 
-  -- greeter/dashboard - alpha
+  -- -- greeter/dashboard - alpha
   use({ "goolord/alpha-nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
 
-  -- treesitter
-  use({ "nvim-treesitter/nvim-treesitter" })
+  -- treesitter - not using as ruins markdown :(
+  -- use({ "nvim-treesitter/nvim-treesitter" })
+  -- use("MDeiml/tree-sitter-markdown")
+  -- use("ray-x/cmp-treesitter")
+  -- use({"nvim-treesitter/playground"})
 
-  -- colormap
-  use("sainnhe/everforest")
+  -- -- -- colormap
+  -- -- use("sainnhe/everforest")
   use("dracula/vim")
-  use("sam4llis/nvim-tundra")
+  -- -- use("sam4llis/nvim-tundra")
 
-  -- cmp plugins
+  -- -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
   use("hrsh7th/cmp-buffer") -- buffer completions
   use("hrsh7th/cmp-path") -- path completions
@@ -72,7 +75,6 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-emoji")
   use("hrsh7th/cmp-latex-symbols")
   use("uga-rosa/cmp-dictionary")
-  use("ray-x/cmp-treesitter")
   use("David-Kunz/cmp-npm") -- npm packages (package.json)
   use("hrsh7th/cmp-nvim-lsp") -- lsp completions
 
@@ -80,7 +82,7 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
   use("L3MON4D3/LuaSnip")
 
-  -- lsp
+  -- -- lsp
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
   use("jose-elias-alvarez/null-ls.nvim")
@@ -97,7 +99,7 @@ return packer.startup(function(use)
   })
   use({"ptethng/telescope-makefile"})
 
-  -- text editing
+  -- -- text editing
   use("tpope/vim-commentary")
   use("windwp/nvim-autopairs")
   use("FooSoft/vim-argwrap")
@@ -130,21 +132,6 @@ return packer.startup(function(use)
 
   use({ "mhinz/vim-grepper" })
 
-  use {
-    'ADGEfficiency/xit.nvim',
-    opt = true, -- for lazy-loading
-    ft = 'xit', -- for lazy-loading
-    run = function(plugin)
-      plugin.config()
-      vim.cmd[[:TSInstall! xit]]
-    end,
-    config = function() require('xit').setup({
-      disable_default_highlights = false
-    }) end,
-    requires = { 'nvim-treesitter/nvim-treesitter' }
-  }
-
-  use({"nvim-treesitter/playground"})
   use({"github/copilot.vim"})
 
   -- LSP diagnostics list
