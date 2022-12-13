@@ -37,8 +37,6 @@ Plugin 'dhruvasagar/vim-table-mode'
 
 "" visual plugins
 Plugin 'itchyny/lightline.vim'
-Plugin 'mengelbrecht/lightline-buffer'
-Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'itchyny/vim-gitbranch'
 Plugin 'simeji/winresizer'
 Plugin 'Yggdroot/indentLine'
@@ -56,7 +54,6 @@ Plugin 'cseelus/vim-colors-tone'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'Lokaltog/vim-distinguished'
-Plugin 'arcticicestudio/nord-vim'
 Plugin 'sickill/vim-monokai'
 
 call vundle#end()
