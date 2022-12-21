@@ -2,7 +2,6 @@
 
 # zmodload zsh/zprof
 
-
 # # ------  general  -------
 
 #  use neovim as editor
@@ -20,6 +19,7 @@ SAVEHIST=$HISTSIZE
 alias brew='arch -x86_64 brew'
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/checkmake/:$PATH"
+export PATH="$HOME/dotfiles/scripts/:$PATH"
 
 
 # # --- powerlevel10k
@@ -73,10 +73,16 @@ init_starship() {
   eval "$(starship init zsh)"
 }
 
+init_flyctl() {
+  export FLYCTL_INSTALL="$HOME/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+}
+
 # # ------ 3rd party inits -------
 init_pretzo
 init_starship
 init_fzf
+init_flyctl
 # init_nvm
 eval "$(zoxide init zsh)"
 

@@ -55,11 +55,9 @@ return packer.startup(function(use)
   use({ "goolord/alpha-nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
 
-  -- treesitter - not using as ruins markdown :(
-  -- use({ "nvim-treesitter/nvim-treesitter" })
-  -- use("MDeiml/tree-sitter-markdown")
-  -- use("ray-x/cmp-treesitter")
-  -- use({"nvim-treesitter/playground"})
+  -- treesitter
+  use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
+  -- use( "ray-x/cmp-treesitter")
 
   -- -- -- colormap
   -- -- use("sainnhe/everforest")
@@ -77,6 +75,7 @@ return packer.startup(function(use)
   use("uga-rosa/cmp-dictionary")
   use("David-Kunz/cmp-npm") -- npm packages (package.json)
   use("hrsh7th/cmp-nvim-lsp") -- lsp completions
+  use("amarakon/nvim-cmp-buffer-lines")
 
   -- snippets
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
@@ -103,7 +102,6 @@ return packer.startup(function(use)
   use("tpope/vim-commentary")
   use("windwp/nvim-autopairs")
   use("FooSoft/vim-argwrap")
-  use("ixru/nvim-markdown")
   use("mattn/emmet-vim")
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-repeat" })
@@ -114,6 +112,8 @@ return packer.startup(function(use)
   --- text editing - markdown
   use("dhruvasagar/vim-table-mode")
   use("dkarter/bullets.vim")
+  -- use("ixru/nvim-markdown")
+  -- use("plasticboy/vim-markdown")
 
   -- reopen last place
   use("farmergreg/vim-lastplace")
@@ -132,7 +132,9 @@ return packer.startup(function(use)
 
   use({ "mhinz/vim-grepper" })
 
-  use({"github/copilot.vim"})
+  -- use({"aduros/ai.vim"})
+  --
+  use ({ "lieryan/vim-jumpsuite" })
 
   -- LSP diagnostics list
   use({

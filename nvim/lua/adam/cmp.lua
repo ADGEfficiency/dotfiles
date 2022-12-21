@@ -129,6 +129,12 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "buffer-lines",
+      option = {
+        words = true,
+        comments = true
+      }
+    },
     { name = "path",
       option = {
         get_cwd = function(params) return vim.fn.getcwd() end

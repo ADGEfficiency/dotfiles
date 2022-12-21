@@ -1,3 +1,4 @@
+.env.secret
 **/*.DS_Store
 **/*.egg
 **/*.pytest_cache
