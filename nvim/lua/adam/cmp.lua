@@ -125,26 +125,12 @@ cmp.setup {
       return vim_item
     end,
   },
-  -- this controls priority
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer-lines",
-      option = {
-        words = true,
-        comments = true
-      }
-    },
-    { name = "path",
-      option = {
-        get_cwd = function(params) return vim.fn.getcwd() end
-      }
-    },
-    {
-      name = "buffer",
-      max_item_count = 3,
-      get_bufnrs = function() return vim.api.nvim_list_bufs() end
-    },
+    { name = "buffer-lines", option = {words = true, comments = true} },
+    { name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end} },
+    { name = "buffer", max_item_count = 3, get_bufnrs = function() return vim.api.nvim_list_bufs() end},
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
@@ -168,50 +154,29 @@ cmp.setup {
 for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
   cmp.setup.cmdline(cmd_type, {
     sources = cmp.config.sources({
-      { name = 'cmdline' },
-      { name = 'cmdline_history' },
+      {name = 'cmdline'},
+      {name = 'cmdline_history'},
     }),
   })
 end
 
 cmp.setup.filetype('python', {
   sources = {
-    {
-      name = "buffer",
-      option = {
-        get_bufnrs = function() return vim.api.nvim_list_bufs() end
-      }
-    },
-    { name = "path",
-      option = {
-        get_cwd = function(params) return vim.fn.getcwd() end
-      }
-    },
-    { name = "luasnip" },
-    {
-      name = "nvim_lsp"
-    },
-    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
+    {name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
+    {name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end}},
+    {name = "luasnip" },
+    {name = "nvim_lsp"},
+    {name = "dictionary", keyword_length = 4, max_item_count = 3 },
   },
 })
+
 cmp.setup.filetype('markdown', {
   sources = {
-    {
-      name = "buffer",
-      option = {
-        get_bufnrs = function() return vim.api.nvim_list_bufs() end
-      }
-    },
-    { name = "path",
-      option = {
-        get_cwd = function(params) return vim.fn.getcwd() end
-      }
-    },
-    { name = "luasnip" },
-    {
-      name = "nvim_lsp"
-    },
-    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
+    {name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
+    {name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end}},
+    {name = "buffer-lines", option = {words = true, comments = true}},
+    {name = "dictionary", keyword_length = 4, max_item_count = 3},
+    {name = "luasnip"},
   },
 })
 
@@ -220,7 +185,6 @@ require("cmp_dictionary").setup({
     ["md,txt"] = { "/usr/share/dict/words" },
     ["python"] = "~/dotfiles/dict/python.dic",
   },
-  -- The following are default values.
   exact = 2,
   first_case_insensitive = true,
   document = false,

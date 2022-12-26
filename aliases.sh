@@ -105,7 +105,8 @@ alias gmv='git mv '
 
 #  tmux
 # alias t='tmux new -s arjuna'
-alias ta='tmux a #'
+alias ta='tmux attach'
+alias tab='tmux attach -t base'
 alias tl='tmux ls'
 
 tn () {

@@ -9,7 +9,6 @@ km("n", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- km("n", "<leader>o", ":Lex 30<cr>", opts)
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
@@ -69,3 +68,16 @@ km("n", "k", "gk", opts)
 
 --- open grepper and search for current word
 km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
+
+-- from https://youtu.be/w7i4amO_zaE
+-- move selected blocks up and down with J and K
+km("v", "J", ":m '>+1<CR>gv=gv", opts)
+km("v", "K", ":m '>-2<CR>gv=gv", opts)
+-- keep cursor in place when using J
+km("n", "J", "mzJ`z", opts)
+-- keep cursor in middle when ctrl u + d
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+-- keep cursor in middle when moving between search matches
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")

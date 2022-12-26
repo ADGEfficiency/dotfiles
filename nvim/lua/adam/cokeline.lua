@@ -9,7 +9,7 @@ local components = {
 
 require('cokeline').setup({
   buffers = {
-    new_buffers_position = 'next'
+    new_buffers_position = 'last'
   },
   default_hl = {
     fg = function(buffer)

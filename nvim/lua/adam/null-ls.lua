@@ -17,7 +17,7 @@ null_ls.setup({
     -- diagnostics.actionlint,
     -- diagnostics.alex,
     diagnostics.checkmake,
-    -- diagnostics.djlint,
+    diagnostics.djlint,
     diagnostics.eslint,
     diagnostics.jsonlint,
     -- diagnostics.proselint.with({
@@ -34,7 +34,7 @@ null_ls.setup({
     -- formatting.beautysh,
     -- formatting.shellharden,
     -- formatting.cbfmt,
-    formatting.djhtml,
+    formatting.djlint,
     -- formatting.tidy,
     -- formatting.jq,
     -- formatting.prettier.with({ extra_args = { "--no-prose-wrap" } }),
