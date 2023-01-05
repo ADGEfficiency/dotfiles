@@ -7,6 +7,9 @@ snippet typing
 snippet pathlib
 	import pathlib
 
+snippet rich
+	from rich import print
+
 snippet pandas
 	import pandas as pd
 
@@ -20,7 +23,16 @@ snippet matplotlib
 snippet pydantic
 	import pydantic
 
-	class $0(pydantic.BaseModel):
+	class $1(pydantic.BaseModel):
+
+snippet pydantic-class
+	class $1(pydantic.BaseModel):
+	    $2: $3
 
 snippet mkdir
 	.mkdir(exist_ok=True, parents=True)
+
+snippet defaultdict
+	import collections
+
+	$0 = collections.defaultdict(list)

@@ -85,9 +85,11 @@ init_fzf
 init_flyctl
 # init_nvm
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 # set +x
 
 source ~/dotfiles/macos/pyenv-flags
+
 
 # zprof

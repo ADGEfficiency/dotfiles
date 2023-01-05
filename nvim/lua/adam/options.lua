@@ -58,8 +58,6 @@ vim.opt.listchars = 'tab:>-'
 vim.opt.makeprg = 'gmake'
 vim.opt.spell.spellang = 'en_nz'
 
-vim.cmd[[colorscheme dracula]]
-
 vim.g['vim_markdown_no_default_key_mappings'] = 1
 
 -- vim.g['ai_model'] = "code-davinci-002"

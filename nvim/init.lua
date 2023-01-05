@@ -12,5 +12,7 @@ require("adam.null-ls")
 require("adam.options")
 require("adam.pairs")
 require("adam.telescope")
--- require("adam.treesitter")
+-- was quoted out
+require("adam.treesitter")
 require("adam.whichkey")
+-- require("adam.iron")

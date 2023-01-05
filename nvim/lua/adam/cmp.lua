@@ -8,7 +8,7 @@ if not snip_status_ok then
   return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip/loaders/from_snipmate").load({ paths = "./snippets" })
 
 -- for supertab functionality
@@ -47,7 +47,6 @@ local kind_icons = {
 }
 
 cmp.setup {
-  -- snippet engine - required
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -128,9 +127,8 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer-lines", option = {words = true, comments = true} },
     { name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end} },
-    { name = "buffer", max_item_count = 3, get_bufnrs = function() return vim.api.nvim_list_bufs() end},
+    { name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
@@ -156,6 +154,8 @@ for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
     sources = cmp.config.sources({
       {name = 'cmdline'},
       {name = 'cmdline_history'},
+      {name = 'path'},
+      {name = 'buffer'},
     }),
   })
 end

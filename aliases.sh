@@ -27,7 +27,7 @@ alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-
 alias ll='exa -G --icons --group-directories-first -a'
 alias ipy='ipython'
 alias pip='pip3'
-alias req='pip install -r requirements.txt'
+alias pipr='pip install -r requirements.txt'
 alias jl='jupyter lab > /dev/null 2>&1 &'
 alias py='python'
 alias pyt='pytest'
@@ -159,7 +159,7 @@ alias funcs='vi ~/dotfiles/funcs.sh'
 
 #  docker
 
-ssh-docker () {
+docker-ssh () {
     docker exec -it $1 /bin/sh
 }
 
@@ -171,7 +171,8 @@ docker-build () {
 
 docker-run () {
     NAME=$1
-    docker run -it $NAME /bin/sh
+    COMMAND=$1
+    docker run -it $NAME $COMMAND
 }
 
 docker-ip () {

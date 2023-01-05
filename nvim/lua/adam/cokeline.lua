@@ -16,7 +16,7 @@ require('cokeline').setup({
       if buffer.is_focused then return get_hex('ColorColumn', 'fg') end
       return get_hex('StatusLine', 'fg')
     end,
-    bg = get_hex("ColorColumn", "bg")
+    bg = "#1F2028"
   },
 
   components = {

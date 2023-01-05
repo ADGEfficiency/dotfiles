@@ -60,9 +60,11 @@ return packer.startup(function(use)
   -- use( "ray-x/cmp-treesitter")
 
   -- -- -- colormap
-  -- -- use("sainnhe/everforest")
+  use("sainnhe/everforest")
   use("dracula/vim")
+  use("catppuccin/nvim")
   -- -- use("sam4llis/nvim-tundra")
+  use("rebelot/kanagawa.nvim")
 
   -- -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin

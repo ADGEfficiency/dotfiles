@@ -14,10 +14,10 @@ km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
-km("n", "<leader>x", ":sp ~/.zsh_history<cr>", opts)
+km("n", "<leader>x", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>b", ":sp ~/.zsh_history<cr>", opts)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 
--- old macros
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
 km("n", "<leader>y", "A<CR>from IPython.core.debugger import set_trace; set_trace()  # fmt: skip<ESC>", opts)
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
