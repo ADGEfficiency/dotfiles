@@ -36,11 +36,6 @@ require('lspconfig')['pyright'].setup{
 require('lspconfig')['bashls'].setup{ on_attach = on_attach, flags = lsp_flags }
 require('lspconfig')['cmake'].setup{ on_attach = on_attach, flags = lsp_flags }
 require('lspconfig')['html'].setup{ on_attach = on_attach, flags = lsp_flags }
-
-require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
