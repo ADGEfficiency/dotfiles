@@ -46,6 +46,32 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
+  cmp.setup.cmdline(cmd_type, {
+    sources = cmp.config.sources({
+      {name = 'cmdline'},
+      {name = 'cmdline_history'},
+      {name = 'path'},
+      {name = 'buffer'},
+    }),
+  })
+end
+
+require("cmp_dictionary").setup({
+  dic = {
+    ["*"] = { "/usr/share/dict/words" },
+    ["python"] = {"~/dotfiles/dict/python.dic"},
+  },
+  exact = -1,
+  first_case_insensitive = true,
+  document = false,
+  document_command = "wn %s -over",
+  async = true,
+  capacity = 5,
+  debug = true,
+  max_items = 3
+})
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -125,14 +151,14 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "nvim_lsp" },
     { name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end} },
     { name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
-    { name = "dictionary", keyword_length = 4, max_item_count = 3 },
+    { name = "dictionary", keyword_length = 3, max_item_count = 3 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -149,22 +175,11 @@ cmp.setup {
   }
 }
 
-for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
-  cmp.setup.cmdline(cmd_type, {
-    sources = cmp.config.sources({
-      {name = 'cmdline'},
-      {name = 'cmdline_history'},
-      {name = 'path'},
-      {name = 'buffer'},
-    }),
-  })
-end
-
 cmp.setup.filetype('python', {
   sources = {
+    {name = "luasnip" },
     {name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
     {name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end}},
-    {name = "luasnip" },
     {name = "nvim_lsp"},
     {name = "dictionary", keyword_length = 4, max_item_count = 3 },
   },
@@ -178,18 +193,4 @@ cmp.setup.filetype('markdown', {
     {name = "dictionary", keyword_length = 4, max_item_count = 3},
     {name = "luasnip"},
   },
-})
-
-require("cmp_dictionary").setup({
-  dic = {
-    ["md,txt"] = { "/usr/share/dict/words" },
-    ["python"] = "~/dotfiles/dict/python.dic",
-  },
-  exact = 2,
-  first_case_insensitive = true,
-  document = false,
-  document_command = "wn %s -over",
-  async = false,
-  capacity = 5,
-  debug = false,
 })

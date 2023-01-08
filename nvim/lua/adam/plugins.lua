@@ -138,6 +138,8 @@ return packer.startup(function(use)
   --
   use ({ "lieryan/vim-jumpsuite" })
 
+  use({"mbbill/undotree"})
+
   -- LSP diagnostics list
   use({
     "folke/trouble.nvim",

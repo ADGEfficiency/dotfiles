@@ -9,7 +9,6 @@ km("n", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
-
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
