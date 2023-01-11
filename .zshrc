@@ -8,6 +8,7 @@
 export EDITOR=$(which nvim)
 #  put config in ~/dotfiles (instead of ~/.config)
 export XDG_CONFIG_HOME=~/dotfiles
+launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999

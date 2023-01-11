@@ -31,7 +31,7 @@ vim.opt.relativenumber = false                  -- set relative numbered lines
 vim.opt.numberwidth = 4                         -- set number column width
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- always have more than 8 lines at the bottom
+vim.opt.scrolloff = 8                           -- always have more than n lines at the top & bottom
 vim.opt.sidescrolloff = 0
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 

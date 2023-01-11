@@ -68,7 +68,7 @@ require("cmp_dictionary").setup({
   document_command = "wn %s -over",
   async = true,
   capacity = 5,
-  debug = true,
+  debug = false,
   max_items = 3
 })
 
