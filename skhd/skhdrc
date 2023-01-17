@@ -1,1 +1,31 @@
-alt + shift + ctrl + cmd - r : yabai -m space --rotate 90
+#  up
+alt + shift + ctrl + cmd - t : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+#  down
+alt + shift + ctrl + cmd - n : \
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+#  left
+alt + shift + ctrl + cmd - h : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
+#  right
+alt + shift + ctrl + cmd - s : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
+
+# Balance size of windows
+hyper - b : yabai -m space --balance
+
+# Mirror tree y-axis
+hyper - m : yabai -m space --mirror y-axis
+
+#  rotate windows
+alt + shift + ctrl + cmd - w : yabai -m space --rotate 90
+
+#  zoom windows
+alt + shift + ctrl + cmd - z : yabai -m window --toggle zoom-parent
