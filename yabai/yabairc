@@ -8,13 +8,25 @@ yabai -m space 2 --label slack
 yabai -m rule --add app="^Slack$" space=slack
 yabai -m rule --add app="^Swinsian$" space=slack
 
-yabai -m config --space 1                      \
+yabai -m config --space 1                     \
     layout                       bsp           \
-    auto_balance                 on            \
+    auto_balance                 off            \
     split_ratio                  0.25          \
-    split_type                   horizontal    \
+    split_type                   vertical    \
+    mouse_follows_focus          off            \
+    focus_follows_mouse          off            \
+
+yabai -m config --space 3                     \
+    layout                       bsp           \
+    auto_balance                 off            \
+    split_ratio                  0.25          \
+    split_type                   vertical    \
 
 # float some windows always
 yabai -m rule --add app='^System Settings$' manage=off
+yabai -m rule --add app='^Finder$' manage=off
+yabai -m rule --add app='^Excel$' manage=off
+yabai -m rule --add app='^Slack$' manage=off
+yabai -m rule --add app='^Swinsian$' manage=off
 
 echo "yabai configuration loaded.."

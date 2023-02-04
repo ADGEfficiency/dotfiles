@@ -147,10 +147,11 @@ exists()
     command -v "$1" >/dev/null 2>&1
 }
 if exists bat; then
-    alias cat='bat'
+    alias cat='bat --color=always --paging=never'
 else
     :
 fi
+alias bat='bat --color=always --paging=always'
 
 alias bake='make'
 

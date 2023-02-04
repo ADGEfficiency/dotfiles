@@ -36,3 +36,9 @@ snippet defaultdict
 	import collections
 
 	$0 = collections.defaultdict(list)
+
+snippet @pytest-param
+	@pytest.mark.parametrize($0)
+
+snippet with-pytest-raises
+	with pytest.raises(Exception) as err:

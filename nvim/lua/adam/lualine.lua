@@ -12,17 +12,6 @@ require('lualine').setup {
   sections = {
     lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end }},
     lualine_b = {
-      {'branch', icon = ''},
-    },
-    lualine_c = {
-      {'filename', path = 3, symbols = {
-        modified = ' ',
-        readonly = ' ',
-        shorting_target = 4
-      }}
-    },
-    lualine_x = {},
-    lualine_y = {
       {
         'diff',
         colored = false,
@@ -36,6 +25,16 @@ require('lualine').setup {
         sections = { 'error', 'warn'},
         update_in_insert = true,
       },
+    },
+    lualine_c = {
+      {'branch', icon = ''},
+    },
+    lualine_d = {
+      {'filename', path = 3, symbols = {
+        modified = ' ',
+        readonly = ' ',
+        shorting_target = 4
+      }}
     },
     lualine_z = {'progress', 'location'}
   },
