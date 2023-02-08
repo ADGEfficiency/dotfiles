@@ -46,14 +46,16 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
   -- bufferline (top)
-  use("noib3/nvim-cokeline")
+  --
+  use({ "kyazdani42/nvim-web-devicons" })
+  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
 
   -- lualine (bottom)
+  use("noib3/nvim-cokeline")
   use({ "nvim-lualine/lualine.nvim" })
 
   -- -- greeter/dashboard - alpha
   use({ "goolord/alpha-nvim" })
-  use({ "kyazdani42/nvim-web-devicons" })
 
   -- treesitter
   use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})

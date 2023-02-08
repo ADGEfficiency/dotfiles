@@ -25,7 +25,7 @@ export PATH="$HOME/dotfiles/scripts/:$PATH"
 
 # # --- powerlevel10k
 
-init_powerlevel() {
+powerlevel_init() {
   source ~/powerlevel10k/powerlevel10k.zsh-theme
 
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -41,7 +41,7 @@ init_powerlevel() {
 
 # # ------ 3rd party -------
 
-init_fzf() {
+fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -51,13 +51,13 @@ init_fzf() {
 }
 
 
-init_nvm() {
+nvm_init() {
   export NVM_DIR="$HOME/dotfiles/nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
-init_ruby() {
+ruby_init() {
     eval "$(rbenv init -)"
     rbenv shell 2.7.2
     export RBENV_ROOT=/usr/local/var/rbenv
@@ -65,26 +65,25 @@ init_ruby() {
     export PATH="$HOME/.rbenv/shims:$PATH"
 }
 
-init_pretzo() {
+pretzo_init() {
   export STARSHIP_CONFIG=~/dotfiles/starship.toml
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 }
 
-init_starship() {
+starship_init() {
   eval "$(starship init zsh)"
 }
 
-init_flyctl() {
+flyctl_init() {
   export FLYCTL_INSTALL="$HOME/.fly"
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 }
 
 # # ------ 3rd party inits -------
-init_pretzo
-init_starship
-init_fzf
-init_flyctl
-# init_nvm
+pretzo_init
+starship_init
+fzf_init
+flyctl_init
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
