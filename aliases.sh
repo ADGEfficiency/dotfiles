@@ -64,7 +64,7 @@ alias teach='cd $HOME/teaching-monolith'
 alias syl='cd $HOME/handbook'
 
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'
-alias jed='init_ruby; bundle exec jekyll serve --drafts > /dev/null 2>&1 &'
+alias jed='ruby_init; bundle exec jekyll serve --drafts > /dev/null 2>&1 &'
 
 # spelling
 alias exut='exit'

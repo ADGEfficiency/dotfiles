@@ -4,23 +4,25 @@
 #  split ratio = if auto balance disabled, determines how much space a new window occupies
 #  0.5 = both occupy half
 
-yabai -m space 2 --label slack
+yabai -m space 3 --label slack
 yabai -m rule --add app="^Slack$" space=slack
 yabai -m rule --add app="^Swinsian$" space=slack
 
-yabai -m config --space 1                     \
-    layout                       bsp           \
-    auto_balance                 off            \
-    split_ratio                  0.25          \
+yabai -m config --space 1                    \
+    layout                       bsp         \
+    auto_balance                 off         \
+    split_ratio                  0.5        \
     split_type                   vertical    \
-    mouse_follows_focus          off            \
-    focus_follows_mouse          off            \
+    mouse_follows_focus          off         \
+    focus_follows_mouse          off         \
 
-yabai -m config --space 3                     \
-    layout                       bsp           \
-    auto_balance                 off            \
-    split_ratio                  0.25          \
+yabai -m config --space 2                    \
+    layout                       bsp         \
+    auto_balance                 off         \
+    split_ratio                  0.5        \
     split_type                   vertical    \
+    mouse_follows_focus          off         \
+    focus_follows_mouse          off         \
 
 # float some windows always
 yabai -m rule --add app='^System Settings$' manage=off
@@ -28,5 +30,6 @@ yabai -m rule --add app='^Finder$' manage=off
 yabai -m rule --add app='^Excel$' manage=off
 yabai -m rule --add app='^Slack$' manage=off
 yabai -m rule --add app='^Swinsian$' manage=off
+yabai -m rule --add app='^ColorSlurp$' manage=off
 
 echo "yabai configuration loaded.."

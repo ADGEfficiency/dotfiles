@@ -35,6 +35,7 @@ PuLP = "^2.7.0"
 pandera = "^0.13.4"
 csvtool = "^0.2"
 pandas-stubs = "^1.5.2.230105"
+ruff = "^0.0.247"
 
 [build-system]
 requires = ["poetry-core"]

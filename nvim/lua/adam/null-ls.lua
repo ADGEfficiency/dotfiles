@@ -30,6 +30,8 @@ null_ls.setup({
     -- code_actions.proselint,
     formatting.isort,
     formatting.black.with({ extra_args = { "--fast" } }),
+    diagnostics.ruff,
+    -- formatting.ruff,  cant get it to work
     -- formatting.stylua,
     -- formatting.beautysh,
     -- formatting.shellharden,

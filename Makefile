@@ -13,6 +13,8 @@ gpu: pre
 
 ~/.vim/bundle/Vundle.vim: pre
 	./ubuntu/vim
+	#  this is for neovim
+	mkdir -p ~/.vimundo
 
 ~/.pyenv/Makefile: pre
 	./ubuntu/pyenv
