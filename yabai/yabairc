@@ -15,6 +15,9 @@ yabai -m config --space 1                    \
     split_type                   vertical    \
     mouse_follows_focus          off         \
     focus_follows_mouse          off         \
+    mouse_action1                off           \
+    mouse_action2                off         \
+    mouse_drop_action            off
 
 yabai -m config --space 2                    \
     layout                       bsp         \
@@ -23,6 +26,9 @@ yabai -m config --space 2                    \
     split_type                   vertical    \
     mouse_follows_focus          off         \
     focus_follows_mouse          off         \
+    mouse_action1                off           \
+    mouse_action2                off         \
+    mouse_drop_action            off
 
 # float some windows always
 yabai -m rule --add app='^System Settings$' manage=off
@@ -32,4 +38,3 @@ yabai -m rule --add app='^Slack$' manage=off
 yabai -m rule --add app='^Swinsian$' manage=off
 yabai -m rule --add app='^ColorSlurp$' manage=off
 
-echo "yabai configuration loaded.."

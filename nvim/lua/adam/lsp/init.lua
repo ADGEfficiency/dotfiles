@@ -32,6 +32,7 @@ local lsp_flags = {
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    cmd = { "pyright-langserver", "--stdio" }
 }
 require('lspconfig')['bashls'].setup{ on_attach = on_attach, flags = lsp_flags }
 require('lspconfig')['cmake'].setup{ on_attach = on_attach, flags = lsp_flags }
@@ -43,14 +44,6 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
-require('lspconfig').jedi_language_server.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    settings = {
-      root_dir = {"~/dotfiles/python-general"}
-    }
-}
-
 local signs = {
   { name = "DiagnosticSignError", text = "" },
   { name = "DiagnosticSignWarn", text = "" },

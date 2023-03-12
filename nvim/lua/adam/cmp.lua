@@ -44,6 +44,7 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
+  Copilot = "",
 }
 
 for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
@@ -139,13 +140,13 @@ cmp.setup {
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         path = "[Path]",
         buffer = "[Buffer]",
         dictionary = "[Dict]",
+        copilot = "[AI]"
       })[entry.source.name]
       return vim_item
     end,
@@ -177,6 +178,7 @@ cmp.setup {
 
 cmp.setup.filetype('python', {
   sources = {
+    {name = "copilot" },
     {name = "luasnip" },
     {name = "buffer", option = {get_bufnrs = function() return vim.api.nvim_list_bufs() end}},
     {name = "path", option = {get_cwd = function(params) return vim.fn.getcwd() end}},

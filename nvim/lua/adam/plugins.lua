@@ -141,6 +141,15 @@ return packer.startup(function(use)
   use ({ "lieryan/vim-jumpsuite" })
 
   use({"mbbill/undotree"})
+use { "zbirenbaum/copilot.lua" }
+use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
+
 
   -- LSP diagnostics list
   use({
