@@ -8,7 +8,6 @@ if not snip_status_ok then
   return
 end
 
--- require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip/loaders/from_snipmate").load({ paths = "./snippets" })
 
 -- for supertab functionality
@@ -160,6 +159,7 @@ cmp.setup {
     { name = "latex_symbols" },
     { name = "npm", keyword_length = 4 },
     { name = "dictionary", keyword_length = 3, max_item_count = 3 },
+    { name = "copilot" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -196,3 +196,11 @@ cmp.setup.filetype('markdown', {
     {name = "luasnip"},
   },
 })
+
+cmp.event:on("menu_opened", function()
+  vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on("menu_closed", function()
+  vim.b.copilot_suggestion_hidden = false
+end)

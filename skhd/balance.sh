@@ -2,4 +2,5 @@
 WINDOW_ID=$(yabai -m query --windows | jq '.[] | select(.app == "Firefox")' | jq '.id')
 KITTY=$(yabai -m query --windows | jq '.[] | select(.app == "kitty")' | jq '.id')
 # yabai -m window $WINDOW_ID --warp $KITTY
+# yabai -m window --swap north - not tried, only if needed
 yabai -m window $KITTY --ratio abs:0.3

@@ -20,7 +20,7 @@ alt + shift + ctrl + cmd - s : \
 
 # Balance size of windows
 hyper - 6 : yabai -m space --balance
-hyper - 7 : sh ./balance.sh
+hyper - 7 : sh $HOME/dotfiles/skhd/balance.sh
 
 # Mirror tree y-axis
 hyper - m : yabai -m space --mirror y-axis
