@@ -6,7 +6,6 @@ export CHEAT=$HOME/personal/lists/cheat_sheet.md
 export PER=$HOME/personal/
 export GDR=$HOME/GoogleDrive
 
-alias s='$EDITOR $(fzf)'
 alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
 alias vimrc='$EDITOR ~/dotfiles/.vimrc'
@@ -146,11 +145,6 @@ exists()
 {
     command -v "$1" >/dev/null 2>&1
 }
-if exists bat; then
-    alias cat='bat --color=always --paging=never'
-else
-    :
-fi
 alias bat='bat --color=always --paging=always'
 
 alias bake='make'
@@ -194,3 +188,5 @@ docker-ls () {
 alias dc='docker-compose'
 alias dk='docker'
 alias h='cd $HOME'
+
+alias js='nvm_init'

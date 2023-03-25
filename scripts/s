@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+fi=$(fzf)
+
+# Check if fzf was interrupted by Ctrl-C
+if [ $? -eq 0 ]; then
+  $EDITOR $fi
+fi
