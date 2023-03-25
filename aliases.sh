@@ -21,7 +21,6 @@ alias c='clear'
 alias cls='clear && ls'
 alias cll='clear && ll'
 alias ctree='clear && tree'
-# alias ls='ls -aGFlopnk'
 alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
 alias ll='exa -G --icons --group-directories-first -a'
 alias ipy='ipython'
@@ -103,7 +102,6 @@ alias db='git branch -D '
 alias gmv='git mv '
 
 #  tmux
-# alias t='tmux new -s arjuna'
 alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
@@ -153,23 +151,19 @@ alias notes='cd ~/dss/notes/neu-notes'
 alias funcs='vi ~/dotfiles/funcs.sh'
 
 #  docker
-
 docker-ssh () {
     docker exec -it $1 /bin/sh
 }
-
 docker-build () {
     NAME=$1
     DOCKERFILE=$2
     docker build -t $NAME . -f $DOCKERFILE
 }
-
 docker-run () {
     NAME=$1
     COMMAND=$1
     docker run -it $NAME $COMMAND
 }
-
 docker-ip () {
     NAME=$1
     docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME
