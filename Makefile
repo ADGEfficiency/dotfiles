@@ -1,6 +1,11 @@
 ubuntu-setup: pre gpu ~/z.sh ~/.vim/bundle/Vundle.vim ~/.pyenv/Makefile
 
+
+
 pre: ./ubuntu/pre
+
+
+
 	./ubuntu/pre
 	touch pre
 
