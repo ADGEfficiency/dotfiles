@@ -9,10 +9,21 @@ export GDR=$HOME/GoogleDrive
 alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
 alias vimrc='$EDITOR ~/dotfiles/.vimrc'
-
 alias sed='gsed'
-
 alias cp='cp -r '
+alias bat='bat --color=always --paging=always'
+alias bake='make'
+alias funcs='vi ~/dotfiles/funcs.sh'
+alias h='cd $HOME'
+alias js='nvm_init'
+
+#  misc
+alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
+alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
+alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
+
+#  grip
+alias grip='source $HOME/personal/github-pass.sh; grip --user $guser --pass $gpass'
 
 # programs
 alias g='grep --exclude-dir=.mypy_cache --exclude-dir=__pycache__ -irl '
@@ -78,12 +89,10 @@ alias dots='cd $HOME/dotfiles'
 alias aliases='$EDITOR $HOME/dotfiles/aliases.sh'
 alias bashrc='$EDITOR $HOME/dotfiles/.bashrc'
 alias yabairc='$EDITOR $HOME/dotfiles/yabai/yabairc'
-alias vrc='$EDITOR $HOME/dotfiles/.$EDITORrc'
+alias vimrc='$EDITOR $HOME/dotfiles/.vimrc'
 alias tmuxc='$EDITOR $HOME/dotfiles/.tmux.conf'
 alias zshrc='$EDITOR $HOME/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
-
-alias ec2='$EDITOR $HOME/dotfiles/aws/ec2.sh'
 
 #  git
 alias gs='git status'
@@ -105,52 +114,14 @@ alias gmv='git mv '
 alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
-
 tn () {
     name=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
     tmux new -s $name
 }
 alias t='tn'
 
-#  misc
-alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
-alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
-alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
-
-#  grip
-alias grip='source $HOME/personal/github-pass.sh; grip --user $guser --pass $gpass'
-
-# gridcog
-alias ca='conda activate gridcog'
-alias dac='conda deactivate'
-alias grid='cd $HOME/gridcog'
-alias gridd='cd $HOME/gridcog/services/data_ingestion'
-alias perg='cd $HOME/gridcog-personal'
-alias gridp='cd $HOME/gridcog-personal'
-alias res='cd $HOME/research/research'
-
-alias wd='cd ~/feeds'
-alias fe='cd ~/feeds'
-
-alias j='z'
-
-alias mat='cmatrix'
-
-alias di='cd ~/feeds/feedsd/data_ingestion'
-alias lo='cd ~/personal/logging-my-life'
-
-exists()
-{
-    command -v "$1" >/dev/null 2>&1
-}
-alias bat='bat --color=always --paging=always'
-
-alias bake='make'
-
-alias notes='cd ~/dss/notes/neu-notes'
-alias funcs='vi ~/dotfiles/funcs.sh'
-
 #  docker
+alias dc='docker-compose'
 docker-ssh () {
     docker exec -it $1 /bin/sh
 }
@@ -178,9 +149,3 @@ docker-ls () {
   docker network list
   docker volume list
 }
-
-alias dc='docker-compose'
-alias dk='docker'
-alias h='cd $HOME'
-
-alias js='nvm_init'

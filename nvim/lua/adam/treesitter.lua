@@ -29,8 +29,6 @@ configs.setup({
 		enable = true,
 		disable = { "markdown" },
 	},
-	-- enables the https://github.com/windwp/nvim-ts-autotag plugin
-	autotag = {
-		enable = true,
-	},
 })
+
+require("nvim-ts-autotag").setup()

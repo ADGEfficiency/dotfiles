@@ -16,14 +16,15 @@ require("bufferline").setup({
 
 vim.cmd([[
   hi BufferCurrent guifg=white
-  hi BufferCurrentMod guifg='#F0F98B'
+  hi BufferCurrentMod guifg='#51FA7B'
   hi BufferCurrentSign guifg='#00BFFF'
   hi BufferCurrentIcon guibg='#3E4452'
+  hi BufferVisibleMod guifg='#51FA7B' guibg='#282A36'
   hi BufferTabPages guifg=white
   hi BufferTabpageFill guifg='#343434'
   hi BufferInactive guifg='#6272A4' guibg='#282A36'
   hi BufferInactiveIndex guifg='#6272A4' guibg='#282A36'
-  hi BufferInactiveMod guifg='#6272A4' guibg='#282A36'
+  hi BufferInactiveMod guifg='#51FA7B' guibg='#282A36'
   hi BufferInactiveTarget guifg='#6272A4' guibg='#282A36'
   hi BufferInactiveSign guifg='#6272A4' guibg='#282A36'
 ]])

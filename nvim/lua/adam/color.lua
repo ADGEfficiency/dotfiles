@@ -13,3 +13,6 @@ vim.cmd([[
 --   set background=dark
 --   colorscheme everforest
 -- ]]
+--
+
+require("colorizer").setup()

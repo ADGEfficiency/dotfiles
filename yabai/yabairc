@@ -37,4 +37,4 @@ yabai -m rule --add app='^Excel$' manage=off
 yabai -m rule --add app='^Slack$' manage=off
 yabai -m rule --add app='^Swinsian$' manage=off
 yabai -m rule --add app='^ColorSlurp$' manage=off
-
+yabai -m rule --add app='^Preview$' manage=off

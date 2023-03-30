@@ -47,7 +47,8 @@ return packer.startup(function(use)
 
 	-- bufferline (top)
 	--
-	use({ "kyazdani42/nvim-web-devicons" })
+	-- use({ "kyazdani42/nvim-web-devicons" })
+	use({ "nvim-tree/nvim-web-devicons" })
 	use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
 
 	-- lualine (bottom)

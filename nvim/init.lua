@@ -1,3 +1,4 @@
+require("adam.options")
 require("adam.plugins")
 require("adam.color")
 require("adam.alpha")
@@ -8,7 +9,6 @@ require("adam.keys")
 require("adam.lsp")
 require("adam.lualine")
 require("adam.null-ls")
-require("adam.options")
 require("adam.pairs")
 require("adam.telescope")
 -- was quoted out

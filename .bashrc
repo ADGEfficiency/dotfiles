@@ -1,7 +1,8 @@
+#!/usr/bin/env bash
+
 #  used by dotfiles/aliases.sh
 export HME=$HOME
 HISTSIZE=100000
-
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -56,4 +57,3 @@ eval "$(pyenv virtualenv-init -)"
 
 . ~/z.sh
 eval "$(zoxide init bash)"
-
