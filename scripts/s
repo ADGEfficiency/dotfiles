@@ -1,8 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 fi=$(fzf)
 
 # Check if fzf was interrupted by Ctrl-C
 if [ $? -eq 0 ]; then
+  print -S "$EDITOR $fi"
   $EDITOR $fi
 fi

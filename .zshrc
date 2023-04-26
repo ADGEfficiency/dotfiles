@@ -1,11 +1,13 @@
 # set -x
 
+#  turn on when profiling
 # zmodload zsh/zprof
 
 # # ------  general  -------
 
 #  use neovim as editor
 export EDITOR=$(which nvim)
+
 #  put config in ~/dotfiles (instead of ~/.config)
 export XDG_CONFIG_HOME=~/dotfiles
 launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
@@ -14,7 +16,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 
-
 # # ------  utility  -------
 
 alias brew='arch -x86_64 brew'
@@ -22,34 +23,17 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/checkmake:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
 
-
-# # --- powerlevel10k
-
-powerlevel_init() {
-  source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-  # Initialization code that may require console input (password prompts, [y/n]
-  # confirmations, etc.) must go above this block; everything else may go below.
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
-
-  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-}
-
 # # ------ 3rd party -------
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
-    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered'
+    # export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore --glob=!__.pycache__ --glob=!_.mypy_cache --glob=!.git/* -l --smart-case --line-buffered --pretty'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'
     bindkey -v
     source ~/.fzf.zsh
 }
-
 
 nvm_init() {
   export NVM_DIR="$HOME/dotfiles/nvm"
@@ -80,6 +64,7 @@ flyctl_init() {
 }
 
 # # ------ 3rd party inits -------
+
 pretzo_init
 starship_init
 fzf_init
@@ -87,9 +72,13 @@ flyctl_init
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
-# set +x
-
 source ~/dotfiles/macos/pyenv-flags
 
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix
 
+#  turn on when profiling
 # zprof

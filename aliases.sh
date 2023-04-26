@@ -26,13 +26,14 @@ alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 alias grip='source $HOME/personal/github-pass.sh; grip --user $guser --pass $gpass'
 
 # programs
-alias g='grep --exclude-dir=.mypy_cache --exclude-dir=__pycache__ -irl '
+alias g='rg --files --hidden --smart-case --line-buffered'
 alias b='cd ..'
 alias c='clear'
 alias cls='clear && ls'
 alias cll='clear && ll'
 alias ctree='clear && tree'
 alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
+alias tree='exa --tree --ignore-glob="*pycache*"'
 alias ll='exa -G --icons --group-directories-first -a'
 alias ipy='ipython'
 alias pip='pip3'
@@ -43,7 +44,6 @@ alias pyt='pytest'
 alias rm='rm -rf'
 alias mkdir='mkdir -p'
 alias df='df -h'
-alias tree="tree -I '*pycache*'"
 
 export GENERAL="/Users/adam/.pyenv/versions/3.10.6/envs/general/bin"
 
