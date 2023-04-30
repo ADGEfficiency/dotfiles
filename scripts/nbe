@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+# -m = multi-select
+files=$(nb ls --filenames --no-id | fzf -m)
+
+prefix=$HOME/.nb/home/
+
+# Check if fzf was interrupted by Ctrl-C
+if [ $? -eq 0 ]; then
+  prefixed_files=()
+  for file in ${(f)files}; do
+    prefixed_files+="${prefix}${file}"
+  done
+  echo $prefixed_files
+  $EDITOR ${prefixed_files[@]}
+fi

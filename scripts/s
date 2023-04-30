@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-fi=$(fzf)
+files=$(fzf -m)
 
 # Check if fzf was interrupted by Ctrl-C
 if [ $? -eq 0 ]; then
-  print -S "$EDITOR $fi"
-  $EDITOR $fi
+  # Handles mulitple files
+  $EDITOR ${(f)files}
 fi

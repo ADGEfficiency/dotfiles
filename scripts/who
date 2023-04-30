@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+user=$(/usr/bin/whoami)
+echo "user: $user"
+account=$(aws sts get-caller-identity --query "Account" --output text)
+echo "aws: $account"

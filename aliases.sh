@@ -26,7 +26,10 @@ alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 alias grip='source $HOME/personal/github-pass.sh; grip --user $guser --pass $gpass'
 
 # programs
-alias g='rg --files --hidden --smart-case --line-buffered'
+alias nbtree='exa --tree ~/.nb'
+alias nbls='nb ls --paths --filenames --no-indicators'
+
+alias g='rg -l --hidden --smart-case --line-buffered'
 alias b='cd ..'
 alias c='clear'
 alias cls='clear && ls'
@@ -44,6 +47,7 @@ alias pyt='pytest'
 alias rm='rm -rf'
 alias mkdir='mkdir -p'
 alias df='df -h'
+alias markserv='markserv --browser'
 
 export GENERAL="/Users/adam/.pyenv/versions/3.10.6/envs/general/bin"
 
@@ -105,8 +109,8 @@ alias gall='git add * && git add -u && git commit -m "sync all the things" && gi
 alias amend='git commit --amend'
 alias cred='git config credential.helper store'
 alias gd='git diff --staged'
-alias nb='git checkout -b'
-alias cb='git checkout '
+alias nbg='git checkout -b'
+alias cbg='git checkout '
 alias db='git branch -D '
 alias gmv='git mv '
 
@@ -128,7 +132,7 @@ docker-ssh () {
 docker-build () {
     NAME=$1
     DOCKERFILE=$2
-    docker build -t $NAME . -f $DOCKERFILE
+    docker build -t $NAME . -f $DOCKERFILE --progress=plain
 }
 docker-run () {
     NAME=$1
