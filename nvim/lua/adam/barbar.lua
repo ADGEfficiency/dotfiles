@@ -7,8 +7,8 @@ km("n", "<Leader>2", "<Cmd>BufferOrderByDirectory<CR>", opts)
 require("bufferline").setup({
 	-- Enable/disable auto-hiding the tab bar when there is a single buffer
 	auto_hide = false,
-	clickable = false,
 	closable = false,
+	clickable = false,
 	icons = "numbers",
 	icon_separator_active = "",
 	icon_separator_inactive = "",

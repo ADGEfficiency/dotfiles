@@ -18,7 +18,6 @@ km("n", "<leader>b", ":sp ~/.zsh_history<cr>", opts)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
-km("n", "<leader>y", "A<CR>from IPython.core.debugger import set_trace; set_trace()  # fmt: skip<ESC>", opts)
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 
 -- buffer nav
@@ -32,15 +31,15 @@ km("n", "<C-t>", ":lua require'telescope.builtin'.buffers(require('telescope.the
 km("n", "<leader><space>", ":noh<cr>", opts)
 
 -- command line abbreviations
-vim.cmd "cabbrev v vsp"
-vim.cmd "cabbrev s sp"
-vim.cmd "cabbrev f Telescope find_files cwd="
-vim.cmd "cabbrev t Telescope"
+vim.cmd("cabbrev v vsp")
+vim.cmd("cabbrev s sp")
+vim.cmd("cabbrev f Telescope find_files cwd=")
+vim.cmd("cabbrev t Telescope")
 
 -- fix typo of :W for :w
-vim.cmd "command W write"
-vim.cmd "command Q quit"
-vim.cmd "command Wq write | quit!"
+vim.cmd("command W write")
+vim.cmd("command Q quit")
+vim.cmd("command Wq write | quit!")
 
 --- stay in visual mode when indenting
 km("v", "<", "<gv", opts)

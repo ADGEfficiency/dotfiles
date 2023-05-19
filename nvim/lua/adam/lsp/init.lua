@@ -1,5 +1,4 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- Mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -26,6 +25,41 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 end
 
+-- Diagnostic Appearance
+local signs = {
+	{ name = "DiagnosticSignError", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = {
+		active = signs,
+	},
+	update_in_insert = true,
+	underline = true,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
+
+-- Language Server Configs
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
@@ -33,6 +67,20 @@ require("lspconfig")["pyright"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	cmd = { "pyright-langserver", "--stdio" },
+})
+require("lspconfig")["tailwindcss"].setup({
+	on_attach = on_attach,
+	filetypes = {
+		"jinja.html",
+		"html",
+		"css",
+		"scss",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+	},
+	flags = lsp_flags,
 })
 require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
 require("lspconfig")["cmake"].setup({ on_attach = on_attach, flags = lsp_flags })
@@ -68,32 +116,3 @@ require("lspconfig")["lua_ls"].setup({
 		},
 	},
 })
-local signs = {
-	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
-}
-
-for _, sign in ipairs(signs) do
-	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end
-
-vim.diagnostic.config({
-	virtual_text = false,
-	signs = {
-		active = signs,
-	},
-	update_in_insert = true,
-	underline = true,
-	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-})
-require("lspconfig")["tailwindcss"].setup({ on_attach = on_attach, flags = lsp_flags })

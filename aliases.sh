@@ -109,8 +109,12 @@ alias gall='git add * && git add -u && git commit -m "sync all the things" && gi
 alias amend='git commit --amend'
 alias cred='git config credential.helper store'
 alias gd='git diff --staged'
+
 alias nbg='git checkout -b'
 alias cbg='git checkout '
+alias gnb='git checkout -b'
+alias gcb='git checkout '
+
 alias db='git branch -D '
 alias gmv='git mv '
 
@@ -118,6 +122,7 @@ alias gmv='git mv '
 alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
+alias tls='tmux ls'
 tn () {
     name=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
     tmux new -s $name

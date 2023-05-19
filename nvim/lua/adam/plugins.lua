@@ -49,7 +49,25 @@ return packer.startup(function(use)
 	--
 	-- use({ "kyazdani42/nvim-web-devicons" })
 	use({ "nvim-tree/nvim-web-devicons" })
-	use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
+	use({
+		"romgrk/barbar.nvim",
+		requires = "nvim-web-devicons",
+		tag = "v1.5.0",
+	})
+
+	-- mason + lsp
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("ray-x/lsp_signature.nvim")
+	use("neovim/nvim-lspconfig")
+
+	use({
+		"williamboman/mason.nvim",
+		run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+	})
+
+	use({
+		"williamboman/mason-lspconfig.nvim",
+	})
 
 	-- lualine (bottom)
 	use("noib3/nvim-cokeline")
@@ -86,12 +104,6 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
-
-	-- -- lsp
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("ray-x/lsp_signature.nvim")
 
 	-- git
 	use("lewis6991/gitsigns.nvim")

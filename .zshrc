@@ -80,5 +80,13 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 # End Nix
 
+# atuin
+eval "$(atuin init zsh --disable-up-arrow)"
+
+source /Users/adam/.config/broot/launcher/bash/br
+#
+#  docker desktop
+source /Users/adam/.docker/init-zsh.sh || true
+
 #  turn on when profiling
 # zprof
