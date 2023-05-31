@@ -82,6 +82,11 @@ require("lspconfig")["tailwindcss"].setup({
 	},
 	flags = lsp_flags,
 })
+require("lspconfig")["marksman"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	filetypes = { "markdown" },
+})
 require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
 require("lspconfig")["cmake"].setup({ on_attach = on_attach, flags = lsp_flags })
 require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })

@@ -63,6 +63,10 @@ flyctl_init() {
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 }
 
+atuin_init() {
+  eval "$(atuin init zsh --disable-up-arrow)"
+}
+
 # # ------ 3rd party inits -------
 
 pretzo_init
@@ -79,9 +83,6 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 # End Nix
-
-# atuin
-eval "$(atuin init zsh --disable-up-arrow)"
 
 source /Users/adam/.config/broot/launcher/bash/br
 #

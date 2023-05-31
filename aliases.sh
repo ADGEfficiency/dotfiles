@@ -55,8 +55,10 @@ export GENERAL="/Users/adam/.pyenv/versions/3.10.6/envs/general/bin"
 alias please='sudo'
 
 # files
-alias todo='$EDITOR $HOME/personal/todo.md'
+alias todo='$EDITOR $HOME/.nb/home/todo.md'
 alias td='todo'
+alias inbox='$EDITOR $HOME/.nb/home/inbox.md'
+alias inb='inbox'
 alias ideas='$EDITOR $HOME/climate-code/notes/content/ideas/readme.md'
 
 alias back='cd -'
