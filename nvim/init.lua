@@ -1,6 +1,8 @@
 require("adam.options")
+
 require("adam.plugins")
 require("adam.color")
+
 require("adam.alpha")
 require("adam.augroup")
 require("adam.cmp")

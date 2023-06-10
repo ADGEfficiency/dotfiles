@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
 
-prefix=$HOME/.nb/home/
+prefix=$HOME/.nb/home
 
 # -m = multi-select
-files=$(exa -1 $prefix | fzf -m)
+files=$(find $prefix -type f | fzf -m)
 
 # protects fzf interrupted by Ctrl-C
 if [ $? -eq 0 ]; then
   prefixed_files=()
   for file in ${(f)files}; do
-    prefixed_files+="${prefix}${file}"
+    prefixed_files+="${file}"
   done
   $EDITOR ${prefixed_files[@]}
 fi

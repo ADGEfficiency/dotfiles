@@ -25,7 +25,7 @@ km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 -- km("n", "<C-t>", ":bprevious<cr>:redraw<cr>", opts)
 km("n", "<C-n>", ":BufferNext<CR>", opts)
 km("n", "<C-t>", ":BufferPrevious<CR>", opts)
-km("n", "<C-t>", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
+-- km("n", "<C-t>", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- remove search highlight
 km("n", "<leader><space>", ":noh<cr>", opts)

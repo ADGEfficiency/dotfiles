@@ -52,7 +52,6 @@ return packer.startup(function(use)
 	use({
 		"romgrk/barbar.nvim",
 		requires = "nvim-web-devicons",
-		tag = "v1.5.0",
 	})
 
 	-- mason + lsp
