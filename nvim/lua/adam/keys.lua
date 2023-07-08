@@ -10,6 +10,7 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
+km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)

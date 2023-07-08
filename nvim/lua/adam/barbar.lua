@@ -37,24 +37,31 @@ require("bufferline").setup({
 
 vim.cmd([[
 
-  hi BufferCurrentIndex guifg='#FF79C6' gui=bold
-  hi BufferVisibleIndex guifg='#FF79C6' guibg='#282A36'
-  hi BufferInactiveIndex guifg='#FF79C6' guibg='#282A36'
 
   hi BufferCurrent gui=bold guibg='#282A36'
   hi BufferVisible guibg='#282A36'
   hi BufferInactive guibg='#282A36'
 
+  hi BufferCurrentIndex guifg='#FF79C6' gui=bold
+  hi BufferVisibleIndex guifg='#FF79C6' guibg='#282A36'
+  hi BufferInactiveIndex guifg='#FF79C6' guibg='#282A36'
+
   hi BufferCurrentMod guifg='#51FA7B' gui=bold
   hi BufferVisibleMod guifg='#51FA7B' guibg='#282A36'
   hi BufferInactiveMod guifg='#51FA7B' guibg='#282A36'
+
+  hi BufferCurrentSign guifg='#282A36' guibg='#282A36'
+  hi BufferVisibleSign guifg='#282A36' guibg='#282A36'
+  hi BufferInactiveSign guifg='#282A36' guibg='#282A36'
+
+  hi BufferCurrentSignRight guifg='#282A36' guibg='#282A36'
+  hi BufferVisibleSignRight guifg='#282A36' guibg='#282A36'
+  hi BufferInactiveSignRight guifg='#282A36' guibg='#282A36'
 
   hi BufferTabpageFill guifg='#282A36'
 ]])
 
 vim.cmd([[
-  cnoreabbrev bg BufferGoto
-  cnoreabbrev BG BufferGoto
   cnoreabbrev b1 BufferGoto 1
   cnoreabbrev b2 BufferGoto 2
   cnoreabbrev b3 BufferGoto 3

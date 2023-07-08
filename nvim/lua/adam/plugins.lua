@@ -69,7 +69,7 @@ return packer.startup(function(use)
 	})
 
 	-- lualine (bottom)
-	use("noib3/nvim-cokeline")
+	-- use("noib3/nvim-cokeline")
 	use({ "nvim-lualine/lualine.nvim" })
 
 	-- -- greeter/dashboard - alpha
@@ -115,7 +115,7 @@ return packer.startup(function(use)
 	})
 	use({ "ptethng/telescope-makefile" })
 
-	-- -- text editing
+	-- text editing
 	use("tpope/vim-commentary")
 	use("windwp/nvim-autopairs")
 	use("FooSoft/vim-argwrap")
@@ -129,8 +129,9 @@ return packer.startup(function(use)
 	--- text editing - markdown
 	use("dhruvasagar/vim-table-mode")
 	use("dkarter/bullets.vim")
-	-- use("ixru/nvim-markdown")
-	-- use("plasticboy/vim-markdown")
+
+	--- text editing - html
+	use({ "alvan/vim-closetag" })
 
 	-- reopen last place
 	use("farmergreg/vim-lastplace")
@@ -163,6 +164,17 @@ return packer.startup(function(use)
 	})
 
 	use({ "windwp/nvim-ts-autotag" })
+
+	use({ "nvim-neotest/neotest-python" })
+
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+	})
 
 	-- LSP diagnostics list
 	use({

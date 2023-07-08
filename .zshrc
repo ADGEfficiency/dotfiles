@@ -22,6 +22,7 @@ alias brew='arch -x86_64 brew'
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/checkmake:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
+export PATH="$HOME/personal/scripts:$PATH"
 
 # # ------ 3rd party -------
 
