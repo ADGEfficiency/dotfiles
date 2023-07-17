@@ -12,6 +12,13 @@ vim.g.maplocalleader = ","
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
+
+vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
+
+-- move to start / end of line
+km("n", "L", "$", opts)
+km("n", "H", "^", opts)
+
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>x", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)

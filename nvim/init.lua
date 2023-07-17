@@ -10,7 +10,7 @@ require("adam.gitsigns")
 require("adam.keys")
 require("adam.lsp")
 require("adam.lualine")
-require("adam.null-ls")
+-- require("adam.null-ls")
 require("adam.pairs")
 require("adam.telescope")
 -- was quoted out

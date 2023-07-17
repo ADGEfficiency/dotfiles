@@ -63,11 +63,12 @@ require("mason-lspconfig").setup()
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
-require("lspconfig")["pyright"].setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	cmd = { "pyright-langserver", "--stdio" },
-})
+-- require("lspconfig")["pyright"].setup({
+-- 	on_attach = on_attach,
+-- 	flags = lsp_flags,
+-- 	cmd = { "pyright-langserver", "--stdio" },
+-- })
+
 require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
 	filetypes = {
@@ -82,14 +83,19 @@ require("lspconfig")["tailwindcss"].setup({
 	},
 	flags = lsp_flags,
 })
+
 require("lspconfig")["marksman"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	filetypes = { "markdown" },
 })
+
 require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
+
 require("lspconfig")["cmake"].setup({ on_attach = on_attach, flags = lsp_flags })
+
 require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
+
 require("lspconfig")["rust_analyzer"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
@@ -97,6 +103,7 @@ require("lspconfig")["rust_analyzer"].setup({
 		["rust-analyzer"] = {},
 	},
 })
+
 require("lspconfig")["lua_ls"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
@@ -117,6 +124,58 @@ require("lspconfig")["lua_ls"].setup({
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
 				enable = false,
+			},
+		},
+	},
+})
+
+local on_attach_efm = function(client)
+	vim.cmd([[augroup lsp_formatting]])
+	vim.cmd([[autocmd!]])
+	vim.cmd([[autocmd BufWritePre <buffer> :lua vim.lsp.buf.format()]])
+	vim.cmd([[augroup END]])
+	vim.cmd("command! LspFormat lua vim.lsp.buf.format()")
+end
+
+require("lspconfig")["efm"].setup({
+	on_attach = on_attach_efm,
+	flags = lsp_flags,
+	cmd = { "efm-langserver", "-logfile", "/tmp/efm.log", "-loglevel", "5" },
+	init_options = { documentFormatting = true },
+	settings = {
+		rootMarkers = { ".git/" },
+		languages = {
+			lua = {
+				{
+					lintCommand = "luacheck --codes --no-color --quiet -",
+					lintStdin = true,
+					lintFormats = {
+						"%.%#:%l:%c: (%t%n) %m",
+					},
+				},
+				{
+					formatCommand = "stylua --color Never -",
+					formatStdin = true,
+				},
+			},
+			make = {
+				{
+					lintCommand = "/Users/adam/checkmake/checkmake --format='{{.LineNumber}}: {{.Violation}}\n' ${INPUT}",
+					lintStdin = false,
+					lintFormats = { "%l: %m" },
+				},
+			},
+			python = {
+				{
+					lintCommand = "ruff check -q -n -e --stdin-filename ${INPUT} -",
+					lintStdin = true,
+					lintFormats = { "%f:%l:%c: %m" },
+					lintIgnoreExitCode = true,
+				},
+				{
+					formatCommand = "black --no-color -q -",
+					formatStdin = true,
+				},
 			},
 		},
 	},

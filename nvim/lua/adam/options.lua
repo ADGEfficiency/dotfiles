@@ -46,6 +46,10 @@ vim.opt.laststatus = 3
 
 vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
 
+vim.g["undotree_SetFocusWhenToggle"] = 1
+vim.g["undotree_DiffAutoOpen"] = 0
+vim.g["undotree_ShortIndicators"] = 1
+
 -- format on save
 vim.cmd([[autocmd BufWritePost *.py silent! execute ':Format']])
 

@@ -28,7 +28,7 @@ export PATH="$HOME/personal/scripts:$PATH"
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     # export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore --glob=!__.pycache__ --glob=!_.mypy_cache --glob=!.git/* -l --smart-case --line-buffered --pretty'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --multi'

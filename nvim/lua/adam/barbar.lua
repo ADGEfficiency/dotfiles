@@ -72,4 +72,6 @@ vim.cmd([[
   cnoreabbrev b8 BufferGoto 8
   cnoreabbrev b9 BufferGoto 9
   cnoreabbrev b10 BufferGoto 10
+  cnoreabbrev b11 BufferGoto 11
+  cnoreabbrev b12 BufferGoto 12
 ]])

@@ -1,3 +1,5 @@
+.PHONY: all
+
 inspect:
 	tree ~/.local/share/nvim/site/pack/packer/ -L 2
 
@@ -7,4 +9,8 @@ clean:
 	rm -rf ./plugin
 
 setup:
+	brew update
+	brew upgrade
 	brew install nvim
+	brew install efm-langserver shellcheck hadolint checkmake
+	cargo install cbfmt stylua
