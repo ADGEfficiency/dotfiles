@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all clean
 
 inspect:
 	tree ~/.local/share/nvim/site/pack/packer/ -L 2
