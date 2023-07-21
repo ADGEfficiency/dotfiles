@@ -113,7 +113,9 @@ alias cred='git config credential.helper store'
 alias gd='git diff --staged'
 
 alias nbg='git checkout -b'
+alias gnb='git checkout -b'
 alias cbg='git checkout '
+alias gcb='git checkout '
 
 alias db='git branch -D '
 alias gmv='git mv '
@@ -136,22 +138,25 @@ alias dc='docker-compose'
 docker-ssh () {
     docker exec -it $1 /bin/sh
 }
+
 docker-build () {
     NAME=$1
     DOCKERFILE=$2
-    docker build -t $NAME . -f $DOCKERFILE --progress=plain
+    docker build -t $NAME . -f $DOCKERFILE
 }
+
 docker-run () {
     NAME=$1
-    COMMAND=$1
+    COMMAND=$2
     docker run -it $NAME $COMMAND
 }
+
 docker-ip () {
     NAME=$1
     docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME
 }
 
-build-run-docker () {
+docker-build-run () {
     build-docker $1 $2
     run-docker $1
 }
@@ -159,4 +164,8 @@ build-run-docker () {
 docker-ls () {
   docker network list
   docker volume list
+}
+
+docker-exec-last () {
+  docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }

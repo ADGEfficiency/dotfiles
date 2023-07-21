@@ -67,9 +67,9 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 require("lspconfig")["pyright"].setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	cmd = { "pyright-langserver", "--stdio" },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  cmd = { "pyright-langserver", "--stdio" },
 })
 
 require("lspconfig")["tailwindcss"].setup({
@@ -148,6 +148,17 @@ require("lspconfig")["efm"].setup({
   settings = {
     rootMarkers = { ".git/" },
     languages = {
+      markdown = {
+        {
+          lintCommand = "markdownlint -s",
+          lintStdin = true,
+          lintFormats = {
+            "%f:%l %m",
+            "%f:%l:%c %m",
+            "%f: %l: %m",
+          },
+        },
+      },
       html = {
         {
           lintCommand = "djlint --quiet -",
@@ -210,7 +221,7 @@ require("lspconfig")["efm"].setup({
         },
         {
           formatCommand = "isort --stdout --profile=black -",
-          formatStdin = true
+          formatStdin = true,
         },
         {
           formatCommand = "black --no-color -q -",
