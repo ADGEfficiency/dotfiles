@@ -8,7 +8,8 @@ quote () {
   echo $(sed -n ${LINE}p ${QUOTES})
  }
 
-# change a github remote - useful when changing to ssh
+# change a github remote
+# useful when changing to ssh
 remote() {
   git remote set-url origin $1
 }
@@ -79,8 +80,8 @@ tunnelnk() {
 #  tmux
 
 tn () {
-    name=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
-    tmux new -s $name
+    NAME=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
+    tmux new -s $NAME
 }
 alias t='tn'
 
