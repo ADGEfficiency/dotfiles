@@ -110,17 +110,14 @@ set wildignore+=*.egg-info/**
 
 set mouse=a
 
+set signcolumn=yes
+
 
 " REMAPS
+
 cabbrev v vsp
 cabbrev s sp
 cabbrev f Files
-
-"" scrolling speed - TODO
-" nnoremap <C-e> 3<C-e>
-" nnoremap <C-y> 3<C-y>
-"
-" 
 
 "" turn off search highlight
 nnoremap ,<space> :noh<cr>
@@ -132,12 +129,6 @@ nnoremap Q <Nop>
 "" performing an indentation.
 vnoremap < <gv
 vnoremap > >gv
-
-"  not sure what these do?
-" nnoremap j gj
-" nnoremap k gk
-" nnoremap gj j
-" nnoremap gk k
 
 " Move around splits with <C-[hjkl]> in normal mode
 nnoremap <C-j> <C-w>j
@@ -175,12 +166,12 @@ nnoremap ,j :Files .<CR>
 nnoremap <A-Space> :Files .<CR>
 
 
-" visual
+" VISUAL
+
 set background=dark
 colorscheme dracula
 
 "" must be after colo!
-"" highlight
 hi clear SpellBad
 hi SpellBad cterm=bold ctermfg=red
 hi clear SpellRare
@@ -195,7 +186,7 @@ hi clear ALEWarning
 hi ALEWarning cterm=bold ctermfg=red
 
 
-" plugin configs
+" PLUGIN CONFIGS
 
 "" lightline
 set laststatus=2
@@ -241,7 +232,6 @@ let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[Nameless]'
 let g:lightline#bufferline#enable_nerdfont = 1
 
-
 "" fzf
 set rtp+=~/.fzf
 map <space> :Files $HOME<CR>
@@ -277,15 +267,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
- " UM???
-" if has("patch-8.1.1564")
-"   set signcolumn=number
-" else
-"   set signcolumn=no
-" endif
-
-set signcolumn=yes
-
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -315,7 +296,6 @@ let g:javascript_plugin_chain_indent = 1
 "" python syntax
 let g:python_highlight_all = 1
 
-
 " filetype specific
 
 set expandtab
@@ -344,8 +324,6 @@ autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
 
 au BufRead,BufNewFile *.web set filetype=Dockerfile
 
-
-
 " MACROS
 
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
@@ -355,6 +333,7 @@ let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\from pathlib import Path\<cr>\<esc>\<cr>\<tab>"
 
 let @c="V<<<<<jmak:.m90€kb€kb0`ak"
+
 
 "  SHORTCUTS
 
@@ -367,17 +346,8 @@ map <F6> :1,$d <enter>
 map <F7> :%y+ <enter>
 map <F8> :e ~/dotfiles/.vimrc <enter>
 
-" run file interactive
-" map <F6> :!ipython -i %:p <enter>
-" "run line
-" map <F7> :'.w !python <enter>
-
-"map <F9> :e ~/dotfiles/.zshrc <enter>
-"map <F10> :e ~/dotfiles/.aliases <enter>
-"noremap <F11> <Esc>:syntax sync fromstart<CR>
-"map <F12> :e ~/personal/lists/cheat_sheet.md <enter>
-
 :cnoremap qb bd
+
 
 " ABBREVIATIONS
 
@@ -425,9 +395,10 @@ ab tow two
 ab inline in-line
 ab peroid period
 
+
 " MISC
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 augroup return_to_last_edit_position
   autocmd!
   autocmd BufReadPost *
@@ -435,7 +406,6 @@ augroup return_to_last_edit_position
         \   exe "normal! g`\"" |
         \ endif
 augroup END
-
 
 " ale
 let g:ale_disable_lsp = 1
