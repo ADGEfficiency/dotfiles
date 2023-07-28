@@ -38,72 +38,83 @@ packer.init({
   },
 })
 
--- Install your plugins here
 return packer.startup(function(use)
-  -- base
-  use("wbthomason/packer.nvim") -- Have packer manage itself
-  use("nvim-lua/popup.nvim")    -- An implementation of the Popup API from vim in Neovim
-  use("nvim-lua/plenary.nvim")  -- Useful lua functions used ny lots of plugins
-
-  -- bufferline (top)
-  --
-  -- use({ "kyazdani42/nvim-web-devicons" })
+  -- packer manages itself
+  use({
+    "wbthomason/packer.nvim",
+    "nvim-lua/popup.nvim",
+    "nvim-lua/plenary.nvim",
+  })
   use({ "nvim-tree/nvim-web-devicons" })
+
+  -- lsp + mason
+  -- lsp configures the servers
+  -- mason sets up the servers
+  use({
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    run = ":MasonUpdate",
+  })
+  use("ray-x/lsp_signature.nvim")
+
+  -- LSP diagnostics list
+  use({
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({
+        height = 5,       -- height of the trouble list when position is top or bottom
+        width = 50,       -- width of the list when position is left or right
+        icons = false,    -- use devicons for filenames
+        indent_lines = false, -- add an indent guide below the fold icons
+        auto_open = false, -- automatically open the list when you have diagnostics
+        auto_close = false, -- automatically close the list when you have no diagnostics
+      })
+    end,
+  })
+
+  -- top bar - buffers
   use({
     "romgrk/barbar.nvim",
     requires = "nvim-web-devicons",
   })
 
-  -- mason + lsp
-  -- use("jose-elias-alvarez/null-ls.nvim")
-  use("ray-x/lsp_signature.nvim")
-  use("neovim/nvim-lspconfig")
-
-  use({
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    run = ":MasonUpdate",
-  })
-
-  -- lualine (bottom)
+  -- bottom bar - status line
   use({ "nvim-lualine/lualine.nvim" })
 
-  -- -- greeter/dashboard - alpha
+  -- greeter
   use({ "goolord/alpha-nvim" })
 
-  -- treesitter
+  -- treesitter for syntax highlighting
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-  -- use( "ray-x/cmp-treesitter")
 
-  -- -- -- colormap
+  -- colormaps
   use("sainnhe/everforest")
   use("dracula/vim")
   use("catppuccin/nvim")
   use("sam4llis/nvim-tundra")
   use("rebelot/kanagawa.nvim")
 
-  -- -- cmp plugins
-  use("hrsh7th/nvim-cmp")    -- The completion plugin
-  use("hrsh7th/cmp-buffer")  -- buffer completions
-  use("hrsh7th/cmp-path")    -- path completions
-  use("hrsh7th/cmp-cmdline") -- cmdline completions
+  -- completion with cmp
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
   use("dmitmel/cmp-cmdline-history")
   use("hrsh7th/cmp-emoji")
   use("hrsh7th/cmp-latex-symbols")
   use("uga-rosa/cmp-dictionary")
-  use("David-Kunz/cmp-npm")   -- npm packages (package.json)
-  use("hrsh7th/cmp-nvim-lsp") -- lsp completions
+  use("David-Kunz/cmp-npm")
+  use("hrsh7th/cmp-nvim-lsp")
   use("amarakon/nvim-cmp-buffer-lines")
 
   -- snippets
-  use("saadparwaiz1/cmp_luasnip") -- snippet completions
+  use("saadparwaiz1/cmp_luasnip")
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
 
-  -- git
-  use("lewis6991/gitsigns.nvim")
-
-  -- telescope
+  -- searching with telescope
   use("nvim-telescope/telescope.nvim")
   use({
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -112,13 +123,25 @@ return packer.startup(function(use)
   })
   use({ "ptethng/telescope-makefile" })
 
+  -- searching with grepper
+  use({ "mhinz/vim-grepper" })
+
+  -- buffer / window management
+  use({ "kevinhwang91/nvim-bqf", ft = "qf" })
+  use({ "simeji/winresizer" })
+  use({ "qpkorr/vim-bufkill" })
+
   -- text editing
   use("tpope/vim-commentary")
   use("windwp/nvim-autopairs")
   use("FooSoft/vim-argwrap")
   use("mattn/emmet-vim")
-  use({ "tpope/vim-surround" })
-  use({ "tpope/vim-repeat" })
+  use("tpope/vim-surround")
+  use("tpope/vim-repeat")
+  use("lewis6991/gitsigns.nvim")
+  use("farmergreg/vim-lastplace")
+  use("axelf4/vim-strip-trailing-whitespace")
+  use({ "mbbill/undotree" })
 
   -- text editing - python
   use("Vimjas/vim-python-pep8-indent")
@@ -129,29 +152,10 @@ return packer.startup(function(use)
 
   --- text editing - html
   use({ "alvan/vim-closetag" })
-
-  -- reopen last place
-  use("farmergreg/vim-lastplace")
-
-  -- trailing space removal
-  use("axelf4/vim-strip-trailing-whitespace")
-
-  -- better quick fix window
-  use({ "kevinhwang91/nvim-bqf", ft = "qf" })
-
-  use({ "simeji/winresizer" })
-
-  use({ "qpkorr/vim-bufkill" })
-
   use({ "Glench/Vim-Jinja2-Syntax" })
-
-  use({ "mhinz/vim-grepper" })
 
   use({ "norcalli/nvim-colorizer.lua" })
 
-  use({ "mbbill/undotree" })
-
-  use({ "zbirenbaum/copilot.lua" })
   use({
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
@@ -162,35 +166,6 @@ return packer.startup(function(use)
 
   use({ "windwp/nvim-ts-autotag" })
 
-  use({ "nvim-neotest/neotest-python" })
-
-  use({
-    "nvim-neotest/neotest",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-    },
-  })
-
-  -- LSP diagnostics list
-  use({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({
-        height = 5,           -- height of the trouble list when position is top or bottom
-        width = 50,           -- width of the list when position is left or right
-        icons = false,        -- use devicons for filenames
-        indent_lines = false, -- add an indent guide below the fold icons
-        auto_open = false,    -- automatically open the list when you have diagnostics
-        auto_close = false,   -- automatically close the list when you have no diagnostics
-      })
-    end,
-  })
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
