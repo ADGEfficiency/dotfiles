@@ -66,6 +66,16 @@ local lsp_flags = {
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["dockerls"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["jsonls"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["prosemd_lsp"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["rnix"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["tsserver"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["emmet_language_server"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["grammarly"].setup({ on_attach = on_attach, flags = lsp_flags })
+
 require("lspconfig")["pyright"].setup({
   on_attach = on_attach,
   flags = lsp_flags,
@@ -92,12 +102,6 @@ require("lspconfig")["marksman"].setup({
   flags = lsp_flags,
   filetypes = { "markdown" },
 })
-
-require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
-
-require("lspconfig")["cmake"].setup({ on_attach = on_attach, flags = lsp_flags })
-
-require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
 
 require("lspconfig")["rust_analyzer"].setup({
   on_attach = on_attach,

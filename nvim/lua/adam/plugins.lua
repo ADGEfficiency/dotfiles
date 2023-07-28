@@ -61,15 +61,11 @@ return packer.startup(function(use)
 
   use({
     "williamboman/mason.nvim",
-    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-  })
-
-  use({
     "williamboman/mason-lspconfig.nvim",
+    run = ":MasonUpdate",
   })
 
   -- lualine (bottom)
-  -- use("noib3/nvim-cokeline")
   use({ "nvim-lualine/lualine.nvim" })
 
   -- -- greeter/dashboard - alpha

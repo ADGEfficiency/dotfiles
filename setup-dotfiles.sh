@@ -14,6 +14,6 @@ echo "source $HOME/dotfiles/.tmux.conf" >> "$HOME/.tmux.conf"
 
 cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
 
-git config --global core.excludesfile $HOME/dotfiles/.gitignore
+git config --global core.excludesfile "$HOME/dotfiles/.gitignore"
 git config --global user.email "adam.green@adgefficiency.com"
 git config --global user.name "Adam Green"
