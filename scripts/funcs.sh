@@ -1,5 +1,4 @@
-
-#!
+#!/usr/bin/env bash
 
 # should work on bash or zsh
 gz() {

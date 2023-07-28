@@ -8,7 +8,7 @@
 #  use neovim as editor
 export EDITOR=$(which nvim)
 
-#  put config in ~/dotfiles (instead of ~/.config)
+#  put config in ~/dotfiles, instead of ~/.config
 export XDG_CONFIG_HOME=~/dotfiles
 launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 
@@ -68,8 +68,6 @@ atuin_init() {
   eval "$(atuin init zsh --disable-up-arrow)"
 }
 
-# # ------ 3rd party inits -------
-
 pretzo_init
 starship_init
 fzf_init
@@ -77,18 +75,15 @@ flyctl_init
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
-source ~/dotfiles/macos/pyenv-flags
+#  docker desktop
+source /Users/adam/.docker/init-zsh.sh || true
 
-# Nix
+#  nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
-# End Nix
 
-source /Users/adam/.config/broot/launcher/bash/br
-#
-#  docker desktop
-source /Users/adam/.docker/init-zsh.sh || true
+source ~/dotfiles/macos/pyenv-flags
 
 #  turn on when profiling
 # zprof

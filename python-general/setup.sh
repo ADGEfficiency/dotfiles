@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 NAME=general
 VERSION=3.10.6
 pyenv install $VERSION

@@ -16,16 +16,13 @@ node_modules/
 Music
 .pyenv
 NVIDIA*
-
 pre
 gpu
-
 nvim/node_modules
 nvim/temp*
 nvim/package*
 nvim/test*
 nvim/plugin*
-
 notes.md
 todo.md
 temp

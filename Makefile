@@ -1,8 +1,8 @@
 dotfiles:
 	bash setup-dotfiles.sh
 
-ubuntu:
+ubuntu: dotfiles
 	bash ./ubuntu/main.sh
 
 python-general:
-	cd ./python-general/; sh setup.sh
+	bash ./python-general/setup.sh

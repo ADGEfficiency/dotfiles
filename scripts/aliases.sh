@@ -13,7 +13,6 @@ alias sed='gsed'
 alias cp='cp -r '
 alias bat='bat --color=always --paging=always'
 alias bake='make'
-alias funcs='vi ~/dotfiles/funcs.sh'
 alias h='cd $HOME'
 alias js='nvm_init'
 
@@ -93,7 +92,7 @@ alias wi='vi'
 
 # dotfiles
 alias dots='cd $HOME/dotfiles'
-alias aliases='$EDITOR $HOME/dotfiles/aliases.sh'
+alias aliases='$EDITOR $HOME/dotfiles/scripts/aliases.sh'
 alias bashrc='$EDITOR $HOME/dotfiles/.bashrc'
 alias yabairc='$EDITOR $HOME/dotfiles/yabai/yabairc'
 alias vimrc='$EDITOR $HOME/dotfiles/.vimrc'
