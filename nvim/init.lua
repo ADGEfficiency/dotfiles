@@ -15,7 +15,3 @@ require("adam.treesitter")
 require("adam.whichkey")
 require("adam.barbar")
 require("adam.copilot")
---
--- require("adam.null-ls")
--- require("adam.iron")
--- require("adam.neotest")
