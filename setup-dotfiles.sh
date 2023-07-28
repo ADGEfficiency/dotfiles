@@ -17,11 +17,19 @@ echo "setting up ~/.zshrc"
 } >> "$HOME/.zshrc"
 cat ~/.zshrc
 
+echo "setting up ~/.zprofile"
+echo "source $HOME/dotfiles/.zprofile" >> "$HOME/.zprofile"
+
+echo "setting up ~/.vimrc"
 echo "source $HOME/dotfiles/.vimrc" >> "$HOME/.vimrc"
+
+echo "setting up ~/.tmux.conf"
 echo "source $HOME/dotfiles/.tmux.conf" >> "$HOME/.tmux.conf"
 
+echo "setting up ~/.gitignore"
 cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
 
-git config --global core.excludesfile "$HOME/dotfiles/.gitignore"
+echo "setting up git"
+git config --global core.excludesfile "$HOME/.gitignore"
 git config --global user.email "adam.green@adgefficiency.com"
 git config --global user.name "Adam Green"
