@@ -29,9 +29,9 @@ end
 
 local signs = {
   { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn",  text = "" },
-  { name = "DiagnosticSignHint",  text = "" },
-  { name = "DiagnosticSignInfo",  text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
@@ -174,8 +174,7 @@ require("lspconfig")["efm"].setup({
           lintFormats = { "line %l, col %c, found: %m" },
         },
         {
-          formatCommand = "jq",
-          formatStdin = true,
+          formatCommand = "prettier --parser json --config ~/dotfiles/.prettierrc",
         },
       },
       shell = {

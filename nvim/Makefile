@@ -12,5 +12,5 @@ setup:
 	brew update
 	brew upgrade
 	brew install nvim
-	brew install efm-langserver shellcheck hadolint checkmake markdownlint-cli
+	brew install efm-langserver shellcheck hadolint checkmake markdownlint-cli prettier
 	cargo install cbfmt stylua

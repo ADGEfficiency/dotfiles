@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-export todo=$HOME/personal/todo.md
-export vimrc=$HOME/dotfiles/.vimrc
-export CHEAT=$HOME/personal/lists/cheat_sheet.md
-export PER=$HOME/personal/
-export GDR=$HOME/GoogleDrive
-export GENERAL="/Users/adam/.pyenv/versions/3.10.6/envs/general/bin"
+export PYENV_GENERAL="$HOME/.pyenv/versions/3.10.6/envs/general/bin"
 
-# be polite!
+# be polite - even to machines
 alias please='sudo'
 
 # folders
@@ -23,7 +18,7 @@ alias h='cd $HOME'
 alias b='cd ..'
 alias back='cd -'
 
-# clearing & listing
+# clearing screen & listing directories and files
 alias c='clear'
 alias cll='clear && ll'
 alias cls='clear && ls'
@@ -104,7 +99,7 @@ alias tmuxc='$EDITOR $HOME/dotfiles/.tmux.conf'
 alias zshrc='$EDITOR $HOME/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
 
-#  git
+# git
 alias amend='git commit --amend'
 alias cbg='git checkout '
 alias cred='git config credential.helper store'
@@ -114,7 +109,8 @@ alias gall='git add * && git add -u && git commit -m "sync all the things" && gi
 alias gc='git commit -m '
 alias gcb='git checkout '
 alias gd='git diff --staged'
-alias glog='git log --pretty=fuller --abbrev-commit --stat'
+alias glog='git log --pretty=fuller --abbrev-commit --stat -n 5'
+alias glogg='git log --pretty=fuller --abbrev-commit --stat --patch -n 5'
 alias gls='clear && git status --short'
 alias gmv='git mv '
 alias gnb='git checkout -b'
@@ -122,11 +118,11 @@ alias gp='git push origin '
 alias gs='git status'
 alias nbg='git checkout -b'
 
-#  tmux
+# tmux
 alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
 alias tls='tmux ls'
 
-#  docker
+# docker
 alias dc='docker-compose'
