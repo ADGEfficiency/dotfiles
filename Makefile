@@ -23,3 +23,7 @@ setup-nvim:
 	npm install -g remark-cli remark-stringify remark-lint remark-preset-lint-recommended remark-preset-lint-consistent remark-preset-lint-markdown-style-guide
 	rustup update stable
 	cargo install cbfmt stylua
+
+nix-install:
+	curl -L https://nixos.org/nix/install | sh
+	nix-env -i -f env.nix
