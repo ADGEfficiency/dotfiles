@@ -17,7 +17,6 @@ pkgs.stdenv.mkDerivation
     ripgrep
     toybox
     tree
-    which
     #  programming things
     flyctl
     git
