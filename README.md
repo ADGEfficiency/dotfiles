@@ -2,7 +2,7 @@
 
 Setup and configuration for a terminal first developer workflow.
 
-My Neovim setup is in [nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
+## Bash, Zsh & Git
 
 Setup `.bashrc` & `.zshrc` in `$HOME` and configure Git:
 
@@ -12,11 +12,15 @@ $ make dotfiles
 
 This appends to your `rc` files -- beware running this multiple times.
 
+## Ubuntu
+
 Setup an Ubuntu machine:
 
 ```bash
 $ make ubuntu
 ```
+
+## Global Python Virtual Env
 
 Setup a global Python installation in a pyenv virtual environment:
 
@@ -25,6 +29,8 @@ $ make python-general
 ```
 
 ## Neovim
+
+My Neovim setup is in [nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
 
 ```shell-session
 $ make macos-brew-install
@@ -51,7 +57,7 @@ Tools can have the following properties (https://github.com/mattn/efm-langserver
 - `completionCommand`,
 - `completionStdin`,
 
-## Mason
+### Mason
 
 I use Mason to install LSPs, including some of
 
@@ -61,16 +67,16 @@ https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 
 Don't use mason for `efm` - install efm lang server separately
 
-# Available Linting / Formatting Tools
+## Available Linting / Formatting Tools
 
-## [efm-langserver](https://github.com/mattn/efm-langserver)
+### [efm-langserver](https://github.com/mattn/efm-langserver)
 
 See the config.yml example
 
-## [efmls-configs-nvim](https://github.com/creativenull/efmls-configs-nvim/blob/main/supported-linters-and-formatters.md)
+### [efmls-configs-nvim](https://github.com/creativenull/efmls-configs-nvim/blob/main/supported-linters-and-formatters.md)
 
 I don't use this package, but I do use it for examples of `efm` tool configs
 
-## [Null LS](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
+### [Null LS](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
 
 I used to use Null LS - their list of tools is useful - 
