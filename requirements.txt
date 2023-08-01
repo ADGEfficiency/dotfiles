@@ -1,6 +1,0 @@
-flake8
-ipython
-numpy
-jedi
-pandas
-jedi-language-server

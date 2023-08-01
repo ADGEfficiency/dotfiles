@@ -2,13 +2,13 @@ default:
 	echo "hello ^^"
 
 dotfiles:
-	bash setup-dotfiles.sh
+	sh ./scripts/setup-dotfiles.sh
 
 ubuntu: dotfiles
-	bash ./ubuntu/main.sh
+	sh ./ubuntu/main.sh
 
 python-general:
-	bash ./python-general/setup.sh
+	sh ./python-general/setup.sh
 
 # neovim
 
@@ -57,4 +57,4 @@ nix-install:
 	curl -L https://nixos.org/nix/install | sh
 	nix-channel --add https://nixos.org/channels/nixpkgs-23.05-darwin
 	nix-channel --update
-	nix-env -i -f env.nix
+	nix-env -i -f ./nix/env.nix
