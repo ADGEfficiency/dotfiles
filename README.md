@@ -27,7 +27,7 @@ $ make python-general
 ## Neovim
 
 ```shell-session
-$ make setup-nvim
+$ make macos-brew-install
 ```
 
 ### Notes on `efm-langserver`

@@ -3,7 +3,7 @@
 
 pkgs.mkShell
 {
-  name = "macos";
+  name = "mac-nix";
   buildInputs = [
     pkgs.git
     pkgs.neovim

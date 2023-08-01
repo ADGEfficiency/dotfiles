@@ -6,6 +6,7 @@
   "author": "Adam Green",
   "license": "ISC",
   "dependencies": {
+    "markserv": "^1.17.4",
     "prettier": "^3.0.0"
   }
 }

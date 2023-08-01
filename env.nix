@@ -3,7 +3,7 @@
 
 pkgs.stdenv.mkDerivation
 {
-  name = "mac-nix";
+  name = "mac-nix-env";
   unpackPhase = "true";
   buildCommand = "mkdir -p $out";
   buildInputs = with pkgs; [
@@ -42,10 +42,5 @@ pkgs.stdenv.mkDerivation
     #  misc
     nb
   ];
-
-  shellHook = ''
-    export SHELL=/bin/zsh
-    # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  '';
 }
 
