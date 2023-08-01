@@ -8,6 +8,7 @@ pkgs.stdenv.mkDerivation
   buildCommand = "mkdir -p $out";
   buildInputs = with pkgs; [
     #  shell stuff
+    atuin
     bat
     direnv
     exa

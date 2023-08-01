@@ -1,38 +1,39 @@
 local km = vim.api.nvim_set_keymap
+--
 -- automatic sort of buffers
 local opts = { noremap = true, silent = true }
 km("n", "<Leader>1", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
 km("n", "<Leader>2", "<Cmd>BufferOrderByDirectory<CR>", opts)
 
-require("bufferline").setup({
-	-- Enable/disable auto-hiding the tab bar when there is a single buffer
-	auto_hide = false,
-	clickable = false,
-	icons = {
-		-- Configure the base icons on the bufferline.
-		-- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
-		buffer_index = true,
-		buffer_number = false,
-		button = "",
-		filetype = {
-			-- Sets the icon's highlight group.
-			-- If false, will use nvim-web-devicons colors
-			custom_colors = false,
-			-- Requires `nvim-web-devicons` if `true`
-			enabled = false,
-		},
-		separator = { left = "", right = "" },
-		-- If true, add an additional separator at the end of the buffer list
-		modified = { button = "" },
-		separator_at_end = false,
-		-- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
-		preset = "default",
-		-- Configure the icons on the bufferline based on the visibility of a buffer.
-		-- Supports all the base icon options, plus `modified` and `pinned`.
-		alternate = { filetype = { enabled = false } },
-		current = { buffer_index = true },
-		visible = { modified = { buffer_number = false } },
-	},
+require("barbar").setup({
+  -- Enable/disable auto-hiding the tab bar when there is a single buffer
+  auto_hide = false,
+  clickable = false,
+  icons = {
+    -- Configure the base icons on the bufferline.
+    -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
+    buffer_index = true,
+    buffer_number = false,
+    button = "",
+    filetype = {
+      -- Sets the icon's highlight group.
+      -- If false, will use nvim-web-devicons colors
+      custom_colors = false,
+      -- Requires `nvim-web-devicons` if `true`
+      enabled = false,
+    },
+    separator = { left = "", right = "" },
+    -- If true, add an additional separator at the end of the buffer list
+    modified = { button = "" },
+    separator_at_end = false,
+    -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
+    preset = "default",
+    -- Configure the icons on the bufferline based on the visibility of a buffer.
+    -- Supports all the base icon options, plus `modified` and `pinned`.
+    alternate = { filetype = { enabled = false } },
+    current = { buffer_index = true },
+    visible = { modified = { buffer_number = false } },
+  },
 })
 
 vim.cmd([[
