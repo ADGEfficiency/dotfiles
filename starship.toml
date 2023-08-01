@@ -38,4 +38,4 @@ disabled = false
 disabled = false
 impure_msg = ''
 pure_msg = 'pure '
-format = ' on [ $state$name](bold blue)'
+format = ' on [ $state$name](bold cyan)'

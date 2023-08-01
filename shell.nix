@@ -1,14 +1,20 @@
-{
-  pkgs ? import <nixpkgs> {}
-}:
+# nix-channel --add https://nixos.org/channels/nixpkgs-23.05-darwin
+{ pkgs ? import <nixpkgs-23.05-darwin> { } }:
 
-pkgs.mkShell {
+pkgs.mkShell
+{
   name = "macos";
   buildInputs = [
+    pkgs.git
+    pkgs.neovim
+    pkgs.starship
     pkgs.which
-     pkgs.git
-     pkgs.neovim
-     pkgs.zsh
-     pkgs.starship
+    pkgs.zsh
+    pkgs.vimPlugins.packer-nvim
   ];
+
+  shellHook = ''
+    export SHELL=/bin/zsh
+    # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  '';
 }
