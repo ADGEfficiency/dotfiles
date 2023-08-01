@@ -1,4 +1,4 @@
-# set -x
+#!/usr/bin/env zsh
 
 #  turn on when profiling
 # zmodload zsh/zprof
@@ -18,6 +18,7 @@ fi
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
+export AWS_LOG_LEVEL=3
 
 # # ------  utility  -------
 
