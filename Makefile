@@ -34,7 +34,8 @@ macos-brew-install:
 	brew install git llvm make
 	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv
 	brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep lazygit
-	npm install -g .
+
+	cd js && npm install -g .
 
 	brew install yabai
 	chmod +x ~/dotfiles/yabai/yabairc
