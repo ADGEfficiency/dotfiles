@@ -64,12 +64,12 @@ return packer.startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup({
-        height = 5,           -- height of the trouble list when position is top or bottom
-        width = 50,           -- width of the list when position is left or right
-        icons = false,        -- use devicons for filenames
+        height = 5,       -- height of the trouble list when position is top or bottom
+        width = 50,       -- width of the list when position is left or right
+        icons = false,    -- use devicons for filenames
         indent_lines = false, -- add an indent guide below the fold icons
-        auto_open = false,    -- automatically open the list when you have diagnostics
-        auto_close = false,   -- automatically close the list when you have no diagnostics
+        auto_open = false, -- automatically open the list when you have diagnostics
+        auto_close = false, -- automatically close the list when you have no diagnostics
       })
     end,
   })
@@ -126,6 +126,9 @@ return packer.startup(function(use)
   -- searching with grepper
   use({ "mhinz/vim-grepper" })
 
+  -- showing potential keyboard shortcuts
+  use("folke/which-key.nvim")
+
   -- buffer / window management
   use({ "kevinhwang91/nvim-bqf", ft = "qf" })
   use({ "simeji/winresizer" })
@@ -160,7 +163,9 @@ return packer.startup(function(use)
     "zbirenbaum/copilot.lua",
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
-    config = function() require("copilot_cmp").setup() end
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   })
 
   use({ "windwp/nvim-ts-autotag" })
