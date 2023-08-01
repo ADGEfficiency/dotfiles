@@ -29,13 +29,11 @@ macos-brew: macos-brew-install nvim-brew-install
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
 
-macos-brew-install:
+macos-brew-install: js-install
 	brew update && brew upgrade
 	brew install git llvm make
 	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv
 	brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep lazygit
-
-	cd js && npm install -g .
 
 	brew install yabai
 	chmod +x ~/dotfiles/yabai/yabairc
@@ -49,9 +47,11 @@ macos-brew-install:
 	rustup update stable
 	cargo install starship
 
-nvim-brew-install:
-	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli prettier
-	npm install -g remark-cli remark-stringify remark-lint remark-preset-lint-recommended remark-preset-lint-consistent remark-preset-lint-markdown-style-guide
+js-install:
+	cd js && npm install -g .
+
+nvim-brew-install: js-install
+	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
 
 nix-install:
