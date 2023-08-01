@@ -1,12 +1,14 @@
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz") {} }:
+{
+  pkgs ? import <nixpkgs> {}
+}:
 
 pkgs.mkShell {
+  name = "macos";
   buildInputs = [
     pkgs.which
-    pkgs.virtualenv
+     pkgs.git
+     pkgs.neovim
+     pkgs.zsh
+     pkgs.starship
   ];
-  shellHook = ''
-    virtualenv nix
-    source nix/bin/activate
-  '';
 }

@@ -81,7 +81,7 @@ tunnelnk() {
 
 tn () {
     NAME=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
-    tmux new -s $NAME
+    tmux new -s $NAME -c $(pwd)
 }
 alias t='tn'
 

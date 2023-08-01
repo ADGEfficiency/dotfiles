@@ -1,7 +1,8 @@
 add_newline = true
+command_timeout = 1000
 
 format = """$directory$line_break$character"""
-right_format = """$cmd_duration$git_branch$python"""
+right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [character]
 success_symbol = "[:::](green)"
@@ -32,3 +33,9 @@ min_time = 0
 format = "[took]() [$duration](bold purple)"
 show_milliseconds = true
 disabled = false
+
+[nix_shell]
+disabled = false
+impure_msg = ''
+pure_msg = 'pure '
+format = ' on [ $state$name](bold blue)'

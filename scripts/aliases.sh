@@ -123,6 +123,7 @@ alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
 alias tls='tmux ls'
+alias tls='tmux new-session'
 
 # docker
 alias dc='docker-compose'

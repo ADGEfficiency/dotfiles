@@ -27,3 +27,11 @@ notes.md
 todo.md
 temp
 temp.*
+temp/
+cdk.out/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.git/
+.coverage
+.testmondata

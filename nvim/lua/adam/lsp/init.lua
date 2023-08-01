@@ -130,7 +130,7 @@ require("lspconfig")["lua_ls"].setup({
   },
 })
 
-local on_attach_efm = function(client)
+local on_attach_efm = function(client, bufnr)
   vim.cmd([[augroup lsp_formatting]])
   vim.cmd([[autocmd!]])
   vim.cmd([[autocmd BufWritePre <buffer> :lua vim.lsp.buf.format()]])
@@ -141,20 +141,26 @@ end
 require("lspconfig")["efm"].setup({
   on_attach = on_attach_efm,
   flags = lsp_flags,
-  cmd = { "efm-langserver", "-logfile", "/tmp/efm.log", "-loglevel", "1" },
+  cmd = {
+    "efm-langserver",
+    "-logfile",
+    "/tmp/efm.log",
+    "-loglevel",
+    "1",
+  },
   init_options = { documentFormatting = true },
   settings = {
     rootMarkers = { ".git/" },
     languages = {
       markdown = {
         {
-          lintCommand = "markdownlint -s",
+          lintCommand = "remark --rc-path $HOME/dotfiles/.remarkrc --frail",
           lintStdin = true,
-          lintFormats = {
-            "%f:%l %m",
-            "%f:%l:%c %m",
-            "%f: %l: %m",
-          },
+          lintFormats = { "%f:%l:%c %tarning %m" },
+        },
+        {
+          formatCommand = "remark --rc-path $HOME/dotfiles/.remarkrc --output",
+          formatStdin = true,
         },
       },
       html = {
@@ -175,6 +181,7 @@ require("lspconfig")["efm"].setup({
         },
         {
           formatCommand = "prettier --parser json --config ~/dotfiles/.prettierrc",
+          formatStdin = true,
         },
       },
       shell = {
