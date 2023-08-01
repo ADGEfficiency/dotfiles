@@ -1,0 +1,3 @@
+[global]
+load_dotenv = true
+disable_stdin = true
