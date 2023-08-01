@@ -14,7 +14,7 @@ This appends to your `rc` files -- beware running this multiple times.
 
 ## Ubuntu
 
-Setup an Ubuntu machine:
+Setup an Ubuntu machine -- tested on 18.04:
 
 ```bash
 $ make ubuntu

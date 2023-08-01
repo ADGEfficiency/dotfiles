@@ -7,37 +7,36 @@ pkgs.stdenv.mkDerivation
   unpackPhase = "true";
   buildCommand = "mkdir -p $out";
   buildInputs = with pkgs; [
-    #  basic shell stuff
+    #  shell stuff
     bat
+    direnv
     exa
+    fzf
+    gh
     gnugrep
     gnumake
     gnused
     jq
-    ripgrep
-    toybox
-    tree
-    tmux
     lazydocker
     lazygit
-    gh
+    ripgrep
+    starship
+    tmux
+    toybox
+    tree
+    zoxide
+    zsh
+    zsh-prezto
     #  programming things
-    hack-font
     flyctl
     git
+    hack-font
     neovim
     nodejs_18
     python310
     ruby
     vimPlugins.packer-nvim
-    #  shell / zsh things
-    direnv
-    fzf
-    starship
-    zoxide
-    zsh
-    zsh-prezto
-    #  macos specific
+    #  macos specific - used in /etc/zshrc
     locale
     #  misc
     nb
