@@ -17,7 +17,12 @@ pkgs.stdenv.mkDerivation
     ripgrep
     toybox
     tree
+    tmux
+    lazydocker
+    lazygit
+    gh
     #  programming things
+    hack-font
     flyctl
     git
     neovim
