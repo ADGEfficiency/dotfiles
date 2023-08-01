@@ -1,3 +1,6 @@
+default:
+	echo "hello ^^"
+
 dotfiles:
 	bash setup-dotfiles.sh
 
@@ -20,6 +23,7 @@ clean-nvim:
 setup-nvim:
 	brew update && brew upgrade
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli prettier
+	npm install -g .
 	npm install -g remark-cli remark-stringify remark-lint remark-preset-lint-recommended remark-preset-lint-consistent remark-preset-lint-markdown-style-guide
 	rustup update stable
 	cargo install cbfmt stylua

@@ -1,0 +1,11 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Setup and configuration for a terminal first developer workflow.",
+  "main": "make",
+  "author": "Adam Green",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^3.0.0"
+  }
+}
