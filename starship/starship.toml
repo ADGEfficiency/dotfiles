@@ -1,5 +1,5 @@
 add_newline = true
-command_timeout = 1000
+command_timeout = 2000
 
 format = """$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""

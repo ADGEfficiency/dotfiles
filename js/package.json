@@ -6,6 +6,7 @@
   "author": "Adam Green",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/language-server": "^0.0.13",
     "markserv": "1.17.4",
     "prettier": "^3.0.0",
     "remark-cli": "^11.0.0",

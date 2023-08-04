@@ -15,8 +15,9 @@ if command -v launchctl >/dev/null 2>&1; then
   launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 fi
 
-HISTFILE=~/.zsh_history
-HISTSIZE=999999999
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=10000000
+export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
@@ -72,12 +73,26 @@ atuin_init() {
   eval "$(atuin init zsh --disable-up-arrow)"
 }
 
+just_completions_init() {
+  # Path to just.zsh
+  JUST_COMPLETIONS_PATH="$HOME/dotfiles/just.zsh"
+
+  # Check if just.zsh exists
+  if [ -f "$JUST_COMPLETIONS_PATH" ]; then
+    autoload -U compinit
+    compinit
+  else
+    just --completions zsh > "$JUST_COMPLETIONS_PATH"
+  fi
+}
+
 pretzo_init
 starship_init
 fzf_init
 flyctl_init
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
+just_completions_init
 
 #  docker desktop
 source /Users/adam/.docker/init-zsh.sh || true

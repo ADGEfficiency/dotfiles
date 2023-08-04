@@ -8,8 +8,10 @@ export EDITOR=vim
 export HISTCONTROL=ignoreboth:erasedups
 
 # remember a lot
+export HISTFILE=~/.zsh_history
 export HISTFILESIZE=10000000
 export HISTSIZE=$HISTFILESIZE
+SAVEHIST=$HISTSIZE
 
 # after each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

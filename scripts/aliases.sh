@@ -2,6 +2,9 @@
 
 export PYENV_GENERAL="$HOME/.pyenv/versions/3.10.6/envs/general/bin"
 
+# experimental
+alias p='nbe'
+
 # be polite - even to machines
 alias please='sudo'
 
@@ -92,6 +95,7 @@ alias wi='vi'
 # dotfiles
 alias dots='cd $HOME/dotfiles'
 alias aliases='$EDITOR $HOME/dotfiles/scripts/aliases.sh'
+alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
 alias bashrc='$EDITOR $HOME/dotfiles/.bashrc'
 alias yabairc='$EDITOR $HOME/dotfiles/yabai/yabairc'
 alias vimrc='$EDITOR $HOME/dotfiles/.vimrc'
@@ -122,8 +126,11 @@ alias nbg='git checkout -b'
 alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
-alias tls='tmux ls'
-alias tls='tmux new-session'
+alias ts='tmux ls'
 
 # docker
-alias dc='docker-compose'
+alias dc='docker compose'
+
+# start scripts
+alias st-dss='start-dss'
+alias st-dots='start-dots'

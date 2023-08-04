@@ -171,6 +171,8 @@ return packer.startup(function(use)
 
   use({ "windwp/nvim-ts-autotag" })
 
+  use({ "NoahTheDuke/vim-just" })
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

@@ -83,16 +83,7 @@ require("lspconfig")["pyright"].setup({
 require("lspconfig")["tailwindcss"].setup({
   on_attach = on_attach,
   flags = lsp_flags,
-  filetypes = {
-    "jinja.html",
-    "html",
-    "css",
-    "scss",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-  },
+  cmd = { "tailwindcss-language-server", "--stdio" }
 })
 
 require("lspconfig")["marksman"].setup({
@@ -138,6 +129,8 @@ local on_attach_efm = function(client, bufnr)
   vim.cmd("command! LspFormat lua vim.lsp.buf.format()")
 end
 
+-- /Users/adam/.pyenv/versions/3.10.6/envs/general/bin/
+
 require("lspconfig")["efm"].setup({
   on_attach = on_attach_efm,
   flags = lsp_flags,
@@ -165,11 +158,11 @@ require("lspconfig")["efm"].setup({
       },
       html = {
         {
-          lintCommand = "djlint --quiet -",
+          lintCommand = "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/djlint --quiet --profile jinja -",
           lintStdin = true,
         },
         {
-          formatCommand = "djlint --reformat -",
+          formatCommand = "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/djlint --reformat  --profile jinja -",
           formatStdin = true,
         },
       },

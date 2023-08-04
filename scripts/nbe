@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-prefix=$HOME/.nb/home
+prefix=$HOME/personal/todo
 
 # -m = multi-select
 files=$(find $prefix -type f | fzf -m)

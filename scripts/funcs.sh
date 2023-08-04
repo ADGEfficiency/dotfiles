@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
-#  show a quote
-quote () {
-  QUOTES="$HOME/personal/lists/quotes_snippets.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
-
-# change a github remote
-# useful when changing to ssh
+# change a github remote - useful when changing to ssh after cloning
 remote() {
   git remote set-url origin $1
 }
@@ -121,3 +112,13 @@ docker-ls () {
 docker-exec-last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
+
+#  misc
+
+#  show a random quote - uses a file from my personal git repo
+quote () {
+  QUOTES="$HOME/personal/lists/quotes_snippets.md"
+  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+  LINE=$((1 + RANDOM % $NUM_LINES))
+  echo $(sed -n ${LINE}p ${QUOTES})
+ }
