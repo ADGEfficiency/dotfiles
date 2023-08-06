@@ -26,10 +26,6 @@ echo "source $HOME/dotfiles/.vimrc" >> "$HOME/.vimrc"
 echo "setting up ~/.tmux.conf"
 echo "source $HOME/dotfiles/.tmux.conf" >> "$HOME/.tmux.conf"
 
-echo "setting up ~/.gitignore"
-cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
-
 echo "setting up git"
-git config --global core.excludesfile "$HOME/.gitignore"
-git config --global user.email "adam.green@adgefficiency.com"
-git config --global user.name "Adam Green"
+cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
+cp "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"

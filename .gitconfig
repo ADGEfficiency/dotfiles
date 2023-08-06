@@ -1,0 +1,15 @@
+[core]
+    excludesfile = ~/dotfiles/.gitignore
+
+[user]
+    email = adam.green@adgefficiency.com
+    name = Adam Green
+
+[merge]
+    tool = nvimdiff
+
+[mergetool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE
+
+[commit]
+    template = ~/dotfiles/.git_commit_template.txt
