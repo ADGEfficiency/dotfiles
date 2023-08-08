@@ -1,8 +1,10 @@
+#  macos or ubuntu
+OS = macos
+
 default:
 	echo "hello ^^"
 
 # setting up machines
-
 ## linux + macos
 
 setup:
@@ -41,21 +43,6 @@ macos-brew: macos-brew-install nvim-brew-install
 # softwareupdate --install-rosetta
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
-
-#  macos or ubuntu
-OS = macos
-
-macos-brew-install: nix-install js
-	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
-	brew update && brew upgrade
-	brew install pyenv pyenv-virtualenv yabai
-	chmod +x ~/dotfiles/yabai/yabairc
-
-	brew install --HEAD koekeishiya/formulae/skhd
-	chmod +x ~/dotfiles/skhd/skhdrc
-
-	brew tap homebrew/cask-fonts
-	brew install --cask font-hack-nerd-font
 
 nix:
 	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
