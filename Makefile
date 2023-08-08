@@ -5,6 +5,9 @@ default:
 
 ## linux + macos
 
+setup:
+	sh ./$(OS)/setup.sh
+
 #  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
 	sh ./scripts/setup-dotfiles.sh
@@ -12,11 +15,14 @@ dotfiles:
 python:
 	sh ./python/setup.sh
 
-## linux
+js:
+	cd js && npm install -g .
 
 #  TODO make this sh ./linux/setup.sh
 ubuntu: dotfiles
 	sh ./ubuntu/main.sh
+
+# TODO macos: dotfiles sh ./macos/setup.sh
 
 # neovim
 
@@ -29,7 +35,6 @@ clean-nvim:
 	rm -rf ./plugin
 
 # master installs
-
 macos-brew: macos-brew-install nvim-brew-install
 
 #  not sure this fits into makefile - TODO move to README.md
@@ -37,14 +42,13 @@ macos-brew: macos-brew-install nvim-brew-install
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
 
-macos-brew-install: js-install
+#  macos or ubuntu
+OS = macos
+
+macos-brew-install: nix-install js
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 	brew update && brew upgrade
-	brew install git llvm make
-	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv pyenv pyenv-virtualenv
-	brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep lazygit
-
-	brew install yabai
+	brew install pyenv pyenv-virtualenv yabai
 	chmod +x ~/dotfiles/yabai/yabairc
 
 	brew install --HEAD koekeishiya/formulae/skhd
@@ -53,20 +57,7 @@ macos-brew-install: js-install
 	brew tap homebrew/cask-fonts
 	brew install --cask font-hack-nerd-font
 
-	rustup update stable
-	cargo install starship
-
-js-install:
-	cd js && npm install -g .
-
-nvim-brew-install: js-install
-	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
-	cargo install cbfmt stylua starship
-
-#  macos or ubuntu
-OS = macos
-
-nix-setup:
+nix:
 	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
 	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 	# when installing nix on ubuntu, the deamon is not ther
@@ -76,7 +67,7 @@ nix-setup:
 
 devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell)
-nix-install: nix-setup
+nix-setup: nix
 	. ./nix/load-$(OS).sh && $(install_cmd)
 
 test:

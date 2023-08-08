@@ -18,12 +18,17 @@ with pkgs; [
   zsh-prezto
 ]
 ++ lib.optionals isLinux [ python310 ]
-++ lib.optionals isDarwin [ locale ]
+++ lib.optionals isDarwin [
+  cargo
+  locale
+  llvm
+]
 ++ lib.optionals devShell [
   bat
   direnv
   exa
   flyctl
+  htop
   fzf
   gh
   hack-font
@@ -31,7 +36,14 @@ with pkgs; [
   lazygit
   neovim
   starship
+  hadolint
+  checkmake
+  shellcheck
   tmux
+  cbfmt
+  stylua
+  efm-langserver
+  nodePackages_latest.markdownlint-cli
   tree
   vimPlugins.packer-nvim
   zoxide
