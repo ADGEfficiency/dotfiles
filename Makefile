@@ -70,5 +70,5 @@ install_cmd = nix-env -i -f ./nix/default.nix $(devShell)
 nix-setup: nix
 	. ./nix/load-$(OS).sh && $(install_cmd)
 
-test:
+test: nix-setup
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh

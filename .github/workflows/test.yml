@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-install OS=linux devShell=''
-      - run: . ./nix/load-linux.sh && make test OS=linux
+      - run: . ./nix/load-linux.sh && make test OS=linux devShell=''
 
   test-macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-install OS=macos devShell=''
-      - run: . ./nix/load-macos.sh && make test OS=macos
+      - run: . ./nix/load-macos.sh && make test OS=macos devShell=''
