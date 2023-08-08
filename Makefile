@@ -68,6 +68,7 @@ nvim-brew-install: js-install
 nix-setup:
 	curl -L https://nixos.org/nix/install | sh
 	. $(HOME)/.nix-profile/etc/profile.d/nix.sh
+	export PATH=$$PATH:$(HOME)/.nix-profile/bin
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
 
