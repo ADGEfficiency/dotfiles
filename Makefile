@@ -85,4 +85,6 @@ test:
 	bash ./tests/*.sh
 
 test-ci:
+	#  having issues with this bit in ci
+	echo "data-science-south" > .todofile
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
