@@ -11,7 +11,8 @@ nix-install:
 add_nix_channel := "nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable"
 update_nix_channel := "nix-channel --update"
 nix-channel:
-  . ./nix/load-{{os()}}.sh && {{add_nix_channel}}
+
+  && {{add_nix_channel}}
   . ./nix/load-{{os()}}.sh && {{update_nix_channel}}
 
 install_cmd := "nix-env -i -f ./nix/default.nix"
