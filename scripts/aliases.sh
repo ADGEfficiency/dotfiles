@@ -109,6 +109,7 @@ alias db='git branch -D '
 alias ga='git add -u && git commit -m '
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 alias gc='git commit -m '
+alias gcm='git commit'
 alias gcb='git checkout '
 alias gd='git diff --staged'
 alias glog='git log --pretty=fuller --abbrev-commit --stat -n 5'
@@ -135,3 +136,4 @@ alias st-dots='start-dots'
 
 # nix
 alias nix-list='nix-env -q'
+alias nix-clean='nix-env -e ".*"'

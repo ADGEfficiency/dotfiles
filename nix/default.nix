@@ -1,39 +1,52 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }, devShell ? false }:
 
 let
   isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
 in
 with pkgs; [
-  # Shell stuff
-  atuin
-  bat
-  direnv
-  exa
-  fzf
-  gh
+  git
   gnugrep
   gnumake
   gnused
   jq
-  lazydocker
-  lazygit
+  nodejs_18
   ripgrep
   shunit2
-  starship
-  tmux
   toybox
-  tree
-  zoxide
+  unzip
+  zip
   zsh
   zsh-prezto
-  # Programming things
-  flyctl
-  git
-  hack-font
-  neovim
-  nodejs_18
-  python310
-  ruby
-  vimPlugins.packer-nvim
 ]
-++ lib.optionals isDarwin [ locale ] # Add macOS-specific packages conditionally
+++ lib.optionals isLinux [ python310 ]
+++ lib.optionals isDarwin [
+  cargo
+  locale
+  llvm
+]
+++ lib.optionals devShell [
+  bat
+  cbfmt
+  checkmake
+  direnv
+  efm-langserver
+  exa
+  flyctl
+  fzf
+  gh
+  hack-font
+  hadolint
+  htop
+  lazydocker
+  lazygit
+  neovim
+  nodePackages_latest.markdownlint-cli
+  shellcheck
+  starship
+  stylua
+  tmux
+  tree
+  vimPlugins.packer-nvim
+  zoxide
+]
