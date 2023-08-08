@@ -72,9 +72,9 @@ nix-setup:
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update
 
-devShell = '--arg devShell true'
+devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell)
-nix-install: nix-setup-$(OS)
+nix-install: nix-setup
 	. ./nix/load-$(OS).sh && $(install_cmd)
 
 test:
