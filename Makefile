@@ -12,14 +12,14 @@ brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
 setup-macos: brew nix-setup
-	sh ./macos/setup.sh
+	bash ./macos/setup.sh
 
 setup-linux:
-	sh ./linux/setup.sh
+	bash ./linux/setup.sh
 
 #  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
-	sh ./scripts/setup-dotfiles.sh
+	bash ./scripts/setup-dotfiles.sh
 
 .PHONY: python js
 python:

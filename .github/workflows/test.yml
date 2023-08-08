@@ -20,5 +20,3 @@ jobs:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=macos
       - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
-      - run: . ./nix/load-macos.sh && sudo make setup-macos -o nix-setup -o brew OS=macos
-      - run: . ./nix/load-macos.sh && sudo make js python OS=macos
