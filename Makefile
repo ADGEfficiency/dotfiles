@@ -1,14 +1,25 @@
 default:
 	echo "hello ^^"
 
+# test
+
+test:
+	sh ./tests/*.sh
+
+# setting up machines
+
+## linux + macos
+
 dotfiles:
 	sh ./scripts/setup-dotfiles.sh
 
-ubuntu: dotfiles
-	sh ./ubuntu/main.sh
-
 python-general:
 	sh ./python-general/setup.sh
+
+## linux
+
+ubuntu: dotfiles
+	sh ./ubuntu/main.sh
 
 # neovim
 
@@ -32,7 +43,7 @@ macos-brew: macos-brew-install nvim-brew-install
 macos-brew-install: js-install
 	brew update && brew upgrade
 	brew install git llvm make
-	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv
+	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv pyenv pyenv-virtualenv
 	brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep lazygit
 
 	brew install yabai
@@ -56,6 +67,6 @@ nvim-brew-install: js-install
 
 nix-install:
 	curl -L https://nixos.org/nix/install | sh
-	nix-channel --add https://nixos.org/channels/nixpkgs-23.05-darwin
+	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
-	nix-env -i -f ./nix/env.nix
+	nix-env -i -f ./nix/default.nix

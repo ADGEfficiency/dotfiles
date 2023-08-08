@@ -21,6 +21,7 @@ pkgs.stdenv.mkDerivation
     lazydocker
     lazygit
     ripgrep
+    shunit2
     starship
     tmux
     toybox
@@ -39,8 +40,6 @@ pkgs.stdenv.mkDerivation
     vimPlugins.packer-nvim
     #  macos specific - used in /etc/zshrc
     locale
-    #  misc
-    nb
   ];
 }
 

@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Diagnostic Appearance
 
@@ -86,7 +86,7 @@ require("lspconfig")["tailwindcss"].setup({
   on_attach = on_attach,
   flags = lsp_flags,
   cmd = { "tailwindcss-language-server", "--stdio" },
-  capabilities = capabilities
+  capabilities = capabilities,
 })
 
 require("lspconfig")["marksman"].setup({

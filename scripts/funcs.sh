@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+todo() {
+  sh ~/dotfiles/scripts/todo.sh
+}
 
 # change a github remote - useful when changing to ssh after cloning
 remote() {
@@ -115,7 +119,8 @@ docker-exec-last () {
 
 #  misc
 
-#  show a random quote - uses a file from my personal git repo
+#  show a random quote
+#  uses a file from my personal git repo ~/personal
 quote () {
   QUOTES="$HOME/personal/lists/quotes_snippets.md"
   NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')

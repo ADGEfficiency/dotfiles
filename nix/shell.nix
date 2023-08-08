@@ -1,7 +1,15 @@
-# nix-channel --add https://nixos.org/channels/nixpkgs-23.05-darwin
-{ pkgs ? import <nixpkgs-23.05-darwin> { } }:
+{ system ? builtins.currentSystem }:
 
-pkgs.mkShell
+let
+  packageList = import ./packages.nix;
+in
+stdenv.mkDerivation
+{
+  name = "my-environment";
+  buildInputs = packageList;
+}
+
+  pkgs.mkShell
 {
   name = "mac-nix";
   buildInputs = [

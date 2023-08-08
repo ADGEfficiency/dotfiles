@@ -64,8 +64,6 @@ alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
 alias inbox='$EDITOR $HOME/.nb/home/inbox.md'
-alias td='todo'
-alias todo='$EDITOR $HOME/.nb/home/todo.md'
 
 # folders
 alias blog='cd $HOME/adgefficiency.github.io/'
