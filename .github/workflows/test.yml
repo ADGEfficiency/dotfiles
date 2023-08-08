@@ -5,9 +5,16 @@ on:
 
 
 jobs:
-  test:
+  test-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-install-ci
-      - run: make test-ci
+      - run: make nix-install-ubuntu
+      - run: make test-ubuntu
+
+  test-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: make nix-install-macos
+      - run: make test

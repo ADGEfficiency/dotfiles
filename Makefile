@@ -60,7 +60,7 @@ nvim-brew-install: js-install
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
 
-nix-setup:
+nix-setup-macos:
 	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
 	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 	# when installing nix on ubuntu, the deamon is not ther
@@ -68,23 +68,22 @@ nix-setup:
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	nix-channel --update
 
-nix-setup-ci:
+nix-setup-ubuntu:
 	curl -L https://nixos.org/nix/install | sh
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-channel --update
 
-nix-install: nix-setup
-	nix-env -i -f ./nix/default.nix
+install_cmd = nix-env -i -f ./nix/default.nix
+nix-install-macos: nix-setup-macos
+	$(install_cmd)
 
-nix-install-ci: nix-setup-ci
-	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-env -i -f ./nix/default.nix
+nix-install-ubuntu: nix-setup-ubuntu
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && $(install_cmd)
 
 # test
 
 test:
 	bash ./tests/*.sh
 
-test-ci:
-	#  having issues with this bit in ci
-	echo "data-science-south" > .todofile
+test-ubuntu:
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
