@@ -14,7 +14,7 @@ testOpenTodoFileWithTodoFile() {
   echo "data-science-south" > .todofile
   result=$(open_todo_file)
   # expect a project specific file
-  assertEquals "/Users/adam/personal/todo/data-science-south.md" "$result"
+  assertEquals "$HOME/personal/todo/data-science-south.md" "$result"
   rm .todofile
 }
 
