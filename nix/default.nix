@@ -14,6 +14,8 @@ with pkgs; [
   ripgrep
   shunit2
   toybox
+  unzip
+  zip
   zsh
   zsh-prezto
 ]

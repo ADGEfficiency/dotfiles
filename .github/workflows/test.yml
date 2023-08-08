@@ -5,24 +5,19 @@ on:
 
 
 jobs:
-  test-linux:
+  linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=linux devShell=''
       - run: . ./nix/load-linux.sh && make test OS=linux
+      - run: . ./nix/load-linux.sh && sudo make setup-linux -o nix-setup -o brew OS=linux
 
-  test-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: make nix-setup OS=macos devShell=''
-      - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
-
-  dev-macos:
+  macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=macos
-      - run: . ./nix/load-macos.sh && sudo make setup-macos -o nix-setup OS=macos -o brew
+      - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
+      - run: . ./nix/load-macos.sh && sudo make setup-macos -o nix-setup -o brew OS=macos
       - run: . ./nix/load-macos.sh && sudo make js python OS=macos
