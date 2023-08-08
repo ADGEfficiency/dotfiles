@@ -8,9 +8,14 @@ test: nix-setup
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
 # setting up machines
+brew:
+	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
-setup:
-	sh ./$(OS)/setup.sh
+setup-macos: brew
+	sh ./macos/setup.sh
+
+setup-ubuntu:
+	sh ./ubuntu/setup.sh
 
 #  TODO make this sh ./dotfiles/setup.sh
 dotfiles:

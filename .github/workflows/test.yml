@@ -5,7 +5,7 @@ on:
 
 
 jobs:
-  test-ubuntu:
+  test-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,5 +24,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=macos
-      - run: . ./nix/load-macos.sh && sudo make setup -o nix-setup OS=macos
+      - run: . ./nix/load-macos.sh && sudo make setup-macos -o nix-setup OS=macos -o homebrew
       - run: . ./nix/load-macos.sh && sudo make js python OS=macos
