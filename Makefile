@@ -65,10 +65,13 @@ nvim-brew-install: js-install
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
 
-nix-setup:
+nix-setup-macos:
+	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
+	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+	# when installing nix on ubuntu, the deamon is not ther
 	curl -L https://nixos.org/nix/install | sh
-	. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' && nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-	. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' && nix-channel --update
+	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+	nix-channel --update
 
-nix-install: nix-setup
-	. $(HOME)/.nix-profile/etc/profile.d/nix.sh && nix-env -i -f ./nix/default.nix
+nix-install: nix-setup-macos
+	nix-env -i -f ./nix/default.nix
