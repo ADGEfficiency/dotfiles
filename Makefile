@@ -73,5 +73,10 @@ nix-setup-macos:
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
 
+nix-setup-ubuntu:
+	curl -L https://nixos.org/nix/install | sh
+	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+	nix-channel --update
+
 nix-install: nix-setup-macos
 	nix-env -i -f ./nix/default.nix
