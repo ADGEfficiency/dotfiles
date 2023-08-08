@@ -25,25 +25,25 @@ with pkgs; [
 ]
 ++ lib.optionals devShell [
   bat
+  cbfmt
+  checkmake
   direnv
+  efm-langserver
   exa
   flyctl
-  htop
   fzf
   gh
   hack-font
+  hadolint
+  htop
   lazydocker
   lazygit
   neovim
-  starship
-  hadolint
-  checkmake
-  shellcheck
-  tmux
-  cbfmt
-  stylua
-  efm-langserver
   nodePackages_latest.markdownlint-cli
+  shellcheck
+  starship
+  stylua
+  tmux
   tree
   vimPlugins.packer-nvim
   zoxide
