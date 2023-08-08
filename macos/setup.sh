@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 brew update && brew upgrade
 brew install pyenv pyenv-virtualenv yabai
 chmod +x ~/dotfiles/yabai/yabairc

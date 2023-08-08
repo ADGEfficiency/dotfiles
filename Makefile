@@ -11,11 +11,11 @@ test: nix-setup
 brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
-setup-macos: brew
+setup-macos: brew nix-setup
 	sh ./macos/setup.sh
 
-setup-ubuntu:
-	sh ./ubuntu/setup.sh
+setup-linux:
+	sh ./linux/setup.sh
 
 #  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
