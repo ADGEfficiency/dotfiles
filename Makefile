@@ -36,6 +36,7 @@ macos-brew: macos-brew-install nvim-brew-install
 # alias brew='arch -x86_64 brew'
 
 macos-brew-install: js-install
+	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 	brew update && brew upgrade
 	brew install git llvm make
 	brew install htop tmux tree wget fzf ripgrep lazydocker gh direnv pyenv pyenv-virtualenv
