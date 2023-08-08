@@ -5,24 +5,22 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in
 with pkgs; [
-  bat
   git
   gnugrep
   gnumake
   gnused
   jq
-  just
   nodejs_18
   ripgrep
   shunit2
   toybox
-  tree
   zsh
   zsh-prezto
 ]
 ++ lib.optionals isLinux [ python310 ]
 ++ lib.optionals isDarwin [ locale ]
 ++ lib.optionals devShell [
+  bat
   direnv
   exa
   flyctl
@@ -31,10 +29,10 @@ with pkgs; [
   hack-font
   lazydocker
   lazygit
-  locale
   neovim
   starship
   tmux
+  tree
   vimPlugins.packer-nvim
   zoxide
 ]
