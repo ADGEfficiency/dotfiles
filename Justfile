@@ -16,6 +16,6 @@ nix-channel:
 
 install_cmd := "nix-env -i -f ./nix/default.nix"
 nix-default-env:
-  . ./nix/load-{{os()}.sh && {{install_cmd}}
+  . ./nix/load-{{os()}}.sh && {{install_cmd}}
 
 nix: nix-install nix-channel nix-default-env
