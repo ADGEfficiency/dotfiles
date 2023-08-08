@@ -1,11 +1,13 @@
-#  macos or ubuntu
+#  can be either macos or ubuntu
 OS = macos
 
 default:
 	echo "hello ^^"
 
+test: nix-setup
+	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
+
 # setting up machines
-## linux + macos
 
 setup:
 	sh ./$(OS)/setup.sh
@@ -20,12 +22,6 @@ python:
 js:
 	cd js && npm install -g .
 
-#  TODO make this sh ./linux/setup.sh
-ubuntu: dotfiles
-	sh ./ubuntu/main.sh
-
-# TODO macos: dotfiles sh ./macos/setup.sh
-
 # neovim
 
 inspect-nvim:
@@ -35,9 +31,6 @@ clean-nvim:
 	brew uninstall nvim
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
-
-# master installs
-macos-brew: macos-brew-install nvim-brew-install
 
 #  not sure this fits into makefile - TODO move to README.md
 # softwareupdate --install-rosetta
@@ -57,6 +50,3 @@ devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell)
 nix-setup: nix
 	. ./nix/load-$(OS).sh && $(install_cmd)
-
-test: nix-setup
-	bash ./nix/load-$(OS).sh && bash ./tests/*.sh

@@ -14,10 +14,18 @@ This appends to your `rc` files -- beware running this multiple times.
 
 ## Ubuntu
 
-Setup an Ubuntu machine -- tested on 18.04:
+Setup an Ubuntu machine:
 
 ```bash
-$ make ubuntu
+$ make setup OS=ubuntu
+```
+
+## MacOS
+
+Setup an MacOS machine:
+
+```bash
+$ make setup OS=macoS
 ```
 
 ## Global Python Virtual Env
@@ -31,10 +39,6 @@ $ make python
 ## Neovim
 
 My Neovim setup is in [nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
-
-```shell-session
-$ make macos-brew-install
-```
 
 ### Notes on `efm-langserver`
 
