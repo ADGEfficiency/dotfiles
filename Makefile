@@ -82,7 +82,7 @@ nix-install-ci: nix-setup-ci
 # test
 
 test:
-	sh ./tests/*.sh
+	bash ./tests/*.sh
 
 test-ci:
-	. /home/runner/.nix-profile/etc/profile.d/nix.sh && sh ./tests/*.sh
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
