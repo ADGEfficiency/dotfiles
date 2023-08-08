@@ -11,21 +11,25 @@
 . ./scripts/todo.sh
 
 testOpenTodoFileWithTodoFile() {
-  echo "Current directory in CI: $(pwd)"
+  echo "testOpenTodoFileWithTodoFile"
+  echo "Current directory: $(pwd)"
   echo "HOME variable: $HOME"
-  echo "data-science-south" > .todofile
-  echo ".todofile content: $(cat .todofile)"  # Verify the content
+
   todofile="$PWD/.todofile"
+  echo "data-science-south" > $todofile
   echo ".todofile path: $todofile"  # Verify the content
+  echo ".todofile content: $(cat .todofile)"  # Verify the content
 
   export TODO_DIR=$(mktemp -d)
-  touch "$TODO_DIR/$(basename "$PWD").md"
+  touch "$TODO_DIR/data-science-south.md"
+  echo "TODO_DIR: $TODO_DIR"
 
   result=$(open_todo_file $todofile)
   echo "Result: $result" # Print the result
+
   # expect a project specific file
-  assertEquals "$HOME/personal/todo/data-science-south.md" "$result"
-  rm .todofile
+  assertEquals "$TODO_DIR/data-science-south.md" "$result"
+  rm $todofile
 }
 
 testOpenTodoFileWithExistingFile() {
