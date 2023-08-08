@@ -16,7 +16,11 @@ testOpenTodoFileWithTodoFile() {
   echo "data-science-south" > .todofile
   echo ".todofile content: $(cat .todofile)"  # Verify the content
   todofile="$PWD/.todofile"
-  echo ".todofile content: $todofile"  # Verify the content
+  echo ".todofile path: $todofile"  # Verify the content
+
+  export TODO_DIR=$(mktemp -d)
+  touch "$TODO_DIR/$(basename "$PWD").md"
+
   result=$(open_todo_file $todofile)
   echo "Result: $result" # Print the result
   # expect a project specific file
