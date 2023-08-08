@@ -6,7 +6,7 @@ function open_todo_file() {
   #  override TODO_DIR during tests
   TODO_DIR="${TODO_DIR:-$HOME/personal/todo}"
   DEFAULT_FILE="$TODO_DIR/todo.md"
-  TODO_FILE_NAME=".todofile"
+  TODO_FILE_NAME="$PWD/.todofile"
 
   if [[ -f $TODO_FILE_NAME ]]; then
     TODOFILE=$(cat $TODO_FILE_NAME)
