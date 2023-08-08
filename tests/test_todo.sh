@@ -14,8 +14,10 @@ testOpenTodoFileWithTodoFile() {
   echo "Current directory in CI: $(pwd)"
   echo "HOME variable: $HOME"
   echo "data-science-south" > .todofile
-  cat .todofile  # Verify the content
-  result=$(open_todo_file "$PWD/.todofile")
+  echo ".todofile content: $(cat .todofile)"  # Verify the content
+  todofile="$PWD/.todofile"
+  echo ".todofile content: $todofile"  # Verify the content
+  result=$(open_todo_file $todofile)
   echo "Result: $result" # Print the result
   # expect a project specific file
   assertEquals "$HOME/personal/todo/data-science-south.md" "$result"
