@@ -5,14 +5,16 @@ default:
 
 ## linux + macos
 
+#  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
 	sh ./scripts/setup-dotfiles.sh
 
-python-general:
-	sh ./python-general/setup.sh
+python:
+	sh ./python/setup.sh
 
 ## linux
 
+#  TODO make this sh ./linux/setup.sh
 ubuntu: dotfiles
 	sh ./ubuntu/main.sh
 

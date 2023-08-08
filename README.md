@@ -25,7 +25,7 @@ $ make ubuntu
 Setup a global Python installation in a pyenv virtual environment:
 
 ```shell-session
-$ make python-general
+$ make python
 ```
 
 ## Neovim
