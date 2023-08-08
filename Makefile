@@ -76,7 +76,10 @@ nix-setup-macos:
 nix-setup-ubuntu:
 	curl -L https://nixos.org/nix/install | sh
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-	nix-channel --update
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-channel --update
 
-nix-install: nix-setup-macos nix-setup-ubuntu
+nix-install: nix-setup-macos
 	nix-env -i -f ./nix/default.nix
+
+nix-install-ci: nix-setup-ubuntu
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-env -i -f ./nix/default.nix

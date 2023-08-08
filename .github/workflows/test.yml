@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-install -o nix-setup-macos
+      - run: make nix-install-ci
       - run: make test
