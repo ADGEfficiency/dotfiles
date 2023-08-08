@@ -60,3 +60,9 @@ js-install:
 nvim-brew-install: js-install
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
+
+nix-install-macos: nix-setup-macos
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && $(install_cmd)
+
+nix-install-ubuntu: nix-setup-ubuntu
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && $(install_cmd)
