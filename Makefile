@@ -84,7 +84,7 @@ nix-install-ubuntu: nix-setup-ubuntu
 # test
 
 test:
-	bash ./tests/*.sh
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
 
 test-ubuntu:
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
