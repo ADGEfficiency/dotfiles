@@ -15,7 +15,7 @@ testOpenTodoFileWithTodoFile() {
   echo "HOME variable: $HOME"
   echo "data-science-south" > .todofile
   cat .todofile  # Verify the content
-  result=$(open_todo_file)
+  result=$(open_todo_file "$PWD/.todofile")
   echo "Result: $result" # Print the result
   # expect a project specific file
   assertEquals "$HOME/personal/todo/data-science-south.md" "$result"

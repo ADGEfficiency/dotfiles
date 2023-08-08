@@ -3,10 +3,11 @@
 # tests the script in ~/dotfiles/scripts/todo.sh
 
 function open_todo_file() {
+  TODO_FILE_NAME=$1
+  # TODO_FILE_NAME="$PWD/.todofile"
   #  override TODO_DIR during tests
   TODO_DIR="${TODO_DIR:-$HOME/personal/todo}"
   DEFAULT_FILE="$TODO_DIR/todo.md"
-  TODO_FILE_NAME="$PWD/.todofile"
 
   if [[ -f $TODO_FILE_NAME ]]; then
     TODOFILE=$(cat $TODO_FILE_NAME)
