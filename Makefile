@@ -65,8 +65,8 @@ nix-setup-macos:
 	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 	# when installing nix on ubuntu, the deamon is not ther
 	curl -L https://nixos.org/nix/install | sh
-	nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
-	nix-channel --update
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-channel --update
 
 nix-setup-ubuntu:
 	curl -L https://nixos.org/nix/install | sh
@@ -74,8 +74,9 @@ nix-setup-ubuntu:
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-channel --update
 
 install_cmd = nix-env -i -f ./nix/default.nix
+
 nix-install-macos: nix-setup-macos
-	$(install_cmd)
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && $(install_cmd)
 
 nix-install-ubuntu: nix-setup-ubuntu
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && $(install_cmd)
