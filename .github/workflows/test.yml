@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-install OS=ubuntu devShell=''
+      - run: make nix-install OS=linux devShell=''
       - run: . ./nix/load-linux.sh && just test
 
   test-macos:
