@@ -65,10 +65,11 @@ nvim-brew-install: js-install
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
 
+. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 nix-setup:
 	curl -L https://nixos.org/nix/install | sh
-	. $(HOME)/.nix-profile/etc/profile.d/nix.sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-	. $(HOME)/.nix-profile/etc/profile.d/nix.sh && nix-channel --update
+	. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' && nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+	. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' && nix-channel --update
 
 nix-install: nix-setup
 	. $(HOME)/.nix-profile/etc/profile.d/nix.sh && nix-env -i -f ./nix/default.nix

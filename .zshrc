@@ -97,7 +97,7 @@ just_completions_init
 #  docker desktop
 source /Users/adam/.docker/init-zsh.sh || true
 
-#  nix - if daemont exists, execute it
+#  nix - if daemon exists, execute it
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
