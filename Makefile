@@ -65,8 +65,10 @@ nvim-brew-install: js-install
 	brew install nvim efm-langserver shellcheck hadolint checkmake markdownlint-cli
 	cargo install cbfmt stylua starship
 
-nix-install:
+nix-setup:
 	curl -L https://nixos.org/nix/install | sh
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
+
+nix-setup: nix-install
 	nix-env -i -f ./nix/default.nix

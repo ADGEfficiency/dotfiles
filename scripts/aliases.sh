@@ -132,3 +132,6 @@ alias dc='docker compose'
 # start scripts
 alias st-dss='start-dss'
 alias st-dots='start-dots'
+
+# nix
+alias nix-list='nix-env -q'
