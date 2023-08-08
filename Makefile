@@ -44,6 +44,7 @@ macos-brew: macos-brew-install nvim-brew-install
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
 
+.PHONY: nix nix-setup
 nix:
 	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
 	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
