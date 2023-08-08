@@ -83,8 +83,8 @@ nix-install-ubuntu: nix-setup-ubuntu
 
 # test
 
-test:
-	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
-
 test-ubuntu:
-	. /home/runner/.nix-profile/etc/profile.d/nix.sh && bash ./tests/*.sh
+	bash ./nix/load-ubuntu.sh && bash ./tests/*.sh
+
+test-macos:
+	bash ./nix/load-macos.sh && bash ./tests/*.sh

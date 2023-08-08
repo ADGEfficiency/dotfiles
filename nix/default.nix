@@ -14,6 +14,7 @@ with pkgs; [
   gnugrep
   gnumake
   gnused
+  just
   jq
   lazydocker
   lazygit
