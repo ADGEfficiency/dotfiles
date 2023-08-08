@@ -2,39 +2,38 @@
 
 let
   isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
 in
 with pkgs; [
-  # Shell stuff
   atuin
   bat
   direnv
   exa
+  flyctl
   fzf
   gh
+  git
   gnugrep
   gnumake
   gnused
-  just
+  hack-font
   jq
+  just
   lazydocker
   lazygit
+  neovim
+  nodejs_18
   ripgrep
+  ruby
   shunit2
   starship
   tmux
   toybox
   tree
+  vimPlugins.packer-nvim
   zoxide
   zsh
   zsh-prezto
-  # Programming things
-  flyctl
-  git
-  hack-font
-  neovim
-  nodejs_18
-  python310
-  ruby
-  vimPlugins.packer-nvim
 ]
-++ lib.optionals isDarwin [ locale ] # Add macOS-specific packages conditionally
+++ lib.optionals isLinux [ python310 ]
+++ lib.optionals isDarwin [ locale ]

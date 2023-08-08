@@ -135,3 +135,4 @@ alias st-dots='start-dots'
 
 # nix
 alias nix-list='nix-env -q'
+alias nix-clean='nix-env -e ".*"'

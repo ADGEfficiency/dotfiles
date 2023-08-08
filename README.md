@@ -4,7 +4,7 @@ Setup and configuration for a terminal first developer workflow.
 
 ## Bash, Zsh & Git
 
-Setup `.bashrc` & `.zshrc` in `$HOME` and configure Git:
+Setup `.bashrc`, `.zshrc`, `.gitconfig` in `$HOME`:
 
 ```bash
 $ make dotfiles
