@@ -1,11 +1,6 @@
 default:
 	echo "hello ^^"
 
-# test
-
-test:
-	sh ./tests/*.sh
-
 # setting up machines
 
 ## linux + macos
@@ -83,3 +78,11 @@ nix-install: nix-setup
 
 nix-install-ci: nix-setup-ci
 	. /home/runner/.nix-profile/etc/profile.d/nix.sh && nix-env -i -f ./nix/default.nix
+
+# test
+
+test:
+	sh ./tests/*.sh
+
+test-ci:
+	. /home/runner/.nix-profile/etc/profile.d/nix.sh && sh ./tests/*.sh
