@@ -21,6 +21,7 @@ setup-linux:
 dotfiles:
 	sh ./scripts/setup-dotfiles.sh
 
+.PHONY: python js
 python:
 	sh ./python/setup.sh
 
