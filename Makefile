@@ -38,16 +38,16 @@ clean-nvim:
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
 
-#  not sure this fits into makefile - TODO move to README.md
+#  not sure this fits into makefile ...
+#  apple silicon stuff
 # softwareupdate --install-rosetta
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
 
+# nix
+
 .PHONY: nix nix-setup
 nix:
-	# already have setup of the nix-daemon in ~/dotfiles/.zshrc
-	# . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-	# when installing nix on ubuntu, the deamon is not ther
 	curl -L https://nixos.org/nix/install | sh
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update

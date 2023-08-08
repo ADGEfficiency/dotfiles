@@ -6,7 +6,7 @@ Setup and configuration for a terminal first developer workflow.
 
 Setup `.bashrc`, `.zshrc`, `.gitconfig` in `$HOME`:
 
-```bash
+```shell-session
 $ make dotfiles
 ```
 
@@ -16,16 +16,16 @@ This appends to your `rc` files -- beware running this multiple times.
 
 Setup an Ubuntu machine:
 
-```bash
-$ make setup OS=ubuntu
+```shell-session
+$ make setup-linux OS=linux
 ```
 
 ## MacOS
 
 Setup an MacOS machine:
 
-```bash
-$ make setup OS=macoS
+```shell-session
+$ make setup-macos OS=macoS
 ```
 
 ## Global Python Virtual Env
