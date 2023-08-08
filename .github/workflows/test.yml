@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make nix-install-ubuntu
-      - run: . ./nix/load-ubuntu.sh && just test
+      - run: . ./nix/load-linux.sh && just test
 
   test-macos:
     runs-on: macos-latest
