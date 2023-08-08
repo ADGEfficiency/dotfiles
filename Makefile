@@ -70,5 +70,5 @@ nix-setup:
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
 
-nix-setup: nix-install
+nix-install: nix-setup
 	nix-env -i -f ./nix/default.nix
