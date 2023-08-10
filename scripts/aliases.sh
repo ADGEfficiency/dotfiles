@@ -108,8 +108,8 @@ alias cred='git config credential.helper store'
 alias db='git branch -D '
 alias ga='git add -u && git commit -m '
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
-alias gc='git commit -m '
-alias gcm='git commit'
+alias gc='git commit'
+alias gcm='git commit -m '
 alias gcb='git checkout '
 alias gd='git diff --staged'
 alias glog='git log --pretty=fuller --abbrev-commit --stat -n 5'
@@ -131,9 +131,13 @@ alias ts='tmux ls'
 alias dc='docker compose'
 
 # start scripts
-alias st-dss='start-dss'
-alias st-dots='start-dots'
+alias s-dss='start-dss'
+alias s-dots='start-dots'
 
 # nix
 alias nix-list='nix-env -q'
 alias nix-clean='nix-env -e ".*"'
+
+# misc
+alias pyenv-list='pyenv versions --bare --skip-aliases'
+alias pyenv-list-available='pyenv install -l'

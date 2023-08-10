@@ -20,7 +20,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export AWS_LOG_LEVEL=3
 
 # fzf bash hook
-[ -f ~/.fzf.bash ] && source ~/dotfiles/.fzf.bash
+source $HOME/dotfiles/.fzf.bash
 
 # pyenv
 source "$HOME/dotfiles/macos/pyenv-flags"

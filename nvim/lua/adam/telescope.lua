@@ -3,10 +3,22 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
   defaults = {
+    layout_config = {
+      width = 0.9,      -- Adjust this value to make the Telescope window wider
+      preview_width = 0.1, -- Adjust this value to change the preview width
+      preview_cutoff = 10, -- Adjust this value to control when preview is cut off
+      vertical = {
+        width = 0.9,
+        height = 0.8,
+        preview_height = 0.2,
+        -- Adjust this value to control the file list heightpreview_height = 0.4,
+        -- Adjust this value to control the preview heigh
+      },
+    },
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -90,7 +102,7 @@ telescope.setup {
       -- override_generic_sorter = true, -- override the generic sorter
       -- override_file_sorter = true, -- override the file sorter
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-    }
-  }
-}
-require('telescope').load_extension('fzf')
+    },
+  },
+})
+require("telescope").load_extension("fzf")

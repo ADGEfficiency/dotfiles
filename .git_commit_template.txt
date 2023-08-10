@@ -1,6 +1,7 @@
-<type>(<scope>): <short summary>
 
-# Type can be:
+# <type>(<scope>): <short summary>
+#
+# Types:
 #   feat:     A new feature
 #   fix:      A bug fix
 #   docs:     Documentation only changes
@@ -14,10 +15,9 @@
 #   chore:    Other changes that don't modify src or test files
 #   revert:   Reverts a previous commit
 
-# Scope is optional; can be anything specifying the place of the commit change
+# Scope is optional. Specifies the location of the change.
 
-# Provide a longer description below (optional). Use markdown if necessary.
+# Longer description below is optional. Use markdown if necessary.
 
-# List any breaking changes or issues closed by this change:
 # BREAKING CHANGE: <breaking change summary>
 # Closes #<issue number>
