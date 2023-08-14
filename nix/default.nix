@@ -5,15 +5,18 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in
 with pkgs; [
+  # curlWithGnuTls
   git
   gnugrep
   gnumake
+  findutils
   gnused
   jq
   nodejs_18
   ripgrep
   shunit2
-  toybox
+  tree
+  # toybox
   unzip
   zip
   zsh

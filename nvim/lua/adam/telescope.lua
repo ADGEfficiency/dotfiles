@@ -9,15 +9,8 @@ telescope.setup({
   defaults = {
     layout_config = {
       width = 0.9,      -- Adjust this value to make the Telescope window wider
-      preview_width = 0.1, -- Adjust this value to change the preview width
+      preview_width = 0.6, -- Adjust this value to change the preview width
       preview_cutoff = 10, -- Adjust this value to control when preview is cut off
-      vertical = {
-        width = 0.9,
-        height = 0.8,
-        preview_height = 0.2,
-        -- Adjust this value to control the file list heightpreview_height = 0.4,
-        -- Adjust this value to control the preview heigh
-      },
     },
     prompt_prefix = " ",
     selection_caret = " ",

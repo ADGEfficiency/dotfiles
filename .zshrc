@@ -37,7 +37,7 @@ fzf_init() {
     source ~/dotfiles/.fzf.zsh
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_DEFAULT_OPTS='--height 90% --preview "cat {}" --preview-window=up:80%:wrap'
+    export FZF_DEFAULT_OPTS='--height 40% --preview "cat {}" --preview-window=up:50%:wrap --border=none'
 }
 
 nvm_init() {

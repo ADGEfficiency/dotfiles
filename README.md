@@ -11,13 +11,13 @@ export XDG_CONFIG_HOME=~/dotfiles
 
 ## Bash, Zsh & Git
 
-Setup `.bashrc`, `.zshrc`, `.gitconfig` in `$HOME`:
+Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
 
 ```shell-session
 $ make dotfiles
 ```
 
-This appends to your `rc` files -- beware running this multiple times.
+This appends to your `rc` files -- beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
 
 ## Ubuntu
 
