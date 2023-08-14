@@ -12,7 +12,7 @@
   cmd = nvim -d $LOCAL $REMOTE
 
 [commit]
-  template = ~/dotfiles/.git_commit_template.txt
+  template = ~/dotfiles/dotfiles/.git_commit_template.txt
 
 [pull]
   rebase = false

@@ -16,5 +16,5 @@ setup_dotfile .vimrc
 setup_dotfile .tmux.conf
 
 echo "setting up git"
-cp "$HOME/dotfiles/.gitignore" "$HOME/.gitignore"
-cp "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"
+cp "$HOME/dotfiles/git/.gitignore" "$HOME/.gitignore"
+cp "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
