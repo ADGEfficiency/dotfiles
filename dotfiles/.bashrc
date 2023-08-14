@@ -19,6 +19,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # aws
 export AWS_LOG_LEVEL=3
 
+# load my functions and aliases
+source $HOME/dotfiles/scripts/funcs.sh
+source $HOME/dotfiles/scripts/aliases.sh
+
 # fzf bash hook
 source $HOME/dotfiles/.fzf.bash
 

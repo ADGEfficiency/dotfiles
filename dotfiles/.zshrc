@@ -103,8 +103,9 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 source ~/dotfiles/macos/pyenv-flags
-
-# nix-shell ~/dotfiles/shell.nix --command "/bin/zsh"
+source $HOME/dotfiles/scripts/funcs.sh
+source $HOME/dotfiles/scripts/aliases.sh
+source $HOME/dotfiles/dotfiles/.zpreztorc
 
 #  turn on when profiling
 # zprof

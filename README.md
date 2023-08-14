@@ -19,6 +19,8 @@ $ make dotfiles
 
 This appends to your `rc` files -- beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
 
+This is destructive to your Git config - your `$HOME/.{gitconfig,gitignore}` will be overwritten.
+
 ## Ubuntu
 
 Setup an Ubuntu machine:

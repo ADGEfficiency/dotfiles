@@ -45,7 +45,6 @@ alias markserv='markserv --browser'
 # vim
 alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
-alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
 # python
 alias py='python'
@@ -94,11 +93,8 @@ alias wi='vi'
 alias dots='cd $HOME/dotfiles'
 alias aliases='$EDITOR $HOME/dotfiles/scripts/aliases.sh'
 alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
-alias bashrc='$EDITOR $HOME/dotfiles/.bashrc'
-alias yabairc='$EDITOR $HOME/dotfiles/yabai/yabairc'
-alias vimrc='$EDITOR $HOME/dotfiles/.vimrc'
-alias tmuxc='$EDITOR $HOME/dotfiles/.tmux.conf'
-alias zshrc='$EDITOR $HOME/dotfiles/.zshrc'
+alias bashrc='$EDITOR $HOME/dotfiles/dotfiles/.bashrc'
+alias zshrc='$EDITOR $HOME/dotfiles/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
 
 # git
