@@ -1,5 +1,5 @@
 [core]
-    excludesfile = ~/dotfiles/.gitignore
+    excludesfile = ~/dotfiles/dotfiles/.gitignore
 
 [user]
     email = adam.green@adgefficiency.com
