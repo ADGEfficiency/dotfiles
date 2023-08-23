@@ -6,6 +6,8 @@ on:
 
 jobs:
   linux:
+    env:
+      XDG_CONFIG_HOME: ${{ github.workspace }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
