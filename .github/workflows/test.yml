@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=linux devShell=''
-      - run: . ./nix/load-linux.sh && make test OS=linux
+      - run: . ./nix/load-linux.sh && make test -o nix-setup OS=linux
       - run: . ./nix/load-linux.sh && sudo make setup-linux -o nix-setup OS=linux
       - run: . ./nix/load-linux.sh && sudo make js python OS=linux
 
