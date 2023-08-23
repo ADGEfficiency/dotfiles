@@ -132,7 +132,7 @@ alias s-dots='start-dots'
 
 # nix
 alias nix-list='nix-env -q'
-alias nix-clean='nix-env -e ".*"'
+alias nix-clean='nix-env -e ".*" && nix-env --delete-generations old'
 
 # misc
 alias pyenv-list='pyenv versions --bare --skip-aliases'

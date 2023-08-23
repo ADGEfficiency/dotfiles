@@ -53,6 +53,6 @@ nix:
 	. ./nix/load-$(OS).sh && nix-channel --update
 
 devShell = --arg devShell true
-install_cmd = nix-env -i -f ./nix/default.nix $(devShell)
+install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
 nix-setup: nix
 	. ./nix/load-$(OS).sh && $(install_cmd)
