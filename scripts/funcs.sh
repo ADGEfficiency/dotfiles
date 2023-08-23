@@ -1,5 +1,15 @@
 #!/usr/bin/env zsh
 
+function entrr() {
+    if [ $# -lt 2 ]; then
+        echo "Usage: watch_and_seed <content_directory> <python_script>"
+        return 1
+    fi
+    directory="$1"
+    cmd="$2"
+    ls "$directory"/* | entr -s "$cmd"
+}
+
 todo() {
   sh ~/dotfiles/scripts/todo.sh
 }
@@ -76,6 +86,7 @@ tunnelnk() {
 
 tn () {
     NAME=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
+    NAME=$(basename $(pwd))
     tmux new -s $NAME -c $(pwd)
 }
 alias t='tn'
@@ -89,13 +100,13 @@ docker-sh () {
 docker-build () {
     NAME=$1
     DOCKERFILE=$2
-    docker build -t $NAME . -f $DOCKERFILE
+    docker build -t $NAME . -f $DOCKERFILE --platform linux/amd64
 }
 
 docker-run () {
     NAME=$1
     COMMAND=$2
-    docker run -it $NAME $COMMAND
+    docker run -it $NAME $COMMAND --platform linux/amd64
 }
 
 docker-ip () {
@@ -104,8 +115,11 @@ docker-ip () {
 }
 
 docker-build-run () {
+    NAME=$1
+    DOCKERFILE=$2
+    COMMAND=$3
     build-docker $1 $2
-    run-docker $1
+    run-docker $1 $3
 }
 
 docker-ls () {

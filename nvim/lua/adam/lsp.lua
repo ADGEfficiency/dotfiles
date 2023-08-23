@@ -220,10 +220,10 @@ require("lspconfig")["efm"].setup({
           lintFormats = { "%f:%l:%c: %m" },
           lintIgnoreExitCode = true,
         },
-        {
-          formatCommand = "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/isort --stdout --profile=black -",
-          formatStdin = true,
-        },
+        -- {
+        --   formatCommand = "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/isort --stdout --profile=black -",
+        --   formatStdin = true,
+        -- },
         {
           formatCommand = "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/black --no-color -q -",
           formatStdin = true,

@@ -18,5 +18,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - run: make nix-setup OS=macos
       - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
