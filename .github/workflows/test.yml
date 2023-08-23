@@ -6,9 +6,9 @@ on:
 
 jobs:
   linux:
+    runs-on: ubuntu-latest
     env:
       XDG_CONFIG_HOME: ${{ github.workspace }}
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: make nix-setup OS=linux devShell=''
@@ -18,6 +18,8 @@ jobs:
 
   macos:
     runs-on: macos-latest
+    env:
+      XDG_CONFIG_HOME: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
