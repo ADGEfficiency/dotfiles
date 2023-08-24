@@ -20,6 +20,7 @@ jobs:
     runs-on: macos-latest
     env:
       XDG_CONFIG_HOME: ${{ github.workspace }}
+      NIXPKGS_ALLOW_BROKEN: 1
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
