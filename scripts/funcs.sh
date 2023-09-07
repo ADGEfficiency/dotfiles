@@ -24,7 +24,7 @@ remote() {
 #  make a pyenv virtual env
 #  `$ make_env 3.10.6 nemdata`
 make_env() {
-  VERSION=$1
+  VeRSION=$1
   NAME=$2
   pyenv virtualenv $VERSION $NAME
 	echo $NAME > .python-version

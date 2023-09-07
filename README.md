@@ -39,6 +39,12 @@ $ make setup-macos OS=macoS
 
 ## Global Python Virtual Env
 
+Install pyenv and pyenv-virtualenv:
+
+```bash
+$ bash ./python/setup-pyenv.sh
+```
+
 Setup a global Python installation in a pyenv virtual environment - requires `pyenv`:
 
 ```shell-session

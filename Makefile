@@ -17,6 +17,7 @@ setup-macos: brew nix-setup
 setup-linux:
 	bash ./linux/setup.sh
 
+.PHONY: dotfiles
 #  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
 	bash ./scripts/setup-dotfiles.sh

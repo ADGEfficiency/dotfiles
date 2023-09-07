@@ -20,7 +20,6 @@ with pkgs; [
   unzip
   zip
   zsh
-  zsh-prezto
 ]
 ++ lib.optionals isLinux [ python310 ]
 ++ lib.optionals isDarwin [
@@ -39,7 +38,8 @@ with pkgs; [
   fzf
   gh
   hack-font
-  hadolint
+  nerdfonts
+  # hadolint
   htop
   lazydocker
   lazygit
