@@ -14,16 +14,19 @@ jobs:
       - run: make nix-setup OS=linux devShell=''
       - run: . ./nix/load-linux.sh && make test -o nix-setup OS=linux
       - run: . ./nix/load-linux.sh && sudo -E make setup-linux -o nix-setup OS=linux
-      - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux
-  # macos:
-  #   runs-on: macos-latest
-  #   env:
-  #     XDG_CONFIG_HOME: ${{ github.workspace }}
-  #     NIXPKGS_ALLOW_BROKEN: 1
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #     - run: make nix-setup OS=macos
-  #     - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
+      #  TODO having problems with zsh being available
+      #  cant set $PATH correctly
+      # - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux
+
+  macos:
+    runs-on: macos-latest
+    env:
+      XDG_CONFIG_HOME: ${{ github.workspace }}
+      NIXPKGS_ALLOW_BROKEN: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: make nix-setup OS=macos
+      - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
