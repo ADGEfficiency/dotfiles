@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-. /home/runner/.nix-profile/etc/profile.d/nix.sh
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
+export PATH="$HOME/.nix-profile/bin:$PATH"
