@@ -6,11 +6,12 @@ setup_dotfile() {
     local fi=$1
     echo "Setting up ~/$fi"
     echo "source $DOTFILES/$fi" >> "$HOME/$fi"
-    cat ~/$fi
+    cat "$HOME/$fi"
 }
 
 setup_dotfile .bashrc
 setup_dotfile .zshrc
+setup_dotfile .zshenv
 setup_dotfile .zprofile
 setup_dotfile .vimrc
 setup_dotfile .tmux.conf

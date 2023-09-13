@@ -16,16 +16,21 @@ with pkgs; [
   ripgrep
   shunit2
   tree
+  wget
+  dpkg
   # toybox
   unzip
   zip
   zsh
+  inetutils
 ]
 ++ lib.optionals isLinux [ python310 ]
 ++ lib.optionals isDarwin [
   cargo
   locale
   llvm
+  cmakeMinimal
+  gtk4
 ]
 ++ lib.optionals devShell [
   bat
@@ -39,6 +44,8 @@ with pkgs; [
   gh
   hack-font
   nerdfonts
+  pandoc
+  texlive.combined.scheme-tetex
   # hadolint
   htop
   lazydocker

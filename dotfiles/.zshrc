@@ -3,32 +3,6 @@
 #  turn on when profiling
 # zmodload zsh/zprof
 
-# # ------  general  -------
-
-#  use neovim as editor
-export EDITOR=$(which nvim)
-
-#  put config in ~/dotfiles, instead of ~/.config
-export XDG_CONFIG_HOME=~/dotfiles
-
-if command -v launchctl >/dev/null 2>&1; then
-  launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
-fi
-
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=10000000
-export HISTSIZE=$HISTFILESIZE
-SAVEHIST=$HISTSIZE
-export AWS_LOG_LEVEL=3
-
-# # ------  utility  -------
-
-alias brew='arch -x86_64 brew'
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/checkmake:$PATH"
-export PATH="$HOME/dotfiles/scripts:$PATH"
-export PATH="$HOME/personal/scripts:$PATH"
-
 # # ------ 3rd party -------
 
 fzf_init() {
@@ -57,11 +31,13 @@ ruby_init() {
 pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-  source "$HOME/dotfiles/zsh/.zprezto/init.zsh"
+  source $HOME/dotfiles/zsh/.zprezto/init.zsh
+  source $HOME/dotfiles/dotfiles/.zpreztorc
 }
 
 starship_init() {
-  eval "$(starShip init zsh)"
+  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+  eval "$(starship init zsh)"
 }
 
 flyctl_init() {
@@ -86,8 +62,8 @@ just_completions_init() {
   fi
 }
 
-pretzo_init
 starship_init
+pretzo_init
 fzf_init
 flyctl_init
 eval "$(zoxide init zsh)"
@@ -95,7 +71,7 @@ eval "$(direnv hook zsh)"
 just_completions_init
 
 #  docker desktop
-source /Users/adam/.docker/init-zsh.sh || true
+# source /Users/adam/.docker/init-zsh.sh || true
 
 #  nix - if daemon exists, execute it
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -105,7 +81,6 @@ fi
 source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
 source $HOME/dotfiles/scripts/aliases.sh
-source $HOME/dotfiles/dotfiles/.zpreztorc
 
 #  turn on when profiling
 # zprof

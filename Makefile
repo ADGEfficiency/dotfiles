@@ -24,7 +24,8 @@ dotfiles:
 
 .PHONY: python js
 python:
-	sh ./python/setup.sh
+	zsh ./python/setup-general-venv.sh general 3.10.6
+	zsh ./python/setup-general-venv-pkgs.sh
 
 js:
 	cd js && npm install -g .
