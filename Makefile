@@ -7,7 +7,6 @@ default:
 test: nix-setup
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
-# setting up machines
 brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
@@ -18,9 +17,8 @@ setup-linux:
 	bash ./linux/setup.sh
 
 .PHONY: dotfiles
-#  TODO make this sh ./dotfiles/setup.sh
 dotfiles:
-	bash ./scripts/setup-dotfiles.sh
+	bash ./dotfiles/setup.sh
 
 .PHONY: python js
 python:
@@ -31,7 +29,6 @@ js:
 	cd js && npm install -g .
 
 # neovim
-
 inspect-nvim:
 	tree ~/.local/share/nvim/site/pack/packer/ -L 2
 
