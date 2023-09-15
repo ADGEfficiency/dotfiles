@@ -52,6 +52,7 @@ with pkgs; [
   lazygit
   neovim
   nodePackages_latest.markdownlint-cli
+  nodePackages_latest.prettier
   shellcheck
   starship
   stylua

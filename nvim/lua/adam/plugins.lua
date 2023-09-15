@@ -58,6 +58,11 @@ return packer.startup(function(use)
   })
   use("ray-x/lsp_signature.nvim")
 
+  use {
+    'stevearc/conform.nvim',
+    config = function() require('conform').setup() end
+  }
+
   -- LSP diagnostics list
   use({
     "folke/trouble.nvim",

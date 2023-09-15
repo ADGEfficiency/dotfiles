@@ -10,6 +10,9 @@ test: nix-setup
 brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
+brew-pkgs:
+	brew install hadolint
+
 setup-macos: brew nix-setup
 	bash ./macos/setup.sh
 
@@ -26,7 +29,8 @@ python:
 	zsh ./python/setup-general-venv-pkgs.sh
 
 js:
-	cd js && npm install -g .
+	npm install -g @tailwindcss/language-server markserv
+	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify
 
 # neovim
 inspect-nvim:
@@ -53,5 +57,5 @@ nix:
 
 devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
-nix-setup: nix
+nix-pkgs: nix
 	. ./nix/load-$(OS).sh && $(install_cmd)

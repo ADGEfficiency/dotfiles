@@ -19,3 +19,5 @@ setup_dotfile .tmux.conf
 echo "setting up git"
 cp "$HOME/dotfiles/git/.gitignore" "$HOME/.gitignore"
 cp "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+
+cp "$HOME/dotfiles/dotfiles/.npmrc" "$HOME/.npmrc"

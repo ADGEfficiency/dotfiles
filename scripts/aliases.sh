@@ -139,3 +139,5 @@ alias pyenv-list='pyenv versions --bare --skip-aliases'
 alias pyenv-list-available='pyenv install -l'
 
 alias pip-list='pip index versions'
+
+alias brew-list='brew list'

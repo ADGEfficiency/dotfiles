@@ -113,3 +113,12 @@ I don't use this package, but the list of tools and configs is useful.
 ### [Null LS](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
 
 I don't use this package -- I used to use Null LS -- their list of tools is still useful.
+
+## LSP Rework
+
+Unhappy with EFM (formatting is inconsistent)
+
+https://github.com/stevearc/conform.nvim
+
+another list of packages
+https://github.com/stevearc/conform.nvim#formatters

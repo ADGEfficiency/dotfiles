@@ -86,6 +86,11 @@ source $HOME/dotfiles/scripts/aliases.sh
 # TODO move this at some point
 source $HOME/dotfiles/scripts/todo-completion.zsh
 
+# need a fancy npm setup when npm manages nix
+# requires a .npmrc with a prefix
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
+
 #  turn on when profiling
 # zprof
 #
