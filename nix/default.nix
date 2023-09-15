@@ -52,9 +52,13 @@ with pkgs; [
   lazydocker
   lazygit
   neovim
+  codespell
+  shellharden
   nodePackages_latest.markdownlint-cli
   nodePackages_latest.prettier
   nodePackages_latest.sql-formatter
+  nodePackages_latest.stylelint
+  yamlfix
   shellcheck
   starship
   stylua

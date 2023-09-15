@@ -235,14 +235,18 @@ remark --rc-path $HOME/dotfiles/.remarkrc --output
 
 require("conform").setup({
   formatters_by_ft = {
-    bash = { "beautysh" },
-    sh = { "beautysh" },
+    bash = { "beautysh", "shellharden" },
+    sh = { "beautysh", "shellharden" },
     html = { "djlintJinja" },
     json = { "prettier" },
     lua = { "stylua" },
     markdown = { "markdownlint" },
     python = { "isort", "black" },
+    javascript = { "prettier" },
+    css = { "stylelint" },
+    yaml = { "yamlfix" },
     sql = { "sql_formatter" },
+    ["*"] = { "codespell", "trim_newlines", "trim_whitespace" },
   },
 })
 
