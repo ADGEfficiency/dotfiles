@@ -11,7 +11,7 @@ function entrr() {
 }
 
 todo() {
-  sh ~/dotfiles/scripts/todo.sh
+  bash ~/dotfiles/scripts/todo.sh $1
 }
 
 # change a github remote - useful when changing to ssh after cloning

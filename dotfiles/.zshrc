@@ -82,6 +82,10 @@ source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
 source $HOME/dotfiles/scripts/aliases.sh
 
+# Zsh completion for todo
+# TODO move this at some point
+source $HOME/dotfiles/scripts/todo-completion.zsh
+
 #  turn on when profiling
 # zprof
 #
