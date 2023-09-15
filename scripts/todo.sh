@@ -9,7 +9,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   if [ "$1" ]; then
     TODOFILE=$1
   #  otherwise try to find a .todofile
-  elif [ -f "$PWD/.todofile"]; then
+  elif [ -f "$PWD/.todofile" ]; then
     TODOFILE=$(cat $TODO_FILE_NAME)
   #  finally use the current directory name
   else
