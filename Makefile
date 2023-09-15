@@ -49,7 +49,7 @@ clean-nvim:
 
 # nix
 
-.PHONY: nix nix-setup
+.PHONY: nix nix-pkgs
 nix:
 	curl -L https://nixos.org/nix/install | sh
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable

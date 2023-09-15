@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function open_todo_file() {
 
   #  override TODO_DIR during tests
@@ -10,11 +9,11 @@ function open_todo_file() {
   if [ "$1" ]; then
     TODOFILE=$1
 
-  #  otherwise try to find a .todofile
+    #  otherwise try to find a .todofile
   elif [ -f "$PWD/.todofile" ]; then
     TODOFILE=$(cat "$PWD/.todofile")
 
-  #  finally use the current directory name
+    #  finally use the current directory name
   else
     TODOFILE=$(basename "$PWD")
   fi

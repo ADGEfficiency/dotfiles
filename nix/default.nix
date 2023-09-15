@@ -46,6 +46,7 @@ with pkgs; [
   nerdfonts
   pandoc
   texlive.combined.scheme-tetex
+  beautysh
   # hadolint
   htop
   lazydocker
@@ -53,6 +54,7 @@ with pkgs; [
   neovim
   nodePackages_latest.markdownlint-cli
   nodePackages_latest.prettier
+  nodePackages_latest.sql-formatter
   shellcheck
   starship
   stylua
