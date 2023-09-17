@@ -1,9 +1,7 @@
+---
 name: test
-
 on:
   push:
-
-
 jobs:
   linux:
     runs-on: ubuntu-latest
@@ -15,9 +13,8 @@ jobs:
       - run: . ./nix/load-linux.sh && make test -o nix-setup OS=linux
       - run: . ./nix/load-linux.sh && sudo -E make setup-linux -o nix-setup OS=linux
       #  TODO having problems with zsh being available
-      #  cant set $PATH correctly
+      #  can't set $PATH correctly
       # - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux
-
   macos:
     runs-on: macos-latest
     env:

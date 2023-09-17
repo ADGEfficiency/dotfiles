@@ -11,7 +11,7 @@ brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
 brew-pkgs:
-	brew install hadolint
+	brew install hadolint vale actionlint
 
 setup-macos: brew nix-setup
 	bash ./macos/setup.sh
@@ -31,6 +31,7 @@ python:
 js:
 	npm install -g @tailwindcss/language-server markserv
 	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify
+	npm install -g jsonlint jshint
 
 # neovim
 inspect-nvim:
