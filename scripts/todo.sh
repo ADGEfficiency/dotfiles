@@ -1,31 +1,40 @@
 #!/bin/bash
 
-# tests the script in ~/dotfiles/scripts/todo.sh
-
 function open_todo_file() {
-  TODO_FILE_NAME=$1
+
   #  override TODO_DIR during tests
   TODO_DIR="${TODO_DIR:-$HOME/personal/todo}"
-  DEFAULT_FILE="$TODO_DIR/todo.md"
 
-  if [[ -f $TODO_FILE_NAME ]]; then
-    TODOFILE=$(cat $TODO_FILE_NAME)
-    FILE_TO_OPEN="$TODO_DIR/$TODOFILE.md"
+  #  if we pass a CLI arg, then go there
+  if [ "$1" ]; then
+    TODOFILE=$1
+
+    #  otherwise try to find a .todofile
+  elif [ -f "$PWD/.todofile" ]; then
+    TODOFILE=$(cat "$PWD/.todofile")
+
+    #  finally use the current directory name
   else
-    FILE_TO_OPEN="$TODO_DIR/$(basename "$PWD").md"
+    TODOFILE=$(basename "$PWD")
   fi
 
+  FILE_TO_OPEN="$TODO_DIR/$TODOFILE.md"
+
   # Check if the file exists, if not, use the default
+  DEFAULT_FILE="$TODO_DIR/todo.md"
+
   if [[ ! -f $FILE_TO_OPEN ]]; then
     FILE_TO_OPEN=$DEFAULT_FILE
   fi
-
-  echo "$FILE_TO_OPEN"  # echo the result for testing purposes
+  echo $FILE_TO_OPEN
 }
 
-# Uncomment below to run the function directly
-## If this script is being executed, and not sourced
+
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-  FILE_TO_OPEN=$(open_todo_file "$PWD/.todofile")
+  if [ "$1" ]; then
+    FILE_TO_OPEN=$(open_todo_file $1)
+  else
+    FILE_TO_OPEN=$(open_todo_file)
+  fi
   $EDITOR $FILE_TO_OPEN
 fi

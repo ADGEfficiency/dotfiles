@@ -24,7 +24,7 @@ testOpenTodoFileWithTodoFile() {
   touch "$TODO_DIR/data-science-south.md"
   echo "TODO_DIR: $TODO_DIR"
 
-  result=$(open_todo_file $todofile)
+  result=$(open_todo_file)
   echo "Result: $result" # Print the result
 
   # expect a project specific file

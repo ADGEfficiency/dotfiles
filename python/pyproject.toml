@@ -23,6 +23,13 @@ pulp = "^2.7.0"
 pandera = "^0.16.1"
 pandas-stubs = "^2.0.2.230605"
 ruff = "^0.0.282"
+hypothesis = "^6.84.2"
+datasette = "^0.64.3"
+isort = "^5.12.0"
+djlint = "^1.32.1"
+proselint = "^0.13.0"
+yamllint = "^1.32.0"
+pydocstyle = "^6.3.0"
 
 [build-system]
 requires = ["poetry-core"]

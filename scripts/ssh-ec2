@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-INSTANCEID=$1
-PUBLICDNS=$(aws ec2 describe-instances --instance-ids $INSTANCEID --output json --query "Reservations[*].Instances[*].PublicDnsName" | jq -r ".[0][0]")
-KEY="${2:-"~/.ssh/adam-aws-may-2020.pem"}"
-
-printf "sshing into:\n  INSTANCE $INSTANCEID\n  DNS $PUBLICDNS\n  KEY $KEY"
-ssh -A -i $KEY "ubuntu@$PUBLICDNS"

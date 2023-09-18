@@ -4,11 +4,11 @@
 #  split ratio = if auto balance disabled, determines how much space a new window occupies
 #  0.5 = both occupy half
 
-yabai -m space 3 --label slack
-yabai -m rule --add app="^Slack$" space=slack
-yabai -m rule --add app="^Swinsian$" space=slack
+yabai -m space 1 --label music
+yabai -m rule --add app="^Slack$" space=music
+yabai -m rule --add app="^Swinsian$" space=music
 
-yabai -m config --space 1                    \
+yabai -m config --space 2                    \
     layout                       bsp         \
     auto_balance                 off         \
     split_ratio                  0.5        \
@@ -19,7 +19,7 @@ yabai -m config --space 1                    \
     mouse_action2                off         \
     mouse_drop_action            off
 
-yabai -m config --space 2                    \
+yabai -m config --space 3                    \
     layout                       bsp         \
     auto_balance                 off         \
     split_ratio                  0.5        \

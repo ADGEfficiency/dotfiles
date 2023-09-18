@@ -45,7 +45,6 @@ alias markserv='markserv --browser'
 # vim
 alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
-alias vimrc='$EDITOR ~/dotfiles/.vimrc'
 
 # python
 alias py='python'
@@ -94,11 +93,8 @@ alias wi='vi'
 alias dots='cd $HOME/dotfiles'
 alias aliases='$EDITOR $HOME/dotfiles/scripts/aliases.sh'
 alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
-alias bashrc='$EDITOR $HOME/dotfiles/.bashrc'
-alias yabairc='$EDITOR $HOME/dotfiles/yabai/yabairc'
-alias vimrc='$EDITOR $HOME/dotfiles/.vimrc'
-alias tmuxc='$EDITOR $HOME/dotfiles/.tmux.conf'
-alias zshrc='$EDITOR $HOME/dotfiles/.zshrc'
+alias bashrc='$EDITOR $HOME/dotfiles/dotfiles/.bashrc'
+alias zshrc='$EDITOR $HOME/dotfiles/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
 
 # git
@@ -108,15 +104,15 @@ alias cred='git config credential.helper store'
 alias db='git branch -D '
 alias ga='git add -u && git commit -m '
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
-alias gc='git commit'
-alias gcm='git commit -m '
+alias gc='git commit -m '
+alias gcm='git commit'
 alias gcb='git checkout '
 alias gd='git diff --staged'
 alias glog='git log --pretty=fuller --abbrev-commit --stat -n 5'
 alias glogg='git log --pretty=fuller --abbrev-commit --stat --patch -n 5'
 alias gls='clear && git status --short'
 alias gmv='git mv '
-alias gnb='git branch'
+alias gnb='git checkout -b'
 alias gp='git push origin '
 alias gs='git status'
 alias nbg='git checkout -b'
@@ -136,8 +132,12 @@ alias s-dots='start-dots'
 
 # nix
 alias nix-list='nix-env -q'
-alias nix-clean='nix-env -e ".*"'
+alias nix-clean='nix-env -e ".*" && nix-env --delete-generations old'
 
 # misc
 alias pyenv-list='pyenv versions --bare --skip-aliases'
 alias pyenv-list-available='pyenv install -l'
+
+alias pip-list='pip index versions'
+
+alias brew-list='brew list'

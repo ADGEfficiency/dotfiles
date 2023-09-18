@@ -1,9 +1,28 @@
 #!/usr/bin/env zsh
 
-files=$(fzf -m)
+#files=$(fzf -m)
+
+## Check if fzf was interrupted by Ctrl-C
+#if [ $? -eq 0 ]; then
+#  # Handles mulitple files
+#  $EDITOR ${(f)files}
+#fi
+
+# Get terminal height
+TERM_HEIGHT=$(tput lines)
+
+# Define the minimum height for showing previews
+MIN_HEIGHT=20
+
+# Prompt for files using fzf
+files=$(if [ "$TERM_HEIGHT" -ge "$MIN_HEIGHT" ]; then
+    fzf --preview 'bat -p --color=always {}' --height 60% -m
+else
+    fzf --no-preview --height 40% -m
+fi)
 
 # Check if fzf was interrupted by Ctrl-C
 if [ $? -eq 0 ]; then
-  # Handles mulitple files
+  # Handle multiple files
   $EDITOR ${(f)files}
 fi

@@ -5,25 +5,32 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in
 with pkgs; [
+  # curlWithGnuTls
   git
   gnugrep
   gnumake
+  findutils
   gnused
   jq
   nodejs_18
   ripgrep
   shunit2
-  toybox
+  tree
+  wget
+  dpkg
+  # toybox
   unzip
   zip
   zsh
-  zsh-prezto
+  inetutils
 ]
 ++ lib.optionals isLinux [ python310 ]
 ++ lib.optionals isDarwin [
   cargo
   locale
   llvm
+  cmakeMinimal
+  gtk4
 ]
 ++ lib.optionals devShell [
   bat
@@ -36,12 +43,22 @@ with pkgs; [
   fzf
   gh
   hack-font
-  hadolint
+  nerdfonts
+  pandoc
+  texlive.combined.scheme-tetex
+  beautysh
+  # hadolint
   htop
   lazydocker
   lazygit
   neovim
+  codespell
+  shellharden
   nodePackages_latest.markdownlint-cli
+  nodePackages_latest.prettier
+  nodePackages_latest.sql-formatter
+  nodePackages_latest.stylelint
+  yamlfix
   shellcheck
   starship
   stylua

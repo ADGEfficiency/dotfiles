@@ -60,9 +60,11 @@ vim.cmd([[hi! link SpellBad ErrorMsg]])
 vim.opt.list = true
 vim.opt.listchars = "tab:>-"
 
-vim.opt.makeprg = "gmake"
 vim.opt.spell.spellang = "en_nz"
 
 vim.g["vim_markdown_no_default_key_mappings"] = 1
 
 vim.g["copilot_node_command"] = "/Users/adam/dotfiles/nvm/versions/node/v16.17.0/bin/node"
+
+-- automatically open quickfix list after :make
+vim.cmd("autocmd QuickFixCmdPost [^l]* copen")

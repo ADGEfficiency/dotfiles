@@ -3,41 +3,15 @@
 #  turn on when profiling
 # zmodload zsh/zprof
 
-# # ------  general  -------
-
-#  use neovim as editor
-export EDITOR=$(which nvim)
-
-#  put config in ~/dotfiles, instead of ~/.config
-export XDG_CONFIG_HOME=~/dotfiles
-
-if command -v launchctl >/dev/null 2>&1; then
-  launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
-fi
-
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=10000000
-export HISTSIZE=$HISTFILESIZE
-SAVEHIST=$HISTSIZE
-export AWS_LOG_LEVEL=3
-
-# # ------  utility  -------
-
-alias brew='arch -x86_64 brew'
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/checkmake:$PATH"
-export PATH="$HOME/dotfiles/scripts:$PATH"
-export PATH="$HOME/personal/scripts:$PATH"
-
 # # ------ 3rd party -------
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
     bindkey -v
-    source ~/dotfiles/.fzf.zsh
+    source ~/dotfiles/dotfiles/.fzf.zsh
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_DEFAULT_OPTS='--height 90% --preview "cat {}" --preview-window=up:80%:wrap'
+    export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {}" --preview-window=down:50%:wrap --border=none'
+    export FZF_CTRL_R_OPTS='--height 20% --no-preview'
 }
 
 nvm_init() {
@@ -57,10 +31,12 @@ ruby_init() {
 pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  source $HOME/dotfiles/zsh/.zprezto/init.zsh
+  source $HOME/dotfiles/dotfiles/.zpreztorc
 }
 
 starship_init() {
+  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
   eval "$(starship init zsh)"
 }
 
@@ -86,8 +62,8 @@ just_completions_init() {
   fi
 }
 
-pretzo_init
 starship_init
+pretzo_init
 fzf_init
 flyctl_init
 eval "$(zoxide init zsh)"
@@ -95,7 +71,7 @@ eval "$(direnv hook zsh)"
 just_completions_init
 
 #  docker desktop
-source /Users/adam/.docker/init-zsh.sh || true
+# source /Users/adam/.docker/init-zsh.sh || true
 
 #  nix - if daemon exists, execute it
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -103,8 +79,17 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 source ~/dotfiles/macos/pyenv-flags
+source $HOME/dotfiles/scripts/funcs.sh
+source $HOME/dotfiles/scripts/aliases.sh
 
-# nix-shell ~/dotfiles/shell.nix --command "/bin/zsh"
+# Zsh completion for todo
+# TODO move this at some point
+source $HOME/dotfiles/scripts/todo-completion.zsh
+
+# need a fancy npm setup when npm manages nix
+# requires a .npmrc with a prefix
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
 
 #  turn on when profiling
 # zprof
