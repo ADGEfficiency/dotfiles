@@ -11,6 +11,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
@@ -76,17 +77,23 @@ require("lspconfig")["tsserver"].setup({ on_attach = on_attach, flags = lsp_flag
 require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
 require("lspconfig")["emmet_language_server"].setup({ on_attach = on_attach, flags = lsp_flags })
 
-require("lspconfig")["pyright"].setup({
+require("lspconfig").pyright.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	cmd = { "pyright-langserver", "--stdio" },
+	capabilities = capabilities,
+})
+
+require("lspconfig")["jedi_language_server"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
 })
 
 require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	cmd = { "tailwindcss-language-server", "--stdio" },
-	capabilities = capabilities,
 })
 
 require("lspconfig")["marksman"].setup({
@@ -123,14 +130,6 @@ require("lspconfig")["lua_ls"].setup({
 		},
 	},
 })
-
-local on_attach_efm = function(client, bufnr)
-	vim.cmd([[augroup lsp_formatting]])
-	vim.cmd([[autocmd!]])
-	vim.cmd([[autocmd BufWritePre <buffer> :lua vim.lsp.buf.format()]])
-	vim.cmd([[augroup END]])
-	vim.cmd("command! LspFormat lua vim.lsp.buf.format()")
-end
 
 -- /Users/adam/.pyenv/versions/3.10.6/envs/general/bin/
 
@@ -291,7 +290,7 @@ require("lint").linters_by_ft = {
 	json = { "jsonlint" },
 	html = { "djlint" },
 	docker = { "hadolint" },
-	markdown = { "vale", "markdownlint" },
+	markdown = { "markdownlint" },
 	yaml = { "actionlint", "yamllint" },
 	python = { "ruff", "mypy", "flake8", "pydocstyle" },
 	javascript = { "jshint" },
