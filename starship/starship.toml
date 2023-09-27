@@ -6,7 +6,7 @@ right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [character]
 success_symbol = "[:::](green)"
-error_symbol = "[  ](red)"
+error_symbol = "[ 󰙦 ](red)"
 vimcmd_symbol = "[  ](green)"
 
 [directory]

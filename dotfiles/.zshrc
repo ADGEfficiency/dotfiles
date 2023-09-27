@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 #  turn on when profiling
 # zmodload zsh/zprof
 
@@ -73,10 +71,19 @@ just_completions_init
 #  docker desktop
 # source /Users/adam/.docker/init-zsh.sh || true
 
-#  nix - if daemon exists, execute it
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=10000000
+export HISTSIZE=$HISTFILESIZE
+SAVEHIST=$HISTSIZE
+export AWS_LOG_LEVEL=3
+
+alias brew='arch -x86_64 brew'
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/checkmake:$PATH"
+export PATH="$HOME/dotfiles/scripts:$PATH"
+export PATH="$HOME/personal/scripts:$PATH"
+
 
 source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
@@ -90,6 +97,7 @@ source $HOME/dotfiles/scripts/todo-completion.zsh
 # requires a .npmrc with a prefix
 export PATH=~/.npm-packages/bin:$PATH
 export NODE_PATH=~/.npm-packages/lib/node_modules
+export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
 #  turn on when profiling
 # zprof

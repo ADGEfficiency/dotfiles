@@ -38,7 +38,7 @@ alias sed='gsed'
 
 # servers
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'
-alias jed='ruby_init; bundle exec jekyll serve --drafts > /dev/null 2>&1 &'
+alias jed='bundle exec jekyll serve --drafts > /dev/null 2>&1 &'
 alias jl='jupyter lab > /dev/null 2>&1 &'
 alias markserv='markserv --browser'
 
@@ -122,13 +122,18 @@ alias ta='tmux attach'
 alias tab='tmux attach -t base'
 alias tl='tmux ls'
 alias ts='tmux ls'
+alias tls='tmux ls'
 
 # docker
 alias dc='docker compose'
 
 # start scripts
 alias s-dss='start-dss'
+alias sdss='start-dss'
 alias s-dots='start-dots'
+alias sdots='start-dots'
+alias s-linear='start-linear'
+alias slinear='start-linear'
 
 # nix
 alias nix-list='nix-env -q'
@@ -139,5 +144,6 @@ alias pyenv-list='pyenv versions --bare --skip-aliases'
 alias pyenv-list-available='pyenv install -l'
 
 alias pip-list='pip index versions'
+alias poetry-clean='poetry cache clear pypi --all'
 
 alias brew-list='brew list'

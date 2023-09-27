@@ -22,9 +22,9 @@ require("mason-lspconfig").setup({
 		"tsserver",
 		"emmet_language_server",
 		"pyright",
-		"tailwindcss",
 		"rust_analyzer",
 		"jedi_language_server",
+		"sqlls",
 	},
 	automatic_installation = true,
 })
@@ -104,42 +104,85 @@ local lsp_flags = {
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["dockerls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["jsonls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["prosemd_lsp"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["rnix"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["tsserver"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["emmet_language_server"].setup({ on_attach = on_attach, flags = lsp_flags })
+require("lspconfig")["bashls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["sqlls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+	root_dir = function(fname)
+		return vim.loop.cwd()
+	end,
+})
+require("lspconfig")["dockerls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["jsonls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["prosemd_lsp"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["rnix"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["tsserver"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["html"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["emmet_language_server"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
 
 require("lspconfig").pyright.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "pyright-langserver", "--stdio" },
-	capabilities = capabilities,
 })
 
 require("lspconfig")["jedi_language_server"].setup({
 	on_attach = on_attach,
-	flags = lsp_flags,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "tailwindcss-language-server", "--stdio" },
 })
 
 require("lspconfig")["marksman"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	filetypes = { "markdown" },
 })
 
 require("lspconfig")["rust_analyzer"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	settings = {
 		["rust-analyzer"] = {},
@@ -148,6 +191,7 @@ require("lspconfig")["rust_analyzer"].setup({
 
 require("lspconfig")["lua_ls"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	settings = {
 		Lua = {
@@ -292,6 +336,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 			bufnr = args.buf,
 			quiet = false,
 			lsp_fallback = false,
+			timeout_ms = 2000,
 		})
 	end,
 })

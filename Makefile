@@ -4,16 +4,17 @@ OS = macos
 default:
 	echo "hello ^^"
 
-test: nix-setup
+test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
-brew:
+setup-brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+	brew update; brew upgrade
 
-brew-pkgs:
-	brew install hadolint vale actionlint
+brew-pkgs: setup-brew
+	brew install hadolint vale actionlint fzf
 
-setup-macos: brew nix-setup
+setup-macos: brew-pkgs nix-setup
 	bash ./macos/setup.sh
 
 setup-linux:
@@ -32,13 +33,12 @@ js:
 	npm install -g @tailwindcss/language-server markserv
 	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify
 	npm install -g jsonlint jshint
+	npm install -g sql-language-server
 
-# neovim
 inspect-nvim:
 	tree ~/.local/share/nvim/site/pack/packer/ -L 2
 
 clean-nvim:
-	brew uninstall nvim
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
 
@@ -50,13 +50,13 @@ clean-nvim:
 
 # nix
 
-.PHONY: nix nix-pkgs
-nix:
+.PHONY: setup-nix nix-pkgs
+setup-nix:
 	curl -L https://nixos.org/nix/install | sh
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update
 
 devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
-nix-pkgs: nix
+nix-pkgs: setup-nix
 	. ./nix/load-$(OS).sh && $(install_cmd)

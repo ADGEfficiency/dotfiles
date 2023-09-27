@@ -20,8 +20,8 @@ km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 --   opts
 -- )
 function black_and_echo()
-  vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
-  vim.cmd("echo 'black ran'")
+	vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
+	vim.cmd("echo 'black ran'")
 end
 
 km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
