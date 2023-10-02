@@ -9,16 +9,16 @@ setup_dotfile() {
   cat "$HOME/$fi"
 }
 
-# setup_dotfile .bashrc
-# setup_dotfile .zshrc
-# setup_dotfile .zshenv
-# setup_dotfile .zprofile
-# setup_dotfile .vimrc
-# setup_dotfile .tmux.conf
+setup_dotfile .bashrc
+setup_dotfile .zshrc
+setup_dotfile .zshenv
+setup_dotfile .zprofile
+setup_dotfile .vimrc
+setup_dotfile .tmux.conf
 
-echo "source $DOTFILES/yabai/yabairc" >> "$HOME/.yabairc"
+echo "source $HOME/dotfiles/yabai/yabairc" >> "$HOME/.yabairc"
 
-# echo "setting up git"
-# cp "$HOME/dotfiles/git/.gitignore" "$HOME/.gitignore"
-# cp "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
-# cp "$HOME/dotfiles/dotfiles/.npmrc" "$HOME/.npmrc"
+echo "setting up git"
+cp "$HOME/dotfiles/git/.gitignore" "$HOME/.gitignore"
+cp "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+cp "$HOME/dotfiles/dotfiles/.npmrc" "$HOME/.npmrc"

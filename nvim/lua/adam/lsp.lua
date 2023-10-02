@@ -1,7 +1,7 @@
 -- mason setup
 local lspconfig = require("lspconfig")
 
-require("mason").setup({})
+require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"pyright",
@@ -86,13 +86,23 @@ vim.diagnostic.config({
 	underline = true,
 	severity_sort = true,
 	float = {
-		focusable = false,
+		focusable = true,
 		style = "minimal",
 		border = "rounded",
 		source = "always",
 		header = "",
 		prefix = "",
+		height = 16,
+		width = 80,
+		max_height = 32,
 	},
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "single",
+	height = 32,
+	width = 80,
+	focusable = true,
 })
 
 -- Language Server Configs
@@ -100,9 +110,6 @@ vim.diagnostic.config({
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
-
-require("mason").setup()
-require("mason-lspconfig").setup()
 
 require("lspconfig")["bashls"].setup({
 	on_attach = on_attach,

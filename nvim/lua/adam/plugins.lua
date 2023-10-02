@@ -56,7 +56,7 @@ return packer.startup(function(use)
 		"neovim/nvim-lspconfig",
 		run = ":MasonUpdate",
 	})
-	use("ray-x/lsp_signature.nvim")
+	-- use("ray-x/lsp_signature.nvim")
 
 	use({
 		"stevearc/conform.nvim",
