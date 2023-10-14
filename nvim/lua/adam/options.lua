@@ -68,3 +68,12 @@ vim.g["copilot_node_command"] = "/Users/adam/dotfiles/nvm/versions/node/v16.17.0
 
 -- automatically open quickfix list after :make
 vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
+
+-- highlight .env-* files as sh
+vim.cmd([[
+augroup filetype_env
+  autocmd!
+  autocmd BufRead,BufNewFile .env-* setfiletype sh
+  autocmd BufRead,BufNewFile .env.* setfiletype sh
+augroup END
+]])

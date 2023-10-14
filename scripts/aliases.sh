@@ -50,8 +50,6 @@ alias vi='$EDITOR'
 alias py='python'
 alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
-alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
-alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
 alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 
 # nb

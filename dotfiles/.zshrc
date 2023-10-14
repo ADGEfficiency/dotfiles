@@ -84,7 +84,6 @@ export PATH="$HOME/checkmake:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/personal/scripts:$PATH"
 
-
 source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
 source $HOME/dotfiles/scripts/aliases.sh
@@ -92,6 +91,9 @@ source $HOME/dotfiles/scripts/aliases.sh
 # Zsh completion for todo
 # TODO move this at some point
 source $HOME/dotfiles/scripts/todo-completion.zsh
+
+# use custom ipython config
+export IPYTHONDIR="/Users/adam/dotfiles/.ipython"
 
 # need a fancy npm setup when npm manages nix
 # requires a .npmrc with a prefix

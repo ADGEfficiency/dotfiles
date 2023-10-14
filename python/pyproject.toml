@@ -20,7 +20,7 @@ matplotlib = "^3.7.2"
 pytest = "^7.4.0"
 seaborn = "^0.12.2"
 pulp = "^2.7.0"
-pandera = "^0.16.1"
+pandera = "*"
 pandas-stubs = "^2.0.2.230605"
 ruff = "^0.0.282"
 hypothesis = "^6.84.2"
@@ -30,6 +30,7 @@ djlint = "^1.32.1"
 proselint = "^0.13.0"
 yamllint = "^1.32.0"
 pydocstyle = "^6.3.0"
+ipython = "^8.16.1"
 
 [build-system]
 requires = ["poetry-core"]
