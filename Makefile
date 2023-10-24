@@ -12,7 +12,7 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint fzf
+	brew install hadolint vale actionlint fzf mactex pandoc
 
 setup-macos: brew-pkgs nix-setup
 	bash ./macos/setup.sh

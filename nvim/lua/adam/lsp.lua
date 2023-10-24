@@ -322,7 +322,8 @@ require("conform").setup({
 	formatters_by_ft = {
 		bash = { "beautysh", "shellharden" },
 		sh = { "beautysh", "shellharden" },
-		html = { "djlintJinja" },
+		html = { "djlintJinja", "prettier" },
+		jinja = { "djlintJinja" },
 		json = { "prettier" },
 		lua = { "stylua" },
 		-- markdown = { "markdownlint" },
