@@ -12,8 +12,14 @@
   cmd = nvim -d $LOCAL $REMOTE
 
 [commit]
-  template = ~/dotfiles//git/.git_commit_template.txt
+  template = ~/dotfiles/git/.git_commit_template.txt
 
 [pull]
   rebase = false
   ff = only
+
+[alias]
+  diffs = diff --staged
+  logg = log --pretty=fuller --abbrev-commit --stat -n 5
+  loggg = log --pretty=fuller --abbrev-commit --stat --patch -n 5
+  rmf = rm -f

@@ -40,7 +40,9 @@ with pkgs; [
   efm-langserver
   exa
   flyctl
-  fzf
+  just
+  entr
+  #fzf
   gh
   hack-font
   nerdfonts
@@ -66,4 +68,5 @@ with pkgs; [
   tree
   vimPlugins.packer-nvim
   zoxide
+  ruby
 ]

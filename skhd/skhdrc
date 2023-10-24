@@ -19,6 +19,7 @@ alt + shift + ctrl + cmd - s : \
     yabai -m window --resize right:-20:0
 
 # Balance size of windows
+# alt + ctrl + cmd - 6 : yabai -m space --balance
 hyper - 6 : yabai -m space --balance
 hyper - 7 : sh $HOME/dotfiles/skhd/balance.sh
 

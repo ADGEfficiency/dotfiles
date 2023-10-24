@@ -79,3 +79,31 @@ https://github.com/stevearc/conform.nvim#formatters
 ### Nvim Lint
 
 https://github.com/mfussenegger/nvim-lint#available-linters
+
+
+## Getting Kitty to Play Nice
+
+Had weird issue with the first execution of Kitty not loading the config correctly - fixed with:
+
+```
+# ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>setenv.XDG_CONFIG_HOME</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>sh</string>
+    <string>-c</string>
+    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
+
+$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
+```

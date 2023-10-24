@@ -1,3 +1,39 @@
+-- mason setup
+local lspconfig = require("lspconfig")
+
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"pyright",
+		"tailwindcss",
+		"ruff_lsp",
+		"bashls",
+		"prosemd_lsp",
+		"marksman",
+		"lua_ls",
+		"html",
+		"docker_compose_language_service",
+		"ruff_lsp",
+		"bashls",
+		"dockerls",
+		"jsonls",
+		"prosemd_lsp",
+		"rnix",
+		"tsserver",
+		"emmet_language_server",
+		"pyright",
+		"rust_analyzer",
+		"jedi_language_server",
+		"sqlls",
+	},
+	automatic_installation = true,
+})
+
+require("mason-lspconfig").setup_handlers({
+	function(server)
+		lspconfig[server].setup({})
+	end,
+})
 -- Key Mappings
 
 local opts = { noremap = true, silent = true }
@@ -11,6 +47,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
@@ -49,13 +86,23 @@ vim.diagnostic.config({
 	underline = true,
 	severity_sort = true,
 	float = {
-		focusable = false,
+		focusable = true,
 		style = "minimal",
 		border = "rounded",
 		source = "always",
 		header = "",
 		prefix = "",
+		height = 16,
+		width = 80,
+		max_height = 32,
 	},
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "single",
+	height = 32,
+	width = 80,
+	focusable = true,
 })
 
 -- Language Server Configs
@@ -64,39 +111,85 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-require("lspconfig")["bashls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["dockerls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["jsonls"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["prosemd_lsp"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["rnix"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["tsserver"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["html"].setup({ on_attach = on_attach, flags = lsp_flags })
-require("lspconfig")["emmet_language_server"].setup({ on_attach = on_attach, flags = lsp_flags })
-
-require("lspconfig")["pyright"].setup({
+require("lspconfig")["bashls"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["sqlls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+	root_dir = function(fname)
+		return vim.loop.cwd()
+	end,
+})
+require("lspconfig")["dockerls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["jsonls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["prosemd_lsp"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["rnix"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["tsserver"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["html"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+require("lspconfig")["emmet_language_server"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+
+require("lspconfig").pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "pyright-langserver", "--stdio" },
 })
 
+require("lspconfig")["jedi_language_server"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+
 require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "tailwindcss-language-server", "--stdio" },
-	capabilities = capabilities,
 })
 
 require("lspconfig")["marksman"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	filetypes = { "markdown" },
 })
 
 require("lspconfig")["rust_analyzer"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	settings = {
 		["rust-analyzer"] = {},
@@ -105,6 +198,7 @@ require("lspconfig")["rust_analyzer"].setup({
 
 require("lspconfig")["lua_ls"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 	settings = {
 		Lua = {
@@ -123,14 +217,6 @@ require("lspconfig")["lua_ls"].setup({
 		},
 	},
 })
-
-local on_attach_efm = function(client, bufnr)
-	vim.cmd([[augroup lsp_formatting]])
-	vim.cmd([[autocmd!]])
-	vim.cmd([[autocmd BufWritePre <buffer> :lua vim.lsp.buf.format()]])
-	vim.cmd([[augroup END]])
-	vim.cmd("command! LspFormat lua vim.lsp.buf.format()")
-end
 
 -- /Users/adam/.pyenv/versions/3.10.6/envs/general/bin/
 
@@ -236,7 +322,8 @@ require("conform").setup({
 	formatters_by_ft = {
 		bash = { "beautysh", "shellharden" },
 		sh = { "beautysh", "shellharden" },
-		html = { "djlintJinja" },
+		html = { "djlintJinja", "prettier" },
+		jinja = { "djlintJinja" },
 		json = { "prettier" },
 		lua = { "stylua" },
 		-- markdown = { "markdownlint" },
@@ -257,6 +344,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 			bufnr = args.buf,
 			quiet = false,
 			lsp_fallback = false,
+			timeout_ms = 2000,
 		})
 	end,
 })
@@ -291,7 +379,7 @@ require("lint").linters_by_ft = {
 	json = { "jsonlint" },
 	html = { "djlint" },
 	docker = { "hadolint" },
-	markdown = { "vale", "markdownlint" },
+	markdown = { "markdownlint" },
 	yaml = { "actionlint", "yamllint" },
 	python = { "ruff", "mypy", "flake8", "pydocstyle" },
 	javascript = { "jshint" },

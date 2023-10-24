@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make nix-pkgs OS=linux devShell=''
-      - run: . ./nix/load-linux.sh && make test -o nix-setup OS=linux
-      - run: . ./nix/load-linux.sh && sudo -E make setup-linux -o nix-setup OS=linux
+      - run: . ./nix/load-linux.sh && make test -o setup-nix OS=linux
+      - run: . ./nix/load-linux.sh && sudo -E make setup-linux -o setup-nix OS=linux
       #  TODO having problems with zsh being available
       #  can't set $PATH correctly
       # - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux
@@ -26,4 +26,4 @@ jobs:
         with:
           node-version: 16
       - run: make nix-pkgs OS=macos
-      - run: . ./nix/load-macos.sh && make test -o nix-setup OS=macos
+      - run: . ./nix/load-macos.sh && make test -o setup-nix OS=macos
