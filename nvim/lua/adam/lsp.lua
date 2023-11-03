@@ -59,7 +59,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+	-- vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -116,6 +116,7 @@ require("lspconfig")["bashls"].setup({
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["sqlls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -124,36 +125,43 @@ require("lspconfig")["sqlls"].setup({
 		return vim.loop.cwd()
 	end,
 })
+
 require("lspconfig")["dockerls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["jsonls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["prosemd_lsp"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["rnix"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["tsserver"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["html"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+
 require("lspconfig")["emmet_language_server"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -379,7 +387,9 @@ require("lint").linters_by_ft = {
 	json = { "jsonlint" },
 	html = { "djlint" },
 	docker = { "hadolint" },
-	markdown = { "markdownlint" },
+	markdown = { "markdownlint", "codespell" },
+	jinja = { "markdownlint", "codespell" },
+	jinja2 = { "markdownlint", "codespell" },
 	yaml = { "actionlint", "yamllint" },
 	python = { "ruff", "mypy", "flake8", "pydocstyle" },
 	javascript = { "jshint" },
