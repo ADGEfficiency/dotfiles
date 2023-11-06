@@ -1,7 +1,6 @@
 #!/usr/bin/env zxpy
 import random
 
-
 if __name__ == "__main__":
     names = [
         "arjuna",

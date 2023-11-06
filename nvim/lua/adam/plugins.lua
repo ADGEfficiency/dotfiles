@@ -168,8 +168,9 @@ return packer.startup(function(use)
 	-- color highlighter
 	use({ "norcalli/nvim-colorizer.lua" })
 
+	use({ "zbirenbaum/copilot.lua" })
+
 	use({
-		"zbirenbaum/copilot.lua",
 		"zbirenbaum/copilot-cmp",
 		after = { "copilot.lua" },
 		config = function()
