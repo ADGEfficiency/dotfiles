@@ -6,7 +6,8 @@
     name = Adam Green
 
 [merge]
-    tool = nvimdiff
+  tool = nvimdiff
+  ff = false
 
 [mergetool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE
@@ -16,7 +17,6 @@
 
 [pull]
   rebase = false
-  ff = only
 
 [alias]
   diffs = diff --staged

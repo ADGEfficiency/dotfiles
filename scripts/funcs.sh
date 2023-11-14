@@ -57,7 +57,7 @@ json() {
 }
 
 csv() {
-  cat $1 | head -n 8 | column -t -s,
+  cat $1 | ov --column-delimiter "," --column-mode --column-rainbow --header 1
 }
 
 parquet() {

@@ -51,6 +51,8 @@ with pkgs; [
   beautysh
   # hadolint
   htop
+  tig
+  ov
   lazydocker
   lazygit
   neovim
