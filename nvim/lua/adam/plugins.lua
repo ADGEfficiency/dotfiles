@@ -184,6 +184,7 @@ return packer.startup(function(use)
 
 	use({ "kana/vim-textobj-user" })
 	use({ "bps/vim-textobj-python" })
+	use({ "coachshea/vim-textobj-markdown" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -232,13 +232,13 @@ require("conform").setup({
 		jinja = { "djlintJinja" },
 		json = { "prettier" },
 		lua = { "stylua" },
-		markdown = { "mdformat" },
+		-- markdown = { "mdformat" },
 		python = { "isort", "ruff_format", "ruff_lint" },
 		javascript = { "prettier" },
 		css = { "stylelint" },
 		yaml = { "yamlfix" },
 		sql = { "sql_formatter" },
-		["*"] = { "codespell", "trim_newlines", "trim_whitespace" },
+		-- ["*"] = { "codespell", "trim_newlines", "trim_whitespace" },
 	},
 })
 
