@@ -153,6 +153,20 @@ return packer.startup(function(use)
 	use("farmergreg/vim-lastplace")
 	use("axelf4/vim-strip-trailing-whitespace")
 	use({ "mbbill/undotree" })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			-- Define a custom highlight group for indent lines
+			vim.api.nvim_set_hl(0, "CustomIndent", { fg = "#6272A4" })
+			-- Setup indent-blankline with the custom highlight group
+			require("ibl").setup({
+				indent = {
+					char = "┆",
+					highlight = { "CustomIndent" }, -- Using the custom highlight group
+				},
+			})
+		end,
+	})
 
 	-- text editing - python
 	use("Vimjas/vim-python-pep8-indent")
