@@ -14,7 +14,6 @@ alias rm='rm -rf'
 
 # search
 alias g='rg -l --hidden --smart-case --line-buffered'
-alias gl='rg --hidden --smart-case --line-buffered'
 
 # moving around
 alias h='cd $HOME'

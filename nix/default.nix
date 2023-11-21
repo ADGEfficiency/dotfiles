@@ -34,7 +34,7 @@ with pkgs; [
 ]
 ++ lib.optionals devShell [
   bat
-  cbfmt
+  #cbfmt
   checkmake
   direnv
   efm-langserver
@@ -51,6 +51,8 @@ with pkgs; [
   beautysh
   # hadolint
   htop
+  tig
+  ov
   lazydocker
   lazygit
   neovim

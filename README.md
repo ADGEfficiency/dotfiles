@@ -80,7 +80,6 @@ https://github.com/stevearc/conform.nvim#formatters
 
 https://github.com/mfussenegger/nvim-lint#available-linters
 
-
 ## Getting Kitty to Play Nice
 
 Had weird issue with the first execution of Kitty not loading the config correctly - fixed with:

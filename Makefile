@@ -48,6 +48,10 @@ clean-nvim:
 # arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # alias brew='arch -x86_64 brew'
 
+setup-vim:
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	"vim" +PluginInstall +qall
+
 # nix
 
 .PHONY: setup-nix nix-pkgs

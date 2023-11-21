@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
+function gl() {
+  local pattern=$1
+  local directory=$2
+  local context_lines=${3:-0}
+  rg --hidden --smart-case --line-buffered -A "$context_lines" "$pattern" "$directory"
+}
+
 function entrr() {
     if [ $# -lt 2 ]; then
         echo "Usage: watch_and_seed <content_directory> <python_script>"
@@ -50,7 +57,7 @@ json() {
 }
 
 csv() {
-  cat $1 | head -n 8 | column -t -s,
+  cat $1 | ov --column-delimiter "," --column-mode --column-rainbow --header 1
 }
 
 parquet() {
