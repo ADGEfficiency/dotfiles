@@ -1,7 +1,7 @@
 require("copilot").setup({
 	panel = {
 		enabled = false,
-		auto_refresh = false,
+		auto_refresh = true,
 		keymap = {
 			jump_prev = "[[",
 			jump_next = "]]",
@@ -39,6 +39,6 @@ require("copilot").setup({
 		cvs = false,
 		["*"] = true,
 	},
-	copilot_node_command = "node",
+	copilot_node_command = "/Users/adam/.nix-profile/bin/node",
 	server_opts_overrides = {},
 })
