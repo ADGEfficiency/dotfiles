@@ -77,3 +77,8 @@ augroup filetype_env
   autocmd BufRead,BufNewFile .env.* setfiletype sh
 augroup END
 ]])
+
+-- turn off logging by default for lsp
+vim.lsp.set_log_level("off")
+-- can turn on with
+vim.lsp.set_log_level("debug")

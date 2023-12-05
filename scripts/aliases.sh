@@ -114,6 +114,8 @@ alias gnb='git checkout -b'
 alias gp='git push origin '
 alias gs='git status'
 alias nbg='git checkout -b'
+alias gss='git stash'
+alias gsa='git stash apply'
 
 # tmux
 alias ta='tmux attach'

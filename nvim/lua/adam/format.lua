@@ -12,7 +12,11 @@ require("conform").setup({
 		css = { "stylelint" },
 		yaml = { "yamlfix" },
 		sql = { "sql_formatter" },
-		-- ["*"] = { "codespell", "trim_newlines", "trim_whitespace" },
+		["*"] = {
+			"codespell",
+			"trim_newlines",
+			-- "trim_whitespace"
+		},
 	},
 })
 
