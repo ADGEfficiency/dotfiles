@@ -32,10 +32,20 @@ remote() {
   git remote set-url origin $1
 }
 
+#  show a random quote
+#  uses a file from my personal git repo which I put in ~/personal
+quote () {
+  QUOTES="$HOME/personal/lists/quotes.md"
+  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+  LINE=$((1 + RANDOM % $NUM_LINES))
+  echo $(sed -n ${LINE}p ${QUOTES})
+ }
+
+
 #  virtual envs
 
 #  make a pyenv virtual env
-#  `$ make_env 3.10.6 nemdata`
+#  $ make_env 3.10.6 nemdata
 make_env() {
   VERSION=$1
   NAME=$2
@@ -52,9 +62,12 @@ make_env_pip() {
 	pip install -r requirements.txt
 }
 
+#  delete a pyenv virtual env
+#  $ delete_env nemdata
 delete_env() {
   pyenv virtualenv-delete $1
 }
+
 
 #  utilities for viewing files
 
@@ -78,6 +91,7 @@ parquets3() {
   python -ic "from feeds.grid_io.files import S3Parquet; df = S3Parquet('${1}', '${2}').read(); print(df.columns); print(df.iloc[:3, :7])"
 }
 
+
 #  ssh tunnels
 
 #  with key
@@ -95,6 +109,7 @@ tunnelnk() {
   ssh -N -L "localhost:${port}:localhost:${port}" $userhost
 }
 
+
 #  tmux
 
 tn () {
@@ -103,6 +118,7 @@ tn () {
     tmux new -s $NAME -c $(pwd)
 }
 alias t='tn'
+
 
 #  docker
 
@@ -143,14 +159,3 @@ docker-ls () {
 docker-exec-last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
-
-#  misc
-
-#  show a random quote
-#  uses a file from my personal git repo which I put in ~/personal
-quote () {
-  QUOTES="$HOME/personal/lists/quotes.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
