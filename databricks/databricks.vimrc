@@ -118,7 +118,7 @@ hi clear ALEWarning
 hi ALEWarning cterm=bold ctermfg=red
 
 
-" filetype specific
+" FILETYPE
 
 autocmd FileType python setlocal expandtab colorcolumn=100 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
@@ -143,6 +143,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
 
 au BufRead,BufNewFile *.web set filetype=Dockerfile
+
 
 " MACROS
 
@@ -203,7 +204,7 @@ ab period period
 
 " MISC
 
-" Return to last edit position when opening files
+" return to last edit position when opening files
 augroup return_to_last_edit_position
   autocmd!
   autocmd BufReadPost *

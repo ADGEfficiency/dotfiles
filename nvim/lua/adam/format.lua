@@ -6,6 +6,7 @@ require("conform").setup({
 		jinja = { "djlintJinja" },
 		json = { "prettier" },
 		lua = { "stylua" },
+    go = {"gofmt"},
 		-- markdown = { "mdformat" },
 		python = { "isort", "ruff_format", "ruff_lint" },
 		javascript = { "prettier" },
