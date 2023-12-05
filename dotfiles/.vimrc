@@ -60,9 +60,30 @@ call vundle#end()
 filetype plugin indent on
 
 
+" VISUAL
+
+set background=dark
+colorscheme dracula
+
+"" must be after colo!
+hi clear SpellBad
+hi SpellBad cterm=bold ctermfg=red
+hi clear SpellRare
+hi SpellRare cterm=bold ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=bold ctermfg=red
+hi clear SpellLocal
+hi SpellLocal cterm=bold ctermfg=red
+hi clear ALEERROR
+hi ALEError cterm=bold ctermfg=red
+hi clear ALEWarning
+hi ALEWarning cterm=bold ctermfg=red
+
+
 " GENERAL
 
 syntax enable
+set expandtab
 set cursorline
 set number
 set norelativenumber
@@ -165,25 +186,16 @@ nnoremap ,k :ls<CR>:b<Space>
 nnoremap ,j :Files .<CR>
 nnoremap <A-Space> :Files .<CR>
 
+:cnoremap qb bd
 
-" VISUAL
+"  run file
+map <F5> :!python %:p <enter>
+" run block
+map <F9> :'<,'>w !python <enter>
 
-set background=dark
-colorscheme dracula
-
-"" must be after colo!
-hi clear SpellBad
-hi SpellBad cterm=bold ctermfg=red
-hi clear SpellRare
-hi SpellRare cterm=bold ctermfg=red
-hi clear SpellCap
-hi SpellCap cterm=bold ctermfg=red
-hi clear SpellLocal
-hi SpellLocal cterm=bold ctermfg=red
-hi clear ALEERROR
-hi ALEError cterm=bold ctermfg=red
-hi clear ALEWarning
-hi ALEWarning cterm=bold ctermfg=red
+map <F6> :1,$d <enter>
+map <F7> :%y+ <enter>
+map <F8> :e ~/dotfiles/.vimrc <enter>
 
 
 " PLUGIN CONFIGS
@@ -296,9 +308,47 @@ let g:javascript_plugin_chain_indent = 1
 "" python syntax
 let g:python_highlight_all = 1
 
-" filetype specific
+" ale
+let g:ale_disable_lsp = 1
+let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 0
 
-set expandtab
+" black on save
+autocmd BufWritePost *.py silent! execute ':Black'
+
+" js-beautify on save
+autocmd BufWritePost *.js silent! execute ':%!js-beautify  --indent-size 2'
+
+ let g:ale_linters = {
+ \   'css': ['csslint'],
+ \   'html': ['tidy'],
+ \   'javascript': ['eslint'],
+ \   'python': ['flake8'],
+ \}
+
+let g:sql_type_default = 'pqsql'
+
+"  make copen open after vimgrep
+"  https://stackoverflow.com/questions/43953589/chaining-vimgrep-and-copen-with-vim
+" create a self-clearing autocommand group called 'qf'
+augroup qf
+    " clear all autocommands in this group
+    autocmd!
+
+    " do :cwindow if the quickfix command doesn't start
+    " with a 'l' (:grep, :make, etc.)
+    autocmd QuickFixCmdPost [^l]* cwindow
+
+    " do :lwindow if the quickfix command starts with
+    " a 'l' (:lgrep, :lmake, etc.)
+    autocmd QuickFixCmdPost l*    lwindow
+
+    " do :cwindow when Vim was started with the '-q' flag
+    autocmd VimEnter        *     cwindow
+augroup END
+
+
+" FILETYPES
 
 autocmd FileType python setlocal expandtab colorcolumn=100 ts=4 sw=4 sts=4
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
@@ -324,6 +374,7 @@ autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
 
 au BufRead,BufNewFile *.web set filetype=Dockerfile
 
+
 " MACROS
 
 let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
@@ -333,20 +384,6 @@ let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\from pathlib import Path\<cr>\<esc>\<cr>\<tab>"
 
 let @c="V<<<<<jmak:.m90€kb€kb0`ak"
-
-
-"  SHORTCUTS
-
-"  run file
-map <F5> :!python %:p <enter>
-" run block
-map <F9> :'<,'>w !python <enter>
-
-map <F6> :1,$d <enter>
-map <F7> :%y+ <enter>
-map <F8> :e ~/dotfiles/.vimrc <enter>
-
-:cnoremap qb bd
 
 
 " ABBREVIATIONS
@@ -405,43 +442,4 @@ augroup return_to_last_edit_position
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal! g`\"" |
         \ endif
-augroup END
-
-" ale
-let g:ale_disable_lsp = 1
-let g:ale_set_highlights = 0
-let g:ale_sign_column_always = 0
-
-" black on save
-autocmd BufWritePost *.py silent! execute ':Black'
-
-" js-beautify on save
-autocmd BufWritePost *.js silent! execute ':%!js-beautify  --indent-size 2'
-
- let g:ale_linters = {
- \   'css': ['csslint'],
- \   'html': ['tidy'],
- \   'javascript': ['eslint'],
- \   'python': ['flake8'],
- \}
-
-let g:sql_type_default = 'pqsql'
-
-"  make copen open after vimgrep
-"  https://stackoverflow.com/questions/43953589/chaining-vimgrep-and-copen-with-vim
-" create a self-clearing autocommand group called 'qf'
-augroup qf
-    " clear all autocommands in this group
-    autocmd!
-
-    " do :cwindow if the quickfix command doesn't start
-    " with a 'l' (:grep, :make, etc.)
-    autocmd QuickFixCmdPost [^l]* cwindow
-
-    " do :lwindow if the quickfix command starts with
-    " a 'l' (:lgrep, :lmake, etc.)
-    autocmd QuickFixCmdPost l*    lwindow
-
-    " do :cwindow when Vim was started with the '-q' flag
-    autocmd VimEnter        *     cwindow
 augroup END
