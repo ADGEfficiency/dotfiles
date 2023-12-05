@@ -33,7 +33,6 @@ alias tree='exa --tree --ignore-glob="*pycache*"'
 alias bat='bat --color=always --paging=always'
 alias cp='cp -r '
 alias df='df -h'
-alias sed='gsed'
 
 # servers
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'

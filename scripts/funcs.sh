@@ -1,13 +1,18 @@
 #!/usr/bin/env zsh
 
-function gl() {
+# a collection of Bash functions
+
+# grep with a few more lines
+# $ gl todo ~/code
+gl() {
   local pattern=$1
   local directory=$2
   local context_lines=${3:-0}
   rg --hidden --smart-case --line-buffered -A "$context_lines" "$pattern" "$directory"
 }
 
-function entrr() {
+# re-run a shell command every time after a file changes in directory
+entrr() {
     if [ $# -lt 2 ]; then
         echo "Usage: watch_and_seed <content_directory> <python_script>"
         return 1
@@ -17,6 +22,7 @@ function entrr() {
     ls "$directory"/* | entr -s "$cmd"
 }
 
+# open a todo note
 todo() {
   bash ~/dotfiles/scripts/todo.sh $1
 }
@@ -141,9 +147,9 @@ docker-exec-last () {
 #  misc
 
 #  show a random quote
-#  uses a file from my personal git repo ~/personal
+#  uses a file from my personal git repo which I put in ~/personal
 quote () {
-  QUOTES="$HOME/personal/lists/quotes_snippets.md"
+  QUOTES="$HOME/personal/lists/quotes.md"
   NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
   LINE=$((1 + RANDOM % $NUM_LINES))
   echo $(sed -n ${LINE}p ${QUOTES})
