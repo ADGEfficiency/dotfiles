@@ -32,7 +32,7 @@ alias ctree='clear && tree'
 # alias tree='exa --tree --ignore-glob="*pycache*"'
 
 # lsd
-alias ll='lsd -G --group-directories-first'
+alias ll='lsd --group-directories-first'
 alias ls='lsd --long --icon always --git --date relative --group-directories-first -a'
 alias tree='lsd --tree --ignore-glob="*pycache*"'
 
