@@ -1,4 +1,5 @@
- vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
  augroup markdown
      autocmd FileType markdown setlocal syntax=markdown
      autocmd FileType markdown setlocal spell spelllang=en_nz spellfile=~/dotfiles/nvim/spell/en.utf-8.add
@@ -10,5 +11,12 @@
      autocmd FileType markdown syntax keyword Todo TODO DONE
      set complete+=k
  augroup end
- ]], false)
- vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
+ ]],
+	false
+)
+vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
+
+vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+	pattern = "*.bats",
+	command = "set filetype=sh",
+})
