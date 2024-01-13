@@ -1,13 +1,18 @@
 #!/usr/bin/env zsh
 
-function gl() {
+# a collection of Bash functions
+
+# grep with a few more lines
+# $ gl todo ~/code
+gl() {
   local pattern=$1
   local directory=$2
   local context_lines=${3:-0}
   rg --hidden --smart-case --line-buffered -A "$context_lines" "$pattern" "$directory"
 }
 
-function entrr() {
+# re-run a shell command every time after a file changes in directory
+entrr() {
     if [ $# -lt 2 ]; then
         echo "Usage: watch_and_seed <content_directory> <python_script>"
         return 1
@@ -17,6 +22,7 @@ function entrr() {
     ls "$directory"/* | entr -s "$cmd"
 }
 
+# open a todo note
 todo() {
   bash ~/dotfiles/scripts/todo.sh $1
 }
@@ -26,10 +32,20 @@ remote() {
   git remote set-url origin $1
 }
 
+#  show a random quote
+#  uses a file from my personal git repo which I put in ~/personal
+quote () {
+  QUOTES="$HOME/personal/lists/quotes.md"
+  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
+  LINE=$((1 + RANDOM % $NUM_LINES))
+  echo $(sed -n ${LINE}p ${QUOTES})
+ }
+
+
 #  virtual envs
 
 #  make a pyenv virtual env
-#  `$ make_env 3.10.6 nemdata`
+#  $ make_env 3.10.6 nemdata
 make_env() {
   VERSION=$1
   NAME=$2
@@ -46,9 +62,12 @@ make_env_pip() {
 	pip install -r requirements.txt
 }
 
+#  delete a pyenv virtual env
+#  $ delete_env nemdata
 delete_env() {
   pyenv virtualenv-delete $1
 }
+
 
 #  utilities for viewing files
 
@@ -72,6 +91,7 @@ parquets3() {
   python -ic "from feeds.grid_io.files import S3Parquet; df = S3Parquet('${1}', '${2}').read(); print(df.columns); print(df.iloc[:3, :7])"
 }
 
+
 #  ssh tunnels
 
 #  with key
@@ -89,6 +109,7 @@ tunnelnk() {
   ssh -N -L "localhost:${port}:localhost:${port}" $userhost
 }
 
+
 #  tmux
 
 tn () {
@@ -97,6 +118,7 @@ tn () {
     tmux new -s $NAME -c $(pwd)
 }
 alias t='tn'
+
 
 #  docker
 
@@ -137,14 +159,3 @@ docker-ls () {
 docker-exec-last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
-
-#  misc
-
-#  show a random quote
-#  uses a file from my personal git repo ~/personal
-quote () {
-  QUOTES="$HOME/personal/lists/quotes_snippets.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }

@@ -20,11 +20,11 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export AWS_LOG_LEVEL=3
 
 # load my functions and aliases
-source $HOME/dotfiles/scripts/funcs.sh
-source $HOME/dotfiles/scripts/aliases.sh
+source "$HOME"/dotfiles/scripts/funcs.sh
+source "$HOME"/dotfiles/scripts/aliases.sh
 
 # fzf bash hook
-source $HOME/dotfiles/.fzf.bash
+source "$HOME"/dotfiles/.fzf.bash
 
 # pyenv
 source "$HOME/dotfiles/macos/pyenv-flags"

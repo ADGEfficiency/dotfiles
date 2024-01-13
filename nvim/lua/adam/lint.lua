@@ -6,7 +6,7 @@ require("lint").linters_by_ft = {
 	jinja = { "markdownlint", "codespell" },
 	jinja2 = { "markdownlint", "codespell" },
 	yaml = { "actionlint", "yamllint" },
-	python = { "ruff", "mypy", "flake8", "pydocstyle" },
+	python = { "ruff", "mypy", "flake8", "pydocstyle", "pylint" },
 	javascript = { "jshint" },
 }
 
