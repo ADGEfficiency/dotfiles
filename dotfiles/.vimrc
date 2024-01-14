@@ -60,9 +60,30 @@ call vundle#end()
 filetype plugin indent on
 
 
+" VISUAL
+
+set background=dark
+colorscheme dracula
+
+"" must be after colo!
+hi clear SpellBad
+hi SpellBad cterm=bold ctermfg=red
+hi clear SpellRare
+hi SpellRare cterm=bold ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=bold ctermfg=red
+hi clear SpellLocal
+hi SpellLocal cterm=bold ctermfg=red
+hi clear ALEERROR
+hi ALEError cterm=bold ctermfg=red
+hi clear ALEWarning
+hi ALEWarning cterm=bold ctermfg=red
+
+
 " GENERAL
 
 syntax enable
+set expandtab
 set cursorline
 set number
 set norelativenumber
@@ -165,25 +186,16 @@ nnoremap ,k :ls<CR>:b<Space>
 nnoremap ,j :Files .<CR>
 nnoremap <A-Space> :Files .<CR>
 
+:cnoremap qb bd
 
-" VISUAL
+"  run file
+map <F5> :!python %:p <enter>
+" run block
+map <F9> :'<,'>w !python <enter>
 
-set background=dark
-colorscheme dracula
-
-"" must be after colo!
-hi clear SpellBad
-hi SpellBad cterm=bold ctermfg=red
-hi clear SpellRare
-hi SpellRare cterm=bold ctermfg=red
-hi clear SpellCap
-hi SpellCap cterm=bold ctermfg=red
-hi clear SpellLocal
-hi SpellLocal cterm=bold ctermfg=red
-hi clear ALEERROR
-hi ALEError cterm=bold ctermfg=red
-hi clear ALEWarning
-hi ALEWarning cterm=bold ctermfg=red
+map <F6> :1,$d <enter>
+map <F7> :%y+ <enter>
+map <F8> :e ~/dotfiles/.vimrc <enter>
 
 
 " PLUGIN CONFIGS
@@ -296,117 +308,6 @@ let g:javascript_plugin_chain_indent = 1
 "" python syntax
 let g:python_highlight_all = 1
 
-" filetype specific
-
-set expandtab
-
-autocmd FileType python setlocal expandtab colorcolumn=100 ts=4 sw=4 sts=4
-autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
-autocmd Filetype sh setlocal ts=2 sw=2 expandtab
-au BufRead,BufNewFile *.html set filetype=html
-autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2 smarttab cindent
-autocmd Filetype html setlocal ts=2 sw=2 sts=2
-
-augroup markdown
-    autocmd!
-    autocmd FileType markdown setlocal spell spelllang=en_nz
-    autocmd FileType markdown setlocal noautoindent
-    autocmd FileType markdown setlocal nosmartindent
-    autocmd FileType markdown setlocal expandtab
-	  autocmd FileType markdown let g:indentLine_enabled=0
-	  autocmd FileType markdown setlocal conceallevel=0
-    set complete+=k
-augroup end
-
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
-
-au BufRead,BufNewFile *.web set filetype=Dockerfile
-
-" MACROS
-
-let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
-let @p="A\<cr>breakpoint()\<esc>"
-let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
-let @s="i#!/usr/bin/env bash"
-let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\from pathlib import Path\<cr>\<esc>\<cr>\<tab>"
-
-let @c="V<<<<<jmak:.m90€kb€kb0`ak"
-
-
-"  SHORTCUTS
-
-"  run file
-map <F5> :!python %:p <enter>
-" run block
-map <F9> :'<,'>w !python <enter>
-
-map <F6> :1,$d <enter>
-map <F7> :%y+ <enter>
-map <F8> :e ~/dotfiles/.vimrc <enter>
-
-:cnoremap qb bd
-
-
-" ABBREVIATIONS
-
-ab uncertanity uncertainty
-ab uncertantity uncertainty
-ab impementing implementing
-ab reccomendations recommendations
-ab recongizing recognizing
-ab parameterizing parametrizing
-ab parameterize parametrize
-ab commmunication communication
-ab specifc specific
-ab probabilities probabilities
-ab horizion horizon
-ab repititon repetition
-ab contraditions contradictions
-ab unprecented unprecedented
-ab specalization specialization
-ab recieved received
-ab recieves receives
-ab eaisly easily
-ab detailled detailed
-ab gurantee guarantee
-ab guranteed guaranteed
-ab gurantees guarantees
-ab convienent convenient
-ab convienet convenient
-ab graident gradient
-ab differnet different
-ab determinsitc deterministic
-ab reccomended recommended
-ab artifical artificial
-ab recongition recognition
-ab eaiser easier
-ab typicial typical
-ab certantity certainty
-ab amoung among
-ab oppourtunity opportunity
-ab stragety strategy
-ab strageties strategies
-ab intitution intuition
-ab infomation information
-ab timestup timestep
-ab tow two
-ab inline in-line
-ab peroid period
-
-
-" MISC
-
-" Return to last edit position when opening files
-augroup return_to_last_edit_position
-  autocmd!
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-augroup END
-
 " ale
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
@@ -444,4 +345,101 @@ augroup qf
 
     " do :cwindow when Vim was started with the '-q' flag
     autocmd VimEnter        *     cwindow
+augroup END
+
+
+" FILETYPES
+
+autocmd FileType python setlocal expandtab colorcolumn=100 ts=4 sw=4 sts=4
+autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
+autocmd Filetype sh setlocal ts=2 sw=2 expandtab
+au BufRead,BufNewFile *.html set filetype=html
+autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2 smarttab cindent
+autocmd Filetype html setlocal ts=2 sw=2 sts=2
+
+augroup markdown
+    autocmd!
+    autocmd FileType markdown setlocal spell spelllang=en_nz
+    autocmd FileType markdown setlocal noautoindent
+    autocmd FileType markdown setlocal nosmartindent
+    autocmd FileType markdown setlocal expandtab
+	  autocmd FileType markdown let g:indentLine_enabled=0
+	  autocmd FileType markdown setlocal conceallevel=0
+    set complete+=k
+augroup end
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab conceallevel=0
+
+au BufRead,BufNewFile *.web set filetype=Dockerfile
+
+
+" MACROS
+
+let @p="A\<cr>import pdb; pdb.set_trace()\<esc>"
+let @p="A\<cr>breakpoint()\<esc>"
+let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
+let @s="i#!/usr/bin/env bash"
+let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\from pathlib import Path\<cr>\<esc>\<cr>\<tab>"
+
+let @c="V<<<<<jmak:.m90€kb€kb0`ak"
+
+
+" ABBREVIATIONS
+
+ab uncertanity uncertainty
+ab uncertantity uncertainty
+ab implementing implementing
+ab recommendations recommendations
+ab recongizing recognizing
+ab parameterizing parametrizing
+ab parameterize parametrize
+ab communication communication
+ab specific specific
+ab probabilities probabilities
+ab horizion horizon
+ab repititon repetition
+ab contraditions contradictions
+ab unprecented unprecedented
+ab specalization specialization
+ab received received
+ab receives receives
+ab eaisly easily
+ab detailed detailed
+ab guarantee guarantee
+ab guaranteed guaranteed
+ab guarantees guarantees
+ab convenient convenient
+ab convienet convenient
+ab graident gradient
+ab different different
+ab determinsitc deterministic
+ab recommended recommended
+ab artificial artificial
+ab recongition recognition
+ab easier easier
+ab typicial typical
+ab certantity certainty
+ab among among
+ab oppourtunity opportunity
+ab strategy strategy
+ab strategies strategies
+ab intitution intuition
+ab information information
+ab timestup timestep
+ab tow two
+ab inline in-line
+ab period period
+
+
+" MISC
+
+" Return to last edit position when opening files
+augroup return_to_last_edit_position
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 augroup END

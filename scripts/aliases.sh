@@ -25,15 +25,21 @@ alias c='clear'
 alias cll='clear && ll'
 alias cls='clear && ls'
 alias ctree='clear && tree'
-alias ll='exa -G --icons --group-directories-first -a'
-alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
-alias tree='exa --tree --ignore-glob="*pycache*"'
+
+# exa
+# alias ll='"ls" -G'
+# alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
+# alias tree='exa --tree --ignore-glob="*pycache*"'
+
+# lsd
+alias ll='lsd --group-directories-first'
+alias ls='lsd --long --icon always --git --date relative --group-directories-first -a'
+alias tree='lsd --tree --ignore-glob="*pycache*"'
 
 # program customization
 alias bat='bat --color=always --paging=always'
 alias cp='cp -r '
 alias df='df -h'
-alias sed='gsed'
 
 # servers
 alias je='bundle exec jekyll serve > /dev/null 2>&1 &'
@@ -51,10 +57,6 @@ alias ipy='ipython'
 alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
 alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
-
-# nb
-alias nbtree='exa --tree ~/.nb'
-alias nbls='nb ls --paths --filenames --no-indicators'
 
 # files
 alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'

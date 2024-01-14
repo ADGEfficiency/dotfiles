@@ -44,6 +44,9 @@ with pkgs; [
   entr
   #fzf
   gh
+  go
+  lsd
+  httpie
   hack-font
   nerdfonts
   pandoc
