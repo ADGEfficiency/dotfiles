@@ -1,3 +1,8 @@
+-- Language Server Protocol (LSP) Settings
+--
+-- Turn off logging by default for LSP
+vim.lsp.set_log_level("off")
+-- You can turn logging on with 'vim.lsp.set_log_level("debug")'
 -- mason setup
 local lspconfig = require("lspconfig")
 

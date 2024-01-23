@@ -1,75 +1,123 @@
--- :help options
-vim.opt.backup = false -- creates a backup file
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
-vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
-vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
-vim.opt.fileencoding = "utf-8" -- the encoding written to a file
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
-vim.opt.incsearch = true -- incrementally search
-vim.opt.ignorecase = true -- ignore case in search patterns
-vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2 -- always show tabs
-vim.opt.smartcase = true -- smart case
-vim.opt.smartindent = true -- make indenting smarter again
-vim.opt.splitbelow = true -- force all horizontal splits to go below current window
-vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.swapfile = false -- creates a swapfile
-vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.undofile = true -- enable persistent undo
+-- Options
+
+-- File Handling Options
+-- Disable backup files
+vim.opt.backup = false
+
+-- Clipboard and Display Options
+-- Use system clipboard for copy-paste
+vim.opt.clipboard = "unnamedplus"
+-- Increase command line height for displaying messages
+vim.opt.cmdheight = 1
+-- Mostly used for cmp (completion)
+vim.opt.completeopt = { "menuone", "noselect" }
+
+-- File Encoding and Conceal Options
+-- Ensure that `` is visible in markdown files
+vim.opt.conceallevel = 0
+-- Set the encoding written to a file
+vim.opt.fileencoding = "utf-8"
+
+-- Search and Highlighting Options
+-- Highlight all matches on previous search pattern
+vim.opt.hlsearch = true
+-- Incrementally search
+vim.opt.incsearch = true
+-- Ignore case in search patterns
+vim.opt.ignorecase = true
+
+-- Text Editing Options
+-- Show tabs and spaces using Vim's list feature
+vim.opt.list = true
+vim.opt.listchars = "tab:>-"
+-- Set the spelling language for spell checking
+vim.opt.spell.spellang = "en_nz"
+-- Automatically open quickfix list after running :make
+vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
+
+-- Mouse and Pop-Up Menu Options
+-- Allow the mouse to be used in Neovim
+vim.opt.mouse = "a"
+-- Set pop-up menu height
+vim.opt.pumheight = 0
+
+-- Interface and Display Options
+-- Disable showing things like -- INSERT --
+vim.opt.showmode = false
+-- Always show tabs in the tabline
+vim.opt.showtabline = 2
+-- Enable smart case in searches
+vim.opt.smartcase = true
+-- Make indenting smarter
+vim.opt.smartindent = true
+-- Force all horizontal splits to go below the current window
+vim.opt.splitbelow = true
+-- Force all vertical splits to go to the right of the current window
+vim.opt.splitright = true
+
+-- Swap File and GUI Options
+-- Disable swap file creation
+vim.opt.swapfile = false
+-- Set term GUI colors (most terminals support this)
+vim.opt.termguicolors = true
+
+-- Undo Options
+-- Enable persistent undo
+vim.opt.undofile = true
+-- Set the directory for persistent undo files
 vim.opt.undodir = vim.fn.expand("~/.vimundo/")
-vim.opt.updatetime = 80 -- faster completion (4000ms default)
-vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.number = true -- set numbered lines
-vim.opt.relativenumber = false -- set relative numbered lines
-vim.opt.numberwidth = 4 -- set number column width
-vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false -- display lines as one long line
-vim.opt.scrolloff = 4 -- always have more than n lines at the top & bottom
-vim.opt.sidescrolloff = 0
-vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+-- Faster completion (default is 4000ms)
+vim.opt.updatetime = 80
+-- Prevent editing files simultaneously by another program
+vim.opt.writebackup = false
 
-vim.opt.backspace = "indent,eol,start"
-vim.opt.wildignore = "+=*.egg-info/**"
-vim.opt.wildmenu = true
-vim.opt.wrap = true
+-- Indentation and Tab Options
+-- Convert tabs to spaces
+vim.opt.expandtab = true
+-- Number of spaces inserted for each indentation level
+vim.opt.shiftwidth = 2
+-- Insert 2 spaces for a tab
+vim.opt.tabstop = 2
 
+-- Line and Column Display Options
+-- Highlight the current line
+vim.opt.cursorline = true
+-- Show line numbers
+vim.opt.number = true
+-- Disable relative line numbers
+vim.opt.relativenumber = false
+-- Set number column width
+vim.opt.numberwidth = 4
+-- Always show the sign column, prevents text shifting
+vim.opt.signcolumn = "yes"
+-- Disable line wrapping
+vim.opt.wrap = false
 -- global status bar (bottom one)
 vim.opt.laststatus = 3
 
-vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
+-- Scrolling Options
+-- Always have more than 4 lines at the top & bottom
+vim.opt.scrolloff = 4
+vim.opt.sidescrolloff = 0
+-- Enable line wrapping
+vim.opt.wrap = true
 
-vim.g["undotree_SetFocusWhenToggle"] = 1
-vim.g["undotree_DiffAutoOpen"] = 0
-vim.g["undotree_ShortIndicators"] = 1
+-- GUI Font Option (for graphical Neovim applications)
+vim.opt.guifont = "monospace:h17"
 
--- format on save
-vim.cmd([[autocmd BufWritePost *.py silent! execute ':Format']])
+-- Backspace and Wildmenu Options
+-- Define backspace behavior
+vim.opt.backspace = "indent,eol,start"
+-- Specify patterns to ignore during wildcard expansion
+vim.opt.wildignore = "+=*.egg-info/**"
+-- Enable wildmenu for command-line completion
+vim.opt.wildmenu = true
 
--- highlighting of spelling mistakes
-vim.cmd([[hi! link SpellBad ErrorMsg]])
+-- Set the path to the Python executable for Neovim's Python3 provider
+-- vim.g["python3_host_prog"] = "~/.pyenv/versions/general/bin/python"
 
--- show tabs and spaces
-vim.opt.list = true
-vim.opt.listchars = "tab:>-"
-
-vim.opt.spell.spellang = "en_nz"
-
-vim.g["vim_markdown_no_default_key_mappings"] = 1
-
-vim.g["copilot_node_command"] = "/Users/adam/dotfiles/nvm/versions/node/v16.17.0/bin/node"
-
--- automatically open quickfix list after :make
-vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
-
--- highlight .env-* files as sh
+-- Filetype Specific
+-- Detect .env-* files and set their filetype to sh
 vim.cmd([[
 augroup filetype_env
   autocmd!
@@ -77,8 +125,47 @@ augroup filetype_env
   autocmd BufRead,BufNewFile .env.* setfiletype sh
 augroup END
 ]])
+-- Format Python files on save
+vim.cmd([[autocmd BufWritePost *.py silent! execute ':Format']])
 
--- turn off logging by default for lsp
-vim.lsp.set_log_level("off")
--- can turn on with
-vim.lsp.set_log_level("debug")
+-- Markdown config
+-- Clear previous syntax highlighting
+-- Setup indenting
+vim.api.nvim_exec(
+	[[
+ augroup markdown
+     autocmd FileType markdown setlocal syntax=markdown
+     autocmd FileType markdown setlocal spell spelllang=en_nz spellfile=~/dotfiles/nvim/spell/en.utf-8.add
+     autocmd FileType markdown setlocal noautoindent
+     autocmd FileType markdown setlocal nosmartindent
+     autocmd FileType markdown setlocal expandtab
+     autocmd FileType markdown let g:indentLine_enabled=0
+     autocmd FileType markdown syntax keyword Todo TODO DONE
+     set complete+=k
+ augroup end
+ ]],
+	false
+)
+-- Set the filetype for *.jinja files to jinja.html
+vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
+-- Set the filetype for *.bats files to sh
+vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+	pattern = "*.bats",
+	command = "set filetype=sh",
+})
+
+-- Vim Markdown Plugin Settings
+-- Disable default key mappings for vim-markdown
+vim.g["vim_markdown_no_default_key_mappings"] = 1
+
+-- Co-pilot Plugin Settings
+-- Set the path to the Node.js executable for Co-pilot
+vim.g["copilot_node_command"] = "/Users/adam/dotfiles/nvm/versions/node/v16.17.0/bin/node"
+--
+-- Undotree Plugin Settings
+-- Set undotree to focus when toggled
+vim.g["undotree_SetFocusWhenToggle"] = 1
+-- Disable automatic opening of the undotree diff window
+vim.g["undotree_DiffAutoOpen"] = 0
+-- Use short indicators in the undotree
+vim.g["undotree_ShortIndicators"] = 1

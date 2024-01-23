@@ -1,3 +1,5 @@
+-- Plugin Management
+
 local fn = vim.fn
 
 -- Automatically install packer
@@ -29,7 +31,7 @@ if not status_ok then
 	return
 end
 
--- Have packer use a popup window
+-- Initialize Packer.nvim with a floating window display
 packer.init({
 	display = {
 		open_fn = function()
@@ -38,8 +40,9 @@ packer.init({
 	},
 })
 
+-- Plugin list
 return packer.startup(function(use)
-	-- packer manages itself
+	-- Packer manages itself
 	use({
 		"wbthomason/packer.nvim",
 		"nvim-lua/popup.nvim",
@@ -47,27 +50,16 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-tree/nvim-web-devicons" })
 
-	-- lsp + mason
-	-- lsp configures the servers
-	-- mason sets up the servers
+	-- LSP configures the servers
+	-- Mason sets up the servers
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 		run = ":MasonUpdate",
 	})
-	-- use("ray-x/lsp_signature.nvim")
 
-	use({
-		"stevearc/conform.nvim",
-		config = function()
-			require("conform").setup()
-		end,
-	})
-
-	use({ "mfussenegger/nvim-lint" })
-
-	-- LSP diagnostics list
+	-- Trouble
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -83,29 +75,44 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- top bar - buffers
+	-- Formatting
+	use({
+		"stevearc/conform.nvim",
+		config = function()
+			require("conform").setup()
+		end,
+	})
+
+	-- Linting
+	use({ "mfussenegger/nvim-lint" })
+
+	-- Buffers in top bar
 	use({
 		"romgrk/barbar.nvim",
 		requires = "nvim-web-devicons",
 	})
 
-	-- bottom bar - status line
+	-- Status line in bottom bar
 	use({ "nvim-lualine/lualine.nvim" })
 
-	-- greeter
+	-- Greeter
 	use({ "goolord/alpha-nvim" })
 
-	-- treesitter for syntax highlighting
+	-- Treesitter for syntax highlighting
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
-	-- colormaps
+	-- Colormaps
 	use("sainnhe/everforest")
 	use("dracula/vim")
 	use("catppuccin/nvim")
 	use("sam4llis/nvim-tundra")
 	use("rebelot/kanagawa.nvim")
+	use("folke/tokyonight.nvim")
 
-	-- completion with cmp
+	-- Copilot
+	use({ "zbirenbaum/copilot.lua" })
+
+	-- Completion with CMP
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -117,13 +124,20 @@ return packer.startup(function(use)
 	use("David-Kunz/cmp-npm")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("amarakon/nvim-cmp-buffer-lines")
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	})
 
-	-- snippets
+	-- Snippets
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
 
-	-- searching with telescope
+	-- Searching with Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -131,18 +145,15 @@ return packer.startup(function(use)
 	})
 	use({ "ptethng/telescope-makefile" })
 
-	-- searching with grepper
+	-- Searching with Grepper
 	use({ "mhinz/vim-grepper" })
 
-	-- showing potential keyboard shortcuts
-	use("folke/which-key.nvim")
-
-	-- buffer / window management
+	-- Buffer and window management
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "simeji/winresizer" })
 	use({ "qpkorr/vim-bufkill" })
 
-	-- text editing
+	-- Text Editing
 	use("tpope/vim-commentary")
 	use("windwp/nvim-autopairs")
 	use("FooSoft/vim-argwrap")
@@ -167,38 +178,22 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+	use({ "norcalli/nvim-colorizer.lua" })
+	use({ "windwp/nvim-ts-autotag" })
+	use({ "kana/vim-textobj-user" })
 
-	-- text editing - python
+	-- Text editing - Python
 	use("Vimjas/vim-python-pep8-indent")
+	use({ "bps/vim-textobj-python" })
 
-	--- text editing - markdown
+	--- Text editing - Markdown
+	use({ "coachshea/vim-textobj-markdown" })
 	use("dhruvasagar/vim-table-mode")
 	use("dkarter/bullets.vim")
 
-	--- text editing - html
+	--- Text editing - HTML
 	use({ "alvan/vim-closetag" })
 	use({ "Glench/Vim-Jinja2-Syntax" })
-
-	-- color highlighter
-	use({ "norcalli/nvim-colorizer.lua" })
-
-	use({ "zbirenbaum/copilot.lua" })
-
-	use({
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	})
-
-	use({ "windwp/nvim-ts-autotag" })
-
-	use({ "NoahTheDuke/vim-just" })
-
-	use({ "kana/vim-textobj-user" })
-	use({ "bps/vim-textobj-python" })
-	use({ "coachshea/vim-textobj-markdown" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

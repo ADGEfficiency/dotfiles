@@ -1,20 +1,14 @@
+-- Autocompletion
+
+-- Check if 'cmp' (completion-nvim) and 'luasnip' (LuaSnip) are available
 local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
-
 local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+if not cmp_status_ok or not snip_status_ok then
 	return
 end
-
+--
+-- Load snippets from the 'snippets' directory for LuaSnip
 require("luasnip/loaders/from_snipmate").load({ paths = "./snippets" })
-
--- for supertab functionality
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
 
 --   פּ ﯟ   some other good icons - more here: https://www.nerdfonts.com/cheat-sheet
 local kind_icons = {
@@ -46,6 +40,8 @@ local kind_icons = {
 	Copilot = "󰚩",
 }
 
+-- Set up 'cmp' for different command-line types
+-- Includes setting up sources
 for _, cmd_type in ipairs({ ":", "/", "?", "@" }) do
 	cmp.setup.cmdline(cmd_type, {
 		sources = cmp.config.sources({
@@ -54,6 +50,7 @@ for _, cmd_type in ipairs({ ":", "/", "?", "@" }) do
 			{ name = "path" },
 			{ name = "buffer" },
 			{ name = "copilot" },
+			{ name = "dictionary" },
 		}),
 	})
 end
@@ -63,16 +60,18 @@ require("cmp_dictionary").setup({
 		["*"] = { "/usr/share/dict/words" },
 		["python"] = { "~/dotfiles/dict/python.dic" },
 	},
-	exact = -1,
+	exact_length = -1,
 	first_case_insensitive = true,
-	document = false,
-	document_command = "wn %s -over",
+	document = {
+		enabled = false,
+		command = { "wn", "${label}", "-over" },
+	},
 	async = true,
-	capacity = 5,
-	debug = false,
-	max_items = 3,
+	max_number_items = 3,
 })
 
+-- Set up 'cmp'
+-- Includes setting up sources
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -105,23 +104,19 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		-- supertab functionality
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
+			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+			-- that way you will only jump inside the snippet region
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
+			elseif has_words_before() then
+				cmp.complete()
 			else
 				fallback()
 			end
-		end, {
-			"i",
-			"s",
-		}),
+		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()

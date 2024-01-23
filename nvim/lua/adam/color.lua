@@ -1,3 +1,16 @@
+-- Colors and themes
+
+-- Color highlighter
+
+require("colorizer").setup({
+	"css",
+	"javascript",
+	html = {
+		mode = "foreground",
+	},
+})
+
+-- Dracula
 vim.cmd([[
   try
     colorscheme dracula
@@ -6,4 +19,6 @@ vim.cmd([[
     set background=dark
   endtry
 ]])
-require("colorizer").setup()
+
+-- Highlight spelling mistakes by linking SpellBad to ErrorMsg
+vim.cmd([[hi! link SpellBad ErrorMsg]])
