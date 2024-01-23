@@ -1,5 +1,5 @@
 -- Language Server Protocol (LSP) Settings
---
+
 -- Turn off logging by default for LSP
 vim.lsp.set_log_level("off")
 -- You can turn logging on with 'vim.lsp.set_log_level("debug")'
@@ -39,8 +39,8 @@ require("mason-lspconfig").setup_handlers({
 		lspconfig[server].setup({})
 	end,
 })
--- Key Mappings
 
+-- Key Mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -68,7 +68,6 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Diagnostic Appearance
-
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -109,17 +108,14 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 })
 
 -- Language Server Configs
-
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
-
 require("lspconfig")["bashls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["sqlls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -128,76 +124,64 @@ require("lspconfig")["sqlls"].setup({
 		return vim.loop.cwd()
 	end,
 })
-
 require("lspconfig")["dockerls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["jsonls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["prosemd_lsp"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["rnix"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["tsserver"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["html"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["emmet_language_server"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig").pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "pyright-langserver", "--stdio" },
 })
-
 require("lspconfig")["jedi_language_server"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
-
 require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 	cmd = { "tailwindcss-language-server", "--stdio" },
 })
-
 require("lspconfig")["marksman"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	flags = lsp_flags,
 	filetypes = { "markdown" },
 })
-
 require("lspconfig")["rust_analyzer"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -206,7 +190,6 @@ require("lspconfig")["rust_analyzer"].setup({
 		["rust-analyzer"] = {},
 	},
 })
-
 require("lspconfig")["lua_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

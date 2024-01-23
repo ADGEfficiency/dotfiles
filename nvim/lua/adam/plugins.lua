@@ -48,58 +48,9 @@ return packer.startup(function(use)
 		"nvim-lua/popup.nvim",
 		"nvim-lua/plenary.nvim",
 	})
-	use({ "nvim-tree/nvim-web-devicons" })
-
-	-- LSP configures the servers
-	-- Mason sets up the servers
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-		run = ":MasonUpdate",
-	})
-
-	-- Trouble
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({
-				height = 5, -- height of the trouble list when position is top or bottom
-				width = 50, -- width of the list when position is left or right
-				icons = false, -- use devicons for filenames
-				indent_lines = false, -- add an indent guide below the fold icons
-				auto_open = false, -- automatically open the list when you have diagnostics
-				auto_close = false, -- automatically close the list when you have no diagnostics
-			})
-		end,
-	})
-
-	-- Formatting
-	use({
-		"stevearc/conform.nvim",
-		config = function()
-			require("conform").setup()
-		end,
-	})
-
-	-- Linting
-	use({ "mfussenegger/nvim-lint" })
-
-	-- Buffers in top bar
-	use({
-		"romgrk/barbar.nvim",
-		requires = "nvim-web-devicons",
-	})
-
-	-- Status line in bottom bar
-	use({ "nvim-lualine/lualine.nvim" })
 
 	-- Greeter
 	use({ "goolord/alpha-nvim" })
-
-	-- Treesitter for syntax highlighting
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
 	-- Colormaps
 	use("sainnhe/everforest")
@@ -152,35 +103,6 @@ return packer.startup(function(use)
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "simeji/winresizer" })
 	use({ "qpkorr/vim-bufkill" })
-
-	-- Text Editing
-	use("tpope/vim-commentary")
-	use("windwp/nvim-autopairs")
-	use("FooSoft/vim-argwrap")
-	use("mattn/emmet-vim")
-	use("tpope/vim-surround")
-	use("tpope/vim-repeat")
-	use("lewis6991/gitsigns.nvim")
-	use("farmergreg/vim-lastplace")
-	use("axelf4/vim-strip-trailing-whitespace")
-	use({ "mbbill/undotree" })
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			-- Define a custom highlight group for indent lines
-			vim.api.nvim_set_hl(0, "CustomIndent", { fg = "#6272A4" })
-			-- Setup indent-blankline with the custom highlight group
-			require("ibl").setup({
-				indent = {
-					char = "┆",
-					highlight = { "CustomIndent" }, -- Using the custom highlight group
-				},
-			})
-		end,
-	})
-	use({ "norcalli/nvim-colorizer.lua" })
-	use({ "windwp/nvim-ts-autotag" })
-	use({ "kana/vim-textobj-user" })
 
 	-- Text editing - Python
 	use("Vimjas/vim-python-pep8-indent")

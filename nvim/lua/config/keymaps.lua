@@ -6,8 +6,6 @@ local km = vim.api.nvim_set_keymap
 
 -- leader
 km("n", ",", "<Nop>", opts)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)

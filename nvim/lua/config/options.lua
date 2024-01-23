@@ -1,5 +1,8 @@
 -- Options
 
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
 -- File Handling Options
 -- Disable backup files
 vim.opt.backup = false
@@ -169,3 +172,15 @@ vim.g["undotree_SetFocusWhenToggle"] = 1
 vim.g["undotree_DiffAutoOpen"] = 0
 -- Use short indicators in the undotree
 vim.g["undotree_ShortIndicators"] = 1
+
+-- Misc
+-- create directories when needed, when saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("better_backup", { clear = true }),
+	callback = function(event)
+		local file = vim.loop.fs_realpath(event.match) or event.match
+		local backup = vim.fn.fnamemodify(file, ":p:~:h")
+		backup = backup:gsub("[/\\]", "%%")
+		vim.go.backupext = backup
+	end,
+})
