@@ -1,7 +1,5 @@
 return {
-	{
-		"nvim-web-devicons",
-	},
+	{ "nvim-web-devicons" },
 	-- Buffers in top bar
 	{
 		"romgrk/barbar.nvim",
@@ -9,4 +7,8 @@ return {
 	},
 	-- Status line in bottom bar
 	{ "nvim-lualine/lualine.nvim" },
+	-- Buffer and window management
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
+	{ "simeji/winresizer" },
+	{ "qpkorr/vim-bufkill" },
 }

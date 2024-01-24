@@ -21,5 +21,4 @@
 -- require("adam.keys")
 
 vim.lsp.set_log_level("debug")
--- require("adam.plugins")
 require("config.lazy")

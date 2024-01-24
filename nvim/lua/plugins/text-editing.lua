@@ -1,8 +1,31 @@
 return {
+	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "tpope/vim-commentary" },
-	{ "windwp/nvim-autopairs" },
+	{
+		"windwp/nvim-autopairs",
+		opts = {
+			check_ts = true,
+			ts_config = {
+				lua = { "string", "source" },
+				javascript = { "string", "template_string" },
+				java = false,
+			},
+			disable_filetype = { "TelescopePrompt", "spectre_panel" },
+			fast_wrap = {
+				map = "<M-e>",
+				chars = { "{", "[", "(", '"', "'" },
+				pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+				offset = 0, -- Offset from pattern match
+				end_key = "$",
+				keys = "qwertyuiopzxcvbnmasdfghjkl",
+				check_comma = true,
+				highlight = "PmenuSel",
+				highlight_grey = "LineNr",
+			},
+		},
+	},
 	{ "mattn/emmet-vim" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-repeat" },
@@ -27,4 +50,14 @@ return {
 			})
 		end,
 	},
+	-- Text editing - Python
+	{ "Vimjas/vim-python-pep8-indent" },
+	{ "bps/vim-textobj-python" },
+	--- Text editing - Markdown
+	{ "coachshea/vim-textobj-markdown" },
+	{ "dhruvasagar/vim-table-mode" },
+	{ "dkarter/bullets.vim" },
+	--- Text editing - HTML
+	{ "alvan/vim-closetag" },
+	{ "Glench/Vim-Jinja2-Syntax" },
 }
