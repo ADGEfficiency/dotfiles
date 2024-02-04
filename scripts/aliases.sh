@@ -59,7 +59,7 @@ alias pipr='pip install -r requirements.txt'
 alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 
 # files
-alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
+alias cheat='$EDITOR $HOME/personal/para/resource/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
 alias inbox='$EDITOR $HOME/.nb/home/inbox.md'

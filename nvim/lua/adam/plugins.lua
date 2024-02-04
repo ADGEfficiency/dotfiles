@@ -195,6 +195,8 @@ return packer.startup(function(use)
 	use({ "alvan/vim-closetag" })
 	use({ "Glench/Vim-Jinja2-Syntax" })
 
+	use({ "mzlogin/vim-markdown-toc" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+NAME="dotfiles"
+tmux new-session -d -s "$NAME" -n "$NAME" -c ~/dotfiles
+tmux -2 attach-session -d -t "$NAME"
