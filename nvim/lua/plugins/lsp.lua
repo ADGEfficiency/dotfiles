@@ -2,9 +2,6 @@
 -- Mason sets up the servers
 return {
 	{
-		"williamboman/mason.nvim",
-	},
-	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -14,9 +11,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			{
 				"hrsh7th/cmp-nvim-lsp",
-				cond = function()
-					return require("lazyvim.util").has("nvim-cmp")
-				end,
 			},
 		},
 		---@class PluginLspOpts

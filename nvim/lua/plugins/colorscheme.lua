@@ -4,7 +4,7 @@ return {
 		priority = 1000,
 		lazy = false,
 		config = function()
-			vim.cmd([[colorscheme tokyonight]])
+			vim.cmd([[colorscheme dracula]])
 		end,
 	},
 }
