@@ -15,8 +15,4 @@ vim.api.nvim_exec(
 	false
 )
 vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
-
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-	pattern = "*.bats",
-	command = "set filetype=sh",
-})
+vim.cmd("au BufRead,BufNewFile *.bats setfiletype sh")

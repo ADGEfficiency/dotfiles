@@ -18,7 +18,7 @@ require("mason-lspconfig").setup({
 		"dockerls",
 		"jsonls",
 		"prosemd_lsp",
-		"rnix",
+		-- "rnix",
 		"tsserver",
 		"emmet_language_server",
 		"pyright",
@@ -142,11 +142,11 @@ require("lspconfig")["prosemd_lsp"].setup({
 	flags = lsp_flags,
 })
 
-require("lspconfig")["rnix"].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	flags = lsp_flags,
-})
+-- require("lspconfig")["rnix"].setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	flags = lsp_flags,
+-- })
 
 require("lspconfig")["tsserver"].setup({
 	on_attach = on_attach,

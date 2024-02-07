@@ -8,7 +8,7 @@ export EDITOR=vim
 export HISTCONTROL=ignoreboth:erasedups
 
 # remember a lot
-export HISTFILE=~/.zsh_history
+export HISTFILE=~/.bash_history
 export HISTFILESIZE=10000000
 export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
@@ -24,18 +24,17 @@ source "$HOME"/dotfiles/scripts/funcs.sh
 source "$HOME"/dotfiles/scripts/aliases.sh
 
 # fzf bash hook
-source "$HOME"/dotfiles/.fzf.bash
-
-# pyenv
-source "$HOME/dotfiles/macos/pyenv-flags"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+source "$HOME"/dotfiles/dotfiles/.fzf.bash
 
 # assuming all these been installed separately
 # z script
-source ~/z.sh
-. "$HOME/.cargo/env"
-. ~/z.sh
-eval "$(zoxide init bash)"
+source ~/dotfiles/dotfiles/z.sh
+# not sure i need this really
+# . "$HOME/.cargo/env"
+
+export PATH="$HOME/dotfiles/scripts:$PATH"
+source "$HOME/dotfiles/scripts/funcs.sh"
+source "$HOME/dotfiles/scripts/aliases.sh"
+
+export XDG_CONFIG_HOME=~/dotfiles
+export EDITOR=$(which nvim)

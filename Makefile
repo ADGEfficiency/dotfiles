@@ -19,6 +19,10 @@ setup-macos: brew-pkgs nix-setup
 
 setup-linux:
 	bash ./linux/setup.sh
+	sudo apt install exa
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+	cp ~/.fzf.bash ~/dotfiles
 
 .PHONY: dotfiles
 dotfiles:
@@ -26,8 +30,8 @@ dotfiles:
 
 .PHONY: python js
 python:
-	zsh ./python/setup-general-venv.sh general 3.10.6
-	zsh ./python/setup-general-venv-pkgs.sh
+	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv-pkgs.sh
 
 js:
 	npm install -g @tailwindcss/language-server markserv

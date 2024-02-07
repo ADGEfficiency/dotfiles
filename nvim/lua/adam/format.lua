@@ -8,7 +8,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "gofmt" },
 		-- markdown = { "mdformat" },
-		python = { "isort", "ruff_format", "ruff_lint" },
+		python = { "isort", "black" },
 		javascript = { "prettier" },
 		css = { "stylelint" },
 		yaml = { "yamlfix" },
@@ -19,6 +19,7 @@ require("conform").setup({
 			-- "trim_whitespace"
 		},
 	},
+	notify_on_error = true,
 })
 
 -- setup format on save

@@ -17,5 +17,9 @@ require("adam.telescope")
 require("adam.treesitter")
 require("adam.whichkey")
 require("adam.barbar")
-require("adam.copilot")
+
+local key = os.getenv("OPEN_AI_KEY")
+if key then
+	require("adam.copilot")
+end
 require("adam.signature")
