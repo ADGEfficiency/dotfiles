@@ -20,5 +20,6 @@
 -- require("adam.keys")
 
 vim.lsp.set_log_level("debug")
+require("config.options")
 require("config.lazy")
--- require("config.options")
+require("config.keymaps")
