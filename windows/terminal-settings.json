@@ -51,7 +51,7 @@
         }
     ],
     "copyFormatting": "none",
-    "copyOnSelect": false,
+    "copyOnSelect": true,
     "defaultProfile": "{4adebc58-035a-4620-85b2-db113d7f91d6}",
     "newTabMenu": 
     [
@@ -84,7 +84,7 @@
             },
             {
                 "bellStyle": "none",
-                "colorScheme": "Solarized Dark",
+                "colorScheme": "Ubuntu-ColorScheme",
                 "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
                 "cursorShape": "filledBox",
                 "font": 
