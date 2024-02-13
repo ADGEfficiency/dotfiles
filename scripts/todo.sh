@@ -26,15 +26,16 @@ function open_todo_file() {
   if [[ ! -f $FILE_TO_OPEN ]]; then
     FILE_TO_OPEN=$DEFAULT_FILE
   fi
-  echo $FILE_TO_OPEN
+  echo "$FILE_TO_OPEN"
 }
 
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   if [ "$1" ]; then
-    FILE_TO_OPEN=$(open_todo_file $1)
+    FILE_TO_OPEN=$(open_todo_file "$1")
   else
     FILE_TO_OPEN=$(open_todo_file)
   fi
-  $EDITOR $FILE_TO_OPEN
+  FILE_TO_OPEN=$(readlink -f "$FILE_TO_OPEN")
+  "$EDITOR" "$FILE_TO_OPEN"
 fi
