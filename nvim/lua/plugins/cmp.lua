@@ -58,12 +58,8 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-              -- that way you will only jump inside the snippet region
             elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
-            elseif has_words_before() then
-              cmp.complete()
             else
               fallback()
             end
@@ -76,17 +72,14 @@ return {
             else
               fallback()
             end
-          end, {
-            "i",
-            "s",
-          }),
+          end, { "i", "s" }),
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
           { name = "copilot" },
           { name = "luasnip",       max_item_count = 3 },
           { name = "nvim_lsp" },
-          { name = "path",          max_item_count = 3 },
+          { name = "path",          max_item_count = 10 },
           { name = "buffer",        max_item_count = 5 },
           { name = "emoji",         max_item_count = 5 },
           { name = "latex_symbols", max_item_count = 5 },
