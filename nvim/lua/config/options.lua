@@ -17,7 +17,7 @@ vim.opt.completeopt = { "menuone", "noselect" }
 
 -- File Encoding and Conceal Options
 -- Ensure that `` is visible in markdown files
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 2
 -- Set the encoding written to a file
 vim.opt.fileencoding = "utf-8"
 
