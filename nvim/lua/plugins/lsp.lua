@@ -8,7 +8,12 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "hrsh7th/cmp-cmdline" },
+			{
+				"hrsh7th/cmp-cmdline",
+				"dmitmel/cmp-cmdline-history",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+			},
 		},
 		config = function()
 			-- Language Server Protocol (LSP) Settings
@@ -55,28 +60,27 @@ return {
 
 			-- cmp commandline
 			local cmp = require("cmp")
-
-			-- `/` cmdline setup.
-			cmp.setup.cmdline("/", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-
-			-- `:` cmdline setup.
+			local lspkind = require("lspkind")
 			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{
-						name = "cmdline",
-						option = {
-							ignore_cmds = { "Man", "!" },
+				sources = {
+					{ name = "cmdline", max_item_count = 3 },
+					{ name = "cmdline_history", max_item_count = 3 },
+					{ name = "buffer", max_item_count = 3 },
+				},
+				-- Enable pictogram icons for lsp/autocompletion
+				formatting = {
+					expandable_indicator = true,
+					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						maxwidth = 50,
+						ellipsis_char = "...",
+						menu = {
+							cmdline_history = "[Hist]",
+							cmdline = "[CmdL]",
+							buffer = "[Buff]",
 						},
-					},
-				}),
+					}),
+				},
 			})
 
 			-- Diagnostic Appearance
@@ -169,33 +173,21 @@ return {
 			-- Servers
 			local servers = {
 				bashls = {},
-				sqlls = {
-					root_dir = function(fname)
-						return vim.loop.cwd()
-					end,
-				},
 				dockerls = {},
 				jsonls = {},
 				prosemd_lsp = {},
-				rnix = {},
-				tsserver = {},
-				html = {},
-				emmet_language_server = {},
-				pyright = {
-					cmd = { "pyright-langserver", "--stdio" },
-				},
-				jedi_language_server = {},
-				tailwindcss = {
-					cmd = { "tailwindcss-language-server", "--stdio" },
-				},
-				marksman = {
+				ltex = {
 					filetypes = { "markdown" },
-				},
-				rust_analyzer = {
 					settings = {
-						["rust-analyzer"] = {},
+						ltex = {
+							enabled = { "markdown" },
+							language = { "en-NZ" },
+						},
 					},
 				},
+				emmet_language_server = {},
+				jedi_language_server = {},
+				html = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -214,6 +206,27 @@ return {
 							},
 						},
 					},
+				},
+				marksman = {
+					filetypes = { "markdown" },
+				},
+				rnix = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {},
+					},
+				},
+				pyright = {
+					cmd = { "pyright-langserver", "--stdio" },
+				},
+				tsserver = {},
+				tailwindcss = {
+					cmd = { "tailwindcss-language-server", "--stdio" },
+				},
+				sqlls = {
+					root_dir = function(fname)
+						return vim.loop.cwd()
+					end,
 				},
 			}
 			for server, config in pairs(servers) do

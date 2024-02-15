@@ -15,18 +15,59 @@ return {
 	{ "kana/vim-textobj-user" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			-- Define a custom highlight group for indent lines
-			vim.api.nvim_set_hl(0, "CustomIndent", { fg = "#6272A4" })
-			-- Setup indent-blankline with the custom highlight group
-			require("ibl").setup({
-				indent = {
-					char = "┆",
-					highlight = { "CustomIndent" }, -- Using the custom highlight group
+		opts = {
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+			scope = { enabled = false },
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
 				},
+			},
+		},
+		main = "ibl",
+	},
+	{
+		"echasnovski/mini.indentscope",
+		opts = {
+			-- symbol = "▏",
+			symbol = "│",
+			options = { try_as_border = true },
+		},
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
+				},
+				callback = function()
+					vim.b.miniindentscope_disable = true
+				end,
 			})
 		end,
 	},
+
 	-- Text editing - Python
 	{ "Vimjas/vim-python-pep8-indent" },
 	{ "bps/vim-textobj-python" },
@@ -38,4 +79,21 @@ return {
 	--- Text editing - HTML
 	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },
+	{
+		"RRethy/vim-illuminate",
+	},
+	{
+		"folke/todo-comments.nvim",
+		cmd = { "TodoTrouble", "TodoTelescope" },
+		config = true,
+  -- stylua: ignore
+  keys = {
+    { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+    { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+    { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
+    { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
+    { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+    { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+  },
+	},
 }
