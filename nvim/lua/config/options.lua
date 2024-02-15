@@ -184,3 +184,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.go.backupext = backup
 	end,
 })
+
+-- close quickfix with q
+vim.cmd([[
+  autocmd FileType qf nnoremap <buffer> q :close<CR>
+]])
