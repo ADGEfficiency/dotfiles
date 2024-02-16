@@ -64,7 +64,7 @@ return {
 			cmp.setup.cmdline(":", {
 				sources = {
 					{ name = "cmdline", max_item_count = 3 },
-					{ name = "cmdline_history", max_item_count = 3 },
+					{ name = "cmdline_history", max_item_count = 5 },
 					{ name = "buffer", max_item_count = 3 },
 				},
 				-- Enable pictogram icons for lsp/autocompletion
@@ -80,6 +80,13 @@ return {
 							buffer = "[Buff]",
 						},
 					}),
+				},
+			})
+			-- `/` cmdline setup.
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
 				},
 			})
 

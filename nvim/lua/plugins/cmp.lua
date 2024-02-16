@@ -77,11 +77,14 @@ return {
 							cmp.complete()
 						end
 					end, { "i", "c" }),
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = false,
+					}),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
+						elseif luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
 						else
 							fallback()
@@ -112,6 +115,10 @@ return {
 					{ name = "buffer-lines", option = { max_item_count = 2, words = true, comments = true } },
 					{ name = "pypi", keyword_length = 4 },
 				}),
+				confirm_opts = {
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = false,
+				},
 				formatting = {
 					fields = { "abbr", "kind", "menu" },
 					expandable_indicator = true,

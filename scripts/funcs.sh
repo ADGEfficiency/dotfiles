@@ -22,9 +22,14 @@ entrr() {
     ls "$directory"/* | entr -s "$cmd"
 }
 
-# open a todo note
+# open the todo note - either general or project specific
 todo() {
   bash ~/dotfiles/scripts/todo.sh $1
+}
+
+# open a daily note
+day() {
+  bash ~/dotfiles/scripts/day.sh
 }
 
 # change a github remote - useful when changing to ssh after cloning
