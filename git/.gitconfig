@@ -18,6 +18,9 @@
 [pull]
   rebase = false
 
+[diff]
+  algorithm = histogram
+
 [alias]
   diffs = diff --staged
   logg = log --pretty=fuller --abbrev-commit --stat -n 5

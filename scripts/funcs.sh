@@ -32,6 +32,11 @@ day() {
   bash ~/dotfiles/scripts/day.sh
 }
 
+# open the weekly note
+week() {
+  "$EDITOR" ~/personal/para/this-week.md
+}
+
 # change a github remote - useful when changing to ssh after cloning
 remote() {
   git remote set-url origin $1

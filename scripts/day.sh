@@ -31,4 +31,4 @@ if [ ! -f "$file" ]; then
   new_note
 fi
 
-nvim "$file"
+"$EDITOR" "$file"
