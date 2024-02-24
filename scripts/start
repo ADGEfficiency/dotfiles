@@ -2,5 +2,5 @@
 NAME="home"
 tmux new-session -d -s "$NAME" -n personal -c ~/personal
 tmux new-window -t "$NAME" -n todo -c ~/personal
-tmux send-keys -t "$NAME:todo" 'nvim ~/personal/todo/todo.md ~/personal/this-week.md' C-m
+tmux send-keys -t "$NAME:todo" 'nvim ~/personal/para/todo.md' C-m
 tmux -2 attach-session -d -t "$NAME"

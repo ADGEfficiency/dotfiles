@@ -24,13 +24,14 @@ with pkgs; [
   zsh
   inetutils
 ]
-++ lib.optionals isLinux [ python310 ]
+++ lib.optionals isLinux [ python311 ]
 ++ lib.optionals isDarwin [
   cargo
   locale
   llvm
   cmakeMinimal
   gtk4
+  python311
 ]
 ++ lib.optionals devShell [
   bat

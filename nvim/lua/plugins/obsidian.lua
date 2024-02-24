@@ -9,7 +9,6 @@ return {
 	opts = {},
 	config = function()
 		require("obsidian").setup({
-
 			workspaces = {
 				{
 					name = "personal",
@@ -20,7 +19,7 @@ return {
 				prepend_note_path = true,
 			},
 			ui = {
-				enable = true,
+				enable = false,
 				bullets = { char = "•", hl_group = "ObsidianBullet" },
 				checkboxes = {
 					-- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
@@ -35,7 +34,6 @@ return {
 					-- You can also add more custom ones...
 				},
 			},
-
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
 				folder = "day",

@@ -12,11 +12,11 @@
 
 testOpenTodoFileWithTodoFile() {
   echo "testOpenTodoFileWithTodoFile"
-  echo "Current directory: $(pwd)"
+  echo "Current directory: $PWD"
   echo "HOME variable: $HOME"
 
   todofile="$PWD/.todofile"
-  echo "data-science-south" > $todofile
+  echo "data-science-south" > "$todofile"
   echo ".todofile path: $todofile"  # Verify the content
   echo ".todofile content: $(cat .todofile)"  # Verify the content
 
@@ -29,7 +29,7 @@ testOpenTodoFileWithTodoFile() {
 
   # expect a project specific file
   assertEquals "$TODO_DIR/data-science-south.md" "$result"
-  rm $todofile
+  rm "$todofile"
 }
 
 testOpenTodoFileWithExistingFile() {
@@ -45,7 +45,7 @@ testOpenTodoFileWithNonExistingFile() {
   export TODO_DIR=$(mktemp -d)
   result=$(open_todo_file)
   # expect the default file
-  assertEquals "$TODO_DIR/todo.md" "$result"
+  assertEquals "$TODO_DIR/../todo.md" "$result"
   rm -r "$TODO_DIR"
 }
 

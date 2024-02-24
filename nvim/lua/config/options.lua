@@ -17,7 +17,7 @@ vim.opt.completeopt = { "menuone", "noselect" }
 
 -- File Encoding and Conceal Options
 -- Ensure that `` is visible in markdown files
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 -- Set the encoding written to a file
 vim.opt.fileencoding = "utf-8"
 
@@ -164,7 +164,7 @@ vim.g["vim_markdown_no_default_key_mappings"] = 1
 -- Co-pilot Plugin Settings
 -- Set the path to the Node.js executable for Co-pilot
 vim.g["copilot_node_command"] = "/Users/adam/dotfiles/nvm/versions/node/v16.17.0/bin/node"
---
+
 -- Undotree Plugin Settings
 -- Set undotree to focus when toggled
 vim.g["undotree_SetFocusWhenToggle"] = 1
