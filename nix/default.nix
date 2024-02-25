@@ -53,7 +53,7 @@ with pkgs; [
   pandoc
   texlive.combined.scheme-tetex
   beautysh
-  # hadolint
+  #hadolint
   htop
   tig
   ov
@@ -66,7 +66,7 @@ with pkgs; [
   nodePackages_latest.prettier
   nodePackages_latest.sql-formatter
   nodePackages_latest.stylelint
-  yamlfix
+  #yamlfix
   shellcheck
   starship
   stylua

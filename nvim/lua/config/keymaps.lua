@@ -7,6 +7,9 @@ local km = vim.api.nvim_set_keymap
 -- leader
 km("n", ",", "<Nop>", opts)
 
+-- open file under cursor in new tab
+km("n", "<leader>f", ":vsplit | ObsidianFollowLink<CR>", opts)
+
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
