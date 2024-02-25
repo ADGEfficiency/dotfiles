@@ -189,3 +189,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.cmd([[
   autocmd FileType qf nnoremap <buffer> q :close<CR>
 ]])
+
+vim.cmd([[
+  command! -nargs=1 Tags execute 'grep -R "\- ' . <q-args> . '" . > /tmp/greptags.txt' | execute 'cfile /tmp/greptags.txt' | copen
+]])

@@ -65,8 +65,8 @@ vim.cmd("command Q quit")
 vim.cmd("command Wq write | quit!")
 
 --- stay in visual mode when indenting
-km("v", "<", "<gv", opts)
-km("v", ">", ">gv", opts)
+km("v", "<", "< gv", opts)
+km("v", ">", "> gv", opts)
 
 -- move around splits with ctrl-[hjkl] in normal mode
 km("n", "<C-j>", "<C-w>j", opts)
