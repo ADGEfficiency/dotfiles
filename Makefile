@@ -17,17 +17,21 @@ brew-pkgs: setup-brew
 setup-macos: brew-pkgs nix-setup
 	bash ./macos/setup.sh
 
-setup-linux:
+setup-linux: nix-setup
 	bash ./linux/setup.sh
 
 .PHONY: dotfiles
 dotfiles:
 	bash ./dotfiles/setup.sh
 
-.PHONY: python js
-python:
-	zsh ./python/setup-general-venv.sh general 3.10.6
-	zsh ./python/setup-general-venv-pkgs.sh
+.PHONY: python js setup-pyenv
+
+setup-pyenv:
+	bash ./python/setup-pyenv.sh
+
+python: setup-pyenv
+	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv-pkgs.sh
 
 js:
 	npm install -g @tailwindcss/language-server markserv

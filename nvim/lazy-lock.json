@@ -58,7 +58,7 @@
   "vim-illuminate": { "branch": "master", "commit": "305bf07b919ac526deb5193280379e2f8b599926" },
   "vim-lastplace": { "branch": "master", "commit": "a715d602745cdb1c35cfe73c50d3dd266eb5a349" },
   "vim-markdown-toc": { "branch": "master", "commit": "0e2c7cdc3ac1d067eb309a10220d001bb7be39cd" },
-  "vim-markdownfootnotes": { "branch": "master", "commit": "2b288149f48cfaf7465d25bb094ed62898f5e5b0" },
+  "vim-pandoc-syntax": { "branch": "master", "commit": "16939cda184ff555938cc895cc62477c172997f9" },
   "vim-python-pep8-indent": { "branch": "master", "commit": "60ba5e11a61618c0344e2db190210145083c91f8" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-strip-trailing-whitespace": { "branch": "master", "commit": "59385775cbe416b2797ec5e2c7eb445a3398dd46" },
