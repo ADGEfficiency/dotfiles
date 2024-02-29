@@ -14,10 +14,10 @@ setup-brew:
 brew-pkgs: setup-brew
 	brew install hadolint vale actionlint fzf mactex pandoc
 
-setup-macos: brew-pkgs nix-setup
+setup-macos: brew-pkgs setup-nix
 	bash ./macos/setup.sh
 
-setup-linux: nix-setup
+setup-linux: setup-nix
 	bash ./linux/setup.sh
 
 .PHONY: dotfiles
