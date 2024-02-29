@@ -96,6 +96,7 @@ alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
 alias bashrc='$EDITOR $HOME/dotfiles/dotfiles/.bashrc'
 alias zshrc='$EDITOR $HOME/dotfiles/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
+alias bs='source ~/.bashrc'
 
 # git
 alias amend='git commit --amend'
