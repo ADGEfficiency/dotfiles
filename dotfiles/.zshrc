@@ -82,7 +82,7 @@ alias brew='arch -x86_64 brew'
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/checkmake:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
-export PATH="$HOME/personal/scripts:$PATH"
+export PATH="$HOME/personal/para/area/script:$PATH"
 
 source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
