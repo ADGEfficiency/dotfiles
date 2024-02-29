@@ -11,9 +11,6 @@ set expandtab
 "" gf command working with unsaved buffer
 set hidden
 
-"" enable html tag matching
-packadd! matchit
-
 set encoding=utf8
 
 "" show tabs
@@ -101,7 +98,7 @@ nnoremap <A-Space> :Files .<CR>
 
 " VISUAL
 
-colorscheme dracula
+" colorscheme dracula
 
 "" must be after colo!
 hi clear SpellBad
