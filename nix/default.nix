@@ -24,13 +24,14 @@ with pkgs; [
   zsh
   inetutils
 ]
-++ lib.optionals isLinux [ python310 ]
+++ lib.optionals isLinux [ python311 ]
 ++ lib.optionals isDarwin [
   cargo
   locale
   llvm
   cmakeMinimal
   gtk4
+  python311
 ]
 ++ lib.optionals devShell [
   bat
@@ -52,7 +53,7 @@ with pkgs; [
   pandoc
   texlive.combined.scheme-tetex
   beautysh
-  # hadolint
+  #hadolint
   htop
   tig
   ov
@@ -65,7 +66,7 @@ with pkgs; [
   nodePackages_latest.prettier
   nodePackages_latest.sql-formatter
   nodePackages_latest.stylelint
-  # yamlfix
+  #yamlfix
   shellcheck
   starship
   stylua

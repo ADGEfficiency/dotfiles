@@ -6,8 +6,9 @@ local km = vim.api.nvim_set_keymap
 
 -- leader
 km("n", ",", "<Nop>", opts)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+
+-- open file under cursor in new tab
+km("n", "<leader>f", ":vsplit | ObsidianFollowLink<CR>", opts)
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
@@ -35,7 +36,8 @@ km("n", "H", "^", opts)
 km("n", "<leader>k", ":lua require'telescope.builtin'.buffers()<cr>", opts)
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files()<cr>", opts)
 km("n", "<leader>x", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
-km("n", "<leader>b", ":sp ~/.zsh_history<cr>", opts)
+km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
+km("n", "<leader>b", "/```/-<CR>V??+<CR>", opts)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
@@ -63,8 +65,8 @@ vim.cmd("command Q quit")
 vim.cmd("command Wq write | quit!")
 
 --- stay in visual mode when indenting
-km("v", "<", "<gv", opts)
-km("v", ">", ">gv", opts)
+km("v", "<", "< gv", opts)
+km("v", ">", "> gv", opts)
 
 -- move around splits with ctrl-[hjkl] in normal mode
 km("n", "<C-j>", "<C-w>j", opts)

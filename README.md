@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 
 Setup and configuration for a terminal based developer workflow.
 
@@ -10,9 +10,14 @@ Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
 $ make dotfiles
 ```
 
-This appends to your `rc` files in `$HOME` -- beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
+This runs a script `./dotfiles/setup.sh` which either:
 
-This is destructive to your Git config - your `$HOME/.{gitconfig,gitignore}` will be overwritten.
+- appends to your `rc` files in `$HOME`, 
+- copies over files in `$HOME` for `.gitignore`, `.gitconfig` and `.npmrc`.
+
+Beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
+
+Beware overwriting your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
 
 ## Linux
 
@@ -22,6 +27,8 @@ Setup an Linux machine:
 $ make setup-linux OS=linux
 ```
 
+This will also setup dependencies with Nix from `./nix/default.nix`.
+
 ## MacOS
 
 Setup an MacOS machine:
@@ -30,27 +37,25 @@ Setup an MacOS machine:
 $ make setup-macos OS=macoS
 ```
 
+This will also setup dependencies with Nix from `./nix/default.nix`.
+
 ## Global Python Virtual Env
 
 Install pyenv and pyenv-virtualenv:
 
 ```bash
-$ bash ./python/setup-pyenv.sh
-```
-
-Setup a global Python installation in a pyenv virtual environment - requires `pyenv`:
-
-```shell-session
 $ make python
 ```
 
+This will setup a global Python installation in a pyenv virtual environment.
+
 ## Neovim
 
-Neovim setup is in [nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim) -- it's a Lua based setup.
+Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim) -- it's a Lua based setup.
 
 To use my Neovim setup, you would put this folder into `$XDG_CONFIG_HOME`.
 
-### Formatting and Linting,
+### Formatting and Linting
 
 I used to use NullLS, then tried efm - I now use [conform](https://github.com/stevearc/conform.nvim) to manage formatters and `nvim-lint` to manage linting.
 
@@ -74,13 +79,13 @@ I don't use this package -- I used to use Null LS -- their list of tools is stil
 
 ### Conform
 
-https://github.com/stevearc/conform.nvim#formatters
+[Conform formatters](https://github.com/stevearc/conform.nvim#formatters).
 
 ### Nvim Lint
 
-https://github.com/mfussenegger/nvim-lint#available-linters
+[nvim-lint linters](https://github.com/mfussenegger/nvim-lint#available-linters).
 
-## Getting Kitty to Play Nice
+## Getting Kitty to Play Nice on MacOS
 
 Had weird issue with the first execution of Kitty not loading the config correctly - fixed with:
 

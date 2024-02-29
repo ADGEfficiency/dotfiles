@@ -14,21 +14,22 @@ setup-brew:
 brew-pkgs: setup-brew
 	brew install hadolint vale actionlint fzf mactex pandoc
 
-setup-macos: brew-pkgs nix-pkgs
+setup-macos: brew-pkgs setup-nix
 	bash ./macos/setup.sh
 
-setup-linux: nix-pkgs
+setup-linux: setup-nix
 	bash ./linux/setup.sh
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
-	cp ~/.fzf.bash ~/dotfiles
 
 .PHONY: dotfiles
 dotfiles:
 	bash ./dotfiles/setup.sh
 
-.PHONY: python js
-python:
+.PHONY: python js setup-pyenv
+
+setup-pyenv:
+	bash ./python/setup-pyenv.sh
+
+python: setup-pyenv
 	bash ./python/setup-general-venv.sh general 3.10.6
 	bash ./python/setup-general-venv-pkgs.sh
 
