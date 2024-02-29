@@ -10,6 +10,7 @@ setup_dotfile() {
 }
 
 setup_dotfile .bashrc
+setup_dotfile .profile
 setup_dotfile .zshrc
 setup_dotfile .zshenv
 setup_dotfile .zprofile

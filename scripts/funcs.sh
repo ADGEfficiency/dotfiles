@@ -123,37 +123,37 @@ tunnelnk() {
 #  tmux
 
 tn () {
-    NAME=$($HOME/.pyenv/versions/general/bin/zxpy $HOME/dotfiles/scripts/random-name.py)
-    NAME=$(basename $(pwd))
-    tmux new -s $NAME -c $(pwd)
+    CLEAN=$(pwd | tr -d ' ')
+    NAME="$(basename $CLEAN)"
+    tmux new -s $NAME -c "$(pwd)"
 }
 alias t='tn'
 
 
 #  docker
 
-docker-sh () {
+docker_sh () {
     docker exec -it $1 /bin/sh
 }
 
-docker-build () {
+docker_build () {
     NAME=$1
     DOCKERFILE=$2
     docker build -t $NAME . -f $DOCKERFILE --platform linux/amd64
 }
 
-docker-run () {
+docker_run () {
     NAME=$1
     COMMAND=$2
     docker run -it $NAME $COMMAND --platform linux/amd64
 }
 
-docker-ip () {
+docker_ip () {
     NAME=$1
     docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME
 }
 
-docker-build-run () {
+docker_build_run () {
     NAME=$1
     DOCKERFILE=$2
     COMMAND=$3
@@ -161,11 +161,11 @@ docker-build-run () {
     run-docker $1 $3
 }
 
-docker-ls () {
+docker_ls () {
   docker network list
   docker volume list
 }
 
-docker-exec-last () {
+docker_exec_last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
