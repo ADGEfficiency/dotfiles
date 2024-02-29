@@ -6,8 +6,9 @@ local km = vim.api.nvim_set_keymap
 
 -- leader
 km("n", ",", "<Nop>", opts)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+
+-- open file under cursor in new tab
+km("n", "<leader>f", ":vsplit | ObsidianFollowLink<CR>", opts)
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
@@ -64,8 +65,8 @@ vim.cmd("command Q quit")
 vim.cmd("command Wq write | quit!")
 
 --- stay in visual mode when indenting
-km("v", "<", "<gv", opts)
-km("v", ">", ">gv", opts)
+km("v", "<", "< gv", opts)
+km("v", ">", "> gv", opts)
 
 -- move around splits with ctrl-[hjkl] in normal mode
 km("n", "<C-j>", "<C-w>j", opts)
