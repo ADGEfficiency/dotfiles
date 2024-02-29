@@ -14,20 +14,24 @@ setup-brew:
 brew-pkgs: setup-brew
 	brew install hadolint vale actionlint fzf mactex pandoc
 
-setup-macos: brew-pkgs nix-setup
+setup-macos: brew-pkgs setup-nix
 	bash ./macos/setup.sh
 
-setup-linux:
+setup-linux: setup-nix
 	bash ./linux/setup.sh
 
 .PHONY: dotfiles
 dotfiles:
 	bash ./dotfiles/setup.sh
 
-.PHONY: python js
-python:
-	zsh ./python/setup-general-venv.sh general 3.10.6
-	zsh ./python/setup-general-venv-pkgs.sh
+.PHONY: python js setup-pyenv
+
+setup-pyenv:
+	bash ./python/setup-pyenv.sh
+
+python: setup-pyenv
+	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv-pkgs.sh
 
 js:
 	npm install -g @tailwindcss/language-server markserv

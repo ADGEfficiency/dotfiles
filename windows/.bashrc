@@ -1,4 +1,25 @@
-#!/usr/bin/env bash
+. "/c/Program Files/anaconda3/etc/profile.d/conda.sh"
+
+# GENERAL
+
+# vim master race
+set -o vi
+export EDITOR=vim
+
+# don't add duplicates
+export HISTCONTROL=ignoreboth:erasedups
+
+# remember a lot
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=10000000
+export HISTSIZE=$HISTFILESIZE
+SAVEHIST=$HISTSIZE
+
+# after each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+
+# ALIASES
 
 export PYENV_GENERAL="$HOME/.pyenv/versions/3.10.6/envs/general/bin"
 
@@ -21,20 +42,13 @@ alias b='cd ..'
 alias back='cd -'
 
 # clearing screen & listing directories and files
-alias c='clear'
+alias c='clear; clear'
 alias cll='clear && ll'
 alias cls='clear && ls'
 alias ctree='clear && tree'
-
-# exa
-# alias ll='"ls" -G'
+# alias ll='exa -G --icons --group-directories-first -a'
 # alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
 # alias tree='exa --tree --ignore-glob="*pycache*"'
-
-# lsd
-alias ll='lsd --group-directories-first'
-alias ls='lsd --long --icon always --git --date relative --group-directories-first -a'
-alias tree='lsd --tree --ignore-glob="*pycache*"'
 
 # program customization
 alias bat='bat --color=always --paging=always'
@@ -58,8 +72,12 @@ alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
 alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 
+# nb
+alias nbtree='exa --tree ~/.nb'
+alias nbls='nb ls --paths --filenames --no-indicators'
+
 # files
-alias cheat='$EDITOR $HOME/personal/para/resource/cheat_sheet.md'
+alias cheat='$EDITOR $HOME/personal/lists/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
 alias inbox='$EDITOR $HOME/.nb/home/inbox.md'
@@ -96,7 +114,6 @@ alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
 alias bashrc='$EDITOR $HOME/dotfiles/dotfiles/.bashrc'
 alias zshrc='$EDITOR $HOME/dotfiles/dotfiles/.zshrc'
 alias zs='source ~/.zshrc'
-alias bs='source ~/.bashrc'
 
 # git
 alias amend='git commit --amend'
@@ -150,3 +167,19 @@ alias pip-list='pip index versions'
 alias poetry-clean='poetry cache clear pypi --all'
 
 alias brew-list='brew list'
+
+export docs_loc='C:\Users\ag43\OneDrive - Meridian Energy Limited\Documents\docs'
+alias docs='cd "$docs_loc"'
+alias todo='vim "$docs_loc/todo.md"'
+
+alias bashrc='vim ~/.bashrc'
+alias bs='source ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+alias termset='vim "C:\Users\ag43\AppData\Local\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json"'
+alias codeshort='vim "C:\Users\ag43\AppData\Roaming\Code\User\keybindings.json"'
+alias codeset='vim "C:\Users\ag43\AppData\Roaming\Code\User\settings.json"'
+
+export PATH=$PATH:"/C/Users/ag43/bin"
+
+alias ubuntu="wsl.exe -d ubuntu-22.04"
+alias u="wsl.exe -d ubuntu-22.04"
