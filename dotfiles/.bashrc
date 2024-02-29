@@ -39,4 +39,4 @@ source "$HOME/dotfiles/scripts/aliases.sh"
 export XDG_CONFIG_HOME=~/dotfiles
 export EDITOR=$(which nvim)
 
-eval "$(ssh-agent -s)"
+eval "$(ssh-agent)"

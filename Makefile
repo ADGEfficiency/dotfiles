@@ -14,12 +14,11 @@ setup-brew:
 brew-pkgs: setup-brew
 	brew install hadolint vale actionlint fzf mactex pandoc
 
-setup-macos: brew-pkgs nix-setup
+setup-macos: brew-pkgs nix-pkgs
 	bash ./macos/setup.sh
 
-setup-linux:
+setup-linux: nix-pkgs
 	bash ./linux/setup.sh
-	sudo apt install exa
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 	cp ~/.fzf.bash ~/dotfiles

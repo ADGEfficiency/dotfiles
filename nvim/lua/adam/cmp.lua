@@ -58,20 +58,7 @@ for _, cmd_type in ipairs({ ":", "/", "?", "@" }) do
 	})
 end
 
-require("cmp_dictionary").setup({
-	dic = {
-		["*"] = { "/usr/share/dict/words" },
-		["python"] = { "~/dotfiles/dict/python.dic" },
-	},
-	exact = -1,
-	first_case_insensitive = true,
-	document = false,
-	document_command = "wn %s -over",
-	async = true,
-	capacity = 5,
-	debug = false,
-	max_items = 3,
-})
+require("cmp_dictionary").setup()
 
 cmp.setup({
 	snippet = {

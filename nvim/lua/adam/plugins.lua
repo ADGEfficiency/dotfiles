@@ -128,8 +128,16 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		config = function()
+			require("telescope").load_extension("fzf")
+		end,
 	})
 	use({ "ptethng/telescope-makefile" })
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
 
 	-- searching with grepper
 	use({ "mhinz/vim-grepper" })
