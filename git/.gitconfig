@@ -20,6 +20,8 @@
 
 [diff]
   algorithm = histogram
+  colormoved = "default"
+  colormovedws = "allow-indentation-change"
 
 [alias]
   diffs = diff --staged

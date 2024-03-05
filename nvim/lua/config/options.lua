@@ -145,6 +145,7 @@ vim.api.nvim_exec(
      autocmd FileType markdown let g:indentLine_enabled=0
      autocmd FileType markdown syntax keyword Todo TODO DONE
      set complete+=k
+     autocmd FileType markdown setlocal conceallevel=0
  augroup end
  ]],
 	false
@@ -173,18 +174,6 @@ vim.g["undotree_DiffAutoOpen"] = 0
 -- Use short indicators in the undotree
 vim.g["undotree_ShortIndicators"] = 1
 
--- Misc
--- create directories when needed, when saving a file
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = vim.api.nvim_create_augroup("better_backup", { clear = true }),
-	callback = function(event)
-		local file = vim.loop.fs_realpath(event.match) or event.match
-		local backup = vim.fn.fnamemodify(file, ":p:~:h")
-		backup = backup:gsub("[/\\]", "%%")
-		vim.go.backupext = backup
-	end,
-})
-
 -- close quickfix with q
 vim.cmd([[
   autocmd FileType qf nnoremap <buffer> q :close<CR>
@@ -193,3 +182,20 @@ vim.cmd([[
 vim.cmd([[
   command! -nargs=1 Tags execute 'grep -R "\- ' . <q-args> . '" . > /tmp/greptags.txt' | execute 'cfile /tmp/greptags.txt' | copen
 ]])
+
+vim.cmd([[
+  command Todo :sp ~/personal/para/todo.md
+]])
+
+vim.cmd([[
+  command Get :sp ~/personal/para/area/to/get.md
+]])
+
+-- highlight when yanking
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight on yank",
+	group = vim.api.nvim_create_augroup("yank-highlight", { clear = True }),
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+	end,
+})

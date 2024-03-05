@@ -150,3 +150,5 @@ alias pip-list='pip index versions'
 alias poetry-clean='poetry cache clear pypi --all'
 
 alias brew-list='brew list'
+
+alias get='$EDITOR ~/personal/para/area/to/get.md'
