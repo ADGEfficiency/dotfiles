@@ -1,6 +1,10 @@
-# dotfiles
+# Dotfiles
 
-Setup and configuration for a terminal based developer workflow.
+Setup and configuration for a terminal based developer workflow on either Ubuntu or macOS:
+
+- Neovim for text editing,
+- Zsh for shell,
+- Nix for package management.
 
 ## Bash, Zsh & Git
 
@@ -15,26 +19,26 @@ This runs a script `./dotfiles/setup.sh` which either:
 - appends to your `rc` files in `$HOME`, 
 - copies over files in `$HOME` for `.gitignore`, `.gitconfig` and `.npmrc`.
 
+Beware - this will overwrite your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
+
 Beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
 
-Beware overwriting your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
+## Ubuntu
 
-## Linux
-
-Setup an Linux machine:
+Setup an Ubuntu machine:
 
 ```shell-session
-$ make setup-linux OS=linux
+$ make setup-ubuntu OS=ubuntu
 ```
 
 This will also setup dependencies with Nix from `./nix/default.nix`.
 
-## MacOS
+## macOS
 
-Setup an MacOS machine:
+Setup an macOS machine:
 
 ```shell-session
-$ make setup-macos OS=macoS
+$ make setup-macos OS=macos
 ```
 
 This will also setup dependencies with Nix from `./nix/default.nix`.
@@ -51,13 +55,13 @@ This will setup a global Python installation in a pyenv virtual environment.
 
 ## Neovim
 
-Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim) -- it's a Lua based setup.
+Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
 
 To use my Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
 ## Getting Kitty to Play Nice on MacOS
 
-Had weird issue with the first execution of Kitty not loading the config correctly - fixed with:
+Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
 
 ```
 # ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist

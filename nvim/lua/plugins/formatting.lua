@@ -4,7 +4,7 @@ return {
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform").setup({
-				notify_on_error = true,
+				notify_on_error = false,
 				formatters_by_ft = {
 					bash = { "beautysh", "shellharden" },
 					sh = { "beautysh", "shellharden" },
@@ -34,8 +34,8 @@ return {
 					require("conform").format({
 						bufnr = args.buf,
 						quiet = false,
-						lsp_fallback = false,
-						timeout_ms = 2000,
+						lsp_fallback = true,
+						timeout_ms = 500,
 					})
 				end,
 			})

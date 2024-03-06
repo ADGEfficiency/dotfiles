@@ -23,7 +23,8 @@ return {
 				highlight = {
 					-- `false` will disable the whole extension
 					enable = true,
-					disable = { "markdown" },
+					-- disable = { "markdown" },
+					additional_vim_regex_highlighting = true,
 				},
 			})
 		end,

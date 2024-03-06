@@ -6,10 +6,19 @@ return {
 	{ "mattn/emmet-vim" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-repeat" },
-	{ "lewis6991/gitsigns.nvim" },
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
-	{ "mbbill/undotree" },
+	{
+		"mbbill/undotree",
+		config = function()
+			-- Set undotree to focus when toggled
+			vim.g.undotree_SetFocusWhenToggle = 1
+			-- Disable automatic opening of the undotree diff window
+			vim.g.undotree_DiffAutoOpen = 0
+			-- Use short indicators in the undotree
+			vim.g.undotree_ShortIndicators = 1
+		end,
+	},
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "windwp/nvim-ts-autotag" },
 	{ "kana/vim-textobj-user" },
@@ -80,20 +89,25 @@ return {
 	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },
 	{
-		"RRethy/vim-illuminate",
-	},
-	{
 		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
 		config = true,
   -- stylua: ignore
-  keys = {
-    { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-    { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-    { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-    { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-    { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-    { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
-  },
+    keys = {
+      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+      { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
+      { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
+      { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+      { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+    },
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 }

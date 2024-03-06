@@ -1,4 +1,6 @@
 -- Entrypoint
-require("config.options")
+require("config.option")
+require("config.augroup")
+require("config.command")
 require("config.lazy")
-require("config.keymaps")
+require("config.keymap")

@@ -3,15 +3,15 @@ name: test
 on:
   push:
 jobs:
-  linux:
+  ubuntu:
     runs-on: ubuntu-latest
     env:
       XDG_CONFIG_HOME: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v3
-      - run: make nix-pkgs OS=linux devShell=''
-      - run: . ./nix/load-linux.sh && make test -o setup-nix OS=linux
-      - run: . ./nix/load-linux.sh && sudo -E make setup-linux -o setup-nix OS=linux
+      - run: make nix-pkgs OS=ubuntu devShell=''
+      - run: . ./nix/load-linux.sh && make test -o setup-nix OS=ubuntu
+      - run: . ./nix/load-linux.sh && sudo -E make setup-ubuntu -o setup-nix OS=ubuntu
       #  TODO having problems with zsh being available
       #  can't set $PATH correctly
       # - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux

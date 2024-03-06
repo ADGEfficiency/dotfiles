@@ -8,7 +8,11 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "BufReadPost", "BufNewFile" },
+		event = {
+			"BufReadPost",
+			"BufNewFile",
+			"InsertEnter",
+		},
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"dmitmel/cmp-cmdline-history",
@@ -58,6 +62,7 @@ return {
 						luasnip.lsp_expand(args.body)
 					end,
 				},
+				completion = { completeopt = "menu,menuone,noinsert" },
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
