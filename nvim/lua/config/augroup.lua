@@ -16,10 +16,7 @@ vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
 
 -- .bats
 -- Set the filetype for *.bats files to sh
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-	pattern = "*.bats",
-	command = "set filetype=sh",
-})
+vim.cmd("au BufRead,BufNewFile *.bats setfiletype sh")
 
 -- .env
 -- Detect .env-* files and set their filetype to sh
