@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles
 
 Setup and configuration for a terminal based developer workflow on either Ubuntu or macOS:
 
