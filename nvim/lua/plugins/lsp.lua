@@ -1,8 +1,6 @@
 return {
 	{
 		"williamboman/mason.nvim",
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
 	},
 	{
@@ -155,7 +153,8 @@ return {
 
 			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- Handlers
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

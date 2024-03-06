@@ -1,5 +1,6 @@
 -- Options
 
+-- Set Leader
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -10,14 +11,17 @@ vim.opt.backup = false
 -- Clipboard and Display Options
 -- Use system clipboard for copy-paste
 vim.opt.clipboard = "unnamedplus"
+--
 -- Increase command line height for displaying messages
 vim.opt.cmdheight = 1
+--
 -- Mostly used for cmp (completion)
 vim.opt.completeopt = { "menuone", "noselect" }
 
 -- File Encoding and Conceal Options
 -- Ensure that `` is visible in markdown files
 vim.opt.conceallevel = 0
+--
 -- Set the encoding written to a file
 vim.opt.fileencoding = "utf-8"
 

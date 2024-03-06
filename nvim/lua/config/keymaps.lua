@@ -1,7 +1,5 @@
+-- Keymaps
 local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
 local km = vim.api.nvim_set_keymap
 
 -- leader
@@ -15,12 +13,6 @@ km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
--- km(
---   "v",
---   "<leader>l",
---   "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/black - | :echo 'black ran'",
---   opts
--- )
 function black_and_echo()
 	vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
 	vim.cmd("echo 'black ran'")
@@ -29,7 +21,7 @@ end
 km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
 
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
--- $HOME/.pyenv/versions/3.10.6/envs/general/bin/black - <CR>", opts)
+
 -- move to start / end of line
 km("n", "L", "$", opts)
 km("n", "H", "^", opts)
@@ -45,8 +37,6 @@ km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 
 -- buffer nav
--- km("n", "<C-n>", ":bnext<cr>:redraw<cr>", opts)
--- km("n", "<C-t>", ":bprevious<cr>:redraw<cr>", opts)
 km("n", "<C-n>", ":BufferNext<CR>", opts)
 km("n", "<C-t>", ":BufferPrevious<CR>", opts)
 -- km("n", "<C-t>", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)

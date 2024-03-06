@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		event = "VimEnter",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -96,10 +97,19 @@ return {
 						-- override_generic_sorter = true, -- override the generic sorter
 						-- override_file_sorter = true, -- override the file sorter
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+						["ui-select"] = {
+							require("telescope.themes").get_dropdown(),
+						},
 					},
 				},
 			})
 			require("telescope").load_extension("fzf")
+			pcall(require("telescope").load_extension, "ui-select")
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 		end,
 	},
 }
