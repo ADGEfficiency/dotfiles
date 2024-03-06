@@ -132,24 +132,3 @@ vim.opt.wildignore = "+=*.egg-info/**"
 
 -- Enable wildmenu for command-line completion
 vim.opt.wildmenu = true
-
--- Close quickfix with q
-vim.cmd([[
-  autocmd FileType qf nnoremap <buffer> q :close<CR>
-]])
-
--- Search for tags and open in quickfix
--- :Tags leadership
-vim.cmd([[
-  command! -nargs=1 Tags execute 'grep -R "\- ' . <q-args> . '" . > /tmp/greptags.txt' | execute 'cfile /tmp/greptags.txt' | copen
-]])
-
--- Open my todo file
-vim.cmd([[
-  command Todo :sp ~/personal/para/todo.md
-]])
-
--- Open my to/get file
-vim.cmd([[
-  command Get :sp ~/personal/para/area/to/get.md
-]])
