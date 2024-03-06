@@ -1,3 +1,0 @@
-#!/bin/bash
-curl https://us.download.nvidia.com/XFree86/Linux-x86_64/470.86/NVIDIA-Linux-x86_64-470.86.run --output gpu-driver.run
-sudo bash gpu-driver.run

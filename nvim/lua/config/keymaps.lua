@@ -13,7 +13,7 @@ km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
-function black_and_echo()
+local function black_and_echo()
 	vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
 	vim.cmd("echo 'black ran'")
 end
