@@ -152,10 +152,7 @@ vim.api.nvim_exec(
 -- Set the filetype for *.jinja files to jinja.html
 vim.cmd("au BufRead,BufNewFile *.jinja setfiletype jinja.html")
 -- Set the filetype for *.bats files to sh
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-	pattern = "*.bats",
-	command = "set filetype=sh",
-})
+vim.cmd("au BufRead,BufNewFile *.bats setfiletype filetype=sh")
 
 -- Vim Markdown Plugin Settings
 -- Disable default key mappings for vim-markdown

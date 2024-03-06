@@ -22,6 +22,7 @@ function open_todo_file() {
     "$TODO_DIR/$TODOFILE.md"
     "$TODO_DIR/$TODOFILE/$TODOFILE.md"
     "$TODO_DIR/$TODOFILE/todo.md"
+    "$TODO_DIR/todo.md"
   )
 
   # the default file

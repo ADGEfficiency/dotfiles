@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo dotfiles/.bashrc
 
 # vim master race
 set -o vi
@@ -23,9 +24,6 @@ export AWS_LOG_LEVEL=3
 source "$HOME"/dotfiles/scripts/funcs.sh
 source "$HOME"/dotfiles/scripts/aliases.sh
 
-# fzf bash hook
-source "$HOME"/dotfiles/dotfiles/.fzf.bash
-
 # assuming all these been installed separately
 # z script
 source ~/dotfiles/dotfiles/z.sh
@@ -40,3 +38,14 @@ export XDG_CONFIG_HOME=~/dotfiles
 export EDITOR=$(which nvim)
 
 eval "$(ssh-agent)"
+eval "$(direnv hook bash)"
+
+fzf_init() {
+  export FZF_BASE=/usr/local/bin/fzf
+  source "$HOME"/dotfiles/dotfiles/.fzf.bash
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
+  export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {}" --preview-window=down:50%:wrap --border=none'
+  export FZF_CTRL_R_OPTS='--height 20% --no-preview'
+}
+
+fzf_init

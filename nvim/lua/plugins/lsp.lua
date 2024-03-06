@@ -41,7 +41,7 @@ return {
 					"dockerls",
 					"jsonls",
 					"prosemd_lsp",
-					"rnix",
+					-- "rnix",
 					"tsserver",
 					"emmet_language_server",
 					"pyright",
@@ -217,7 +217,7 @@ return {
 				marksman = {
 					filetypes = { "markdown" },
 				},
-				rnix = {},
+				-- rnix = {},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {},

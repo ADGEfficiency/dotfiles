@@ -45,6 +45,7 @@ inspect-nvim:
 clean-nvim:
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
+	rm -rf ~/dotfiles/nvim/plugin
 
 #  not sure this fits into makefile ...
 #  apple silicon stuff

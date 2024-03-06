@@ -26,6 +26,7 @@ function black_and_echo()
 end
 
 km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
+km("v", "<leader>ll", ":Noice dismiss", opts)
 
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
 -- $HOME/.pyenv/versions/3.10.6/envs/general/bin/black - <CR>", opts)
