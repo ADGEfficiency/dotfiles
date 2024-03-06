@@ -115,9 +115,11 @@ return {
 					source = "always",
 					header = "",
 					prefix = "",
-					height = 16,
-					width = 80,
-					max_height = 32,
+					width = 160,
+					max_height = 10,
+					format = function(diagnostic)
+						return string.format("%s", diagnostic.message)
+					end,
 				},
 			})
 
@@ -242,6 +244,15 @@ return {
 					flags = lsp_flags,
 				}, config))
 			end
+
+			-- Set an autocommand to open diagnostic float on hover
+			vim.api.nvim_create_autocmd("CursorHold", {
+				pattern = "*",
+				callback = function()
+					local opts = { focusable = false, scope = "cursor" }
+					vim.diagnostic.open_float(nil, opts)
+				end,
+			})
 		end,
 	},
 }

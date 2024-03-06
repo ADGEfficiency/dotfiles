@@ -8,7 +8,17 @@ return {
 	{ "tpope/vim-repeat" },
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
-	{ "mbbill/undotree" },
+	{
+		"mbbill/undotree",
+		config = function()
+			-- Set undotree to focus when toggled
+			vim.g.undotree_SetFocusWhenToggle = 1
+			-- Disable automatic opening of the undotree diff window
+			vim.g.undotree_DiffAutoOpen = 0
+			-- Use short indicators in the undotree
+			vim.g.undotree_ShortIndicators = 1
+		end,
+	},
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "windwp/nvim-ts-autotag" },
 	{ "kana/vim-textobj-user" },
