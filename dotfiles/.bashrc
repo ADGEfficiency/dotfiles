@@ -37,10 +37,6 @@ source "$HOME/dotfiles/scripts/aliases.sh"
 export XDG_CONFIG_HOME=~/dotfiles
 export EDITOR=$(which nvim)
 
-eval "$(ssh-agent)"
-eval "$(direnv hook bash)"
-
-. ~/.keychain/"$(uname -n)"-sh
 
 fzf_init() {
   export FZF_BASE=/usr/local/bin/fzf

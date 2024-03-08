@@ -8,7 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-echo .profile
+echo dotfiles/.bash_profile
 
 # if running bash
 if [ "$BASH_VERSION" != "" ]; then
@@ -38,3 +38,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+
+eval "$(ssh-agent)"
+eval "$(direnv hook bash)"
+. ~/.keychain/"$(uname -n)"-sh
