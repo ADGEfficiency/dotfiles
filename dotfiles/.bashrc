@@ -40,6 +40,8 @@ export EDITOR=$(which nvim)
 eval "$(ssh-agent)"
 eval "$(direnv hook bash)"
 
+. ~/.keychain/"$(uname -n)"-sh
+
 fzf_init() {
   export FZF_BASE=/usr/local/bin/fzf
   source "$HOME"/dotfiles/dotfiles/.fzf.bash
