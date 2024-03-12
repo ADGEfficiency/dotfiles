@@ -75,4 +75,6 @@ with pkgs; [
   vimPlugins.packer-nvim
   zoxide
   ruby
+  actionlint
+  zig
 ]

@@ -64,13 +64,10 @@ starship_init
 pretzo_init
 fzf_init
 flyctl_init
-eval "$(zoxide init zsh)"
-eval "$(direnv hook zsh)"
 just_completions_init
 
 #  docker desktop
 # source /Users/adam/.docker/init-zsh.sh || true
-
 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=10000000
@@ -104,3 +101,6 @@ export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 #  turn on when profiling
 # zprof
 #
+
+pretzo_init
+fzf_init

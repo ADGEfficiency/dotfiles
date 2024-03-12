@@ -13,6 +13,7 @@ return {
 			end
 
 			configs.setup({
+				compilers = { "clang" },
 				-- A list of parser names, or "all"
 				ensure_installed = { "c", "lua", "rust", "python", "html", "javascript", "bash" },
 				-- Install parsers synchronously (only applied to `ensure_installed`)

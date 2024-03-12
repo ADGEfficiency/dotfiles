@@ -3,7 +3,6 @@ echo dotfiles/.bashrc
 
 # vim master race
 set -o vi
-export EDITOR=vim
 
 # don't add duplicates
 export HISTCONTROL=ignoreboth:erasedups
@@ -27,16 +26,14 @@ source "$HOME"/dotfiles/scripts/aliases.sh
 # assuming all these been installed separately
 # z script
 source ~/dotfiles/dotfiles/z.sh
-# not sure i need this really
-# . "$HOME/.cargo/env"
-
 export PATH="$HOME/dotfiles/scripts:$PATH"
 source "$HOME/dotfiles/scripts/funcs.sh"
 source "$HOME/dotfiles/scripts/aliases.sh"
 
-export XDG_CONFIG_HOME=~/dotfiles
-export EDITOR=$(which nvim)
-
+starship_init() {
+  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+  eval "$(starship init bash)"
+}
 
 fzf_init() {
   export FZF_BASE=/usr/local/bin/fzf
@@ -46,4 +43,5 @@ fzf_init() {
   export FZF_CTRL_R_OPTS='--height 20% --no-preview'
 }
 
+starship_init
 fzf_init
