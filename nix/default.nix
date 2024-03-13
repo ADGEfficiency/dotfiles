@@ -12,6 +12,7 @@ with pkgs; [
   findutils
   gnused
   jq
+  stow
   nodejs_18
   ripgrep
   shunit2

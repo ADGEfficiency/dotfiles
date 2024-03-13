@@ -31,6 +31,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
-eval "$(ssh-agent)"
+{ eval "$(ssh-agent)"; } &>/dev/null
 eval "$(direnv hook bash)"
 . ~/.keychain/"$(uname -n)"-sh
