@@ -11,7 +11,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTFILE=~/.bash_history
 export HISTFILESIZE=10000000
 export HISTSIZE=$HISTFILESIZE
-SAVEHIST=$HISTSIZE
+export SAVEHIST=$HISTSIZE
 
 # after each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -28,7 +28,7 @@ source "$HOME"/dotfiles/dotfiles/.fzf.bash
 
 # assuming all these been installed separately
 # z script
-source ~/dotfiles/dotfiles/z.sh
+# source ~/dotfiles/dotfiles/z.sh
 # not sure i need this really
 # . "$HOME/.cargo/env"
 

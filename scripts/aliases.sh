@@ -62,7 +62,7 @@ alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 alias cheat='$EDITOR $HOME/personal/para/resource/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
-alias inbox='$EDITOR $HOME/.nb/home/inbox.md'
+alias inbox='$EDITOR $HOME/personal/para/area/inbox.md'
 
 # folders
 alias blog='cd $HOME/adgefficiency.github.io/'
@@ -152,3 +152,6 @@ alias poetry-clean='poetry cache clear pypi --all'
 alias brew-list='brew list'
 
 alias get='$EDITOR ~/personal/para/area/to/get.md'
+
+# sets term colors when sshing
+alias ssh='TERM=xterm-256color ssh'

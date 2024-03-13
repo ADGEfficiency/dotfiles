@@ -57,12 +57,12 @@ return {
 			require("luasnip/loaders/from_snipmate").load({ paths = "~/dotfiles/nvim/snippets" })
 
 			cmp.setup({
+				preselect = cmp.PreselectMode.None,
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				completion = { completeopt = "menu,menuone,noinsert" },
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),

@@ -53,12 +53,15 @@ just_completions_init() {
 
   # Check if just.zsh exists
   if [ -f "$JUST_COMPLETIONS_PATH" ]; then
-    autoload -U compinit
-    compinit
   else
     just --completions zsh > "$JUST_COMPLETIONS_PATH"
   fi
 }
+
+fpath=($HOME/dotfiles/zsh/custom-autocomplete/ $fpath)
+autoload -U compinit
+compinit
+autoload -Uz $HOME/dotfiles/zsh/custom-autocomplete/todo
 
 starship_init
 pretzo_init
@@ -90,7 +93,7 @@ source $HOME/dotfiles/scripts/aliases.sh
 
 # Zsh completion for todo
 # TODO move this at some point
-source $HOME/dotfiles/scripts/todo-completion.zsh
+# source $HOME/dotfiles/scripts/todo-completion.zsh
 
 # use custom ipython config
 export IPYTHONDIR="/Users/adam/dotfiles/.ipython"

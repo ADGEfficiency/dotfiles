@@ -33,3 +33,6 @@ vim.cmd("cabbrev t Telescope")
 vim.cmd("command W write")
 vim.cmd("command Q quit")
 vim.cmd("command Wq write | quit!")
+
+-- Access Telescope as :T
+vim.api.nvim_create_user_command("T", "Telescope <args>", { nargs = "+" })

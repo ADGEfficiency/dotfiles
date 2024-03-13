@@ -17,7 +17,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
 --
 -- Mostly used for cmp (completion)
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.completeopt = "menuone,noselect,preview"
 
 -- File Encoding and Conceal Options
 -- Ensure that `` is visible in markdown files

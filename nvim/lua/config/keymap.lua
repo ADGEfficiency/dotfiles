@@ -51,9 +51,9 @@ km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 -- Python
 
 -- Format selection with Ruff
-local function black_and_echo()
-	vim.cmd(":'<,'>!ruff --quiet -")
-	vim.cmd("echo 'ruff ran'")
+function black_and_echo()
+	vim.cmd(":'<,'>!black --quiet -")
+	vim.cmd("echo 'black ran'")
 end
 km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
 
@@ -75,7 +75,6 @@ km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
 
 -- Telescope
-
 -- Search diagnostics
 km(
 	"n",
@@ -101,7 +100,10 @@ km(
 )
 
 --- Search through recent files
-km("n", "<leader>x", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>f", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+
+-- Oil
+vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- Misc / Unused / Broken
 
