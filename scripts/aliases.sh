@@ -119,6 +119,7 @@ alias gs='git status'
 alias nbg='git checkout -b'
 alias gss='git stash'
 alias gsa='git stash apply'
+alias ups='git add -u && git commit -m "feat: ups" && git push'
 
 # tmux
 alias ta='tmux attach'

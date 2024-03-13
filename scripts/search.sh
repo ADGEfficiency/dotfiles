@@ -20,6 +20,8 @@ open_files_with_editor() {
   fi
 }
 
+cd "$1" || exit
+
 # Using fzf to select files
 # Adjust fzf options for preview based on terminal size
 if [ "$TERM_HEIGHT" -ge "$MIN_HEIGHT" ]; then
