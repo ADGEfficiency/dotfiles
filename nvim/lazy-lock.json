@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
+  "LuaSnip": { "branch": "master", "commit": "a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32" },
   "Vim-Jinja2-Syntax": { "branch": "master", "commit": "2c17843b074b06a835f88587e1023ceff7e2c7d1" },
   "barbar.nvim": { "branch": "master", "commit": "71ac376acd000743146b1e08e62151b4d887bbac" },
   "bullets.vim": { "branch": "master", "commit": "d9a47f114031d3030b1e4de3c0b6a664b1201524" },
