@@ -12,6 +12,7 @@ with pkgs; [
   findutils
   gnused
   jq
+  stow
   nodejs_18
   ripgrep
   shunit2
@@ -76,4 +77,6 @@ with pkgs; [
   zoxide
   ruby
   lua
+  actionlint
+  zig
 ]

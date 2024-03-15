@@ -13,9 +13,13 @@ test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
 setup-macos: brew-pkgs setup-nix
+	bash ./tmux/setup.sh
+	bash ./zsh/setup.sh
 	bash ./macos/setup.sh
 
 setup-ubuntu: setup-nix
+	bash ./tmux/setup.sh
+	bash ./zsh/setup.sh
 	bash ./ubuntu/setup.sh
 
 .PHONY: setup-pyenv python js
@@ -36,6 +40,11 @@ js:
 .PHONY: clean-nvim setup-vim
 
 clean-nvim:
+	# cleans packer stuff
+	rm -rf ~/.local/share/nvim/site
+	rm -rf ./plugin
+	rm -rf ~/dotfiles/nvim/plugin
+	# cleans lazy stuff
 	rm ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
 
 setup-vim:

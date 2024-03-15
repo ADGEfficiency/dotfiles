@@ -46,7 +46,7 @@ return {
 					cvs = false,
 					["*"] = true,
 				},
-				copilot_node_command = "/Users/adam/.nix-profile/bin/node",
+				copilot_node_command = "node",
 				server_opts_overrides = {},
 			})
 		end,
