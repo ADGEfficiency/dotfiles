@@ -75,4 +75,5 @@ with pkgs; [
   vimPlugins.packer-nvim
   zoxide
   ruby
+  lua
 ]
