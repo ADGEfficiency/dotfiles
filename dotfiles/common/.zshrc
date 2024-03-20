@@ -1,7 +1,14 @@
-#  turn on when profiling
-# zmodload zsh/zprof
+source $HOME/dotfiles/zsh/.zprezto/init.zsh
+source $HOME/dotfiles/dotfiles/common/.zpreztorc
 
-# # ------ 3rd party -------
+pyenv_init() {
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+}
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
@@ -10,12 +17,6 @@ fzf_init() {
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {}" --preview-window=down:50%:wrap --border=none'
     export FZF_CTRL_R_OPTS='--height 20% --no-preview'
-}
-
-nvm_init() {
-  export NVM_DIR="$HOME/dotfiles/nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
 ruby_init() {
@@ -30,7 +31,7 @@ pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
   source $HOME/dotfiles/zsh/.zprezto/init.zsh
-  source $HOME/dotfiles/dotfiles/.zpreztorc
+  source $HOME/dotfiles/dotfiles/common/.zpreztorc
 }
 
 starship_init() {
@@ -47,30 +48,10 @@ atuin_init() {
   eval "$(atuin init zsh --disable-up-arrow)"
 }
 
-just_completions_init() {
-  # Path to just.zsh
-  JUST_COMPLETIONS_PATH="$HOME/dotfiles/just.zsh"
-
-  # Check if just.zsh exists
-  if [ -f "$JUST_COMPLETIONS_PATH" ]; then
-  else
-    just --completions zsh > "$JUST_COMPLETIONS_PATH"
-  fi
-}
-
 fpath=($HOME/dotfiles/zsh/custom-autocomplete/ $fpath)
 autoload -U compinit
 compinit
 autoload -Uz $HOME/dotfiles/zsh/custom-autocomplete/todo
-
-starship_init
-pretzo_init
-fzf_init
-flyctl_init
-just_completions_init
-
-#  docker desktop
-# source /Users/adam/.docker/init-zsh.sh || true
 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=10000000
@@ -88,22 +69,22 @@ source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh
 source $HOME/dotfiles/scripts/aliases.sh
 
-# Zsh completion for todo
-# TODO move this at some point
-# source $HOME/dotfiles/scripts/todo-completion.zsh
-
-# use custom ipython config
+# custom ipython config
 export IPYTHONDIR="/Users/adam/dotfiles/.ipython"
 
-# need a fancy npm setup when npm manages nix
-# requires a .npmrc with a prefix
+# need a fancy npm setup when npm manages nix - requires a .npmrc with a prefix
 export PATH=~/.npm-packages/bin:$PATH
 export NODE_PATH=~/.npm-packages/lib/node_modules
 export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
-#  turn on when profiling
-# zprof
-#
+pyenv_init
+starship_init
+flyctl_init
 
+eval "$(zoxide init zsh)"
+eval "$(ssh-agent)"  &>/dev/null &>/dev/null
+eval "$(direnv hook zsh)"
+
+pretzo_init
 pretzo_init
 fzf_init

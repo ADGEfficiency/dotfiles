@@ -6,6 +6,16 @@ Setup and configuration for a terminal based developer workflow on either Ubuntu
 - Zsh for shell,
 - Nix for package management.
 
+## Setup Dotfiles with Stow
+
+```shell-session
+$ make dotfiles-stow OS=macos
+```
+
+TODO
+- Git
+- anything else in ./dotfiles/setup.sh
+
 ## Bash, Zsh & Git
 
 Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
