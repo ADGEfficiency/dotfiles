@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-echo dotfiles/.bashrc
 
 # vim master race
 set -o vi

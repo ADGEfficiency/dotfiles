@@ -9,6 +9,9 @@ default:
 dotfiles:
 	bash ./dotfiles/setup.sh
 
+dotfiles-stow:
+	stow -d dotfiles -t $(HOME) $(OS)
+
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 

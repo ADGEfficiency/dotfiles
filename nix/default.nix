@@ -79,4 +79,5 @@ with pkgs; [
   lua
   actionlint
   zig
+  cbonsai
 ]

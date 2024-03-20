@@ -1,5 +1,4 @@
-echo wsl/.bashrc
-source "$HOME"/dotfiles/dotfiles/.bashrc
+source "$HOME"/dotfiles/dotfiles/common/.bashrc
 alias docs='cd ~/onedrive/docs'
 alias od='cd ~/onedrive'
 export TODO_DIR="/home/adam/onedrive/docs"
