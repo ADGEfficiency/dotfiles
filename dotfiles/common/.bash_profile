@@ -1,8 +1,22 @@
-echo dotfiles/.bash_profile
+#!/usr/bin/env bash
+
 export XDG_CONFIG_HOME=~/dotfiles
 
 if [ -e "$HOME"/.nix-profile/etc/profile.d/nix.sh ]; then . "$HOME"/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export EDITOR=$(which nvim)
+
+eval "$(zoxide init bash)"
+
+# pyenv
+source "$HOME/dotfiles/macos/pyenv-flags"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+{ eval "$(ssh-agent)"; } &>/dev/null
+eval "$(direnv hook bash)"
+. ~/.keychain/"$(uname -n)"-sh
 
 # if running bash
 if [ "$BASH_VERSION" != "" ]; then
@@ -21,16 +35,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
-
-eval "$(zoxide init bash)"
-
-# pyenv
-source "$HOME/dotfiles/macos/pyenv-flags"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
-{ eval "$(ssh-agent)"; } &>/dev/null
-eval "$(direnv hook bash)"
-. ~/.keychain/"$(uname -n)"-sh

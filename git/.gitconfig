@@ -18,6 +18,10 @@
 [pull]
   rebase = false
 
+[push]
+  default = simple
+  autoSetupRemote = true
+
 [diff]
   algorithm = histogram
   colormoved = "default"
