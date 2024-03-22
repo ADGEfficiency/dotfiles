@@ -11,6 +11,7 @@ dotfiles:
 
 dotfiles-stow:
 	stow -d dotfiles -t $(HOME) $(OS)
+	stow git
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
