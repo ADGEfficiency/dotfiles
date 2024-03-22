@@ -6,6 +6,8 @@ Setup and configuration for a terminal based developer workflow on either Ubuntu
 - Zsh for shell,
 - Nix for package management.
 
+This repo should be cloned into `$HOME`.
+
 ## Setup Dotfiles
 
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
