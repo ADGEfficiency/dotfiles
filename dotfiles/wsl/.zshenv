@@ -1,2 +1,1 @@
-echo wsl/.zshenv
-source /home/adam/dotfiles/dotfiles/.zshenv
+source /home/adam/dotfiles/dotfiles/common/.zshenv
