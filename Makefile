@@ -6,9 +6,6 @@ OS = macos
 default:
 	echo "hello ^^"
 
-dotfiles:
-	bash ./dotfiles/setup.sh
-
 STOW_ARGS=-vv
 dotfiles:
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
