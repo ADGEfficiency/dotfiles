@@ -6,9 +6,11 @@ OS = macos
 default:
 	echo "hello ^^"
 
-STOW_ARGS=-vv
-dotfiles:
+bootstrap-stow:
 	bash ./scripts/bootstrap-stow.sh
+
+STOW_ARGS=-vv
+dotfiles: bootstrap-stow
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
 	stow $(STOW_ARGS) dotfiles
 	stow $(STOW_ARGS) yabai

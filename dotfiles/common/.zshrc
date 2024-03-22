@@ -1,5 +1,5 @@
-source $HOME/dotfiles/zsh/.zprezto/init.zsh
-source $HOME/dotfiles/dotfiles/common/.zpreztorc
+# source $HOME/dotfiles/zsh/.zprezto/init.zsh
+# source $HOME/dotfiles/dotfiles/common/.zpreztorc
 
 pyenv_init() {
   export PYENV_ROOT="$HOME/.pyenv"
