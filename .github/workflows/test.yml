@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make nix-pkgs OS=ubuntu devShell=''
-      - run: . ./nix/load-ubuntu.sh && make test -o setup-nix OS=ubuntu
+      - run: . ./nix/load-ubuntu.sh && make test -o setup-nix OS=ubuntu STOW_ARGS='--v
+          --adopt'
       - run: . ./nix/load-ubuntu.sh && sudo -E make setup-ubuntu -o setup-nix OS=ubuntu
       #  TODO having problems with zsh being available
       #  can't set $PATH correctly
