@@ -1,1 +1,1 @@
-source /Users/adam/dotfiles/dotfiles/common/.bashrc
+source "$HOME"/dotfiles/dotfiles/common/.bashrc

@@ -70,7 +70,7 @@ source $HOME/dotfiles/scripts/funcs.sh
 source $HOME/dotfiles/scripts/aliases.sh
 
 # custom ipython config
-export IPYTHONDIR="/Users/adam/dotfiles/.ipython"
+export IPYTHONDIR="$HOME/dotfiles/.ipython"
 
 # need a fancy npm setup when npm manages nix - requires a .npmrc with a prefix
 export PATH=~/.npm-packages/bin:$PATH

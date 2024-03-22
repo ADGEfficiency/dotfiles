@@ -8,6 +8,7 @@ default:
 
 STOW_ARGS=-vv
 dotfiles:
+	bash ./scripts/bootstrap-stow.sh
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
 	stow $(STOW_ARGS) dotfiles
 	stow $(STOW_ARGS) yabai

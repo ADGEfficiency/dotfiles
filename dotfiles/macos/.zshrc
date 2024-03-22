@@ -1,1 +1,1 @@
-source /Users/adam/dotfiles/dotfiles/common/.zshrc
+source $HOME/dotfiles/dotfiles/common/.zshrc

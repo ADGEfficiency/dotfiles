@@ -14,6 +14,10 @@ Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 $ make dotfiles OS=macos
 ```
 
+Valid values for `OS` are `macos`, `wsl` or `windows`.
+
+A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Bootstrapping is not setup for Windows because Windows is awful.
+
 ## Ubuntu
 
 Setup an Ubuntu machine:
@@ -42,15 +46,15 @@ Install pyenv and pyenv-virtualenv:
 $ make python
 ```
 
-This will setup a global Python installation in a pyenv virtual environment.
+This will also setup a global Python installation in a pyenv virtual environment.
 
 ## Neovim
 
-Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
+Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
-To use my Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
+I use Lazy for package management in Neovim.
 
-## Getting Kitty to Play Nice on MacOS
+## Getting Kitty to Play Nice on macOS
 
 Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
 
