@@ -28,4 +28,5 @@ jobs:
         with:
           node-version: 16
       - run: make nix-pkgs OS=macos
-      - run: . ./nix/load-macos.sh && make test -o setup-nix OS=macos
+      - run: . ./nix/load-macos.sh && make test -o setup-nix OS=macos STOW_ARGS='--v
+          --adopt'
