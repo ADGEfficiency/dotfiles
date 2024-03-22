@@ -13,6 +13,7 @@ jobs:
       - run: . ./nix/load-ubuntu.sh && make test -o setup-nix OS=ubuntu STOW_ARGS='--v
           --adopt'
       - run: . ./nix/load-ubuntu.sh && sudo -E make setup-ubuntu -o setup-nix OS=ubuntu
+          STOW_ARGS='--v --adopt'
       #  TODO having problems with zsh being available
       #  can't set $PATH correctly
       # - run: . ./nix/load-linux.sh && sudo -E make js python OS=linux
