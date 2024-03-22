@@ -36,7 +36,8 @@ with pkgs; [
 ]
 ++ lib.optionals devShell [
   bat
-  #cbfmt
+  cbfmt
+  marksman
   checkmake
   direnv
   efm-langserver

@@ -6,24 +6,26 @@ OS = macos
 default:
 	echo "hello ^^"
 
-dotfiles:
-	bash ./dotfiles/setup.sh
+bootstrap-stow:
+	bash ./scripts/bootstrap-stow.sh
 
-dotfiles-stow:
-	stow -d dotfiles -t $(HOME) $(OS)
-	stow git
+STOW_ARGS=-vv
+dotfiles: bootstrap-stow
+	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
+	stow $(STOW_ARGS) dotfiles
+	stow $(STOW_ARGS) yabai
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
 setup-macos: brew-pkgs setup-nix
 	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
+	# bash ./zsh/setup.sh
 	bash ./macos/setup.sh
 
 setup-ubuntu: setup-nix
 	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
+	# bash ./zsh/setup.sh
 	bash ./ubuntu/setup.sh
 
 .PHONY: setup-pyenv python js

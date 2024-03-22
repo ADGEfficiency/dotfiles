@@ -6,32 +6,19 @@ Setup and configuration for a terminal based developer workflow on either Ubuntu
 - Zsh for shell,
 - Nix for package management.
 
-## Setup Dotfiles with Stow
+This repo should be cloned into `$HOME`.
+
+## Setup Dotfiles
+
+Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
 ```shell-session
-$ make dotfiles-stow OS=macos
+$ make dotfiles OS=macos
 ```
 
-TODO
-- Git
-- anything else in ./dotfiles/setup.sh
+Valid values for `OS` are `macos`, `wsl` or `windows`.
 
-## Bash, Zsh & Git
-
-Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
-
-```shell-session
-$ make dotfiles
-```
-
-This runs a script `./dotfiles/setup.sh` which either:
-
-- appends to your `rc` files in `$HOME`, 
-- copies over files in `$HOME` for `.gitignore`, `.gitconfig` and `.npmrc`.
-
-Beware - this will overwrite your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
-
-Beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
+A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Bootstrapping is not setup for Windows because Windows is awful.
 
 ## Ubuntu
 
@@ -61,15 +48,15 @@ Install pyenv and pyenv-virtualenv:
 $ make python
 ```
 
-This will setup a global Python installation in a pyenv virtual environment.
+This will also setup a global Python installation in a pyenv virtual environment.
 
 ## Neovim
 
-Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
+Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
-To use my Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
+I use Lazy for package management in Neovim.
 
-## Getting Kitty to Play Nice on MacOS
+## Getting Kitty to Play Nice on macOS
 
 Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
 
