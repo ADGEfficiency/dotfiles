@@ -6,32 +6,13 @@ Setup and configuration for a terminal based developer workflow on either Ubuntu
 - Zsh for shell,
 - Nix for package management.
 
-## Setup Dotfiles with Stow
+## Setup Dotfiles
+
+Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
 ```shell-session
-$ make dotfiles-stow OS=macos
+$ make dotfiles OS=macos
 ```
-
-TODO
-- Git
-- anything else in ./dotfiles/setup.sh
-
-## Bash, Zsh & Git
-
-Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
-
-```shell-session
-$ make dotfiles
-```
-
-This runs a script `./dotfiles/setup.sh` which either:
-
-- appends to your `rc` files in `$HOME`, 
-- copies over files in `$HOME` for `.gitignore`, `.gitconfig` and `.npmrc`.
-
-Beware - this will overwrite your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
-
-Beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
 
 ## Ubuntu
 

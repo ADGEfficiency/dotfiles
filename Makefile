@@ -9,8 +9,11 @@ default:
 dotfiles:
 	bash ./dotfiles/setup.sh
 
-dotfiles-stow:
-	stow -d dotfiles -t $(HOME) $(OS)
+STOW_ARGS=-vv
+dotfiles:
+	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
+	stow $(STOW_ARGS) dotfiles
+	stow $(STOW_ARGS) git
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
