@@ -13,7 +13,7 @@ STOW_ARGS=-vv
 dotfiles:
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
 	stow $(STOW_ARGS) dotfiles
-	stow $(STOW_ARGS) git
+	stow $(STOW_ARGS) yabai
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
