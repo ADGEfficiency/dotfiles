@@ -1,12 +1,12 @@
 # Dotfiles
 
-Setup and configuration for a terminal based developer workflow on either Ubuntu or macOS:
+Setup and configuration for a terminal based developer workflow:
 
 - Neovim for text editing,
 - Zsh for shell,
 - Nix for package management.
 
-This repo should be cloned into `$HOME`.
+This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
 ## Setup Dotfiles
 
@@ -19,6 +19,12 @@ $ make dotfiles OS=macos
 Valid values for `OS` are `macos`, `wsl` or `windows`.
 
 A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Bootstrapping is not setup for Windows because Windows is awful.
+
+You can run the setup without bootstrapping Stow with:
+
+```shell-session
+$ make dotfiles OS=macos -o bootstrap-stow
+```
 
 ## Ubuntu
 
@@ -40,15 +46,16 @@ $ make setup-macos OS=macos
 
 This will also setup dependencies with Nix from `./nix/default.nix`.
 
-## Global Python Virtual Env
+## Global Python Virtual Environment
 
-Install pyenv and pyenv-virtualenv:
+This will:
+
+- install `pyenv` and `pyenv-virtualenv`,
+- setup a global Python installation in a pyenv virtual environment.
 
 ```bash
 $ make python
 ```
-
-This will also setup a global Python installation in a pyenv virtual environment.
 
 ## Neovim
 

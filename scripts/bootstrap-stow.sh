@@ -15,7 +15,7 @@ if [ "$OS" = "macos" ]; then
     brew install stow
   fi
 
-elif [ "$OS" = "ubuntu" ]; then
+elif [ "$OS" = "ubuntu" ] || [ "$OS" = "wsl" ]; then
   if command -v stow &> /dev/null; then
     echo "Stow already installed."
   else
