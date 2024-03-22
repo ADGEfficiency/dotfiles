@@ -20,12 +20,12 @@ test: setup-nix
 
 setup-macos: brew-pkgs setup-nix
 	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
+	# bash ./zsh/setup.sh
 	bash ./macos/setup.sh
 
 setup-ubuntu: setup-nix
 	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
+	# bash ./zsh/setup.sh
 	bash ./ubuntu/setup.sh
 
 .PHONY: setup-pyenv python js
