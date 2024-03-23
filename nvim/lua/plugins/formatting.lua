@@ -4,7 +4,12 @@ return {
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform").setup({
-				notify_on_error = true,
+				notify_on_error = false,
+				format_on_save = {
+					timeout_ms = 4000,
+					lsp_fallback = true,
+				},
+
 				formatters_by_ft = {
 					bash = { "beautysh", "shellharden" },
 					sh = { "beautysh", "shellharden" },
@@ -14,7 +19,7 @@ return {
 					lua = { "stylua" },
 					go = { "gofmt" },
 					-- markdown = { "mdformat" },
-					python = { "isort", "ruff_format", "ruff_lint" },
+					python = { "isort", "ruff_format" },
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
@@ -25,19 +30,6 @@ return {
 						-- "trim_whitespace"
 					},
 				},
-			})
-
-			-- setup format on save
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = "*",
-				callback = function(args)
-					require("conform").format({
-						bufnr = args.buf,
-						quiet = false,
-						lsp_fallback = false,
-						timeout_ms = 2000,
-					})
-				end,
 			})
 
 			require("conform").formatters.djlintJinja = {

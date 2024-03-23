@@ -156,6 +156,5 @@ return {
 				border = "rounded",
 			},
 		})
-		vim.keymap.set("n", "<leader>d", "<CMD>split | Oil<CR>")
 	end,
 }

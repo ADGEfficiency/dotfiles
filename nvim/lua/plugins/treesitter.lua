@@ -13,6 +13,7 @@ return {
 			end
 
 			configs.setup({
+				compilers = { "clang" },
 				-- A list of parser names, or "all"
 				ensure_installed = { "c", "lua", "rust", "python", "html", "javascript", "bash" },
 				-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -23,7 +24,8 @@ return {
 				highlight = {
 					-- `false` will disable the whole extension
 					enable = true,
-					disable = { "markdown" },
+					-- disable = { "markdown" },
+					additional_vim_regex_highlighting = true,
 				},
 			})
 		end,

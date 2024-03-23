@@ -1,8 +1,6 @@
 return {
 	{
 		"williamboman/mason.nvim",
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
 	},
 	{
@@ -41,7 +39,7 @@ return {
 					"dockerls",
 					"jsonls",
 					"prosemd_lsp",
-					"rnix",
+					-- "rnix",
 					"tsserver",
 					"emmet_language_server",
 					"pyright",
@@ -117,9 +115,11 @@ return {
 					source = "always",
 					header = "",
 					prefix = "",
-					height = 16,
-					width = 80,
-					max_height = 32,
+					width = 160,
+					max_height = 10,
+					format = function(diagnostic)
+						return string.format("%s", diagnostic.message)
+					end,
 				},
 			})
 
@@ -155,7 +155,8 @@ return {
 
 			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- Handlers
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -217,7 +218,7 @@ return {
 				marksman = {
 					filetypes = { "markdown" },
 				},
-				rnix = {},
+				-- rnix = {},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {},
@@ -243,6 +244,35 @@ return {
 					flags = lsp_flags,
 				}, config))
 			end
+
+			-- Set an autocommand to open diagnostic float on hover
+			-- vim.api.nvim_create_autocmd("CursorHold", {
+			-- 	pattern = "*",
+			-- 	callback = function()
+			-- 		local opts = { focusable = false, scope = "cursor" }
+			-- 		-- Delay execution by using vim.defer_fn
+			-- 		-- The delay is specified in milliseconds, 500ms in this example
+			-- 		vim.defer_fn(function()
+			-- 			vim.diagnostic.open_float(nil, opts)
+			-- 		end, 3000)
+			-- 	end,
+			-- })
+
+			local debounce_timer = nil
+
+			vim.api.nvim_create_autocmd("CursorHold", {
+				pattern = "*",
+				callback = function()
+					if debounce_timer then
+						vim.fn.timer_stop(debounce_timer)
+					end
+
+					debounce_timer = vim.fn.timer_start(2000, function()
+						local opts = { focusable = false, scope = "cursor" }
+						vim.diagnostic.open_float(nil, opts)
+					end)
+				end,
+			})
 		end,
 	},
 }

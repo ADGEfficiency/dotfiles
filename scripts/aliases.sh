@@ -32,9 +32,9 @@ alias ctree='clear && tree'
 # alias tree='exa --tree --ignore-glob="*pycache*"'
 
 # lsd
-alias ll='lsd --group-directories-first'
-alias ls='lsd --long --icon always --git --date relative --group-directories-first -a'
-alias tree='lsd --tree --ignore-glob="*pycache*"'
+alias ll='lsd --almost-all --group-directories-first'
+alias ls='lsd --almost-all --long --icon always --git --date relative --group-directories-first -a'
+alias tree='lsd --almost-all --tree --ignore-glob="*pycache*"'
 
 # program customization
 alias bat='bat --color=always --paging=always'
@@ -62,7 +62,7 @@ alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 alias cheat='$EDITOR $HOME/personal/para/resource/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
-alias inbox='$EDITOR $HOME/.nb/home/inbox.md'
+alias inbox='$EDITOR $HOME/personal/para/area/inbox.md'
 
 # folders
 alias blog='cd $HOME/adgefficiency.github.io/'
@@ -93,8 +93,8 @@ alias wi='vi'
 alias dots='cd $HOME/dotfiles'
 alias aliases='$EDITOR $HOME/dotfiles/scripts/aliases.sh'
 alias funcs='$EDITOR $HOME/dotfiles/scripts/funcs.sh'
-alias bashrc='$EDITOR $HOME/dotfiles/dotfiles/.bashrc'
-alias zshrc='$EDITOR $HOME/dotfiles/dotfiles/.zshrc'
+alias bashrc='$EDITOR $HOME/.bashrc'
+alias zshrc='$EDITOR $HOME/.zshrc'
 alias zs='source ~/.zshrc'
 alias bs='source ~/.bashrc'
 
@@ -119,6 +119,7 @@ alias gs='git status'
 alias nbg='git checkout -b'
 alias gss='git stash'
 alias gsa='git stash apply'
+alias ups='git add . && git add -u && git commit -m "feat: ups" && git push'
 
 # tmux
 alias ta='tmux attach'
@@ -150,3 +151,8 @@ alias pip-list='pip index versions'
 alias poetry-clean='poetry cache clear pypi --all'
 
 alias brew-list='brew list'
+
+alias get='$EDITOR ~/personal/para/area/to/get.md'
+
+# sets term colors when sshing
+alias ssh='TERM=xterm-256color ssh'

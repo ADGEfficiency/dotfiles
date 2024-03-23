@@ -17,15 +17,22 @@ return {
 				enabled = false,
 			},
 			popupmenu = {
-				enabled = true,
+				enabled = false,
+			},
+			-- this is the messages that appear in top right
+			notify = {
+				enabled = false,
 			},
 			lsp = {
 				progress = {
 					enabled = false,
 				},
+				message = {
+					enabled = false,
+				},
 			},
 			presets = {
-				bottom_search = true,
+				bottom_search = false,
 				command_palette = false,
 				long_message_to_split = true,
 				inc_rename = false,

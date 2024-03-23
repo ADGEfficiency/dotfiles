@@ -22,10 +22,25 @@ entrr() {
     ls "$directory"/* | entr -s "$cmd"
 }
 
+s() {
+  bash ~/dotfiles/scripts/search.sh
+}
+
 # open the todo note - either general or project specific
 todo() {
   bash ~/dotfiles/scripts/todo.sh $1
 }
+
+# create a new atomic note
+atomic() {
+  bash ~/dotfiles/scripts/atomic.sh $1
+}
+
+# search for project notes
+project() {
+  bash ~/dotfiles/scripts/search.sh ~/personal/para/project
+}
+alias proj=project
 
 # open a daily note
 day() {

@@ -1,30 +1,32 @@
 #  can be either macos or ubuntu
 OS = macos
 
+.PHONY: default bootstrap-stow dotfiles test setup-macos setup-ubuntu
+
 default:
 	echo "hello ^^"
+
+bootstrap-stow:
+	bash ./scripts/bootstrap-stow.sh
+
+STOW_ARGS=-vv
+dotfiles: bootstrap-stow
+	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
+	stow $(STOW_ARGS) dotfiles
+	stow $(STOW_ARGS) yabai
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
-setup-brew:
-	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-	brew update; brew upgrade
-
-brew-pkgs: setup-brew
-	brew install hadolint vale actionlint fzf mactex pandoc
-
-setup-macos: brew-pkgs setup-nix
+setup-macos: dotfiles brew-pkgs setup-nix
+	bash ./tmux/setup.sh
 	bash ./macos/setup.sh
 
-setup-linux: setup-nix
-	bash ./linux/setup.sh
+setup-ubuntu: dotfiles setup-nix
+	bash ./tmux/setup.sh
+	bash ./ubuntu/setup.sh
 
-.PHONY: dotfiles
-dotfiles:
-	bash ./dotfiles/setup.sh
-
-.PHONY: python js setup-pyenv
+.PHONY: setup-pyenv python js
 
 setup-pyenv:
 	bash ./python/setup-pyenv.sh
@@ -39,26 +41,22 @@ js:
 	npm install -g jsonlint jshint
 	npm install -g sql-language-server
 
-inspect-nvim:
-	tree ~/.local/share/nvim/site/pack/packer/ -L 2
+.PHONY: clean-nvim setup-vim
 
 clean-nvim:
+	# clean packer stuff
 	rm -rf ~/.local/share/nvim/site
 	rm -rf ./plugin
-
-#  not sure this fits into makefile ...
-#  apple silicon stuff
-# softwareupdate --install-rosetta
-# arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-# alias brew='arch -x86_64 brew'
+	rm -rf ~/dotfiles/nvim/plugin
+	# clean lazy stuff
+	rm ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
 
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	"vim" +PluginInstall +qall
 
-# nix
-
 .PHONY: setup-nix nix-pkgs
+
 setup-nix:
 	curl -L https://nixos.org/nix/install | sh
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
@@ -68,3 +66,12 @@ devShell = --arg devShell true
 install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
 nix-pkgs: setup-nix
 	. ./nix/load-$(OS).sh && $(install_cmd)
+
+.PHONY: setup-brew brew-pkgs
+
+setup-brew:
+	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+	brew update; brew upgrade
+
+brew-pkgs: setup-brew
+	brew install hadolint vale actionlint fzf mactex pandoc
