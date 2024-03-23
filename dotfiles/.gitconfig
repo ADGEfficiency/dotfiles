@@ -17,6 +17,12 @@
 
 [pull]
   rebase = false
+  default = simple
+  autoSetupRemote = true
+
+[push]
+  default = simple
+  autoSetupRemote = true
 
 [diff]
   algorithm = histogram

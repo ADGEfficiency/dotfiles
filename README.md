@@ -1,27 +1,30 @@
 # Dotfiles
 
-Setup and configuration for a terminal based developer workflow on either Ubuntu or macOS:
+Setup and configuration for a terminal based developer workflow:
 
 - Neovim for text editing,
 - Zsh for shell,
 - Nix for package management.
 
-## Bash, Zsh & Git
+This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
-Setup `.bashrc`, `.zshrc` & `.gitconfig` in `$HOME`:
+## Setup Dotfiles
+
+Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
 ```shell-session
-$ make dotfiles
+$ make dotfiles OS=macos
 ```
 
-This runs a script `./dotfiles/setup.sh` which either:
+Valid values for `OS` are `macos`, `wsl` or `windows`.
 
-- appends to your `rc` files in `$HOME`, 
-- copies over files in `$HOME` for `.gitignore`, `.gitconfig` and `.npmrc`.
+A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Bootstrapping is not setup for Windows because Windows is awful.
 
-Beware - this will overwrite your `.gitignore`, `.gitconfig` and `.npmrc` files in `$HOME`.
+You can run the setup without bootstrapping Stow with:
 
-Beware running this multiple times, as you will end up sourcing the `rc` files multiple times.
+```shell-session
+$ make dotfiles OS=macos -o bootstrap-stow
+```
 
 ## Ubuntu
 
@@ -43,23 +46,24 @@ $ make setup-macos OS=macos
 
 This will also setup dependencies with Nix from `./nix/default.nix`.
 
-## Global Python Virtual Env
+## Global Python Virtual Environment
 
-Install pyenv and pyenv-virtualenv:
+This will:
+
+- install `pyenv` and `pyenv-virtualenv`,
+- setup a global Python installation in a pyenv virtual environment.
 
 ```bash
 $ make python
 ```
 
-This will setup a global Python installation in a pyenv virtual environment.
-
 ## Neovim
 
-Neovim setup is in [./nvim](https://github.com/ADGEfficiency/dotfiles/tree/master/nvim).
+Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
-To use my Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
+I use Lazy for package management in Neovim.
 
-## Getting Kitty to Play Nice on MacOS
+## Getting Kitty to Play Nice on macOS
 
 Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
 

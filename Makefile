@@ -1,21 +1,29 @@
 #  can be either macos or ubuntu
 OS = macos
 
-.PHONY: default dotfiles test setup-macos setup-ubuntu
+.PHONY: default bootstrap-stow dotfiles test setup-macos setup-ubuntu
 
 default:
 	echo "hello ^^"
 
-dotfiles:
-	bash ./dotfiles/setup.sh
+bootstrap-stow:
+	bash ./scripts/bootstrap-stow.sh
+
+STOW_ARGS=-vv
+dotfiles: bootstrap-stow
+	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
+	stow $(STOW_ARGS) dotfiles
+	stow $(STOW_ARGS) yabai
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
-setup-macos: brew-pkgs setup-nix
+setup-macos: dotfiles brew-pkgs setup-nix
+	bash ./tmux/setup.sh
 	bash ./macos/setup.sh
 
-setup-ubuntu: setup-nix
+setup-ubuntu: dotfiles setup-nix
+	bash ./tmux/setup.sh
 	bash ./ubuntu/setup.sh
 
 .PHONY: setup-pyenv python js
@@ -36,6 +44,11 @@ js:
 .PHONY: clean-nvim setup-vim
 
 clean-nvim:
+	# clean packer stuff
+	rm -rf ~/.local/share/nvim/site
+	rm -rf ./plugin
+	rm -rf ~/dotfiles/nvim/plugin
+	# clean lazy stuff
 	rm ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
 
 setup-vim:

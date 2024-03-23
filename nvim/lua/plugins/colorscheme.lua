@@ -4,6 +4,7 @@ return {
 		priority = 1000,
 		lazy = false,
 		config = function()
+			vim.cmd([[set background=dark]])
 			vim.cmd([[colorscheme dracula]])
 			vim.cmd([[hi! link SpellBad Error]])
 			vim.cmd([[hi! link SpellLocal DiagnosticWarn]])
@@ -20,5 +21,8 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"rakr/vim-one",
 	},
 }

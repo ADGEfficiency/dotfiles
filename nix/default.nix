@@ -12,6 +12,7 @@ with pkgs; [
   findutils
   gnused
   jq
+  stow
   nodejs_18
   ripgrep
   shunit2
@@ -35,7 +36,8 @@ with pkgs; [
 ]
 ++ lib.optionals devShell [
   bat
-  #cbfmt
+  cbfmt
+  marksman
   checkmake
   direnv
   efm-langserver
@@ -76,4 +78,7 @@ with pkgs; [
   zoxide
   ruby
   lua
+  actionlint
+  zig
+  cbonsai
 ]

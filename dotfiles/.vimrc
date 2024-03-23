@@ -382,7 +382,6 @@ let @p="A\<cr>breakpoint()\<esc>"
 let @m="A\<cr>if __name__ == '__main__':\<esc>\<cr>\<tab>"
 let @s="i#!/usr/bin/env bash"
 let @n="A\import numpy as np\<cr>\import matplotlib.pyplot as plt\<cr>\import pandas as pd\<cr>\from pathlib import Path\<cr>\<esc>\<cr>\<tab>"
-
 let @c="V<<<<<jmak:.m90€kb€kb0`ak"
 
 
