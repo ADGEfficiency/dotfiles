@@ -32,7 +32,7 @@ setup-pyenv:
 	bash ./python/setup-pyenv.sh
 
 python: setup-pyenv
-	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv.sh general 3.12.2
 	bash ./python/setup-general-venv-pkgs.sh
 
 js:

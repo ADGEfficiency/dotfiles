@@ -1,4 +1,5 @@
 -- Keymaps
+
 local opts = { noremap = true, silent = true }
 local km = vim.api.nvim_set_keymap
 
@@ -13,22 +14,6 @@ km("n", "<leader>a", ":ArgWrap<cr>", opts)
 km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
--- km(
---   "v",
---   "<leader>l",
---   "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/black - | :echo 'black ran'",
---   opts
--- )
-function black_and_echo()
-	vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
-	vim.cmd("echo 'black ran'")
-end
-
-km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
-km("v", "<leader>ll", ":Noice dismiss", opts)
-
-vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
--- $HOME/.pyenv/versions/3.10.6/envs/general/bin/black - <CR>", opts)
 -- Move to start / end of line
 km("n", "L", "$", opts)
 km("n", "H", "^", opts)
@@ -70,12 +55,12 @@ km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
 -- Python
 
--- Format selection with Ruff
-function black_and_echo()
+-- Format selection with Black
+function Black_and_echo()
 	vim.cmd(":'<,'>!black --quiet -")
 	vim.cmd("echo 'black ran'")
 end
-km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
+km("v", "<leader>l", ":lua Black_and_echo()<cr>", opts)
 
 -- Insert a Python breakpoint
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
@@ -91,10 +76,14 @@ km("n", "<F6>", ":!python %:p <cr>", opts)
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
---- Open grepper and search for current word
+km("v", "<leader>ll", ":Noice dismiss", opts)
+vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
+
+-- Open grepper and search for current word
 km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
 
 -- Telescope
+
 -- Search diagnostics
 km(
 	"n",

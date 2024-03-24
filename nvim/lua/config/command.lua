@@ -11,13 +11,13 @@ vim.cmd([[
   command! -nargs=1 Tags execute 'grep -R "\- ' . <q-args> . '" . > /tmp/greptags.txt' | execute 'cfile /tmp/greptags.txt' | copen
 ]])
 
--- Open todo file
+-- Open todo.md
 -- :Todo
 vim.cmd([[
   command Todo :sp ~/personal/para/todo.md
 ]])
 
--- Open to/get file
+-- Open to/get.md
 -- :Get
 vim.cmd([[
   command Get :sp ~/personal/para/area/to/get.md
@@ -34,5 +34,6 @@ vim.cmd("command W write")
 vim.cmd("command Q quit")
 vim.cmd("command Wq write | quit!")
 
--- Access Telescope as :T
+-- Access Telescope
+-- :T
 vim.api.nvim_create_user_command("T", "Telescope <args>", { nargs = "+" })
