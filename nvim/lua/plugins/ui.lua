@@ -38,51 +38,44 @@ return {
 					-- Configure the icons on the bufferline based on the visibility of a buffer.
 					-- Supports all the base icon options, plus `modified` and `pinned`.
 					alternate = { filetype = { enabled = false } },
-					current = { buffer_index = true },
+					current = { buffer_index = true, button = "●", modified = { button = "●" } },
 					visible = { modified = { buffer_number = false } },
 				},
 			})
 
 			vim.cmd([[
-
-
-  hi BufferCurrent gui=bold guibg='#282A36'
-  hi BufferVisible guibg='#282A36'
-  hi BufferInactive guibg='#282A36'
-
-  hi BufferCurrentIndex guifg='#FF79C6' gui=bold
-  hi BufferVisibleIndex guifg='#FF79C6' guibg='#282A36'
-  hi BufferInactiveIndex guifg='#FF79C6' guibg='#282A36'
-
-  hi BufferCurrentMod guifg='#51FA7B' gui=bold
-  hi BufferVisibleMod guifg='#51FA7B' guibg='#282A36'
-  hi BufferInactiveMod guifg='#51FA7B' guibg='#282A36'
-
-  hi BufferCurrentSign guifg='#282A36' guibg='#282A36'
-  hi BufferVisibleSign guifg='#282A36' guibg='#282A36'
-  hi BufferInactiveSign guifg='#282A36' guibg='#282A36'
-
-  hi BufferCurrentSignRight guifg='#282A36' guibg='#282A36'
-  hi BufferVisibleSignRight guifg='#282A36' guibg='#282A36'
-  hi BufferInactiveSignRight guifg='#282A36' guibg='#282A36'
-
-  hi BufferTabpageFill guifg='#282A36'
-]])
+        hi BufferCurrent gui=bold guibg='#282A36'
+        hi BufferVisible guibg='#282A36'
+        hi BufferInactive guibg='#282A36'
+        hi BufferCurrentIndex guifg='#FF79C6' gui=bold
+        hi BufferVisibleIndex guifg='#FF79C6' guibg='#282A36'
+        hi BufferInactiveIndex guifg='#FF79C6' guibg='#282A36'
+        hi BufferCurrentMod guifg='#51FA7B' gui=bold
+        hi BufferVisibleMod guifg='#51FA7B' guibg='#282A36'
+        hi BufferInactiveMod guifg='#51FA7B' guibg='#282A36'
+        hi BufferCurrentSign guifg='#282A36' guibg='#282A36'
+        hi BufferVisibleSign guifg='#282A36' guibg='#282A36'
+        hi BufferInactiveSign guifg='#282A36' guibg='#282A36'
+        hi BufferCurrentSignRight guifg='#282A36' guibg='#282A36'
+        hi BufferVisibleSignRight guifg='#282A36' guibg='#282A36'
+        hi BufferInactiveSignRight guifg='#282A36' guibg='#282A36'
+        hi BufferTabpageFill guifg='#282A36'
+      ]])
 
 			vim.cmd([[
-  cnoreabbrev b1 BufferGoto 1
-  cnoreabbrev b2 BufferGoto 2
-  cnoreabbrev b3 BufferGoto 3
-  cnoreabbrev b4 BufferGoto 4
-  cnoreabbrev b5 BufferGoto 5
-  cnoreabbrev b6 BufferGoto 6
-  cnoreabbrev b7 BufferGoto 7
-  cnoreabbrev b8 BufferGoto 8
-  cnoreabbrev b9 BufferGoto 9
-  cnoreabbrev b10 BufferGoto 10
-  cnoreabbrev b11 BufferGoto 11
-  cnoreabbrev b12 BufferGoto 12
-]])
+        cnoreabbrev b1 BufferGoto 1
+        cnoreabbrev b2 BufferGoto 2
+        cnoreabbrev b3 BufferGoto 3
+        cnoreabbrev b4 BufferGoto 4
+        cnoreabbrev b5 BufferGoto 5
+        cnoreabbrev b6 BufferGoto 6
+        cnoreabbrev b7 BufferGoto 7
+        cnoreabbrev b8 BufferGoto 8
+        cnoreabbrev b9 BufferGoto 9
+        cnoreabbrev b10 BufferGoto 10
+        cnoreabbrev b11 BufferGoto 11
+        cnoreabbrev b12 BufferGoto 12
+      ]])
 		end,
 	},
 	-- Status line in bottom bar
@@ -196,22 +189,23 @@ return {
 						{
 							"diagnostics",
 							colored = true,
-							symbols = { error = " ", warn = " ", info = "", hint = "" },
-							always_visible = true,
+							symbols = { error = "󰥓 ", warn = " ", info = "", hint = "" },
 							sections = { "error", "warn" },
 							update_in_insert = true,
+							always_visible = true,
 						},
 						{
 							"diff",
 							colored = true,
 							symbols = { added = " ", modified = " ", removed = " " },
+							always_visible = true,
 						},
 					},
 					lualine_c = {
 						{
-							"branch",
+							"filetype",
 							colored = true,
-							icon = "",
+							icon = { "" },
 						},
 						{
 							"filename",

@@ -11,40 +11,39 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Use system clipboard for copy-paste
---
 vim.cmd([[
   set clipboard+=unnamedplus
 ]])
---
+
 -- Increase command line height for displaying messages
 vim.opt.cmdheight = 1
---
+
 -- Mostly used for cmp (completion)
 vim.opt.completeopt = "menuone,noselect,preview"
 
 -- File Encoding and Conceal Options
 -- Ensure that `` is visible in markdown files
 vim.opt.conceallevel = 0
---
+
 -- Set the encoding written to a file
 vim.opt.fileencoding = "utf-8"
 
 -- Highlight all matches on previous search pattern
 vim.opt.hlsearch = true
---
+
 -- Incrementally search
 vim.opt.incsearch = true
---
+
 -- Ignore case in search patterns
 vim.opt.ignorecase = true
 
 -- Show tabs and spaces using Vim's list feature
 vim.opt.list = true
 vim.opt.listchars = "tab:>-"
---
+
 -- Set the spelling language for spell checking
 vim.opt.spell.spellang = "en_nz"
---
+
 -- Automatically open quickfix list after running :make
 vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
 
