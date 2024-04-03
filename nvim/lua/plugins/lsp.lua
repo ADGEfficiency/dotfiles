@@ -5,8 +5,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
+				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-cmdline",
 				"dmitmel/cmp-cmdline-history",
 				"hrsh7th/cmp-buffer",
@@ -14,14 +16,9 @@ return {
 			},
 		},
 		config = function()
-			-- Language Server Protocol (LSP) Settings
-			--
-			-- Turn off logging by default for LSP
 			vim.lsp.set_log_level("off")
-			-- You can turn logging on with 'vim.lsp.set_log_level("debug")'
-			-- mason setup
-			local lspconfig = require("lspconfig")
 
+			local lspconfig = require("lspconfig")
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {

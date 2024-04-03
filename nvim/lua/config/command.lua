@@ -23,6 +23,20 @@ vim.cmd([[
   command Get :sp ~/personal/para/area/to/get.md
 ]])
 
+-- Search in personal notes
+local function searchPersonalNotes()
+	require("telescope.builtin").find_files({
+		prompt_title = "<Personal Notes>",
+		search_dirs = { "~/personal", "~/programming-resources" },
+		path_display = { "absolute" },
+	})
+end
+_G.searchPersonalNotes = searchPersonalNotes
+-- :S
+vim.cmd([[
+  command S lua searchPersonalNotes()
+]])
+
 -- Abbreviations
 vim.cmd("cabbrev v vsp")
 vim.cmd("cabbrev s sp")

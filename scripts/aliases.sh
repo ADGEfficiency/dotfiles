@@ -72,7 +72,7 @@ alias ep='cd $HOME/energy-py-experiments/energy-py'
 alias epl='cd $HOME/energy-py-linear'
 alias epl='cd $HOME/energy-py-linear'
 alias expt='cd $HOME/energy-py-experiments'
-alias per='cd $HOME/personal'
+alias per='cd $HOME/personal/para'
 alias prog='cd $HOME/programming-resources'
 alias syl='cd $HOME/handbook'
 alias teach='cd $HOME/teaching-monolith'
@@ -156,3 +156,5 @@ alias get='$EDITOR ~/personal/para/area/to/get.md'
 
 # sets term colors when sshing
 alias ssh='TERM=xterm-256color ssh'
+
+alias lg='lazygit'

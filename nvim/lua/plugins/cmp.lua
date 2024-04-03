@@ -1,5 +1,3 @@
----@diagnostic disable: missing-fields
-
 return {
 	{
 		"vrslev/cmp-pypi",
@@ -8,11 +6,11 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = {
-			"BufReadPost",
-			"BufNewFile",
-			"InsertEnter",
-		},
+		-- event = {
+		-- 	"BufReadPost",
+		-- 	"BufNewFile",
+		-- 	"InsertEnter",
+		-- },
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"dmitmel/cmp-cmdline-history",
@@ -30,8 +28,10 @@ return {
 			"windwp/nvim-ts-autotag",
 			"davidsierradz/cmp-conventionalcommits",
 			"vrslev/cmp-pypi",
+			"amarakon/nvim-cmp-buffer-lines",
 		},
 		config = function()
+			require("nvim-autopairs").setup()
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -53,13 +53,8 @@ return {
 					command = { "wn", "${label}", "-over" },
 				},
 			})
-
-			require("nvim-autopairs").setup()
-
-			-- Integrate nvim-autopairs with cmp
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-			-- Load snippets
 			require("luasnip.loaders.from_vscode").lazy_load()
 			require("luasnip/loaders/from_snipmate").load({ paths = "~/dotfiles/nvim/snippets" })
 
@@ -114,7 +109,6 @@ return {
 						end
 					end, { "i", "s" }),
 				}),
-				-- sources for autocompletion
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "copilot", max_item_count = 2 },
@@ -158,15 +152,11 @@ return {
 					ghost_text = true,
 				},
 			})
-
-			-- special filetypes
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
 					{ name = "conventionalcommits" },
-					-- Add more sources specific to gitcommit or modify as needed
 					{ name = "buffer", max_item_count = 5 },
 					{ name = "emoji", max_item_count = 5 },
-					-- You can mix and match sources as per the requirements of the gitcommit filetype
 				}),
 			})
 		end,
