@@ -243,20 +243,7 @@ return {
 			end
 
 			-- Set an autocommand to open diagnostic float on hover
-			-- vim.api.nvim_create_autocmd("CursorHold", {
-			-- 	pattern = "*",
-			-- 	callback = function()
-			-- 		local opts = { focusable = false, scope = "cursor" }
-			-- 		-- Delay execution by using vim.defer_fn
-			-- 		-- The delay is specified in milliseconds, 500ms in this example
-			-- 		vim.defer_fn(function()
-			-- 			vim.diagnostic.open_float(nil, opts)
-			-- 		end, 3000)
-			-- 	end,
-			-- })
-
 			local debounce_timer = nil
-
 			vim.api.nvim_create_autocmd("CursorHold", {
 				pattern = "*",
 				callback = function()
