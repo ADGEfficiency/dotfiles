@@ -11,9 +11,10 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Use system clipboard for copy-paste
-vim.cmd([[
-  set clipboard+=unnamedplus
-]])
+-- vim.cmd([[
+--   set clipboard+=unnamedplus
+-- ]])
+vim.opt.clipboard = "unnamedplus"
 
 -- Increase command line height for displaying messages
 vim.opt.cmdheight = 1

@@ -85,7 +85,7 @@ km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
 -- Search diagnostics
 km(
 	"n",
-	"<leader>fd",
+	"<leader>rd",
 	":lua require'telescope.builtin'.diagnostics(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
@@ -104,19 +104,19 @@ km(
 	opts
 )
 --- Search through recent files
-km("n", "<leader>fo", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
-km("n", "<leader>fr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
 -- Search for a string
 km(
 	"n",
-	"<leader>fg",
+	"<leader>rg",
 	":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
 -- Search for a string under cursor
 km(
 	"n",
-	"<leader>fc",
+	"<leader>rc",
 	":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
