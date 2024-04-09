@@ -60,6 +60,23 @@ return {
 		end,
 	},
 	{
+		"folke/edgy.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.opt.laststatus = 3
+			vim.opt.splitkeep = "screen"
+		end,
+		opts = {
+			exit_when_last = true,
+			animate = {
+				enabled = false,
+			},
+			right = {
+				{ ft = "codecompanion", title = "Code Companion Chat", size = { width = 0.45 } },
+			},
+		},
+	},
+	{
 		"olimorris/codecompanion.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -136,6 +153,18 @@ return {
 				silence_notifications = false, -- Silence notifications for actions like saving saving chats?
 				use_default_actions = true, -- Use the default actions in the action palette?
 			})
+			vim.api.nvim_set_keymap(
+				"n",
+				"<LocalLeader>c",
+				"<cmd>CodeCompanionToggle<cr>",
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_set_keymap(
+				"v",
+				"<LocalLeader>c",
+				"<cmd>CodeCompanionToggle<cr>",
+				{ noremap = true, silent = true }
+			)
 		end,
 	},
 }

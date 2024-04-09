@@ -62,10 +62,8 @@ setup-nix:
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update
 
-devShell = --arg devShell true
-install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
 nix-pkgs: setup-nix
-	. ./nix/load-$(OS).sh && $(install_cmd)
+	. ./nix/load-$(OS).sh && cd nix && nix profile install
 
 .PHONY: setup-brew brew-pkgs
 
@@ -74,4 +72,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint fzf mactex pandoc
+	brew install hadolint vale actionlint mactex pandoc
