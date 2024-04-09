@@ -32,7 +32,7 @@ setup-pyenv:
 	bash ./python/setup-pyenv.sh
 
 python: setup-pyenv
-	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv.sh general 3.12.2
 	bash ./python/setup-general-venv-pkgs.sh
 
 js:
@@ -49,7 +49,7 @@ clean-nvim:
 	rm -rf ./plugin
 	rm -rf ~/dotfiles/nvim/plugin
 	# clean lazy stuff
-	rm ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
+	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
 
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

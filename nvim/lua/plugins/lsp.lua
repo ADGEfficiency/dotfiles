@@ -5,8 +5,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
+				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-cmdline",
 				"dmitmel/cmp-cmdline-history",
 				"hrsh7th/cmp-buffer",
@@ -14,14 +16,9 @@ return {
 			},
 		},
 		config = function()
-			-- Language Server Protocol (LSP) Settings
-			--
-			-- Turn off logging by default for LSP
 			vim.lsp.set_log_level("off")
-			-- You can turn logging on with 'vim.lsp.set_log_level("debug")'
-			-- mason setup
-			local lspconfig = require("lspconfig")
 
+			local lspconfig = require("lspconfig")
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -246,20 +243,7 @@ return {
 			end
 
 			-- Set an autocommand to open diagnostic float on hover
-			-- vim.api.nvim_create_autocmd("CursorHold", {
-			-- 	pattern = "*",
-			-- 	callback = function()
-			-- 		local opts = { focusable = false, scope = "cursor" }
-			-- 		-- Delay execution by using vim.defer_fn
-			-- 		-- The delay is specified in milliseconds, 500ms in this example
-			-- 		vim.defer_fn(function()
-			-- 			vim.diagnostic.open_float(nil, opts)
-			-- 		end, 3000)
-			-- 	end,
-			-- })
-
 			local debounce_timer = nil
-
 			vim.api.nvim_create_autocmd("CursorHold", {
 				pattern = "*",
 				callback = function()

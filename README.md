@@ -8,7 +8,7 @@ Setup and configuration for a terminal based developer workflow:
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
-## Setup Dotfiles
+## Setup
 
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
