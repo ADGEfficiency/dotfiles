@@ -72,4 +72,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint mactex pandoc
+	brew install hadolint vale actionlint mactex pandoc fzf

@@ -18,7 +18,7 @@ return {
 					json = { "jq" },
 					lua = { "stylua" },
 					go = { "gofmt" },
-					-- markdown = { "mdformat" },
+					markdown = { "injected" },
 					python = {
 						-- "isort",
 						"ruff_format",
@@ -31,6 +31,7 @@ return {
 					["*"] = {
 						"codespell",
 						"trim_newlines",
+						"injected",
 						-- "trim_whitespace"
 					},
 				},
@@ -52,6 +53,29 @@ return {
 					"--indent-size",
 					"2",
 					"-",
+				},
+			}
+			require("conform").formatters.injected = {
+				options = {
+					ignore_errors = false,
+					lang_to_formatters = {
+						json = { "jq" },
+						python = { "black", "ruff_format" },
+					},
+					lang_to_ext = {
+						bash = "sh",
+						c_sharp = "cs",
+						elixir = "exs",
+						javascript = "js",
+						julia = "jl",
+						latex = "tex",
+						markdown = "md",
+						python = "py",
+						ruby = "rb",
+						rust = "rs",
+						teal = "tl",
+						typescript = "ts",
+					},
 				},
 			}
 		end,
