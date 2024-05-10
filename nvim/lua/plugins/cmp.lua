@@ -31,7 +31,6 @@ return {
 			"amarakon/nvim-cmp-buffer-lines",
 		},
 		config = function()
-			require("nvim-autopairs").setup()
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")

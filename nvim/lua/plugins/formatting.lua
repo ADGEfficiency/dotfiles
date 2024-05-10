@@ -27,15 +27,23 @@ return {
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
-					sql = { "sql_formatter" },
+					sql = {
+						-- "sql_formatter",
+						"sqlfluff",
+						-- "sqlfmt",
+					},
 					["*"] = {
 						"codespell",
 						"trim_newlines",
-						"injected",
+						-- "injected",
 						-- "trim_whitespace"
 					},
 				},
 			})
+
+			require("conform").formatters.sql_formatter = {
+				command = "sql-formatter --dialect sqlite",
+			}
 
 			require("conform").formatters.djlintJinja = {
 				command = "djlint",

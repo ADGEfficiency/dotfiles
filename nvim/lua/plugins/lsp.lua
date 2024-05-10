@@ -192,6 +192,7 @@ return {
 				emmet_language_server = {},
 				jedi_language_server = {},
 				html = {},
+				gopls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

@@ -16,6 +16,7 @@
           name = "shell";
           paths = [
             actionlint
+            go-tools
             bash
             bat
             beautysh
