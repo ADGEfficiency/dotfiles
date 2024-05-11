@@ -60,10 +60,7 @@ SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
 alias brew='arch -x86_64 brew'
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/checkmake:$PATH"
-export PATH="$HOME/dotfiles/scripts:$PATH"
-export PATH="$HOME/personal/para/area/script:$PATH"
+source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 source ~/dotfiles/macos/pyenv-flags
 source $HOME/dotfiles/scripts/funcs.sh

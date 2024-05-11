@@ -1,4 +1,5 @@
 -- Keymaps
+
 local opts = { noremap = true, silent = true }
 local km = vim.api.nvim_set_keymap
 
@@ -9,26 +10,13 @@ km("n", ",", "<Nop>", opts)
 km("n", "j", "gj", opts)
 km("n", "k", "gk", opts)
 
+-- Move by actual lines with J and K
+km("n", "<C-j>", "j", opts)
+km("n", "<C-k>", "k", opts)
+
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
-km("n", "<leader>c", ":Telescope find_files cwd=~/.nb/home<CR>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
--- km(
---   "v",
---   "<leader>l",
---   "/Users/adam/.pyenv/versions/3.10.6/envs/general/bin/black - | :echo 'black ran'",
---   opts
--- )
-function black_and_echo()
-	vim.cmd(":'<,'>!$PYENV_GENERAL/black --quiet -")
-	vim.cmd("echo 'black ran'")
-end
-
-km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
-km("v", "<leader>ll", ":Noice dismiss", opts)
-
-vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
--- $HOME/.pyenv/versions/3.10.6/envs/general/bin/black - <CR>", opts)
 -- Move to start / end of line
 km("n", "L", "$", opts)
 km("n", "H", "^", opts)
@@ -69,20 +57,16 @@ km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
 -- Python
-
--- Format selection with Ruff
-function black_and_echo()
+-- Format selection with Black
+function Black_and_echo()
 	vim.cmd(":'<,'>!black --quiet -")
 	vim.cmd("echo 'black ran'")
 end
-km("v", "<leader>l", ":lua black_and_echo()<cr>", opts)
-
+km("v", "<leader>l", ":lua Black_and_echo()<cr>", opts)
 -- Insert a Python breakpoint
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
-
 -- Insert if name main
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
-
 -- Run current buffer in Python
 km("n", "<F6>", ":!python %:p <cr>", opts)
 
@@ -91,18 +75,20 @@ km("n", "<F6>", ":!python %:p <cr>", opts)
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
---- Open grepper and search for current word
+km("v", "<leader>ll", ":Noice dismiss", opts)
+vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
+
+-- Open grepper and search for current word
 km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
 
 -- Telescope
 -- Search diagnostics
 km(
 	"n",
-	"<leader>c",
+	"<leader>rd",
 	":lua require'telescope.builtin'.diagnostics(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
-
 -- Search open buffers
 km(
 	"n",
@@ -110,7 +96,6 @@ km(
 	":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
-
 -- Search for files in cwd
 km(
 	"n",
@@ -118,9 +103,23 @@ km(
 	":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr><cr>",
 	opts
 )
-
 --- Search through recent files
-km("n", "<leader>f", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
+-- Search for a string
+km(
+	"n",
+	"<leader>rg",
+	":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr><cr>",
+	opts
+)
+-- Search for a string under cursor
+km(
+	"n",
+	"<leader>rc",
+	":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr><cr>",
+	opts
+)
 
 -- Oil
 vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")

@@ -1,22 +1,39 @@
-[core]
-    excludesfile = ~/dotfiles/git/.gitignore
 
-[user]
-    email = adam.green@adgefficiency.com
-    name = Adam Green
+[alias]
+  diffs = diff --staged
+  logg = log --pretty=fuller --abbrev-commit --stat -n 5
+  loggg = log --pretty=fuller --abbrev-commit --stat --patch -n 5
+  rmf = rm -f
+
+[commit]
+  template = ~/dotfiles/git/.git_commit_template.txt
+  verbose = true
+
+[core]
+  editor = nvim
+  excludesfile = ~/dotfiles/dotfiles/.gitignore
+  pager = bat
+
+[diff]
+  algorithm = histogram
+  colormoved = default
+  colormovedws = allow-indentation-change
+  context = 10
+
+[init]
+  defaultBranch = main
 
 [merge]
-  tool = nvimdiff
+  conflictstyle = diff3
   ff = false
+  tool = nvimdiff
 
 [mergetool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE
 
-[commit]
-  template = ~/dotfiles/git/.git_commit_template.txt
-
 [pull]
   rebase = false
+  ff = only
   default = simple
   autoSetupRemote = true
 
@@ -24,13 +41,9 @@
   default = simple
   autoSetupRemote = true
 
-[diff]
-  algorithm = histogram
-  colormoved = "default"
-  colormovedws = "allow-indentation-change"
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
 
-[alias]
-  diffs = diff --staged
-  logg = log --pretty=fuller --abbrev-commit --stat -n 5
-  loggg = log --pretty=fuller --abbrev-commit --stat --patch -n 5
-  rmf = rm -f
+[user]
+  email = adam.green@adgefficiency.com
+  name = Adam Green

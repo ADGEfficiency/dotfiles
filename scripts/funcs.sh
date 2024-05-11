@@ -22,6 +22,12 @@ entrr() {
     ls "$directory"/* | entr -s "$cmd"
 }
 
+# move a desktop screenshot to pwd
+move-screenshot() {
+  bash ~/dotfiles/scripts/move-macos-desktop-screenshot.sh $1
+}
+
+# search for files to open in $EDITOR
 s() {
   bash ~/dotfiles/scripts/search.sh
 }
