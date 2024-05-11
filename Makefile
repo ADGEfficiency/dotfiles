@@ -32,7 +32,7 @@ setup-pyenv:
 	bash ./python/setup-pyenv.sh
 
 python: setup-pyenv
-	bash ./python/setup-general-venv.sh general 3.10.6
+	bash ./python/setup-general-venv.sh general 3.12.2
 	bash ./python/setup-general-venv-pkgs.sh
 
 js:
@@ -49,7 +49,7 @@ clean-nvim:
 	rm -rf ./plugin
 	rm -rf ~/dotfiles/nvim/plugin
 	# clean lazy stuff
-	rm ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
+	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
 
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -62,10 +62,8 @@ setup-nix:
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update
 
-devShell = --arg devShell true
-install_cmd = nix-env -i -f ./nix/default.nix $(devShell) --keep-going
 nix-pkgs: setup-nix
-	. ./nix/load-$(OS).sh && $(install_cmd)
+	. ./nix/load-$(OS).sh && cd nix && nix profile install
 
 .PHONY: setup-brew brew-pkgs
 
@@ -74,4 +72,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint fzf mactex pandoc
+	brew install hadolint vale actionlint mactex pandoc fzf

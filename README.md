@@ -2,13 +2,14 @@
 
 Setup and configuration for a terminal based developer workflow:
 
-- Neovim for text editing,
-- Zsh for shell,
-- Nix for package management.
+- Zsh for a shell,
+- Nix for package management of shell programs,
+- pyenv for Python,
+- Neovim for text editing.
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
-## Setup Dotfiles
+## Dotfiles
 
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
@@ -18,12 +19,28 @@ $ make dotfiles OS=macos
 
 Valid values for `OS` are `macos`, `wsl` or `windows`.
 
-A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Bootstrapping is not setup for Windows because Windows is awful.
+A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Stow bootstrapping is not setup for Windows because Windows is awful.
 
 You can run the setup without bootstrapping Stow with:
 
 ```shell-session
 $ make dotfiles OS=macos -o bootstrap-stow
+```
+
+## Nix
+
+Install packages with Nix:
+
+```shell-session
+$ make nix-pkgs
+```
+
+This will setup dependencies with Nix from `./nix/flake.nix`.
+
+It will also install Nix itself. Nix doesn't like to be installed multiple times - you can avoid this step with:
+
+```shell-session
+$ make nix-pkgs -o setup-nix
 ```
 
 ## Ubuntu
@@ -34,7 +51,7 @@ Setup an Ubuntu machine:
 $ make setup-ubuntu OS=ubuntu
 ```
 
-This will also setup dependencies with Nix from `./nix/default.nix`.
+This will also setup dependencies with Nix.
 
 ## macOS
 
@@ -44,14 +61,11 @@ Setup an macOS machine:
 $ make setup-macos OS=macos
 ```
 
-This will also setup dependencies with Nix from `./nix/default.nix`.
+This will also setup dependencies with Nix.
 
 ## Global Python Virtual Environment
 
-This will:
-
-- install `pyenv` and `pyenv-virtualenv`,
-- setup a global Python installation in a pyenv virtual environment.
+Install `pyenv` and `pyenv-virtualenv`, and setup a global Python installation in a pyenv virtual environment:
 
 ```bash
 $ make python
@@ -61,7 +75,7 @@ $ make python
 
 Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
-I use Lazy for package management in Neovim.
+I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
 ## Getting Kitty to Play Nice on macOS
 

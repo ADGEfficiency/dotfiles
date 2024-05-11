@@ -5,8 +5,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
+				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-cmdline",
 				"dmitmel/cmp-cmdline-history",
 				"hrsh7th/cmp-buffer",
@@ -14,20 +16,14 @@ return {
 			},
 		},
 		config = function()
-			-- Language Server Protocol (LSP) Settings
-			--
-			-- Turn off logging by default for LSP
 			vim.lsp.set_log_level("off")
-			-- You can turn logging on with 'vim.lsp.set_log_level("debug")'
-			-- mason setup
-			local lspconfig = require("lspconfig")
 
+			local lspconfig = require("lspconfig")
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"pyright",
 					"tailwindcss",
-					"ruff_lsp",
 					"bashls",
 					"prosemd_lsp",
 					"marksman",
@@ -155,7 +151,7 @@ return {
 
 			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- Handlers
@@ -196,6 +192,7 @@ return {
 				emmet_language_server = {},
 				jedi_language_server = {},
 				html = {},
+				gopls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -246,20 +243,7 @@ return {
 			end
 
 			-- Set an autocommand to open diagnostic float on hover
-			-- vim.api.nvim_create_autocmd("CursorHold", {
-			-- 	pattern = "*",
-			-- 	callback = function()
-			-- 		local opts = { focusable = false, scope = "cursor" }
-			-- 		-- Delay execution by using vim.defer_fn
-			-- 		-- The delay is specified in milliseconds, 500ms in this example
-			-- 		vim.defer_fn(function()
-			-- 			vim.diagnostic.open_float(nil, opts)
-			-- 		end, 3000)
-			-- 	end,
-			-- })
-
 			local debounce_timer = nil
-
 			vim.api.nvim_create_autocmd("CursorHold", {
 				pattern = "*",
 				callback = function()

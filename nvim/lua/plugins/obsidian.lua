@@ -15,9 +15,15 @@ return {
 					path = "~/personal/para",
 				},
 			},
-			completion = {
-				prepend_note_path = true,
-			},
+			wiki_link_func = function(opts)
+				if opts.id == nil then
+					return string.format("[[%s]]", opts.label)
+				elseif opts.label ~= opts.id then
+					return string.format("[[%s|%s]]", opts.id, opts.label)
+				else
+					return string.format("[[%s]]", opts.id)
+				end
+			end,
 			ui = {
 				enable = false,
 				bullets = { char = "•", hl_group = "ObsidianBullet" },

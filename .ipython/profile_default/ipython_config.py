@@ -14,7 +14,5 @@ c.IPCompleter.greedy = True
 # Show function signature/docs in pager
 c.IPCompleter.use_jedi = True
 
-# # Number of lines in the input history
-
 # Automatically show traceback on error
 c.InteractiveShell.xmode = "Context"
