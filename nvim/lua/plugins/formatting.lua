@@ -20,7 +20,7 @@ return {
 					go = { "gofmt" },
 					-- markdown = { "mdformat" },
 					python = {
-						-- "isort",
+						"isort",
 						"ruff_format",
 						"ruff_fix",
 					},
