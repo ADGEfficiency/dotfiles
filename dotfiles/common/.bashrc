@@ -19,9 +19,9 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export AWS_LOG_LEVEL=3
 
 # load my functions and aliases
-source "$HOME"/dotfiles/scripts/funcs.sh
-source "$HOME"/dotfiles/scripts/aliases.sh
-export PATH="$HOME/dotfiles/scripts:$PATH"
+source "$HOME/dotfiles/scripts/funcs.sh"
+source "$HOME/dotfiles/scripts/aliases.sh"
+source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 starship_init() {
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml

@@ -22,6 +22,11 @@ return {
 			end
 			local actions = require("telescope.actions")
 			telescope.setup({
+				pickers = {
+					find_files = {
+						hidden = true,
+					},
+				},
 				defaults = {
 					layout_strategy = "flex",
 					layout_config = { width = 0.9 },

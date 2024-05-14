@@ -24,7 +24,6 @@ return {
 				ensure_installed = {
 					"pyright",
 					"tailwindcss",
-					"ruff_lsp",
 					"bashls",
 					"prosemd_lsp",
 					"marksman",
@@ -152,7 +151,7 @@ return {
 
 			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- Handlers
@@ -193,6 +192,7 @@ return {
 				emmet_language_server = {},
 				jedi_language_server = {},
 				html = {},
+				gopls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

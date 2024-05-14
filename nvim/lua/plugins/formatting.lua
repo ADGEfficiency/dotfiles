@@ -18,23 +18,28 @@ return {
 					json = { "jq" },
 					lua = { "stylua" },
 					go = { "gofmt" },
-					-- markdown = { "mdformat" },
-					python = {
-						"isort",
-						"ruff_format",
-						"ruff_fix",
-					},
+					python = { "isort", "ruff_format" },
+					markdown = { "injected" },
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
-					sql = { "sql_formatter" },
+					sql = {
+						-- "sql_formatter",
+						"sqlfluff",
+						-- "sqlfmt",
+					},
 					["*"] = {
 						"codespell",
 						"trim_newlines",
+						-- "injected",
 						-- "trim_whitespace"
 					},
 				},
 			})
+
+			require("conform").formatters.sql_formatter = {
+				command = "sql-formatter --dialect sqlite",
+			}
 
 			require("conform").formatters.djlintJinja = {
 				command = "djlint",
@@ -52,6 +57,29 @@ return {
 					"--indent-size",
 					"2",
 					"-",
+				},
+			}
+			require("conform").formatters.injected = {
+				options = {
+					ignore_errors = false,
+					lang_to_formatters = {
+						json = { "jq" },
+						python = { "black", "ruff_format" },
+					},
+					lang_to_ext = {
+						bash = "sh",
+						c_sharp = "cs",
+						elixir = "exs",
+						javascript = "js",
+						julia = "jl",
+						latex = "tex",
+						markdown = "md",
+						python = "py",
+						ruby = "rb",
+						rust = "rs",
+						teal = "tl",
+						typescript = "ts",
+					},
 				},
 			}
 		end,

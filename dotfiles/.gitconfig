@@ -33,6 +33,7 @@
 
 [pull]
   rebase = true
+  ff = only
   default = simple
   autoSetupRemote = true
 
