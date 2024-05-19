@@ -18,7 +18,7 @@ return {
 					json = { "jq" },
 					lua = { "stylua" },
 					go = { "gofmt" },
-					markdown = { "injected" },
+					-- markdown = { "injected" },
 					python = {
 						-- "isort",
 						"ruff_format",

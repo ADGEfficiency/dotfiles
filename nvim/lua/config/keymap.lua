@@ -65,6 +65,7 @@ end
 km("v", "<leader>l", ":lua Black_and_echo()<cr>", opts)
 -- Insert a Python breakpoint
 km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
+km("n", "<leader>p", "A<CR>import ipdb; ipdb.set_trace()  # fmt: skip<ESC>", opts)
 -- Insert if name main
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 -- Run current buffer in Python

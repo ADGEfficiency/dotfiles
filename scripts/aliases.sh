@@ -154,6 +154,7 @@ alias poetry-clean='poetry cache clear pypi --all'
 alias brew-list='brew list'
 
 alias get='$EDITOR ~/personal/para/area/to/get.md'
+alias someday='$EDITOR ~/personal/para/someday.md'
 
 # sets term colors when sshing
 alias ssh='TERM=xterm-256color ssh'
