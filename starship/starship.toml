@@ -13,7 +13,7 @@ vimcmd_symbol = "[  ](green)"
 truncate_to_repo = false
 format = " [$path]($style)[$read_only]($read_only_style) "
 style='bold purple'
-home_symbol=''
+home_symbol=' '
 
 [git_branch]
 symbol = ""

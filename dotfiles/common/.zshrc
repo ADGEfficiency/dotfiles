@@ -30,7 +30,7 @@ ruby_init() {
 pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-  source $HOME/dotfiles/zsh/.zprezto/init.zsh
+  source $HOME/.zprezto/init.zsh
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
 }
 
@@ -82,6 +82,7 @@ eval "$(zoxide init zsh)"
 eval "$(ssh-agent)"  &>/dev/null &>/dev/null
 eval "$(direnv hook zsh)"
 
+# done twice for a reason
 pretzo_init
 pretzo_init
 fzf_init

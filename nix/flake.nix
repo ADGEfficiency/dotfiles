@@ -32,7 +32,6 @@
             entr
             findutils
             flyctl
-            fzf
             gh
             git
             gnugrep

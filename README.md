@@ -9,7 +9,39 @@ Setup and configuration for a terminal based developer workflow:
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
-## Dotfiles
+## Use
+
+### Ubuntu
+
+Setup an Ubuntu machine:
+
+```shell-session
+$ make setup-ubuntu OS=ubuntu
+```
+
+This will also setup dependencies with Nix.
+
+### macOS
+
+Setup an macOS machine:
+
+```shell-session
+$ make setup-macos OS=macos
+```
+
+This will also setup dependencies with Nix.
+
+### Python
+
+Install `pyenv` and `pyenv-virtualenv`, and setup a global Python installation in a pyenv virtual environment:
+
+```bash
+$ make python
+```
+
+## Components
+
+### Dotfiles
 
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
@@ -27,7 +59,7 @@ You can run the setup without bootstrapping Stow with:
 $ make dotfiles OS=macos -o bootstrap-stow
 ```
 
-## Nix
+### Nix
 
 Install packages with Nix:
 
@@ -43,41 +75,13 @@ It will also install Nix itself. Nix doesn't like to be installed multiple times
 $ make nix-pkgs -o setup-nix
 ```
 
-## Ubuntu
-
-Setup an Ubuntu machine:
-
-```shell-session
-$ make setup-ubuntu OS=ubuntu
-```
-
-This will also setup dependencies with Nix.
-
-## macOS
-
-Setup an macOS machine:
-
-```shell-session
-$ make setup-macos OS=macos
-```
-
-This will also setup dependencies with Nix.
-
-## Global Python Virtual Environment
-
-Install `pyenv` and `pyenv-virtualenv`, and setup a global Python installation in a pyenv virtual environment:
-
-```bash
-$ make python
-```
-
-## Neovim
+### Neovim
 
 Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
-## Getting Kitty to Play Nice on macOS
+### Getting Kitty to Play Nice on macOS
 
 Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
 

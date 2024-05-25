@@ -6,6 +6,18 @@ OS = macos
 default:
 	echo "hello ^^"
 
+setup-macos: brew-pkgs nix-pkgs dotfiles
+	bash ./tmux/setup.sh
+	bash ./scripts/setup-zpretzo.sh
+	bash ./fzf/setup.sh
+	bash ./macos/setup.sh
+
+setup-ubuntu: dotfiles nix-pkgs dotfiles
+	bash ./tmux/setup.sh
+	bash ./scripts/setup-zpretzo.sh
+	bash ./fzf/setup.sh
+	bash ./ubuntu/setup.sh
+
 bootstrap-stow:
 	bash ./scripts/bootstrap-stow.sh
 
@@ -17,14 +29,6 @@ dotfiles: bootstrap-stow
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
-
-setup-macos: dotfiles brew-pkgs setup-nix
-	bash ./tmux/setup.sh
-	bash ./macos/setup.sh
-
-setup-ubuntu: dotfiles setup-nix
-	bash ./tmux/setup.sh
-	bash ./ubuntu/setup.sh
 
 .PHONY: setup-pyenv python js
 
@@ -73,3 +77,5 @@ setup-brew:
 
 brew-pkgs: setup-brew
 	brew install hadolint vale actionlint mactex pandoc fzf
+	brew install koekeishiya/formulae/yabai
+	brew install koekeishiya/formulae/skhd

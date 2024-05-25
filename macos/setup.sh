@@ -9,3 +9,5 @@ chmod +x ~/dotfiles/skhd/skhdrc
 
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
+
+ln -s ~/dotfiles/kitty/kitty.conf .config/kitty/kitty.conf
