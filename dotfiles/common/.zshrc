@@ -1,5 +1,4 @@
-# source $HOME/dotfiles/zsh/.zprezto/init.zsh
-# source $HOME/dotfiles/dotfiles/common/.zpreztorc
+bash $HOME/dotfiles/scripts/trace.sh "$0"
 
 pyenv_init() {
   export PYENV_ROOT="$HOME/.pyenv"

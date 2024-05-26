@@ -67,7 +67,7 @@ setup-nix:
 	. ./nix/load-$(OS).sh && nix-channel --update
 
 nix-pkgs: setup-nix
-	. ./nix/load-$(OS).sh && cd nix && nix profile install
+	. ./nix/load-$(OS).sh && cd nix && nix flake update && nix profile install
 
 .PHONY: setup-brew brew-pkgs
 

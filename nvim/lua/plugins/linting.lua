@@ -39,7 +39,13 @@ return {
 				jinja2 = { "markdownlint", "codespell" },
 				json = { "jsonlint" },
 				markdown = { "markdownlint", "codespell" },
-				python = { "ruff", "mypy", "flake8", "pydocstyle", "pylint" },
+				python = {
+					"ruff",
+					"mypy",
+					-- "flake8",
+					"pydocstyle",
+					"pylint",
+				},
 				sql = { "sqlfluff" },
 				yaml = { "actionlint", "yamllint" },
 			}
