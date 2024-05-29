@@ -58,7 +58,7 @@ export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
-alias brew='arch -x86_64 brew'
+alias brew='arch -arm64 brew'
 source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 source ~/dotfiles/macos/pyenv-flags

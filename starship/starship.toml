@@ -1,7 +1,7 @@
 add_newline = true
 command_timeout = 2000
 
-format = """$directory$line_break$character"""
+format = """$hostname$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [character]
@@ -11,13 +11,16 @@ vimcmd_symbol = "[  ](green)"
 
 [directory]
 truncate_to_repo = false
-format = " [$path]($style)[$read_only]($read_only_style) "
+format = "in [$path]($style)[$read_only]($read_only_style) "
 style='bold purple'
-home_symbol=' '
 
 [git_branch]
 symbol = ""
 format = " [on]() [$symbol $branch(:$remote_branch)](bold green)"
+
+[hostname]
+ssh_only = false
+format = " on [$hostname](fg:green) "
 
 [python]
 format=' [with]() [${symbol} ${version} ${virtualenv}](bold blue)'

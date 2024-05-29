@@ -159,3 +159,6 @@ alias get='$EDITOR ~/personal/para/area/to/get.md'
 alias ssh='TERM=xterm-256color ssh'
 
 alias lg='lazygit'
+
+alias air='ssh adamgreen@air.local'
+alias macbook='ssh adam@macbook.local'
