@@ -56,6 +56,9 @@ km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 -- Paste in path to open buffer
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
 
+-- Rebalance windows
+km("n", "<leader>b", "<C-w>=<cr>", opts)
+
 -- Python
 -- Format selection with Black
 function Black_and_echo()
