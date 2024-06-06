@@ -68,7 +68,7 @@ return {
 					ignore_errors = false,
 					lang_to_formatters = {
 						json = { "jq" },
-						python = { "black", "ruff_format" },
+						python = { "ruff_format" },
 					},
 					lang_to_ext = {
 						bash = "sh",
