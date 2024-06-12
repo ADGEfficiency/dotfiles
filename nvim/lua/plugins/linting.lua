@@ -32,7 +32,7 @@ return {
 
 			require("lint").linters_by_ft = {
 				dockerfile = { "hadolint" },
-				go = { "golangcilint", "staticcheck" },
+				go = { "golangcilint" },
 				html = { "djlint" },
 				javascript = { "jshint" },
 				jinja = { "markdownlint", "codespell" },
