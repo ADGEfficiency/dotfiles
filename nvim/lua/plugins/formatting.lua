@@ -20,7 +20,7 @@ return {
 					go = { "gofmt" },
 					markdown = { "injected" },
 					python = {
-						-- "isort",
+						"isort",
 						"ruff_format",
 						"ruff_fix",
 					},
@@ -68,7 +68,7 @@ return {
 					ignore_errors = false,
 					lang_to_formatters = {
 						json = { "jq" },
-						python = { "ruff_format" },
+						python = { "ruff_format", "isort" },
 					},
 					lang_to_ext = {
 						bash = "sh",
