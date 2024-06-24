@@ -7,7 +7,8 @@
 **/*.ipynb_checkpoints
 **/*.egg-info
 dist
-**/__pycache__
+__pycache__/
+.ipynb_checkpoints/
 **/*.pyc
 .python-version
 *.virtual_documents/
@@ -29,7 +30,6 @@ temp
 temp.*
 temp/
 cdk.out/
-__pycache__/
 .mypy_cache/
 .pytest_cache/
 .git/

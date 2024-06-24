@@ -11,10 +11,24 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Use system clipboard for copy-paste
--- vim.cmd([[
---   set clipboard+=unnamedplus
--- ]])
-vim.opt.clipboard = "unnamedplus"
+vim.cmd([[
+  set clipboard+=unnamedplus
+]])
+
+if vim.fn.has("wsl") == 1 then
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = {
+			["+"] = "clip.exe",
+			["*"] = "clip.exe",
+		},
+		paste = {
+			["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+end
 
 -- Increase command line height for displaying messages
 vim.opt.cmdheight = 1
