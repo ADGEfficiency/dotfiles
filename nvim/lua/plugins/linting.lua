@@ -32,14 +32,20 @@ return {
 
 			require("lint").linters_by_ft = {
 				dockerfile = { "hadolint" },
-				go = { "golangcilint", "staticcheck" },
+				go = { "golangcilint" },
 				html = { "djlint" },
 				javascript = { "jshint" },
 				jinja = { "markdownlint", "codespell" },
 				jinja2 = { "markdownlint", "codespell" },
 				json = { "jsonlint" },
 				markdown = { "markdownlint", "codespell" },
-				python = { "ruff", "mypy", "flake8", "pydocstyle", "pylint" },
+				python = {
+					"ruff",
+					"mypy",
+					-- "flake8",
+					"pydocstyle",
+					"pylint",
+				},
 				sql = { "sqlfluff" },
 				yaml = { "actionlint", "yamllint" },
 			}

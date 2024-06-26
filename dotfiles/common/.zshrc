@@ -1,5 +1,4 @@
-# source $HOME/dotfiles/zsh/.zprezto/init.zsh
-# source $HOME/dotfiles/dotfiles/common/.zpreztorc
+bash $HOME/dotfiles/scripts/trace.sh "$0"
 
 pyenv_init() {
   export PYENV_ROOT="$HOME/.pyenv"
@@ -30,7 +29,7 @@ ruby_init() {
 pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-  source $HOME/dotfiles/zsh/.zprezto/init.zsh
+  source $HOME/.zprezto/init.zsh
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
 }
 
@@ -59,7 +58,7 @@ export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
-alias brew='arch -x86_64 brew'
+alias brew='arch -arm64 brew'
 source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 source ~/dotfiles/macos/pyenv-flags
@@ -82,6 +81,7 @@ eval "$(zoxide init zsh)"
 eval "$(ssh-agent)"  &>/dev/null &>/dev/null
 eval "$(direnv hook zsh)"
 
+# done twice for a reason
 pretzo_init
 pretzo_init
 fzf_init

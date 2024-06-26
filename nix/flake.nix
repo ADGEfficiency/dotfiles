@@ -31,8 +31,8 @@
             efm-langserver
             entr
             findutils
+            fish
             flyctl
-            fzf
             gh
             git
             gnugrep

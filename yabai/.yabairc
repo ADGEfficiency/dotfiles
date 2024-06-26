@@ -32,3 +32,4 @@ yabai -m rule --add app='^ColorSlurp$' manage=off
 yabai -m rule --add app='^Preview$' manage=off
 yabai -m rule --add app='^Numbers$' manage=off
 yabai -m rule --add app='^Docker$' manage=off
+yabai -m rule --add app='^Folx$' manage=off

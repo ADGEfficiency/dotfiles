@@ -29,10 +29,10 @@ return {
 						-- "sqlfmt",
 					},
 					["*"] = {
-						"codespell",
-						"trim_newlines",
+						-- "codespell",
+						-- "trim_newlines",
 						-- "injected",
-						-- "trim_whitespace"
+						-- "trim_whitespace",
 					},
 				},
 			})

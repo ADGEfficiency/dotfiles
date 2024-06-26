@@ -63,6 +63,17 @@ remote() {
   git remote set-url origin $1
 }
 
+# create branch if it doesn't exist, otherwise change to branch
+gb() {
+  if git show-ref --verify --quiet refs/heads/"$1"; then
+    echo "Switching to branch '$1'"
+    git checkout "$1"
+  else
+    echo "Creating and switching to new branch '$1'"
+    git checkout -b "$1"
+  fi
+}
+
 #  show a random quote
 #  uses a file from my personal git repo which I put in ~/personal
 quote () {

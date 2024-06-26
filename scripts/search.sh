@@ -9,7 +9,7 @@ open_files_with_editor() {
     eval "$EDITOR" "$@"
   elif [ "$ZSH_VERSION" != "" ]; then
     # Zsh-specific way to handle array arguments
-    eval "$EDITOR" "${(q)@}"
+    eval "$EDITOR" "@"
   else
     # Fallback for other POSIX-compliant shells
     eval "$EDITOR" "$@"
@@ -26,5 +26,5 @@ fi
 
 if [ $? -eq 0 ]; then
   # Open selected files with the preferred editor
-  open_files_with_editor "$files"
+  open_files_with_editor "$(echo "$files" | tr '\n' ' ')"
 fi
