@@ -18,12 +18,8 @@ return {
 					json = { "jq" },
 					lua = { "stylua" },
 					go = { "gofmt" },
+					python = { "isort", "ruff_format" },
 					markdown = { "injected" },
-					python = {
-						-- "isort",
-						"ruff_format",
-						"ruff_fix",
-					},
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },

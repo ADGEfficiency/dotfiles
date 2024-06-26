@@ -41,7 +41,6 @@ $ make python
 
 ## Components
 
-### Dotfiles
 
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
