@@ -74,6 +74,11 @@ gb() {
   fi
 }
 
+# git add -u, commit and push
+gac() {
+  git add -u && git commit -m "$1" && git push
+}
+
 #  show a random quote
 #  uses a file from my personal git repo which I put in ~/personal
 quote () {
