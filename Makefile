@@ -66,8 +66,10 @@ setup-nix:
 	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 	. ./nix/load-$(OS).sh && nix-channel --update
 
+NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
+
 nix-pkgs: setup-nix
-	. ./nix/load-$(OS).sh && cd nix && nix flake update && nix profile install
+	. ./nix/load-$(OS).sh && cd nix && nix flake update $(NIX_ARGS) && nix profile install $(NIX_ARGS)
 
 .PHONY: setup-brew brew-pkgs
 
