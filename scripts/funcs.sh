@@ -76,7 +76,7 @@ gb() {
 
 # git add -u, commit and push
 gac() {
-  git add -u && git commit -m "$1" && git push
+  git add -u && git commit -m "$1" && git push origin
 }
 
 #  show a random quote
