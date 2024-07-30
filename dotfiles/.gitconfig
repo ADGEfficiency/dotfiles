@@ -16,7 +16,7 @@
 
 [diff]
   algorithm = histogram
-  colormoved = default
+  colormoved = zebra
   colormovedws = allow-indentation-change
   context = 10
 
@@ -25,14 +25,14 @@
 
 [merge]
   conflictstyle = diff3
-  ff = false
+  ff = true
   tool = nvimdiff
 
 [mergetool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE
 
 [pull]
-  rebase = true
+  rebase = false
   ff = only
   default = simple
   autoSetupRemote = true

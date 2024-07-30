@@ -29,7 +29,7 @@ ruby_init() {
 pretzo_init() {
   #  this is here for a reason ^^
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-  source $HOME/.zprezto/init.zsh
+  source $HOME/dotfiles/zsh/.zprezto
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
 }
 
