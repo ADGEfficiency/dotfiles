@@ -31,6 +31,7 @@ pretzo_init() {
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
   source $HOME/dotfiles/zsh/.zprezto
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
+  source ~/.zprezto/init.zsh
 }
 
 starship_init() {
@@ -82,6 +83,5 @@ eval "$(ssh-agent)"  &>/dev/null &>/dev/null
 eval "$(direnv hook zsh)"
 
 # done twice for a reason
-pretzo_init
 pretzo_init
 fzf_init
