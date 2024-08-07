@@ -63,13 +63,14 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",
 		dependencies = {
-			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+			{ "zbirenbaum/copilot.lua" },
+			{ "nvim-lua/plenary.nvim" },
 		},
 		opts = {
-			debug = true, -- Enable debugging
-			-- See Configuration section for rest
+			debug = true,
+			context = "buffers",
+			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
+			auto_follow_cursor = false,
 		},
-		-- See Commands section for default commands if you want to lazy load on them
 	},
 }
