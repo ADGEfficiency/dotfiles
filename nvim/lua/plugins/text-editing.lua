@@ -8,6 +8,8 @@ return {
 	{ "tpope/vim-repeat" },
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
+
+	{ "folke/zen-mode.nvim" },
 	{
 		"mbbill/undotree",
 		config = function()

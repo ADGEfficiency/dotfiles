@@ -130,6 +130,9 @@ vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 -- CopilotChat
 vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
 
+-- ZenMode
+vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
+
 -- Misc / Unused / Broken
 
 -- Move blocks of text up and down
