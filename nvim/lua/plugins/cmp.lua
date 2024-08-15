@@ -115,7 +115,15 @@ return {
 					{ name = "luasnip", max_item_count = 3 },
 					{ name = "nvim_lsp", max_item_count = 5 },
 					{ name = "path", max_item_count = 5 },
-					{ name = "buffer", max_item_count = 5 },
+					{
+						name = "buffer",
+						max_item_count = 5,
+						option = {
+							get_bufnrs = function()
+								return vim.api.nvim_list_bufs()
+							end,
+						},
+					},
 					{ name = "emoji", max_item_count = 5 },
 					{ name = "latex_symbols", max_item_count = 5 },
 					{ name = "npm", max_item_count = 5 },
