@@ -82,6 +82,7 @@
             # yamlfix
             zig
             zip
+            go-task
             zoxide
             zsh
           ];
