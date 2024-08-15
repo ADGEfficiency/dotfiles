@@ -72,7 +72,7 @@
             starship
             stow
             stylua
-            texlive.combined.scheme-tetex
+            # texlive.combined.scheme-tetex
             tig
             tmux
             tree
