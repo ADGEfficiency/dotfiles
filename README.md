@@ -1,6 +1,6 @@
 # Dotfiles
 
-Setup and configuration for a terminal based developer workflow:
+Setup and configuration for my terminal based developer workflow:
 
 - Zsh for a shell,
 - Nix for package management of shell programs,
@@ -76,7 +76,7 @@ $ make nix-pkgs -o setup-nix
 
 ### Neovim
 
-Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
+Neovim config is in `./nvim`. To use the Neovim setup, put this folder (ie `.`, not `./nvim`) into `$XDG_CONFIG_HOME`.
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 

@@ -6,8 +6,8 @@ fi
 
 # Auto-completion
 # ---------------
-source "$HOME/dotfiles/fzf/completion.zsh"
+source "$HOME/.fzf/shell/completion.zsh"
 
 # Key bindings
 # ------------
-source "$HOME/dotfiles/fzf/key-bindings.zsh"
+source "$HOME/.fzf/shell/key-bindings.zsh"
