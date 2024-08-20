@@ -9,7 +9,26 @@ return {
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
 
-	{ "folke/zen-mode.nvim" },
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				backdrop = 1.0,
+				width = 1.0,
+				height = 1.0,
+			},
+			plugins = {
+				options = {
+					laststatus = 0,
+				},
+			},
+		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 	{
 		"mbbill/undotree",
 		config = function()
