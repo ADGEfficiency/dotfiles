@@ -6,12 +6,11 @@ authors = ["Adam Green <adam.green@adgefficiency.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10.6"
+python = ">=3.12,<3.13"
 pandas = "^2.0.3"
 requests = "^2.31.0"
 typer = "^0.9.0"
 mypy = "^1.4.1"
-fastapi = "^0.101.0"
 black = "^23.7.0"
 zxpy = "^1.6.3"
 awscli = "^1.29.21"
@@ -38,6 +37,7 @@ mdformat = "^0.7.17"
 mdformat-frontmatter = "^2.0.8"
 mdformat-footnote = "^0.1.1"
 jupyterlab = "^4.0.9"
+pydantic = "2.9.0"
 
 [build-system]
 requires = ["poetry-core"]
