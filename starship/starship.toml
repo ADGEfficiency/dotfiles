@@ -5,7 +5,8 @@ format = """$hostname$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [character]
-success_symbol = "[ \\$](green)"
+# success_symbol = "[ \\$](green)"
+success_symbol = "[ >∶](green)"
 error_symbol = "[ 󰙦 ](red)"
 vimcmd_symbol = "[  ](green)"
 
