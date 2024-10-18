@@ -113,10 +113,10 @@ vim.opt.tabstop = 2
 -- Highlight the current line
 vim.opt.cursorline = true
 
--- Show line numbers
+-- Line numbers
 vim.opt.number = true
 
--- Disable relative line numbers
+-- Relative line numbers
 vim.opt.relativenumber = false
 
 -- Set number column width
