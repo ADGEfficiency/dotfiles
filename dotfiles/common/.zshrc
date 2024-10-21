@@ -63,8 +63,6 @@ alias brew='arch -arm64 brew'
 source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 source ~/dotfiles/macos/pyenv-flags
-source $HOME/dotfiles/scripts/funcs.sh
-source $HOME/dotfiles/scripts/aliases.sh
 
 # custom ipython config
 export IPYTHONDIR="$HOME/dotfiles/.ipython"

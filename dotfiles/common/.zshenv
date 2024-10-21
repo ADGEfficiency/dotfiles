@@ -10,3 +10,6 @@ export EDITOR=$(which nvim)
 if command -v launchctl >/dev/null 2>&1; then
   launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 fi
+
+source $HOME/dotfiles/scripts/funcs.sh
+source $HOME/dotfiles/scripts/aliases.sh
