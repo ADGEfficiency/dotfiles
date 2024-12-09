@@ -8,7 +8,7 @@ yabai -m space 1 --label music
 yabai -m rule --add app="^Slack$" space=music
 yabai -m rule --add app="^Swinsian$" space=music
 
-for space in 2 3; do
+for space in 2 3 4; do
   echo "Configuring space $space"
   yabai -m config --space "$space" \
     layout bsp \

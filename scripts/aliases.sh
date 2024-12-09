@@ -97,6 +97,8 @@ alias bashrc='$EDITOR $HOME/.bashrc'
 alias zshrc='$EDITOR $HOME/.zshrc'
 alias zs='source ~/.zshrc'
 alias bs='source ~/.bashrc'
+alias fs='source ~/dotfiles/fish/config.fish'
+alias fishrc='$EDITOR $HOME/dotfiles/fish/config.fish'
 
 # git
 alias amend='git commit --amend'

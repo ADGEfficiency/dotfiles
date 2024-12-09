@@ -12,7 +12,7 @@ pyenv_init() {
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
     bindkey -v
-    source ~/dotfiles/fzf/.fzf.zsh
+    source $HOME/.fzf.zsh
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {}" --preview-window=down:50%:wrap --border=none'
     export FZF_CTRL_R_OPTS='--height 20% --no-preview'
@@ -85,3 +85,5 @@ eval "$(direnv hook zsh)"
 # done twice for a reason
 pretzo_init
 fzf_init
+
+eval "$(~/.local/bin/mise activate zsh)"

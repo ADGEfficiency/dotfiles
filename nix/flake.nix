@@ -65,6 +65,7 @@
             pandoc
             python311
             ripgrep
+            rmtrash
             ruby
             shellcheck
             shellharden
@@ -75,7 +76,6 @@
             # texlive.combined.scheme-tetex
             tig
             tmux
-            tree
             tree
             unzip
             wget

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-WINDOW_ID=$(yabai -m query --windows | jq '.[] | select(.app == "Firefox")' | jq '.id')
+DEFAULT_RATIO=0.3
+RATIO=${1:-$DEFAULT_RATIO}
 KITTY=$(yabai -m query --windows | jq '.[] | select(.app == "kitty")' | jq '.id')
-# yabai -m window $WINDOW_ID --warp $KITTY
-# yabai -m window --swap north - not tried, only if needed
-yabai -m window $KITTY --ratio abs:0.3
+yabai -m window "$KITTY" --ratio abs:"$RATIO"
