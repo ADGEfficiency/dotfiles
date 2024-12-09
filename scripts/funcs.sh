@@ -2,6 +2,10 @@
 
 # a collection of Bash functions
 
+mcd() {
+  mkdir -p $1 && cd $1
+}
+
 # grep with a few more lines
 # $ gl todo ~/code
 gl() {

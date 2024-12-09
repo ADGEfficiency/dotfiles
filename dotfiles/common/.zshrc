@@ -85,3 +85,5 @@ eval "$(direnv hook zsh)"
 # done twice for a reason
 pretzo_init
 fzf_init
+
+eval "$(~/.local/bin/mise activate zsh)"
