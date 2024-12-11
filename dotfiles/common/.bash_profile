@@ -8,11 +8,13 @@ export EDITOR=$(which nvim)
 eval "$(zoxide init bash)"
 
 # pyenv
-source "$HOME/dotfiles/macos/pyenv-flags"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+if [ "$DISABLE_PYENV" = "" ]; then
+  source "$HOME/dotfiles/macos/pyenv-flags"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 { eval "$(ssh-agent)"; } &>/dev/null
 eval "$(direnv hook bash)"

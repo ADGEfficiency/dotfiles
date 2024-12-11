@@ -54,7 +54,7 @@ alias vi='$EDITOR'
 # python
 alias py='python'
 alias ipy='ipython'
-alias pip='pip3'
+# alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
 alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
 

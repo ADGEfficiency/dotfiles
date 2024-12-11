@@ -4,5 +4,5 @@ export PATH="$HOME/checkmake:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/personal/para/area/script:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-
+export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/go"
