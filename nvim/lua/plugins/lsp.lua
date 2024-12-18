@@ -30,18 +30,18 @@ return {
 					"lua_ls",
 					"html",
 					"docker_compose_language_service",
-					"ruff_lsp",
+					-- "ruff",
 					"bashls",
 					"dockerls",
 					"jsonls",
 					"prosemd_lsp",
 					-- "rnix",
-					"tsserver",
+					-- "tsserver",
 					"emmet_language_server",
 					"pyright",
 					"rust_analyzer",
 					"jedi_language_server",
-					"sqlls",
+					-- "sqlls",
 				},
 				automatic_installation = true,
 			})
@@ -227,11 +227,11 @@ return {
 				tailwindcss = {
 					cmd = { "tailwindcss-language-server", "--stdio" },
 				},
-				sqlls = {
-					root_dir = function(fname)
-						return vim.loop.cwd()
-					end,
-				},
+				-- sqlls = {
+				-- 	root_dir = function(fname)
+				-- 		return vim.loop.cwd()
+				-- 	end,
+				-- },
 			}
 			for server, config in pairs(servers) do
 				require("lspconfig")[server].setup(vim.tbl_deep_extend("force", {
