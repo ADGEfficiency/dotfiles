@@ -9,7 +9,26 @@ return {
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
 
-	{ "folke/zen-mode.nvim" },
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				backdrop = 1.0,
+				width = 1.0,
+				height = 1.0,
+			},
+			plugins = {
+				options = {
+					laststatus = 0,
+				},
+			},
+		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 	{
 		"mbbill/undotree",
 		config = function()
@@ -106,10 +125,39 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+    enable=false,
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = function()
 			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"PedramNavid/dbtpal",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		ft = {
+			"sql",
+			"md",
+			"yaml",
+		},
+		keys = {
+			{ "<leader>drf", "<cmd>DbtRun<cr>" },
+			{ "<leader>drp", "<cmd>DbtRunAll<cr>" },
+			{ "<leader>dtf", "<cmd>DbtTest<cr>" },
+			{ "<leader>dm", "<cmd>lua require('dbtpal.telescope').dbt_picker()<cr>" },
+		},
+		config = function()
+			require("dbtpal").setup({
+				path_to_dbt = "dbt",
+				path_to_dbt_project = "",
+				path_to_dbt_profiles_dir = "",
+				extended_path_search = true,
+				protect_compiled_files = true,
+			})
+			require("telescope").load_extension("dbtpal")
 		end,
 	},
 }
