@@ -40,7 +40,7 @@ setup-uv:
 	bash ./python/setup-uv.sh
 
 python: setup-uv
-	cd ~ && ~/.local/bin/uv venv --python 3.12
+	cd ~ && ~/.local/bin/uv venv --python 3.11.9
 	~/.local/bin/uv pip install -r ./python/pyproject.toml
 
 js:
