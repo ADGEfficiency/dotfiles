@@ -1,10 +1,12 @@
-#  can be either macos or ubuntu
+# can be either macos or ubuntu
 OS = macos
 
 .PHONY: default bootstrap-stow dotfiles test setup-macos setup-ubuntu
 
 default:
 	echo "hello ^^"
+
+.PHONY: setup-macos setup-ubuntu boostrap-stow
 
 setup-macos: brew-pkgs nix-pkgs dotfiles
 	bash ./tmux/setup.sh
@@ -20,6 +22,8 @@ setup-ubuntu: dotfiles nix-pkgs dotfiles
 
 bootstrap-stow:
 	bash ./scripts/bootstrap-stow.sh
+
+.PHONY: dotfiles test
 
 STOW_ARGS=-vv
 dotfiles: bootstrap-stow
@@ -67,7 +71,6 @@ setup-nix:
 	. ./nix/load-$(OS).sh && nix-channel --update
 
 NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
-
 nix-pkgs: setup-nix
 	. ./nix/load-$(OS).sh && cd nix && nix flake update $(NIX_ARGS) && nix profile install $(NIX_ARGS)
 

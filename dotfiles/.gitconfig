@@ -47,3 +47,6 @@
 [user]
   email = adam.green@adgefficiency.com
   name = Adam Green
+
+[rerere]
+  enabled = true

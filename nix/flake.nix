@@ -55,7 +55,7 @@
             lua
             marksman
             neovim
-            nerdfonts
+            nerd-fonts.fira-code
             nodePackages_latest.markdownlint-cli
             nodePackages_latest.prettier
             nodePackages_latest.sql-formatter
@@ -63,7 +63,6 @@
             nodejs_18
             ov
             pandoc
-            python311
             ripgrep
             rmtrash
             ruby

@@ -6,7 +6,7 @@ return {
 			require("conform").setup({
 				notify_on_error = false,
 				format_on_save = {
-					timeout_ms = 4000,
+					timeout_ms = 20000,
 					lsp_fallback = true,
 				},
 
@@ -23,11 +23,7 @@ return {
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
-					sql = {
-						-- "sql_formatter",
-						"sqlfluff",
-						-- "sqlfmt",
-					},
+					sql = { "sqlfluff" },
 					["*"] = {
 						-- "codespell",
 						-- "trim_newlines",
@@ -37,8 +33,17 @@ return {
 				},
 			})
 
-			require("conform").formatters.sql_formatter = {
-				command = "sql-formatter --dialect sqlite",
+			require("conform").formatters.sqlfluff = {
+				command = "sqlfluff",
+				inherit = false,
+				args = {
+					"fix",
+					"-t",
+					"dbt",
+					"$FILENAME",
+				},
+				stdin = false,
+				require_cwd = true,
 			}
 
 			require("conform").formatters.djlintJinja = {
