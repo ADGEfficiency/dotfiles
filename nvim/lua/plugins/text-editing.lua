@@ -8,6 +8,7 @@ return {
 	{ "tpope/vim-repeat" },
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
+<<<<<<< HEAD
 
 	{
 		"folke/zen-mode.nvim",
@@ -29,6 +30,11 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
+||||||| 4de39f3
+=======
+
+	{ "folke/zen-mode.nvim" },
+>>>>>>> 44d0041f59c821dbe9771616034d3af6a00f08b6
 	{
 		"mbbill/undotree",
 		config = function()

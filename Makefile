@@ -36,12 +36,12 @@ test: setup-nix
 
 .PHONY: setup-pyenv python js
 
-setup-pyenv:
-	bash ./python/setup-pyenv.sh
+setup-uv:
+	bash ./python/setup-uv.sh
 
-python: setup-pyenv
-	bash ./python/setup-general-venv.sh general 3.12.2
-	bash ./python/setup-general-venv-pkgs.sh
+python: setup-uv
+	cd ~ && ~/.local/bin/uv venv --python 3.12
+	~/.local/bin/uv pip install -r ./python/pyproject.toml
 
 js:
 	npm install -g @tailwindcss/language-server markserv
