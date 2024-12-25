@@ -24,6 +24,9 @@ return {
 				enabled = false,
 			},
 			lsp = {
+				signature = {
+					enabled = false,
+				},
 				progress = {
 					enabled = false,
 				},
