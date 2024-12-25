@@ -1,18 +1,22 @@
 bash $HOME/dotfiles/scripts/trace.sh "$0"
 
+export DISABLE_PYENV=1
+
 pyenv_init() {
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  if [ -z "$DISABLE_PYENV" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+  fi
 }
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
     bindkey -v
-    source ~/dotfiles/fzf/.fzf.zsh
+    source $HOME/.fzf.zsh
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {}" --preview-window=down:50%:wrap --border=none'
     export FZF_CTRL_R_OPTS='--height 20% --no-preview'
@@ -60,7 +64,6 @@ SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
 alias brew='arch -arm64 brew'
-source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 source ~/dotfiles/macos/pyenv-flags
 
@@ -83,3 +86,4 @@ eval "$(direnv hook zsh)"
 # done twice for a reason
 pretzo_init
 fzf_init
+source "$HOME/dotfiles/dotfiles/common/setup-path.sh"

@@ -8,7 +8,6 @@ return {
 	{ "tpope/vim-repeat" },
 	{ "farmergreg/vim-lastplace" },
 	{ "axelf4/vim-strip-trailing-whitespace" },
-
 	{
 		"folke/zen-mode.nvim",
 		opts = {
@@ -125,7 +124,7 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
-    enable=false,
+		enable = false,
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = function()

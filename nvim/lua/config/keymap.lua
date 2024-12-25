@@ -14,8 +14,11 @@ km("n", "k", "gk", opts)
 km("n", "<C-j>", "j", opts)
 km("n", "<C-k>", "k", opts)
 
-km("n", "<leader>a", ":ArgWrap<cr>", opts)
+-- Insert file name
 km("n", "<leader>r", ":r! echo %:p<cr>", opts)
+
+-- Copy entire file
+km("n", "YY", ":%y<cr>", opts)
 
 -- Move to start / end of line
 km("n", "L", "$", opts)
@@ -130,7 +133,7 @@ vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 -- CopilotChat
 vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
 
--- ZenMode Zoom
+-- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
 -- Misc / Unused / Broken

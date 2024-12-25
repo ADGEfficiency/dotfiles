@@ -33,7 +33,7 @@ This will also setup dependencies with Nix.
 
 ### Python
 
-Install `pyenv` and `pyenv-virtualenv`, and setup a global Python installation in a pyenv virtual environment:
+Install `uv` and setup a global Python installation in a virtual environment:
 
 ```bash
 $ make python
@@ -76,7 +76,7 @@ $ make nix-pkgs -o setup-nix
 
 ### Neovim
 
-Neovim config is in `./nvim`. To use the Neovim setup, put this folder (ie `.`, not `./nvim`) into `$XDG_CONFIG_HOME`.
+Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 

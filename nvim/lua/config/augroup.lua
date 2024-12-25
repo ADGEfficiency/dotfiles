@@ -45,3 +45,12 @@ vim.api.nvim_exec(
  ]],
 	false
 )
+
+-- .py
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.cmd("setlocal colorcolumn=120")
+		vim.cmd("highlight ColorColumn cterm=bold ctermbg=238 gui=bold guibg=#424450")
+	end,
+})
