@@ -1,172 +1,102 @@
 return {
 	{
+		"saghen/blink.compat",
+		version = "*",
+		lazy = true,
+		opts = {},
+	},
+	{
 		"vrslev/cmp-pypi",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		ft = "toml",
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		-- event = {
-		-- 	"BufReadPost",
-		-- 	"BufNewFile",
-		-- 	"InsertEnter",
-		-- },
+	},
+	{
+		"saghen/blink.cmp",
 		dependencies = {
-			"L3MON4D3/LuaSnip",
-			"dmitmel/cmp-cmdline-history",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-emoji",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"hrsh7th/cmp-path",
-			"onsails/lspkind.nvim",
+			"echasnovski/mini.icons",
+			"mikavilpas/blink-ripgrep.nvim",
+			"moyiz/blink-emoji.nvim",
 			"rafamadriz/friendly-snippets",
-			"saadparwaiz1/cmp_luasnip",
-			"uga-rosa/cmp-dictionary",
-			"windwp/nvim-autopairs",
-			"windwp/nvim-ts-autotag",
-			"davidsierradz/cmp-conventionalcommits",
-			"vrslev/cmp-pypi",
-			"amarakon/nvim-cmp-buffer-lines",
 		},
-		config = function()
-			require("nvim-autopairs").setup()
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
+		version = "*",
 
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
 
-			require("cmp_dictionary").setup({
-				paths = { "/usr/share/dict/words" },
-				exact_length = 2,
-				first_case_insensitive = true,
-				document = {
-					enabled = true,
-					command = { "wn", "${label}", "-over" },
-				},
-			})
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			keymap = { preset = "enter" },
 
-			require("luasnip.loaders.from_vscode").lazy_load()
-			require("luasnip/loaders/from_snipmate").load({ paths = "~/dotfiles/nvim/snippets" })
-
-			cmp.setup({
-				preselect = cmp.PreselectMode.None,
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
+			completion = {
+				list = { selection = "auto_insert" },
+				menu = {
+					border = "single",
+					auto_show = function()
+						return vim.bo.buftype ~= "prompt"
+							and vim.b.completion ~= false
+							and vim.bo.filetype ~= "TelescopePrompt"
 					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping(function()
-						if cmp.visible() then
-							cmp.select_prev_item()
-						else
-							cmp.complete()
-						end
-					end, { "i", "c" }),
-					["<C-n>"] = cmp.mapping(function()
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							cmp.complete()
-						end
-					end, { "i", "c" }),
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = false,
-					}),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						-- elseif luasnip.expand_or_jumpable() then
-						-- 	luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "copilot", max_item_count = 2 },
-					{ name = "luasnip", max_item_count = 3 },
-					{ name = "nvim_lsp", max_item_count = 5 },
-					{ name = "path", max_item_count = 5 },
-					{
-						name = "buffer",
-						max_item_count = 5,
-						option = {
-							get_bufnrs = function()
-								return vim.api.nvim_list_bufs()
-							end,
+					draw = {
+						columns = {
+							{ "label", "label_description", gap = 3 },
+							{ "kind_icon", gap = 1, "source_name", gap = 1, "kind" },
+						},
+						components = {
+							kind_icon = {
+								ellipsis = false,
+								text = function(ctx)
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
+								end,
+								-- Optionally, you may also use the highlights from mini.icons
+								highlight = function(ctx)
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
+								end,
+							},
 						},
 					},
-					{ name = "emoji", max_item_count = 5 },
-					{ name = "latex_symbols", max_item_count = 5 },
-					{ name = "npm", max_item_count = 5 },
-					{ name = "dictionary", max_item_count = 5, keyword_length = 3 },
-					{ name = "buffer-lines", option = { max_item_count = 2, words = true, comments = true } },
-					{ name = "pypi", keyword_length = 4 },
-				}),
-				confirm_opts = {
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = false,
 				},
-				formatting = {
-					fields = { "abbr", "kind", "menu" },
-					expandable_indicator = true,
-					format = lspkind.cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = {
-							Copilot = "",
-						},
-						menu = {
-							nvim_lsp = "[LSP]",
-							luasnip = "[Snip]",
-							path = "[Path]",
-							buffer = "[Buff]",
-							dictionary = "[Dict]",
-							copilot = "[AI]",
-							conventionalcommits = "[Git]",
-						},
-					}),
+			},
+
+			appearance = {
+				-- Will be removed in a future release
+				use_nvim_cmp_as_default = true,
+				-- Adjusts spacing to ensure icons are aligned
+				nerd_font_variant = "mono",
+			},
+
+			-- Default list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, due to `opts_extend`
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer", "ripgrep", "emoji" },
+				cmdline = {},
+				providers = {
+					buffer = {
+						name = "buffer",
+						module = "blink.cmp.sources.buffer",
+						max_items = 3,
+					},
+					lsp = {
+						name = "lsp",
+						module = "blink.cmp.sources.lsp",
+						max_items = 3,
+					},
+					ripgrep = {
+						name = "Ripgrep",
+						module = "blink-ripgrep",
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 15, -- Tune by preference
+					},
 				},
-				experimental = {
-					ghost_text = true,
-				},
-			})
-			cmp.setup.filetype("gitcommit", {
-				sources = cmp.config.sources({
-					{ name = "conventionalcommits" },
-					{ name = "buffer", max_item_count = 5 },
-					{ name = "emoji", max_item_count = 5 },
-				}),
-			})
-		end,
+			},
+		},
+		opts_extend = { "sources.default" },
+		signature = { enabled = true },
 	},
 }
