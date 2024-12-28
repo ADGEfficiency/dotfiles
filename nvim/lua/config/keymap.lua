@@ -103,12 +103,7 @@ km(
 	opts
 )
 -- Search for files in cwd
-km(
-	"n",
-	"<leader>j",
-	":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr><cr>",
-	opts
-)
+km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>", opts)
 --- Search through recent files
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr><cr>", opts)

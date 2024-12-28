@@ -8,6 +8,7 @@ return {
 		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
+				"onsails/lspkind.nvim",
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-cmdline",
 				"dmitmel/cmp-cmdline-history",
