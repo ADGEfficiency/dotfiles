@@ -71,7 +71,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "ripgrep", "emoji" },
+				default = { "path", "lsp", "snippets", "buffer", "ripgrep", "emoji" },
 				cmdline = {},
 				providers = {
 					buffer = {
@@ -87,11 +87,12 @@ return {
 					ripgrep = {
 						name = "Ripgrep",
 						module = "blink-ripgrep",
+						max_items = 3,
 					},
 					emoji = {
 						module = "blink-emoji",
 						name = "Emoji",
-						score_offset = 15, -- Tune by preference
+						score_offset = 15,
 					},
 				},
 			},
