@@ -18,10 +18,12 @@ return {
 		dependencies = {
 			"echasnovski/mini.icons",
 			"mikavilpas/blink-ripgrep.nvim",
+			-- "giuxtaposition/blink-cmp-copilot",
+			"fang2hou/blink-copilot",
 			"moyiz/blink-emoji.nvim",
 			"rafamadriz/friendly-snippets",
 			"Kaiser-Yang/blink-cmp-dictionary",
-			dependencies = { "nvim-lua/plenary.nvim" },
+			"nvim-lua/plenary.nvim",
 		},
 		version = "*",
 
@@ -80,8 +82,33 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "path", "lsp", "snippets", "buffer", "ripgrep", "emoji", "dictionary" },
+				default = {
+					"copilot",
+					"path",
+					"lsp",
+					"snippets",
+					"buffer",
+					"ripgrep",
+					"emoji",
+					"dictionary",
+				},
 				providers = {
+					-- copilot = {
+					-- 	name = "copilot",
+					-- 	module = "blink-cmp-copilot",
+					-- 	async = true,
+					-- 	score_offset = 100,
+					-- },
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+						opts = {
+							max_completions = 3,
+							max_attempts = 4,
+						},
+					},
 					buffer = {
 						name = "buffer",
 						module = "blink.cmp.sources.buffer",

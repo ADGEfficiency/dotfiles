@@ -22,4 +22,3 @@ nvim/node_modules
 nvim/temp*
 nvim/package*
 nvim/test*
-nvim/plugin*

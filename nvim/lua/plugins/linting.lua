@@ -44,7 +44,7 @@ return {
 					"mypy",
 					-- "flake8",
 					"pydocstyle",
-					"pylint",
+					-- "pylint",
 				},
 				sql = { "sqlfluff" },
 				yaml = { "actionlint", "yamllint" },
