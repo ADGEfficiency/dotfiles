@@ -81,6 +81,6 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint mactex pandoc fzf keychain
+	brew install hadolint vale actionlint mactex pandoc fzf keychain wordnet
 	brew install koekeishiya/formulae/yabai
 	brew install koekeishiya/formulae/skhd

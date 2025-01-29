@@ -20,6 +20,8 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"rafamadriz/friendly-snippets",
+			"Kaiser-Yang/blink-cmp-dictionary",
+			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		version = "*",
 
@@ -78,7 +80,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "path", "lsp", "snippets", "buffer", "ripgrep", "emoji" },
+				default = { "path", "lsp", "snippets", "buffer", "ripgrep", "emoji", "dictionary" },
 				providers = {
 					buffer = {
 						name = "buffer",
@@ -99,6 +101,15 @@ return {
 						module = "blink-emoji",
 						name = "Emoji",
 						score_offset = 15,
+					},
+					dictionary = {
+						module = "blink-cmp-dictionary",
+						name = "Dict",
+						min_keyword_length = 3,
+						max_items = 3,
+						opts = {
+							dictionary_files = { "/usr/share/dict/words" },
+						},
 					},
 				},
 			},
