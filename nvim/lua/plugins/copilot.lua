@@ -8,27 +8,28 @@ return {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
 			filetypes = {
-				python = true,
-				markdown = true,
-				yaml = true,
-				help = true,
+				["*"] = true,
+				cvs = false,
 				gitcommit = false,
 				gitrebase = false,
+				help = true,
 				hgcommit = false,
+				lua = true,
+				markdown = true,
+				python = true,
 				svn = false,
-				cvs = false,
-				["*"] = true,
+				yaml = true,
 			},
 		},
 	},
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	event = { "BufEnter" },
-	-- 	dependencies = { "zbirenbaum/copilot.lua" },
-	-- 	config = function()
-	-- 		require("copilot_cmp").setup()
-	-- 	end,
-	-- },
+	{
+		"zbirenbaum/copilot-cmp",
+		event = { "BufEnter" },
+		dependencies = { "zbirenbaum/copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",

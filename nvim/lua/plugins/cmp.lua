@@ -18,12 +18,13 @@ return {
 		dependencies = {
 			"echasnovski/mini.icons",
 			"mikavilpas/blink-ripgrep.nvim",
-			-- "giuxtaposition/blink-cmp-copilot",
+			"giuxtaposition/blink-cmp-copilot",
 			"fang2hou/blink-copilot",
 			"moyiz/blink-emoji.nvim",
 			"rafamadriz/friendly-snippets",
 			"Kaiser-Yang/blink-cmp-dictionary",
 			"nvim-lua/plenary.nvim",
+			"zbirenbaum/copilot-cmp",
 		},
 		version = "*",
 
@@ -93,25 +94,41 @@ return {
 					"dictionary",
 				},
 				providers = {
-					-- copilot = {
-					-- 	name = "copilot",
-					-- 	module = "blink-cmp-copilot",
-					-- 	async = true,
-					-- 	score_offset = 100,
-					-- },
+					-- this does work
 					copilot = {
 						name = "copilot",
-						module = "blink-copilot",
-						score_offset = 100,
+						module = "blink-cmp-copilot",
 						async = true,
-						opts = {
-							max_completions = 3,
-							max_attempts = 4,
-						},
+						score_offset = 100,
+						min_keyword_length = 0,
 					},
+					-- copilot = {
+					-- 	name = "copilot",
+					-- 	module = "blink-copilot",
+					-- 	score_offset = 100,
+					-- 	async = true,
+					-- 	opts = {
+					-- 		max_completions = 3,
+					-- 		max_attempts = 4,
+					-- 		debounce = false,
+					-- 		auto_refresh = {
+					-- 			backward = true,
+					-- 			forward = true,
+					-- 		},
+					-- 	},
+					-- },
+					-- copilot = {
+					-- 	name = "copilot-cmp",
+					-- 	module = "blink.compat.source",
+					-- },
 					buffer = {
 						name = "buffer",
 						module = "blink.cmp.sources.buffer",
+						max_items = 3,
+					},
+					snippets = {
+						module = "blink.cmp.sources.snippets",
+						name = "snippets",
 						max_items = 3,
 					},
 					lsp = {
