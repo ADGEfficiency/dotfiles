@@ -30,8 +30,15 @@ return {
 			keymap = { preset = "enter" },
 
 			completion = {
-				list = { selection = "auto_insert" },
+				list = {
+					selection = { auto_insert = true, preselect = false },
+				},
 				menu = {
+					cmdline_position = function()
+						local Api = require("noice.api")
+						local pos = Api.get_cmdline_position()
+						return { pos.screenpos.row, pos.screenpos.col }
+					end,
 					border = "single",
 					auto_show = function()
 						return vim.bo.buftype ~= "prompt"
@@ -72,7 +79,6 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = { "path", "lsp", "snippets", "buffer", "ripgrep", "emoji" },
-				cmdline = {},
 				providers = {
 					buffer = {
 						name = "buffer",

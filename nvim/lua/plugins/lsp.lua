@@ -53,37 +53,37 @@ return {
 				end,
 			})
 
-			-- cmp commandline
-			local cmp = require("cmp")
-			local lspkind = require("lspkind")
-			cmp.setup.cmdline(":", {
-				sources = {
-					{ name = "cmdline", max_item_count = 3 },
-					{ name = "cmdline_history", max_item_count = 5 },
-					{ name = "buffer", max_item_count = 3 },
-				},
-				-- Enable pictogram icons for lsp/autocompletion
-				formatting = {
-					expandable_indicator = true,
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						menu = {
-							cmdline_history = "[Hist]",
-							cmdline = "[CmdL]",
-							buffer = "[Buff]",
-						},
-					}),
-				},
-			})
-			-- `/` cmdline setup.
-			cmp.setup.cmdline("/", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
+			-- -- cmp commandline
+			-- local cmp = require("cmp")
+			-- local lspkind = require("lspkind")
+			-- cmp.setup.cmdline(":", {
+			-- 	sources = {
+			-- 		{ name = "cmdline", max_item_count = 3 },
+			-- 		{ name = "cmdline_history", max_item_count = 5 },
+			-- 		{ name = "buffer", max_item_count = 3 },
+			-- 	},
+			-- 	-- Enable pictogram icons for lsp/autocompletion
+			-- 	formatting = {
+			-- 		expandable_indicator = true,
+			-- 		format = lspkind.cmp_format({
+			-- 			mode = "symbol_text",
+			-- 			maxwidth = 50,
+			-- 			ellipsis_char = "...",
+			-- 			menu = {
+			-- 				cmdline_history = "[Hist]",
+			-- 				cmdline = "[CmdL]",
+			-- 				buffer = "[Buff]",
+			-- 			},
+			-- 		}),
+			-- 	},
+			-- })
+			-- -- `/` cmdline setup.
+			-- cmp.setup.cmdline("/", {
+			-- 	mapping = cmp.mapping.preset.cmdline(),
+			-- 	sources = {
+			-- 		{ name = "buffer" },
+			-- 	},
+			-- })
 
 			-- Diagnostic Appearance
 			local signs = {
