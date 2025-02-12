@@ -84,7 +84,9 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					"copilot",
+					-- off on purpose - no copilot at home ^^
+					-- TODO - turn on only on WSL/Ubuntu
+					-- "copilot",
 					"path",
 					"lsp",
 					"snippets",
