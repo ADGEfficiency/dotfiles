@@ -5,15 +5,12 @@ return {
 		"romgrk/barbar.nvim",
 		dependencies = { "nvim-web-devicons" },
 		config = function()
-			local km = vim.api.nvim_set_keymap
-			local opts = { noremap = true, silent = true }
-
 			require("barbar").setup({
 				auto_hide = false,
 				clickable = false,
 				icons = {
-					buffer_index = true,
-					buffer_number = false,
+					buffer_index = false,
+					buffer_number = true,
 					button = "",
 					filetype = {
 						custom_colors = false,

@@ -2,18 +2,18 @@
 
 function open_todo_file() {
 
-  #  override TODO_DIR during tests
+  # override TODO_DIR during tests
   TODO_DIR="${TODO_DIR:-$HOME/personal/para/project}"
 
-  #  if we pass a CLI arg, then go there
+  # if we pass a CLI arg, then go there
   if [ "$1" ]; then
     TODOFILE=$1
 
-    #  otherwise try to find a .todofile
+    # otherwise try to find a .todofile
   elif [ -f "$PWD/.todofile" ]; then
     TODOFILE=$(cat "$PWD/.todofile")
 
-    #  finally use the current directory name
+    # finally use the current directory name
   else
     TODOFILE=$(basename "$PWD")
   fi
