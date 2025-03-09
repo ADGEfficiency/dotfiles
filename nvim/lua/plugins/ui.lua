@@ -9,8 +9,8 @@ return {
 				auto_hide = false,
 				clickable = false,
 				icons = {
-					buffer_index = false,
-					buffer_number = true,
+					buffer_index = true,
+					buffer_number = false,
 					button = "",
 					filetype = {
 						custom_colors = false,
@@ -24,7 +24,7 @@ return {
 					current = {
 						buffer_index = true,
 					},
-					visible = { modified = { buffer_number = false } },
+					visible = { modified = { buffer_index = true } },
 				},
 			})
 

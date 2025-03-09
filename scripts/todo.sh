@@ -2,6 +2,7 @@
 
 function open_todo_file() {
 
+
   # override TODO_DIR during tests
   TODO_DIR="${TODO_DIR:-$HOME/personal/para/project}"
 
