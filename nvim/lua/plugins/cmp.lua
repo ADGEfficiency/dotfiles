@@ -32,13 +32,21 @@ return {
 		---@type blink.cmp.Config
 		opts = {
 
-			keymap = { preset = "enter" },
+			keymap = {
+				preset = "enter",
+			},
 
 			cmdline = {
 				enabled = true,
 				completion = {
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
+				},
+				keymap = {
+					preset = "none",
+					["<Tab>"] = { "select_and_accept" },
+					["<C-n>"] = { "select_next" },
+					["<C-p>"] = { "select_prev" },
 				},
 			},
 
