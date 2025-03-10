@@ -34,6 +34,14 @@ return {
 
 			keymap = { preset = "enter" },
 
+			cmdline = {
+				enabled = true,
+				completion = {
+					menu = { auto_show = true },
+					ghost_text = { enabled = true },
+				},
+			},
+
 			completion = {
 				list = {
 					selection = { auto_insert = true, preselect = false },

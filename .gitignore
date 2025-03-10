@@ -22,3 +22,6 @@ nvim/node_modules
 nvim/temp*
 nvim/package*
 nvim/test*
+
+.venv
+.mypy_cache

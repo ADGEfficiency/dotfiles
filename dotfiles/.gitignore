@@ -35,3 +35,4 @@ cdk.out/
 .git/
 .coverage
 .testmondata
+.venv
