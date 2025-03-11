@@ -47,6 +47,7 @@ return {
 					["<Tab>"] = { "select_and_accept" },
 					["<C-n>"] = { "select_next" },
 					["<C-p>"] = { "select_prev" },
+					["<CR>"] = { "select_accept_and_enter", "accept_and_enter" },
 				},
 			},
 
@@ -148,6 +149,11 @@ return {
 						module = "blink.cmp.sources.snippets",
 						name = "snippets",
 						max_items = 3,
+						opts = {
+							search_paths = {
+								"~/dotfiles/nvim/snippets/",
+							},
+						},
 					},
 					lsp = {
 						name = "lsp",

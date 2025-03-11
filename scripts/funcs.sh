@@ -83,14 +83,24 @@ gac() {
   git add -u && git commit -m "$1" && git push origin
 }
 
-#  show a random quote
-#  uses a file from my personal git repo which I put in ~/personal
-quote () {
-  QUOTES="$HOME/personal/lists/quotes.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
+# Show a random quote/snippet from two files
+# Combines quotes.md and random_snippets.md from personal repo
+quote() {
+  QUOTES="$HOME/personal/para/resource/quotes.md"
+  SNIPPETS="$HOME/personal/para/resource/random_snippets.md"
+
+  # Get all non-empty lines from both files, skipping YAML headers
+  ALL_LINES=$(tail -n +6 "$QUOTES" "$SNIPPETS" | grep -v "^$")
+
+  # Count total lines
+  NUM_LINES=$(echo "$ALL_LINES" | wc -l)
+
+  # Select a random line number
+  LINE=$((1 + RANDOM % NUM_LINES))
+
+  # Print the selected line
+  echo "$ALL_LINES" | sed -n "${LINE}p"
+}
 
 
 #  virtual envs

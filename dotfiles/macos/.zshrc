@@ -7,3 +7,7 @@ head -n 20 $HOME/personal/para/resource/cheat_sheet.md | tail -n 14 | bat --lang
 . "$HOME/.local/bin/env"
 
 eval "$(keychain --eval --quiet --agents ssh ~/.ssh/github-air ~/.ssh/macbook-pro)"
+
+quote
+echo ""
+quote
