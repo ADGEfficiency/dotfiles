@@ -22,25 +22,23 @@ return {
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"pyright",
-					"tailwindcss",
 					"bashls",
-					"prosemd_lsp",
-					"marksman",
-					"lua_ls",
-					"html",
+					"bashls",
 					"docker_compose_language_service",
-					-- "ruff",
-					"bashls",
 					"dockerls",
-					"jsonls",
-					"prosemd_lsp",
-					-- "rnix",
-					-- "tsserver",
 					"emmet_language_server",
-					"pyright",
+					"html",
+					-- "jedi_language_server",
+					"jsonls",
+					"lua_ls",
+					"marksman",
+					"prosemd_lsp",
+					-- "pyright",
 					"rust_analyzer",
-					"jedi_language_server",
+					"tailwindcss",
+					-- "rnix",
+					"ruff",
+					-- "tsserver",
 					-- "sqlls",
 				},
 				automatic_installation = true,
@@ -222,6 +220,20 @@ return {
 				},
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
+				},
+				ruff_lsp = {},
+				ruff = {
+					cmd = { "ruff", "server" },
+					filetypes = { "python" },
+					root_dir = function(fname)
+						return vim.loop.cwd()
+					end,
+					trace = "messages",
+					init_options = {
+						settings = {
+							logLevel = "debug",
+						},
+					},
 				},
 				tsserver = {},
 				tailwindcss = {

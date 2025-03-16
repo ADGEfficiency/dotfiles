@@ -72,6 +72,8 @@ km("n", "<leader>p", "A<CR>breakpoint()  # fmt: skip<ESC>", opts)
 km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 -- Run current buffer in Python
 km("n", "<F6>", ":!python %:p <cr>", opts)
+--- Databricks comment
+km("n", "<leader>l", "A<CR># COMMAND<ESC>", opts)
 
 -- Plugins
 
