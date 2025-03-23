@@ -6,7 +6,9 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	opts = {},
+	opts = {
+		completion = { blink = true },
+	},
 	config = function()
 		require("obsidian").setup({
 			workspaces = {

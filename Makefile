@@ -57,7 +57,7 @@ clean-nvim:
 	rm -rf ./plugin
 	rm -rf ~/dotfiles/nvim/plugin
 	# clean lazy stuff
-	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
+	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy
 
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

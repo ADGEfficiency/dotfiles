@@ -31,13 +31,13 @@ return {
 					"lua_ls",
 					"html",
 					"docker_compose_language_service",
-					-- "ruff",
+					"ruff",
 					"bashls",
 					"dockerls",
 					"jsonls",
 					"prosemd_lsp",
 					-- "rnix",
-					-- "tsserver",
+					-- "ts_ls",
 					"emmet_language_server",
 					"pyright",
 					"rust_analyzer",
@@ -49,6 +49,7 @@ return {
 
 			require("mason-lspconfig").setup_handlers({
 				function(server)
+					-- print server name
 					lspconfig[server].setup({})
 				end,
 			})
@@ -195,6 +196,7 @@ return {
 				html = {},
 				gopls = {},
 				lua_ls = {
+					cmd = { "lua-language-server", "--force-accept-workspace" },
 					settings = {
 						Lua = {
 							runtime = {
@@ -204,7 +206,7 @@ return {
 								globals = { "vim" },
 							},
 							workspace = {
-								library = vim.api.nvim_get_runtime_file("", true),
+								library = ".",
 								checkThirdParty = false,
 							},
 							telemetry = {
@@ -216,6 +218,7 @@ return {
 				marksman = {
 					filetypes = { "markdown" },
 				},
+				ruff = {},
 				-- rnix = {},
 				rust_analyzer = {
 					settings = {
@@ -225,7 +228,7 @@ return {
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
 				},
-				tsserver = {},
+				ts_ls = {},
 				tailwindcss = {
 					cmd = { "tailwindcss-language-server", "--stdio" },
 				},
