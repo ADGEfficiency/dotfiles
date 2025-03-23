@@ -5,7 +5,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		-- event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
 				"onsails/lspkind.nvim",
@@ -23,33 +23,25 @@ return {
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"pyright",
-					"tailwindcss",
 					"bashls",
-					"prosemd_lsp",
-					"marksman",
-					"lua_ls",
-					"html",
 					"docker_compose_language_service",
-					"ruff",
-					"bashls",
 					"dockerls",
-					"jsonls",
-					"prosemd_lsp",
-					-- "rnix",
-					-- "ts_ls",
 					"emmet_language_server",
+					"html",
+					"jsonls",
+					"lua_ls",
+					"marksman",
+					"prosemd_lsp",
 					"pyright",
+					"ruff",
 					"rust_analyzer",
-					-- "jedi_language_server",
-					-- "sqlls",
+					"tailwindcss",
 				},
 				automatic_installation = true,
 			})
 
 			require("mason-lspconfig").setup_handlers({
 				function(server)
-					-- print server name
 					lspconfig[server].setup({})
 				end,
 			})
@@ -180,63 +172,32 @@ return {
 			local servers = {
 				bashls = {},
 				dockerls = {},
+				emmet_language_server = {},
+				gopls = {},
+				html = {},
 				jsonls = {},
-				prosemd_lsp = {},
 				ltex = {
 					filetypes = { "markdown" },
-					settings = {
-						ltex = {
-							enabled = { "markdown" },
-							language = { "en-NZ" },
-						},
-					},
+					settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
 				},
-				emmet_language_server = {},
-				-- jedi_language_server = {},
-				html = {},
-				gopls = {},
 				lua_ls = {
 					cmd = { "lua-language-server", "--force-accept-workspace" },
 					settings = {
 						Lua = {
-							runtime = {
-								version = "LuaJIT",
-							},
-							diagnostics = {
-								globals = { "vim" },
-							},
-							workspace = {
-								library = ".",
-								checkThirdParty = false,
-							},
-							telemetry = {
-								enable = false,
-							},
+							runtime = { version = "LuaJIT" },
+							diagnostics = { globals = { "vim" } },
+							workspace = { library = ".", checkThirdParty = false },
+							telemetry = { enable = false },
 						},
 					},
 				},
-				marksman = {
-					filetypes = { "markdown" },
-				},
+				marksman = { filetypes = { "markdown" } },
+				prosemd_lsp = {},
+				pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {},
-				-- rnix = {},
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {},
-					},
-				},
-				pyright = {
-					cmd = { "pyright-langserver", "--stdio" },
-				},
+				rust_analyzer = { settings = { ["rust-analyzer"] = {} } },
+				tailwindcss = { cmd = { "tailwindcss-language-server", "--stdio" } },
 				ts_ls = {},
-				tailwindcss = {
-					cmd = { "tailwindcss-language-server", "--stdio" },
-				},
-				-- sqlls = {
-				-- 	root_dir = function(fname)
-				-- 		return vim.loop.cwd()
-				-- 	end,
-				-- },
 			}
 			for server, config in pairs(servers) do
 				require("lspconfig")[server].setup(vim.tbl_deep_extend("force", {
@@ -246,7 +207,7 @@ return {
 				}, config))
 			end
 
-			-- Set an autocommand to open diagnostic float on hover
+			-- Autocommand to open diagnostic float on hover
 			local debounce_timer = nil
 			vim.api.nvim_create_autocmd("CursorHold", {
 				pattern = "*",
