@@ -62,6 +62,17 @@ week() {
   "$EDITOR" ~/personal/para/this-week.md
 }
 
+# TODO docs
+v() {
+  source activate .venv/bin/activate
+}
+vneu() {
+  uv venv --python 3.11.10
+}
+vdel() {
+  rm .venv
+}
+
 # change a github remote - useful when changing to ssh after cloning
 remote() {
   git remote set-url origin $1

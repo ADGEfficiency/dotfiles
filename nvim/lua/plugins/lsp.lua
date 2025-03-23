@@ -41,7 +41,7 @@ return {
 					"emmet_language_server",
 					"pyright",
 					"rust_analyzer",
-					"jedi_language_server",
+					-- "jedi_language_server",
 					-- "sqlls",
 				},
 				automatic_installation = true,
@@ -191,7 +191,7 @@ return {
 					},
 				},
 				emmet_language_server = {},
-				jedi_language_server = {},
+				-- jedi_language_server = {},
 				html = {},
 				gopls = {},
 				lua_ls = {
