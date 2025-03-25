@@ -1,7 +1,7 @@
 [project]
 name = "general"
 version = "0.0.1"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "pandas>=2.0.3",
     "requests>=2.31.0",

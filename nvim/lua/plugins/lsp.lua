@@ -1,58 +1,9 @@
 return {
-	-- {
-	-- 	"williamboman/mason.nvim",
-	-- 	"williamboman/mason-lspconfig.nvim",
-	-- },
-	-- {
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	event = "InsertEnter",
-	-- 	opts = {
-	-- 		bind = true,
-	-- 		handler_opts = {
-	-- 			border = "rounded",
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		-- dependencies = {
-		-- 	{
-		-- 		"onsails/lspkind.nvim",
-		-- 		"hrsh7th/cmp-nvim-lsp",
-		-- 		"hrsh7th/cmp-cmdline",
-		-- 		"dmitmel/cmp-cmdline-history",
-		-- 		"hrsh7th/cmp-buffer",
-		-- 		"hrsh7th/cmp-path",
-		-- 	},
-		-- },
 		config = function()
 			local lspconfig = require("lspconfig")
-			-- require("mason").setup()
-			-- require("mason-lspconfig").setup({
-			-- 	ensure_installed = {
-			-- 		"bashls",
-			-- 		"docker_compose_language_service",
-			-- 		"dockerls",
-			-- 		"emmet_language_server",
-			-- 		"html",
-			-- 		"jsonls",
-			-- 		"lua_ls",
-			-- 		"marksman",
-			-- 		"prosemd_lsp",
-			-- 		"pyright",
-			-- 		"ruff",
-			-- 		"rust_analyzer",
-			-- 		"tailwindcss",
-			-- 	},
-			-- 	automatic_installation = true,
-			-- })
-
-			-- require("mason-lspconfig").setup_handlers({
-			-- 	function(server)
-			-- 		lspconfig[server].setup({})
-			-- 	end,
-			-- })
 
 			-- Diagnostic Appearance
 			local signs = {
@@ -101,7 +52,6 @@ return {
 			-- On Attach
 			local on_attach = function(client, bufnr)
 				local bufopts = { noremap = true, silent = true, buffer = bufnr }
-				-- map the following keys after the language server attaches to the current buffer
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -120,6 +70,7 @@ return {
 
 			-- Capabilities
 			local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			-- Flags
 			local lsp_flags = {
@@ -132,7 +83,7 @@ return {
 				-- dockerls = {},
 				-- emmet_language_server = {},
 				-- gopls = {},
-				-- html = {},
+				html = {},
 				-- jsonls = {},
 				-- ltex = {
 				-- 	filetypes = { "markdown" },
@@ -152,7 +103,18 @@ return {
 				-- marksman = { filetypes = { "markdown" } },
 				-- prosemd_lsp = {},
 				pyright = { cmd = { "pyright-langserver", "--stdio" } },
-				ruff = {},
+				ruff = {
+					cmd = { "/Users/adamgreen/.venv/bin/ruff", "server" },
+					filetypes = { "python" },
+					-- root_dir = require("lspconfig").util.root_pattern(
+					-- 	".git",
+					-- 	"pyproject.toml",
+					-- 	"setup.py",
+					-- 	"setup.cfg",
+					-- 	"requirements.txt"
+					-- ),
+					single_file_support = true,
+				},
 				-- rust_analyzer = { settings = { ["rust-analyzer"] = {} } },
 				-- tailwindcss = { cmd = { "tailwindcss-language-server", "--stdio" } },
 				-- ts_ls = {},
