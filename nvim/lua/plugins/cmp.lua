@@ -10,13 +10,13 @@ return {
 		dependencies = {
 			"Kaiser-Yang/blink-cmp-dictionary",
 			"echasnovski/mini.icons",
-			"fang2hou/blink-copilot",
 			"giuxtaposition/blink-cmp-copilot",
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
 			"rafamadriz/friendly-snippets",
-			"zbirenbaum/copilot-cmp",
+			-- "fang2hou/blink-copilot",
+			-- "zbirenbaum/copilot-cmp",
 		},
 		version = "*",
 
@@ -165,6 +165,33 @@ return {
 					"ripgrep",
 					"emoji",
 					"dictionary",
+				},
+				per_filetype = {
+					markdown = {
+						"copilot",
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+						"emoji",
+						"dictionary",
+					},
+					go = {
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+					},
+					python = {
+						"copilot",
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+					},
 				},
 				providers = {
 					-- this does work
