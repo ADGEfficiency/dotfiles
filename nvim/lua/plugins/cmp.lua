@@ -124,7 +124,7 @@ return {
 				default = {
 					-- off on purpose - no copilot at home ^^
 					-- TODO - turn on only on WSL/Ubuntu
-					-- "copilot",
+					"copilot",
 					"path",
 					"lsp",
 					"snippets",
