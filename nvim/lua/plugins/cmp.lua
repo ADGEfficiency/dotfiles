@@ -142,29 +142,29 @@ return {
 						score_offset = 100,
 						min_keyword_length = 0,
 					},
-					-- copilot = {
-					-- 	name = "copilot",
-					-- 	module = "blink-copilot",
-					-- 	score_offset = 100,
-					-- 	async = true,
-					-- 	opts = {
-					-- 		max_completions = 3,
-					-- 		max_attempts = 4,
-					-- 		debounce = false,
-					-- 		auto_refresh = {
-					-- 			backward = true,
-					-- 			forward = true,
-					-- 		},
-					-- 	},
-					-- },
-					-- copilot = {
-					-- 	name = "copilot-cmp",
-					-- 	module = "blink.compat.source",
-					-- },
+					path = {
+						opts = {
+							get_cwd = function(_)
+								return vim.fn.getcwd()
+							end,
+						},
+					},
+					lsp = {
+						name = "lsp",
+						module = "blink.cmp.sources.lsp",
+						max_items = 3,
+					},
 					buffer = {
 						name = "buffer",
 						module = "blink.cmp.sources.buffer",
 						max_items = 3,
+						opts = {
+							get_bufnrs = function()
+								return vim.tbl_filter(function(bufnr)
+									return vim.bo[bufnr].buftype == ""
+								end, vim.api.nvim_list_bufs())
+							end,
+						},
 					},
 					snippets = {
 						module = "blink.cmp.sources.snippets",
@@ -175,11 +175,6 @@ return {
 								"~/dotfiles/nvim/snippets/",
 							},
 						},
-					},
-					lsp = {
-						name = "lsp",
-						module = "blink.cmp.sources.lsp",
-						max_items = 3,
 					},
 					ripgrep = {
 						name = "Ripgrep",
@@ -200,6 +195,25 @@ return {
 							dictionary_files = { "/usr/share/dict/words" },
 						},
 					},
+					-- copilot = {
+					-- 	name = "copilot",
+					-- 	module = "blink-copilot",
+					-- 	score_offset = 100,
+					-- 	async = true,
+					-- 	opts = {
+					-- 		max_completions = 3,
+					-- 		max_attempts = 4,
+					-- 		debounce = false,
+					-- 		auto_refresh = {
+					-- 			backward = true,
+					-- 			forward = true,
+					-- 		},
+					-- 	},
+					-- },
+					-- copilot = {
+					-- 	name = "copilot-cmp",
+					-- 	module = "blink.compat.source",
+					-- },
 				},
 			},
 		},
