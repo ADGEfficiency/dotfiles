@@ -85,10 +85,10 @@ return {
 				-- gopls = {},
 				html = {},
 				-- jsonls = {},
-				-- ltex = {
-				-- 	filetypes = { "markdown" },
-				-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
-				-- },
+				ltex = {
+					-- 	filetypes = { "markdown" },
+					-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
+				},
 				-- lua_ls = {
 				-- 	cmd = { "lua-language-server", "--force-accept-workspace" },
 				-- 	settings = {
@@ -100,8 +100,8 @@ return {
 				-- 		},
 				-- 	},
 				-- },
-				-- marksman = { filetypes = { "markdown" } },
-				-- prosemd_lsp = {},
+				marksman = {},
+				prosemd_lsp = {},
 				pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {
 					cmd = { "/Users/adamgreen/.venv/bin/ruff", "server" },
