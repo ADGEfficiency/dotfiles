@@ -1,81 +1,57 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-	},
+	-- {
+	-- 	"williamboman/mason.nvim",
+	-- 	"williamboman/mason-lspconfig.nvim",
+	-- },
+	-- {
+	-- 	"ray-x/lsp_signature.nvim",
+	-- 	event = "InsertEnter",
+	-- 	opts = {
+	-- 		bind = true,
+	-- 		handler_opts = {
+	-- 			border = "rounded",
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{
-				"onsails/lspkind.nvim",
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-cmdline",
-				"dmitmel/cmp-cmdline-history",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-			},
-		},
+		-- dependencies = {
+		-- 	{
+		-- 		"onsails/lspkind.nvim",
+		-- 		"hrsh7th/cmp-nvim-lsp",
+		-- 		"hrsh7th/cmp-cmdline",
+		-- 		"dmitmel/cmp-cmdline-history",
+		-- 		"hrsh7th/cmp-buffer",
+		-- 		"hrsh7th/cmp-path",
+		-- 	},
+		-- },
 		config = function()
-			vim.lsp.set_log_level("off")
-
 			local lspconfig = require("lspconfig")
-			require("mason").setup()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"bashls",
-					"docker_compose_language_service",
-					"dockerls",
-					"emmet_language_server",
-					"html",
-					"jsonls",
-					"lua_ls",
-					"marksman",
-					"prosemd_lsp",
-					"pyright",
-					"ruff",
-					"rust_analyzer",
-					"tailwindcss",
-				},
-				automatic_installation = true,
-			})
-
-			require("mason-lspconfig").setup_handlers({
-				function(server)
-					lspconfig[server].setup({})
-				end,
-			})
-
-			-- -- cmp commandline
-			-- local cmp = require("cmp")
-			-- local lspkind = require("lspkind")
-			-- cmp.setup.cmdline(":", {
-			-- 	sources = {
-			-- 		{ name = "cmdline", max_item_count = 3 },
-			-- 		{ name = "cmdline_history", max_item_count = 5 },
-			-- 		{ name = "buffer", max_item_count = 3 },
+			-- require("mason").setup()
+			-- require("mason-lspconfig").setup({
+			-- 	ensure_installed = {
+			-- 		"bashls",
+			-- 		"docker_compose_language_service",
+			-- 		"dockerls",
+			-- 		"emmet_language_server",
+			-- 		"html",
+			-- 		"jsonls",
+			-- 		"lua_ls",
+			-- 		"marksman",
+			-- 		"prosemd_lsp",
+			-- 		"pyright",
+			-- 		"ruff",
+			-- 		"rust_analyzer",
+			-- 		"tailwindcss",
 			-- 	},
-			-- 	-- Enable pictogram icons for lsp/autocompletion
-			-- 	formatting = {
-			-- 		expandable_indicator = true,
-			-- 		format = lspkind.cmp_format({
-			-- 			mode = "symbol_text",
-			-- 			maxwidth = 50,
-			-- 			ellipsis_char = "...",
-			-- 			menu = {
-			-- 				cmdline_history = "[Hist]",
-			-- 				cmdline = "[CmdL]",
-			-- 				buffer = "[Buff]",
-			-- 			},
-			-- 		}),
-			-- 	},
+			-- 	automatic_installation = true,
 			-- })
-			-- -- `/` cmdline setup.
-			-- cmp.setup.cmdline("/", {
-			-- 	mapping = cmp.mapping.preset.cmdline(),
-			-- 	sources = {
-			-- 		{ name = "buffer" },
-			-- 	},
+
+			-- require("mason-lspconfig").setup_handlers({
+			-- 	function(server)
+			-- 		lspconfig[server].setup({})
+			-- 	end,
 			-- })
 
 			-- Diagnostic Appearance
@@ -114,7 +90,6 @@ return {
 			})
 
 			-- Key Mappings
-
 			local opts = { noremap = true, silent = true }
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -144,24 +119,7 @@ return {
 			end
 
 			-- Capabilities
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.completion.completionItem.snippetSupport = true
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-			-- Handlers
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "single",
-				height = 32,
-				width = 80,
-				focusable = true,
-				close_events = { "InsertEnter", "FocusLost" },
-			})
-
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "rounded",
-				focusable = false,
-				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-			})
+			local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 			-- Flags
 			local lsp_flags = {
@@ -170,34 +128,34 @@ return {
 
 			-- Servers
 			local servers = {
-				bashls = {},
-				dockerls = {},
-				emmet_language_server = {},
-				gopls = {},
-				html = {},
-				jsonls = {},
-				ltex = {
-					filetypes = { "markdown" },
-					settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
-				},
-				lua_ls = {
-					cmd = { "lua-language-server", "--force-accept-workspace" },
-					settings = {
-						Lua = {
-							runtime = { version = "LuaJIT" },
-							diagnostics = { globals = { "vim" } },
-							workspace = { library = ".", checkThirdParty = false },
-							telemetry = { enable = false },
-						},
-					},
-				},
-				marksman = { filetypes = { "markdown" } },
-				prosemd_lsp = {},
+				-- bashls = {},
+				-- dockerls = {},
+				-- emmet_language_server = {},
+				-- gopls = {},
+				-- html = {},
+				-- jsonls = {},
+				-- ltex = {
+				-- 	filetypes = { "markdown" },
+				-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
+				-- },
+				-- lua_ls = {
+				-- 	cmd = { "lua-language-server", "--force-accept-workspace" },
+				-- 	settings = {
+				-- 		Lua = {
+				-- 			runtime = { version = "LuaJIT" },
+				-- 			diagnostics = { globals = { "vim" } },
+				-- 			workspace = { library = ".", checkThirdParty = false },
+				-- 			telemetry = { enable = false },
+				-- 		},
+				-- 	},
+				-- },
+				-- marksman = { filetypes = { "markdown" } },
+				-- prosemd_lsp = {},
 				pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {},
-				rust_analyzer = { settings = { ["rust-analyzer"] = {} } },
-				tailwindcss = { cmd = { "tailwindcss-language-server", "--stdio" } },
-				ts_ls = {},
+				-- rust_analyzer = { settings = { ["rust-analyzer"] = {} } },
+				-- tailwindcss = { cmd = { "tailwindcss-language-server", "--stdio" } },
+				-- ts_ls = {},
 			}
 			for server, config in pairs(servers) do
 				require("lspconfig")[server].setup(vim.tbl_deep_extend("force", {
@@ -206,22 +164,6 @@ return {
 					flags = lsp_flags,
 				}, config))
 			end
-
-			-- Autocommand to open diagnostic float on hover
-			local debounce_timer = nil
-			vim.api.nvim_create_autocmd("CursorHold", {
-				pattern = "*",
-				callback = function()
-					if debounce_timer then
-						vim.fn.timer_stop(debounce_timer)
-					end
-
-					debounce_timer = vim.fn.timer_start(2000, function()
-						local opts = { focusable = false, scope = "cursor" }
-						vim.diagnostic.open_float(nil, opts)
-					end)
-				end,
-			})
 		end,
 	},
 }
