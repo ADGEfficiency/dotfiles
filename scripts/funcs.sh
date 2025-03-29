@@ -64,8 +64,9 @@ week() {
 
 # TODO docs
 v() {
-  source activate .venv/bin/activate
+  source .venv/bin/activate
 }
+alias vinit=v
 vneu() {
   uv venv --python 3.11.10
 }

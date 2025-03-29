@@ -48,7 +48,7 @@ alias jl='jupyter lab > /dev/null 2>&1 &'
 alias markserv='markserv --browser'
 
 # vim
-alias v='$EDITOR Makefile README.md'
+# alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
 
 # python
