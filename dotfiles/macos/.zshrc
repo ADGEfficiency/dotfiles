@@ -8,6 +8,8 @@ head -n 20 $HOME/personal/para/resource/cheat_sheet.md | tail -n 14 | bat --lang
 
 eval "$(keychain --eval --quiet --agents ssh ~/.ssh/github-air ~/.ssh/macbook-pro)"
 
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+
 quote
 echo ""
 quote
