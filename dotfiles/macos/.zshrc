@@ -14,3 +14,5 @@ quote
 echo ""
 quote
 echo ""
+# . "$HOME/.local/bin/env"
+eval "$(/opt/homebrew/bin/brew shellenv)"
