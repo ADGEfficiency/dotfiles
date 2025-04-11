@@ -63,7 +63,7 @@ export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
-export TODO=$HOME/personal/para/todo.md
+export TODO=$HOME/personal/todo.md
 
 alias brew='arch -arm64 brew'
 
