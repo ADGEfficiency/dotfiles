@@ -27,3 +27,5 @@ augroup prevent_insert
     autocmd!
     autocmd TermEnter * stopinsert
 augroup END
+
+open_url_with default
