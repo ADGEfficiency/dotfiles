@@ -41,7 +41,7 @@ return {
 				markdown = { "markdownlint", "codespell" },
 				python = {
 					"ruff",
-					"mypy",
+					-- "mypy",
 					-- "flake8",
 					"pydocstyle",
 					-- "pylint",

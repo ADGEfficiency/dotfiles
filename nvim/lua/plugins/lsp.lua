@@ -104,7 +104,8 @@ return {
 				prosemd_lsp = {
 					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stido" },
 				},
-				pyright = { cmd = { "pyright-langserver", "--stdio" } },
+				basedpyright = {},
+				-- pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {
 					cmd = { "/Users/adamgreen/.venv/bin/ruff", "server" },
 					filetypes = { "python" },

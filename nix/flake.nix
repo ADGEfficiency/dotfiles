@@ -60,7 +60,7 @@
             nodePackages_latest.prettier
             nodePackages_latest.sql-formatter
             nodePackages_latest.stylelint
-            nodejs_18
+            nodejs_20
             ov
             pandoc
             ripgrep
