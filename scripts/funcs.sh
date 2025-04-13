@@ -48,7 +48,7 @@ atomic() {
 
 # search for project notes
 project() {
-  bash ~/dotfiles/scripts/search.sh ~/personal/para/project
+  bash ~/dotfiles/scripts/search.sh $PERSONAL_PATH/project
 }
 alias proj=project
 
@@ -59,7 +59,7 @@ day() {
 
 # open the weekly note
 week() {
-  "$EDITOR" ~/personal/para/this-week.md
+  "$EDITOR" $PERSONAL_PATH/this-week.md
 }
 
 # TODO docs
@@ -98,8 +98,8 @@ gac() {
 # Show a random quote/snippet from two files
 # Combines quotes.md and random_snippets.md from personal repo
 quote() {
-  QUOTES="$HOME/personal/para/resource/quotes.md"
-  SNIPPETS="$HOME/personal/para/resource/random_snippets.md"
+  QUOTES="$PERSONAL_PATH/resource/quotes.md"
+  SNIPPETS="$PERSONAL_PATH/resource/random_snippets.md"
 
   # Get all non-empty lines from both files, skipping YAML headers
   ALL_LINES=$(tail -n +6 "$QUOTES" "$SNIPPETS" | grep -v "^$")

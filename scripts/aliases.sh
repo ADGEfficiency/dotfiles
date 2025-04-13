@@ -56,13 +56,13 @@ alias py='python'
 alias ipy='ipython'
 # alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
-alias quotes='$EDITOR $HOME/personal/lists/quotes.md'
+alias quotes='$EDITOR $PERSONAL_PATH/lists/quotes.md'
 
 # files
-alias cheat='$EDITOR $HOME/personal/para/resource/cheat_sheet.md'
+alias cheat='$EDITOR $PERSONAL_PATH/resource/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inb='inbox'
-alias inbox='$EDITOR $HOME/personal/para/area/inbox.md'
+alias inbox='$EDITOR $PERSONAL_PATH/area/inbox.md'
 
 # folders
 alias blog='cd $HOME/adgefficiency.github.io/'
@@ -71,8 +71,8 @@ alias content='cd $HOME/climate-code/notes/content'
 alias ep='cd $HOME/energy-py-experiments/energy-py'
 alias epl='cd $HOME/energy-py-linear'
 alias expt='cd $HOME/energy-py-experiments'
-alias per='cd $HOME/personal'
-alias docs='cd $HOME/personal/para'
+alias per='cd $PERSONAL_PATH'
+alias docs='cd $PERSONAL_PATH'
 alias prog='cd $HOME/programming-resources'
 alias syl='cd $HOME/handbook'
 alias teach='cd $HOME/teaching-monolith'
@@ -159,7 +159,7 @@ alias poetry-clean='poetry cache clear pypi --all'
 
 alias brew-list='brew list'
 
-alias get='$EDITOR ~/personal/para/area/to/get.md'
+alias get='$EDITOR $PERSONAL_PATH/area/to/get.md'
 
 # sets term colors when sshing
 alias ssh='TERM=xterm-256color ssh'

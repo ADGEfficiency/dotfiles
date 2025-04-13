@@ -15,7 +15,7 @@ return {}
 -- 			workspaces = {
 -- 				{
 -- 					name = "personal",
--- 					path = "~/personal/para",
+-- 					path = "~/personal",
 -- 				},
 -- 			},
 -- 			wiki_link_func = function(opts)

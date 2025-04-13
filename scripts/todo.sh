@@ -2,9 +2,8 @@
 
 function open_todo_file() {
 
-
   # override TODO_DIR during tests
-  TODO_DIR="${TODO_DIR:-$HOME/personal/para/project}"
+  TODO_DIR="${TODO_DIR:-$PERSONAL_PATH/project}"
 
   # if we pass a CLI arg, then go there
   if [ "$1" ]; then
