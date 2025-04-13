@@ -1,4 +1,5 @@
 return {
+	{ "sindrets/diffview.nvim" },
 	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },
 	{ "nvim-tree/nvim-web-devicons" },
