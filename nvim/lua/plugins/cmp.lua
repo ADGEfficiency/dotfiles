@@ -15,8 +15,6 @@ return {
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
 			"rafamadriz/friendly-snippets",
-			-- "fang2hou/blink-copilot",
-			-- "zbirenbaum/copilot-cmp",
 		},
 		version = "*",
 
@@ -250,25 +248,6 @@ return {
 							dictionary_files = { "/usr/share/dict/words" },
 						},
 					},
-					-- copilot = {
-					-- 	name = "copilot",
-					-- 	module = "blink-copilot",
-					-- 	score_offset = 100,
-					-- 	async = true,
-					-- 	opts = {
-					-- 		max_completions = 3,
-					-- 		max_attempts = 4,
-					-- 		debounce = false,
-					-- 		auto_refresh = {
-					-- 			backward = true,
-					-- 			forward = true,
-					-- 		},
-					-- 	},
-					-- },
-					-- copilot = {
-					-- 	name = "copilot-cmp",
-					-- 	module = "blink.compat.source",
-					-- },
 				},
 			},
 		},
