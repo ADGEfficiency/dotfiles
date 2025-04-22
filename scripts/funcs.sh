@@ -111,7 +111,7 @@ quote() {
   LINE=$((1 + RANDOM % NUM_LINES))
 
   # Print the selected line
-  echo "$ALL_LINES" | sed -n "${LINE}p"
+  echo -n "$ALL_LINES" | sed -n "${LINE}p"
 }
 
 
