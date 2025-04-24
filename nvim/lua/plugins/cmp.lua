@@ -22,7 +22,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = 'luasnip' },
+			snippets = { preset = "luasnip" },
 
 			keymap = {
 				preset = "enter",
@@ -201,6 +201,7 @@ return {
 						async = true,
 						score_offset = 100,
 						min_keyword_length = 0,
+						max_items = 1,
 					},
 					path = {
 						opts = {
@@ -208,16 +209,17 @@ return {
 								return vim.fn.getcwd()
 							end,
 						},
+						max_items = 2,
 					},
 					lsp = {
 						name = "lsp",
 						module = "blink.cmp.sources.lsp",
-						max_items = 3,
+						max_items = 2,
 					},
 					buffer = {
 						name = "buffer",
 						module = "blink.cmp.sources.buffer",
-						max_items = 3,
+						max_items = 2,
 						opts = {
 							get_bufnrs = function()
 								return vim.tbl_filter(function(bufnr)
@@ -229,12 +231,12 @@ return {
 					snippets = {
 						module = "blink.cmp.sources.snippets",
 						name = "snippets",
-						max_items = 3,
+						max_items = 2,
 					},
 					ripgrep = {
 						name = "Ripgrep",
 						module = "blink-ripgrep",
-						max_items = 3,
+						max_items = 2,
 					},
 					emoji = {
 						module = "blink-emoji",
@@ -256,3 +258,4 @@ return {
 		opts_extend = { "sources.default" },
 	},
 }
+
