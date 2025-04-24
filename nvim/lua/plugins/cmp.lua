@@ -15,12 +15,14 @@ return {
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
 			"rafamadriz/friendly-snippets",
+			"L3MON4D3/LuaSnip",
 		},
 		version = "*",
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
+			snippets = { preset = 'luasnip' },
 
 			keymap = {
 				preset = "enter",

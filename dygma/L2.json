@@ -196,10 +196,8 @@
       "verbose": "Disabled"
     },
     {
-      "keyCode": 0,
-      "label": "KEY",
-      "extraLabel": "NO",
-      "verbose": "Disabled"
+      "keyCode": 61,
+      "label": "F4"
     },
     {
       "keyCode": 267,
@@ -284,10 +282,9 @@
       "verbose": "Disabled"
     },
     {
-      "keyCode": 0,
-      "label": "KEY",
-      "extraLabel": "NO",
-      "verbose": "Disabled"
+      "keyCode": 2896,
+      "label": "←",
+      "extraLabel": "Meh+"
     },
     {
       "keyCode": 80,
@@ -306,10 +303,9 @@
       "label": "→"
     },
     {
-      "keyCode": 0,
-      "label": "KEY",
-      "extraLabel": "NO",
-      "verbose": "Disabled"
+      "keyCode": 2895,
+      "label": "→",
+      "extraLabel": "Meh+"
     },
     {
       "keyCode": 225,
@@ -538,14 +534,14 @@
     7,
     7,
     7,
+    2,
     11,
-    11,
-    15,
+    4,
     9,
     9,
     9,
     9,
-    11,
+    4,
     11,
     4,
     6,
@@ -559,8 +555,8 @@
     15,
     15,
     15,
-    11,
-    11,
+    2,
+    2,
     15,
     15,
     15,
