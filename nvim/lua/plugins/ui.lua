@@ -5,9 +5,6 @@ return {
 		"romgrk/barbar.nvim",
 		dependencies = { "nvim-web-devicons" },
 		config = function()
-			local km = vim.api.nvim_set_keymap
-			local opts = { noremap = true, silent = true }
-
 			require("barbar").setup({
 				auto_hide = false,
 				clickable = false,
@@ -27,7 +24,7 @@ return {
 					current = {
 						buffer_index = true,
 					},
-					visible = { modified = { buffer_number = false } },
+					visible = { modified = { buffer_index = true } },
 				},
 			})
 

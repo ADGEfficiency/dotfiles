@@ -1,7 +1,7 @@
 [project]
 name = "general"
 version = "0.0.1"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "pandas>=2.0.3",
     "requests>=2.31.0",
@@ -33,7 +33,8 @@ dependencies = [
     "mdformat>=0.7.17",
     "mdformat-frontmatter>=2.0.8",
     "mdformat-footnote>=0.1.1",
-    "jupyterlab>=4.0.9"
+    "jupyterlab>=4.0.9",
+    "duckdb>=1.2.0",
 ]
 
 [build-system]

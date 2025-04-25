@@ -14,13 +14,13 @@ vim.cmd([[
 -- Open todo.md
 -- :Todo
 vim.cmd([[
-  command Todo :sp ~/personal/para/todo.md
+  command Todo :sp $PERSONAL_PATH/todo.md
 ]])
 
 -- Open to/get.md
 -- :Get
 vim.cmd([[
-  command Get :sp ~/personal/para/area/to/get.md
+  command Get :sp $PERSONAL_PATH/area/to/get.md
 ]])
 
 -- Search in personal notes

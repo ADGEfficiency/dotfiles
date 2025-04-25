@@ -24,7 +24,7 @@ ssh_only = false
 format = " on [$hostname](fg:green) "
 
 [python]
-format=' [with]() [${symbol} ${version} ${virtualenv}](bold blue)'
+format=' [with]() [${symbol} ${version}](bold blue)'
 symbol=""
 
 [localip]

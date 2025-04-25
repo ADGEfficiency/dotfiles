@@ -48,7 +48,7 @@ atomic() {
 
 # search for project notes
 project() {
-  bash ~/dotfiles/scripts/search.sh ~/personal/para/project
+  bash ~/dotfiles/scripts/search.sh $PERSONAL_PATH/project
 }
 alias proj=project
 
@@ -59,7 +59,19 @@ day() {
 
 # open the weekly note
 week() {
-  "$EDITOR" ~/personal/para/this-week.md
+  "$EDITOR" $PERSONAL_PATH/this-week.md
+}
+
+# TODO docs
+v() {
+  source .venv/bin/activate
+}
+alias vinit=v
+vneu() {
+  uv venv --python 3.11.10
+}
+vdel() {
+  rm .venv
 }
 
 # change a github remote - useful when changing to ssh after cloning
@@ -83,14 +95,24 @@ gac() {
   git add -u && git commit -m "$1" && git push origin
 }
 
-#  show a random quote
-#  uses a file from my personal git repo which I put in ~/personal
-quote () {
-  QUOTES="$HOME/personal/lists/quotes.md"
-  NUM_LINES=$(wc -l $QUOTES | awk '{print $1}')
-  LINE=$((1 + RANDOM % $NUM_LINES))
-  echo $(sed -n ${LINE}p ${QUOTES})
- }
+# Show a random quote/snippet from two files
+# Combines quotes.md and random_snippets.md from personal repo
+quote() {
+  QUOTES="$PERSONAL_PATH/resource/quotes.md"
+  SNIPPETS="$PERSONAL_PATH/resource/random_snippets.md"
+
+  # Get all non-empty lines from both files, skipping YAML headers
+  ALL_LINES=$(tail -n +6 "$QUOTES" "$SNIPPETS" | grep -v "^$")
+
+  # Count total lines
+  NUM_LINES=$(echo "$ALL_LINES" | wc -l)
+
+  # Select a random line number
+  LINE=$((1 + RANDOM % NUM_LINES))
+
+  # Print the selected line
+  echo -n "$ALL_LINES" | sed -n "${LINE}p"
+}
 
 
 #  virtual envs

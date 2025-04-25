@@ -1,4 +1,5 @@
 return {
+	{ "sindrets/diffview.nvim" },
 	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },
 	{ "nvim-tree/nvim-web-devicons" },
@@ -121,15 +122,6 @@ return {
       { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
       { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
     },
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		enable = false,
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
 	},
 	{
 		"PedramNavid/dbtpal",

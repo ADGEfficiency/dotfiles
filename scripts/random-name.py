@@ -21,3 +21,5 @@ if __name__ == "__main__":
     except:
         candidates = names
     print(random.choice(list(candidates)))
+
+    random.choice([10])

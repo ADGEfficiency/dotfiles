@@ -57,7 +57,7 @@ clean-nvim:
 	rm -rf ./plugin
 	rm -rf ~/dotfiles/nvim/plugin
 	# clean lazy stuff
-	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy ./nvim/lazy-lock.json
+	rm -rf ~/.local/share/nvim/lazy ~/.local/state/nvim/lazy
 
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -81,6 +81,6 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint mactex pandoc fzf
+	brew install hadolint vale actionlint mactex pandoc fzf keychain wordnet
 	brew install koekeishiya/formulae/yabai
 	brew install koekeishiya/formulae/skhd

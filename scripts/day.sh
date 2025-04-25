@@ -3,7 +3,7 @@
 today=$(date +%Y-%m-%d)
 tomorrow=$(gdate -d "tomorrow" '+%Y-%m-%d')
 yesterday=$(gdate -d "yesterday" '+%Y-%m-%d')
-file="$HOME/personal/para/day/$today.md"
+file="$PERSONAL_PATH/day/$today.md"
 
 new_note() {
   touch "$file"

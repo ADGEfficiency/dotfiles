@@ -1,172 +1,261 @@
 return {
 	{
-		"vrslev/cmp-pypi",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		ft = "toml",
+		"saghen/blink.compat",
+		version = "*",
+		lazy = true,
+		opts = {},
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		-- event = {
-		-- 	"BufReadPost",
-		-- 	"BufNewFile",
-		-- 	"InsertEnter",
-		-- },
+		"saghen/blink.cmp",
 		dependencies = {
-			"L3MON4D3/LuaSnip",
-			"dmitmel/cmp-cmdline-history",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-emoji",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"hrsh7th/cmp-path",
-			"onsails/lspkind.nvim",
+			"Kaiser-Yang/blink-cmp-dictionary",
+			"echasnovski/mini.icons",
+			"giuxtaposition/blink-cmp-copilot",
+			"mikavilpas/blink-ripgrep.nvim",
+			"moyiz/blink-emoji.nvim",
+			"nvim-lua/plenary.nvim",
 			"rafamadriz/friendly-snippets",
-			"saadparwaiz1/cmp_luasnip",
-			"uga-rosa/cmp-dictionary",
-			"windwp/nvim-autopairs",
-			"windwp/nvim-ts-autotag",
-			"davidsierradz/cmp-conventionalcommits",
-			"vrslev/cmp-pypi",
-			"amarakon/nvim-cmp-buffer-lines",
+			"L3MON4D3/LuaSnip",
 		},
-		config = function()
-			require("nvim-autopairs").setup()
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
+		version = "*",
 
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			snippets = { preset = "luasnip" },
 
-			require("cmp_dictionary").setup({
-				paths = { "/usr/share/dict/words" },
-				exact_length = 2,
-				first_case_insensitive = true,
-				document = {
-					enabled = true,
-					command = { "wn", "${label}", "-over" },
+			keymap = {
+				preset = "enter",
+			},
+
+			cmdline = {
+				enabled = true,
+				completion = {
+					menu = { auto_show = true },
+					ghost_text = { enabled = true },
 				},
-			})
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+				keymap = {
+					preset = "none",
+					["<Tab>"] = { "select_and_accept" },
+					["<C-n>"] = { "select_next" },
+					["<C-p>"] = { "select_prev" },
+					["<CR>"] = {
+						"fallback",
+						"select_accept_and_enter",
+						"accept_and_enter",
+					},
+				},
+			},
 
-			require("luasnip.loaders.from_vscode").lazy_load()
-			require("luasnip/loaders/from_snipmate").load({ paths = "~/dotfiles/nvim/snippets" })
-
-			cmp.setup({
-				preselect = cmp.PreselectMode.None,
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
+			completion = {
+				documentation = {
+					-- Controls whether the documentation window will automatically show when selecting a completion item
+					auto_show = false,
+					-- Delay before showing the documentation window
+					auto_show_delay_ms = 0,
+					-- Delay before updating the documentation window when selecting a new item,
+					-- while an existing item is still visible
+					update_delay_ms = 50,
+					-- Whether to use treesitter highlighting, disable if you run into performance issues
+					treesitter_highlighting = true,
+					-- Draws the item in the documentation window, by default using an internal treesitter based implementation
+					draw = function(opts)
+						opts.default_implementation()
 					end,
+					window = {
+						min_width = 10,
+						max_width = 80,
+						max_height = 20,
+						border = nil, -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
+						winblend = 0,
+						winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+						-- Note that the gutter will be disabled when border ~= 'none'
+						scrollbar = true,
+						-- Which directions to show the documentation window,
+						-- for each of the possible menu window directions,
+						-- falling back to the next direction when there's not enough space
+						direction_priority = {
+							menu_north = { "e", "w", "n", "s" },
+							menu_south = { "e", "w", "s", "n" },
+						},
+					},
+				},
+
+				list = {
+					selection = { auto_insert = true, preselect = false },
+				},
+				menu = {
+					cmdline_position = function()
+						local Api = require("noice.api")
+						local pos = Api.get_cmdline_position()
+						return { pos.screenpos.row, pos.screenpos.col }
+					end,
+					border = "single",
+					auto_show = function()
+						return vim.bo.buftype ~= "prompt"
+							and vim.b.completion ~= false
+							and vim.bo.filetype ~= "TelescopePrompt"
+					end,
+					draw = {
+						columns = {
+							{ "label", "label_description", gap = 3 },
+							{ "kind_icon", gap = 1, "source_name", gap = 1, "kind" },
+						},
+						components = {
+							kind_icon = {
+								ellipsis = false,
+								text = function(ctx)
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
+								end,
+								-- Optionally, you may also use the highlights from mini.icons
+								highlight = function(ctx)
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
+								end,
+							},
+						},
+					},
+				},
+			},
+
+			signature = {
+				enabled = true,
+				trigger = {
+					enabled = true,
+					show_on_keyword = true,
+					show_on_insert = true,
+					show_on_insert_on_trigger_character = true,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
+					min_width = 1,
+					max_width = 400,
+					max_height = 10,
+					border = nil, -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
+					winblend = 0,
+					winhighlight = "Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder",
+					scrollbar = false, -- Note that the gutter will be disabled when border ~= 'none'
+					-- Which directions to show the window,
+					-- falling back to the next direction when there's not enough space,
+					-- or another window is in the way
+					direction_priority = { "n", "s" },
+					-- Disable if you run into performance issues
+					treesitter_highlighting = true,
+					show_documentation = true,
 				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping(function()
-						if cmp.visible() then
-							cmp.select_prev_item()
-						else
-							cmp.complete()
-						end
-					end, { "i", "c" }),
-					["<C-n>"] = cmp.mapping(function()
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							cmp.complete()
-						end
-					end, { "i", "c" }),
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = false,
-					}),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						-- elseif luasnip.expand_or_jumpable() then
-						-- 	luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "copilot", max_item_count = 2 },
-					{ name = "luasnip", max_item_count = 3 },
-					{ name = "nvim_lsp", max_item_count = 5 },
-					{ name = "path", max_item_count = 5 },
-					{
+			},
+			appearance = {
+				-- Will be removed in a future release
+				use_nvim_cmp_as_default = true,
+				-- Adjusts spacing to ensure icons are aligned
+				nerd_font_variant = "mono",
+			},
+
+			-- Default list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, due to `opts_extend`
+			sources = {
+				default = {
+					-- off on purpose - no copilot at home ^^
+					-- TODO - turn on only on WSL/Ubuntu
+					"copilot",
+					"path",
+					"lsp",
+					"snippets",
+					"buffer",
+					"ripgrep",
+					"emoji",
+					"dictionary",
+				},
+				per_filetype = {
+					markdown = {
+						"copilot",
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+						"emoji",
+						"dictionary",
+					},
+					go = {
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+					},
+					python = {
+						"copilot",
+						"path",
+						"lsp",
+						"snippets",
+						"buffer",
+						"ripgrep",
+					},
+				},
+				providers = {
+					-- this does work
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+						async = true,
+						score_offset = 100,
+						min_keyword_length = 0,
+						max_items = 1,
+					},
+					path = {
+						opts = {
+							get_cwd = function(_)
+								return vim.fn.getcwd()
+							end,
+						},
+						max_items = 2,
+					},
+					lsp = {
+						name = "lsp",
+						module = "blink.cmp.sources.lsp",
+						max_items = 2,
+					},
+					buffer = {
 						name = "buffer",
-						max_item_count = 5,
-						option = {
+						module = "blink.cmp.sources.buffer",
+						max_items = 2,
+						opts = {
 							get_bufnrs = function()
-								return vim.api.nvim_list_bufs()
+								return vim.tbl_filter(function(bufnr)
+									return vim.bo[bufnr].buftype == ""
+								end, vim.api.nvim_list_bufs())
 							end,
 						},
 					},
-					{ name = "emoji", max_item_count = 5 },
-					{ name = "latex_symbols", max_item_count = 5 },
-					{ name = "npm", max_item_count = 5 },
-					{ name = "dictionary", max_item_count = 5, keyword_length = 3 },
-					{ name = "buffer-lines", option = { max_item_count = 2, words = true, comments = true } },
-					{ name = "pypi", keyword_length = 4 },
-				}),
-				confirm_opts = {
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = false,
-				},
-				formatting = {
-					fields = { "abbr", "kind", "menu" },
-					expandable_indicator = true,
-					format = lspkind.cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = {
-							Copilot = "",
+					snippets = {
+						module = "blink.cmp.sources.snippets",
+						name = "snippets",
+						max_items = 2,
+					},
+					ripgrep = {
+						name = "Ripgrep",
+						module = "blink-ripgrep",
+						max_items = 2,
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 15,
+					},
+					dictionary = {
+						module = "blink-cmp-dictionary",
+						name = "Dict",
+						min_keyword_length = 3,
+						max_items = 3,
+						opts = {
+							dictionary_files = { "/usr/share/dict/words" },
 						},
-						menu = {
-							nvim_lsp = "[LSP]",
-							luasnip = "[Snip]",
-							path = "[Path]",
-							buffer = "[Buff]",
-							dictionary = "[Dict]",
-							copilot = "[AI]",
-							conventionalcommits = "[Git]",
-						},
-					}),
+					},
 				},
-				experimental = {
-					ghost_text = true,
-				},
-			})
-			cmp.setup.filetype("gitcommit", {
-				sources = cmp.config.sources({
-					{ name = "conventionalcommits" },
-					{ name = "buffer", max_item_count = 5 },
-					{ name = "emoji", max_item_count = 5 },
-				}),
-			})
-		end,
+			},
+		},
+		opts_extend = { "sources.default" },
 	},
 }
+

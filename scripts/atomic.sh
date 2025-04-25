@@ -7,7 +7,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # Define base note directory
-NOTE_DIR="$HOME/personal/para/resource/atomic"
+NOTE_DIR="$PERSONAL_PATH/resource/atomic"
 
 # Construct the filename
 FILENAME="${NOTE_DIR}/$1.md"

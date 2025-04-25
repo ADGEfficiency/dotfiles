@@ -64,7 +64,6 @@ SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
 
 alias brew='arch -arm64 brew'
-
 source ~/dotfiles/macos/pyenv-flags
 
 # custom ipython config
@@ -86,4 +85,5 @@ eval "$(direnv hook zsh)"
 # done twice for a reason
 pretzo_init
 fzf_init
+source "$HOME/dotfiles/dotfiles/common/env.sh"
 source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
