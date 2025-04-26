@@ -2,9 +2,6 @@
 
 export PYENV_GENERAL="$HOME/.pyenv/versions/3.10.6/envs/general/bin"
 
-# experimental
-alias p='nbe'
-
 # be polite - even to machines
 alias please='sudo'
 
@@ -26,11 +23,6 @@ alias cll='clear && ll'
 alias cls='clear && ls'
 alias ctree='clear && tree'
 
-# exa
-# alias ll='"ls" -G'
-# alias ls='exa --long --icons --no-permissions --no-user --git --time-style long-iso --time=modified --group-directories-first -a'
-# alias tree='exa --tree --ignore-glob="*pycache*"'
-
 # lsd
 alias ll='lsd --almost-all --group-directories-first'
 alias ls='lsd --almost-all --long --icon always --git --date relative --group-directories-first -a'
@@ -48,13 +40,11 @@ alias jl='jupyter lab > /dev/null 2>&1 &'
 alias markserv='markserv --browser'
 
 # vim
-# alias v='$EDITOR Makefile README.md'
 alias vi='$EDITOR'
 
 # python
 alias py='python'
 alias ipy='ipython'
-# alias pip='pip3'
 alias pipr='pip install -r requirements.txt'
 alias quotes='$EDITOR $PERSONAL_PATH/lists/quotes.md'
 
@@ -109,7 +99,6 @@ alias ga='git add -u && git commit -m '
 alias gau='git add -u'
 alias gall='git add * && git add -u && git commit -m "sync all the things" && git push origin master'
 alias gc='git commit -m '
-# alias g='git commit -m '
 alias gcm='git commit'
 alias gcb='git checkout '
 alias gd='git diff --staged'
@@ -139,12 +128,7 @@ alias tls='tmux ls'
 alias dc='docker compose'
 
 # start scripts
-alias s-dss='start-dss'
-alias sdss='start-dss'
-alias s-dots='start-dots'
-alias sdots='start-dots'
-alias s-linear='start-linear'
-alias slinear='start-linear'
+alias sp='start-personal'
 
 # nix
 alias nix-list='nix-env -q'

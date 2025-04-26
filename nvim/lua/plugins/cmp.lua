@@ -155,12 +155,10 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					-- off on purpose - no copilot at home ^^
-					-- TODO - turn on only on WSL/Ubuntu
+					"snippets",
 					"copilot",
 					"path",
 					"lsp",
-					"snippets",
 					"buffer",
 					"ripgrep",
 					"emoji",
@@ -168,10 +166,10 @@ return {
 				},
 				per_filetype = {
 					markdown = {
+						"snippets",
 						"copilot",
 						"path",
 						"lsp",
-						"snippets",
 						"buffer",
 						"ripgrep",
 						"emoji",
@@ -194,7 +192,6 @@ return {
 					},
 				},
 				providers = {
-					-- this does work
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
@@ -258,4 +255,3 @@ return {
 		opts_extend = { "sources.default" },
 	},
 }
-
