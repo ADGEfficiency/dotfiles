@@ -50,7 +50,7 @@ return {
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
-					auto_show = false,
+					auto_show = true,
 					-- Delay before showing the documentation window
 					auto_show_delay_ms = 0,
 					-- Delay before updating the documentation window when selecting a new item,
