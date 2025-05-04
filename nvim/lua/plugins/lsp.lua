@@ -102,7 +102,7 @@ return {
 				-- },
 				marksman = {},
 				prosemd_lsp = {
-					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stido" },
+					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stdio" },
 				},
 				basedpyright = {},
 				-- pyright = { cmd = { "pyright-langserver", "--stdio" } },

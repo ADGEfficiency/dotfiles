@@ -1,10 +1,10 @@
-# Dotfiles
+# dotfiles
 
 Setup and configuration for my terminal based developer workflow:
 
 - Zsh for a shell,
 - Nix for package management of shell programs,
-- pyenv for Python,
+- uv for Python,
 - Neovim for text editing.
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
@@ -60,7 +60,7 @@ $ make dotfiles OS=macos -o bootstrap-stow
 
 ### Nix
 
-Install packages with Nix:
+Install packages with Nix from a Nix Flake - I use Nix for things like direnv and Neovim:
 
 ```shell-session
 $ make nix-pkgs

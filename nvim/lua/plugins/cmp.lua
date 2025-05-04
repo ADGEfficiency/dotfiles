@@ -50,7 +50,7 @@ return {
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
-					auto_show = false,
+					auto_show = true,
 					-- Delay before showing the documentation window
 					auto_show_delay_ms = 0,
 					-- Delay before updating the documentation window when selecting a new item,
@@ -155,12 +155,10 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					-- off on purpose - no copilot at home ^^
-					-- TODO - turn on only on WSL/Ubuntu
+					"snippets",
 					"copilot",
 					"path",
 					"lsp",
-					"snippets",
 					"buffer",
 					"ripgrep",
 					"emoji",
@@ -168,10 +166,10 @@ return {
 				},
 				per_filetype = {
 					markdown = {
+						"snippets",
 						"copilot",
 						"path",
 						"lsp",
-						"snippets",
 						"buffer",
 						"ripgrep",
 						"emoji",
@@ -194,7 +192,6 @@ return {
 					},
 				},
 				providers = {
-					-- this does work
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
@@ -258,4 +255,3 @@ return {
 		opts_extend = { "sources.default" },
 	},
 }
-
