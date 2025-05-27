@@ -41,7 +41,6 @@ $ make python
 
 ## Components
 
-
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
 ```shell-session

@@ -200,6 +200,12 @@ return {
 						min_keyword_length = 0,
 						max_items = 1,
 					},
+					snippets = {
+						module = "blink.cmp.sources.snippets",
+						name = "snippets",
+						max_items = 2,
+						score_offset = 100,
+					},
 					path = {
 						opts = {
 							get_cwd = function(_)
@@ -225,20 +231,10 @@ return {
 							end,
 						},
 					},
-					snippets = {
-						module = "blink.cmp.sources.snippets",
-						name = "snippets",
-						max_items = 2,
-					},
 					ripgrep = {
 						name = "Ripgrep",
 						module = "blink-ripgrep",
 						max_items = 2,
-					},
-					emoji = {
-						module = "blink-emoji",
-						name = "Emoji",
-						score_offset = 15,
 					},
 					dictionary = {
 						module = "blink-cmp-dictionary",
@@ -248,6 +244,11 @@ return {
 						opts = {
 							dictionary_files = { "/usr/share/dict/words" },
 						},
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 1,
 					},
 				},
 			},
