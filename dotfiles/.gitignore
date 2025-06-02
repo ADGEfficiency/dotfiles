@@ -1,3 +1,4 @@
+.venv
 .env.secret
 **/*.DS_Store
 **/*.egg
@@ -35,3 +36,4 @@ cdk.out/
 .git/
 .coverage
 .testmondata
+mlruns

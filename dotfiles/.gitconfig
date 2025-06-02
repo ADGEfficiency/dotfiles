@@ -29,7 +29,10 @@
   tool = nvimdiff
 
 [mergetool "nvimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c \"wincmd l\"
+
+[mergetool]
+  prompt = false
 
 [pull]
   rebase = false
@@ -50,3 +53,7 @@
 
 [rerere]
   enabled = true
+[credential]
+	helper = manager
+[mergetool]
+	prompt = false

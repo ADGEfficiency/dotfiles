@@ -125,6 +125,7 @@ alias gss='git stash'
 alias gst='git stash'
 alias gsa='git stash apply'
 alias ups='git add . && git add -u && git commit -m "feat: ups" && git push'
+alias merge='git mergetool'
 
 # tmux
 alias ta='tmux attach'

@@ -144,6 +144,7 @@ return {
 				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 				vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts) -- Add rename functionality
 			end
 
 			-- Capabilities
@@ -218,8 +219,12 @@ return {
 						["rust-analyzer"] = {},
 					},
 				},
-				pyright = {
-					cmd = { "pyright-langserver", "--stdio" },
+				basedpyright = {
+					analysis = {
+						autoSearchPaths = true,
+						diagnosticMode = "openFilesOnly",
+						useLibraryCodeForTypes = true,
+					},
 				},
 				ruff_lsp = {},
 				ruff = {

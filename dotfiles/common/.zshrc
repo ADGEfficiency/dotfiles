@@ -72,7 +72,7 @@ export PATH=~/.npm-packages/bin:$PATH
 export NODE_PATH=~/.npm-packages/lib/node_modules
 export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
-pyenv_init
+# pyenv_init
 starship_init
 flyctl_init
 
