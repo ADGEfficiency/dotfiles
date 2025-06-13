@@ -33,7 +33,7 @@ This will also setup dependencies with Nix.
 
 ### Python
 
-Install `uv` and setup a global Python installation in a virtual environment:
+Ian stall `uv` and setup a global Python installation in a virtual environment:
 
 ```bash
 $ make python
