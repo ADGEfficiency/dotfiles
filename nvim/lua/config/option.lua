@@ -78,6 +78,9 @@ vim.opt.showtabline = 2
 -- Enable smart case in searches
 vim.opt.smartcase = true
 
+-- Incremental substitution while doing `:%s`
+vim.opt.inccommand = "split"
+
 -- Make indenting smarter
 vim.opt.smartindent = true
 
