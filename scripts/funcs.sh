@@ -80,8 +80,8 @@ remote() {
 }
 
 track() {
-  $branch=$1
-  git checkout -b "$branch" --track "origin/$branch"
+  git fetch origin "$1"
+  git checkout -b "$1" "origin/$1"
 }
 
 # create branch if it doesn't exist, otherwise change to branch
