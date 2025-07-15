@@ -65,6 +65,7 @@ week() {
 # TODO docs
 v() {
   source .venv/bin/activate
+  which python
 }
 alias vinit=v
 vneu() {

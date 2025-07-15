@@ -56,8 +56,9 @@ vim.opt.ignorecase = true
 vim.opt.list = true
 vim.opt.listchars = "tab:>-"
 
--- Set the spelling language for spell checking
-vim.opt.spell.spellang = "en_nz"
+-- Enable spell checking and set language
+vim.opt.spell = true
+vim.opt.spelllang = "en_nz"
 
 -- Automatically open quickfix list after running :make
 vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
@@ -66,7 +67,7 @@ vim.cmd("autocmd QuickFixCmdPost [^l]* copen")
 vim.opt.mouse = "a"
 
 -- Set pop-up menu height
-vim.opt.pumheight = 0
+vim.opt.pumheight = 10
 
 -- Disable showing things like -- INSERT --
 vim.opt.showmode = false
@@ -76,6 +77,9 @@ vim.opt.showtabline = 2
 
 -- Enable smart case in searches
 vim.opt.smartcase = true
+
+-- Incremental substitution while doing `:%s`
+vim.opt.inccommand = "split"
 
 -- Make indenting smarter
 vim.opt.smartindent = true
