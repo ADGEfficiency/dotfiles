@@ -3,6 +3,7 @@
 brew update && brew upgrade
 brew install pyenv pyenv-virtualenv yabai
 brew install --cask amethyst
+brew install --cask dockdoor
 chmod +x ~/dotfiles/yabai/yabairc
 
 brew install --HEAD koekeishiya/formulae/skhd
