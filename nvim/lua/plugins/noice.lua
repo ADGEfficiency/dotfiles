@@ -17,7 +17,7 @@ return {
 				enabled = false,
 			},
 			popupmenu = {
-				enabled = false,
+				enabled = true,
 			},
 			-- this is the messages that appear in top right
 			notify = {

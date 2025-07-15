@@ -50,7 +50,7 @@ return {
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
-					auto_show = false,
+					auto_show = true,
 					-- Delay before showing the documentation window
 					auto_show_delay_ms = 0,
 					-- Delay before updating the documentation window when selecting a new item,
@@ -155,12 +155,10 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					-- off on purpose - no copilot at home ^^
-					-- TODO - turn on only on WSL/Ubuntu
+					"snippets",
 					"copilot",
 					"path",
 					"lsp",
-					"snippets",
 					"buffer",
 					"ripgrep",
 					"emoji",
@@ -168,10 +166,10 @@ return {
 				},
 				per_filetype = {
 					markdown = {
+						"snippets",
 						"copilot",
 						"path",
 						"lsp",
-						"snippets",
 						"buffer",
 						"ripgrep",
 						"emoji",
@@ -194,7 +192,6 @@ return {
 					},
 				},
 				providers = {
-					-- this does work
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
@@ -202,6 +199,12 @@ return {
 						score_offset = 100,
 						min_keyword_length = 0,
 						max_items = 1,
+					},
+					snippets = {
+						module = "blink.cmp.sources.snippets",
+						name = "snippets",
+						max_items = 2,
+						score_offset = 100,
 					},
 					path = {
 						opts = {
@@ -228,20 +231,10 @@ return {
 							end,
 						},
 					},
-					snippets = {
-						module = "blink.cmp.sources.snippets",
-						name = "snippets",
-						max_items = 2,
-					},
 					ripgrep = {
 						name = "Ripgrep",
 						module = "blink-ripgrep",
 						max_items = 2,
-					},
-					emoji = {
-						module = "blink-emoji",
-						name = "Emoji",
-						score_offset = 15,
 					},
 					dictionary = {
 						module = "blink-cmp-dictionary",
@@ -252,10 +245,14 @@ return {
 							dictionary_files = { "/usr/share/dict/words" },
 						},
 					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 1,
+					},
 				},
 			},
 		},
 		opts_extend = { "sources.default" },
 	},
 }
-

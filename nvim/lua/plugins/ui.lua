@@ -47,20 +47,12 @@ return {
         hi BufferVisibleSignRight guifg='#282A36' guibg='#282A36'
       ]])
 
-			vim.cmd([[
-        cnoreabbrev b1 BufferGoto 1
-        cnoreabbrev b2 BufferGoto 2
-        cnoreabbrev b3 BufferGoto 3
-        cnoreabbrev b4 BufferGoto 4
-        cnoreabbrev b5 BufferGoto 5
-        cnoreabbrev b6 BufferGoto 6
-        cnoreabbrev b7 BufferGoto 7
-        cnoreabbrev b8 BufferGoto 8
-        cnoreabbrev b9 BufferGoto 9
-        cnoreabbrev b10 BufferGoto 10
-        cnoreabbrev b11 BufferGoto 11
-        cnoreabbrev b12 BufferGoto 12
-      ]])
+			opts = {}
+			vim.api.nvim_set_keymap("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
+			vim.api.nvim_set_keymap("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>", opts)
+			vim.api.nvim_set_keymap("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>", opts)
+			vim.api.nvim_set_keymap("n", "<Leader>4", "<Cmd>BufferGoto 4<CR>", opts)
+			vim.api.nvim_set_keymap("n", "<Leader>5", "<Cmd>BufferGoto 5<CR>", opts)
 		end,
 	},
 	{

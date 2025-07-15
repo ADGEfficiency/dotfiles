@@ -65,3 +65,5 @@
 [rerere]
   enabled = true
 
+[credential]
+	helper = manager
