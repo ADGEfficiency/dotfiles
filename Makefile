@@ -1,9 +1,7 @@
-.PHONY: default setup-stow dotfiles test setup-macos setup-ubuntu
-
 default:
-	echo "hello ^^"
+	@echo "hello ^^"
 
-.PHONY: setup-macos setup-ubuntu setup-stow
+.PHONY: setup-macos setup-ubuntu setup-wsl setup-stow
 
 setup-macos: export OS=macos
 setup-macos: brew-pkgs nix-pkgs dotfiles
@@ -18,6 +16,12 @@ setup-ubuntu: dotfiles nix-pkgs dotfiles
 	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
 	bash ./ubuntu/setup.sh
+
+setup-wsl: export OS=wsl
+setup-wsl: dotfiles nix-pkgs dotfiles
+	bash ./tmux/setup.sh
+	bash ./zsh/setup.sh
+	bash ./fzf/setup.sh
 
 setup-stow:
 	bash ./stow/setup.sh
