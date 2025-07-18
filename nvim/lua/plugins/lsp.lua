@@ -82,7 +82,7 @@ return {
 				-- bashls = {},
 				-- dockerls = {},
 				-- emmet_language_server = {},
-				-- gopls = {},
+				gopls = {},
 				html = {},
 				-- jsonls = {},
 				ltex = {
