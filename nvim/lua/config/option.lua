@@ -59,6 +59,7 @@ vim.opt.listchars = "tab:>-"
 -- Enable spell checking and set language
 vim.opt.spell = true
 vim.opt.spelllang = "en_nz"
+vim.opt.spellsuggest = { "best", 9 }
 
 -- Automatically open quickfix list after running :make
 vim.cmd("autocmd QuickFixCmdPost [^l]* copen")

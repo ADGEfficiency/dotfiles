@@ -10,9 +10,6 @@ return {
 			cmdline = {
 				enabled = true,
 			},
-			messages = {
-				enabled = false,
-			},
 			popup = {
 				enabled = false,
 			},
@@ -37,7 +34,7 @@ return {
 			presets = {
 				bottom_search = false,
 				command_palette = false,
-				long_message_to_split = true,
+				-- long_message_to_split = true,
 				inc_rename = false,
 				lsp_doc_border = false,
 			},

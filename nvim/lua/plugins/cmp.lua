@@ -22,7 +22,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = "luasnip" },
+			-- snippets = { preset = "luasnip" },
 
 			keymap = {
 				preset = "enter",
@@ -85,37 +85,37 @@ return {
 					selection = { auto_insert = true, preselect = false },
 				},
 				menu = {
-					cmdline_position = function()
-						local Api = require("noice.api")
-						local pos = Api.get_cmdline_position()
-						return { pos.screenpos.row, pos.screenpos.col }
-					end,
-					border = "single",
-					auto_show = function()
-						return vim.bo.buftype ~= "prompt"
-							and vim.b.completion ~= false
-							and vim.bo.filetype ~= "TelescopePrompt"
-					end,
-					draw = {
-						columns = {
-							{ "label", "label_description", gap = 3 },
-							{ "kind_icon", gap = 1, "source_name", gap = 1, "kind" },
-						},
-						components = {
-							kind_icon = {
-								ellipsis = false,
-								text = function(ctx)
-									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-									return kind_icon
-								end,
-								-- Optionally, you may also use the highlights from mini.icons
-								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-									return hl
-								end,
-							},
-						},
-					},
+					-- cmdline_position = function()
+					-- 	local Api = require("noice.api")
+					-- 	local pos = Api.get_cmdline_position()
+					-- 	return { pos.screenpos.row, pos.screenpos.col }
+					-- end,
+					-- border = "single",
+					-- auto_show = function()
+					-- 	return vim.bo.buftype ~= "prompt"
+					-- 		and vim.b.completion ~= false
+					-- 		and vim.bo.filetype ~= "TelescopePrompt"
+					-- end,
+					-- draw = {
+					-- 	columns = {
+					-- 		{ "label", "label_description", gap = 3 },
+					-- 		{ "kind_icon", gap = 1, "source_name", gap = 1, "kind" },
+					-- 	},
+					-- 	components = {
+					-- 		kind_icon = {
+					-- 			ellipsis = false,
+					-- 			text = function(ctx)
+					-- 				local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+					-- 				return kind_icon
+					-- 			end,
+					-- 			-- Optionally, you may also use the highlights from mini.icons
+					-- 			highlight = function(ctx)
+					-- 				local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+					-- 				return hl
+					-- 			end,
+					-- 		},
+					-- 	},
+					-- },
 				},
 			},
 
