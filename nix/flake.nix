@@ -27,11 +27,11 @@
             cmakeMinimal
             codespell
             direnv
-            dpkg
+            # dpkg
             efm-langserver
             entr
             findutils
-            fish
+            # fish
             flyctl
             gh
             git

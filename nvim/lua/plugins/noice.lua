@@ -17,7 +17,10 @@ return {
 				enabled = true,
 			},
 			-- this is the messages that appear in top right
-			notify = {
+			-- notify = {
+			-- 	enabled = false,
+			-- },
+			messages = {
 				enabled = false,
 			},
 			lsp = {

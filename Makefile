@@ -33,6 +33,7 @@ dotfiles: setup-stow
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
 	stow $(STOW_ARGS) dotfiles
 	stow $(STOW_ARGS) yabai
+	ln -sf ~/dotfiles/fish ~/.config/fish\
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
