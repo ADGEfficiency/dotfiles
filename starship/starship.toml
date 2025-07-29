@@ -1,8 +1,14 @@
 add_newline = true
 command_timeout = 2000
 
-format = """$hostname$directory$line_break$character"""
+format = """$shell$hostname$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""
+
+[shell]
+  fish_indicator = "  "
+  zsh_indicator = " 󰬇"
+  bash_indicator = " $"
+  disabled = false
 
 [character]
 # success_symbol = "[ \\$](green)"
@@ -21,7 +27,7 @@ format = " [on]() [$symbol $branch(:$remote_branch)](bold green)"
 
 [hostname]
 ssh_only = false
-format = " on [$hostname](fg:green) "
+format = "on [$hostname](fg:green) "
 
 [python]
 format=' [with]() [${symbol} ${version}](bold blue)'
