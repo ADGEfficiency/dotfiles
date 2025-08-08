@@ -82,7 +82,7 @@ return {
 				-- bashls = {},
 				-- dockerls = {},
 				-- emmet_language_server = {},
-				-- gopls = {},
+				gopls = {},
 				html = {},
 				-- jsonls = {},
 				ltex = {
@@ -107,7 +107,7 @@ return {
 				basedpyright = {},
 				-- pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {
-					cmd = { "/Users/adamgreen/.venv/bin/ruff", "server" },
+					cmd = { "ruff", "server" },
 					filetypes = { "python" },
 					-- root_dir = require("lspconfig").util.root_pattern(
 					-- 	".git",
