@@ -10,6 +10,7 @@ set -gx TODO "$PERSONAL_PATH/todo.md"
 set -gx EDITOR nvim
 
 alias 'claude'='npx claude'
+alias 't'='tmux new'
 
 # Add homebrew to PATH
 set -gx PATH /opt/homebrew/bin $PATH
@@ -19,22 +20,6 @@ set -g fish_greeting
 
 if status is-interactive
     bass source ~/dotfiles/scripts/aliases.sh
-
-    # Initialize keychain for SSH agent management
-    if command -q keychain
-        eval (keychain --eval --quiet --agents ssh ~/.ssh/github-air ~/.ssh/macbook-pro)
-    end
-
-    # Initialize Starship prompt
-    if command -q starship
-        set -gx STARSHIP_CONFIG ~/dotfiles/starship/starship.toml
-        starship init fish | source
-    end
-    
-    # Aliases
-    alias s='search'
-    
-    # Setup fzf
+    starship init fish | source
     set -gx PATH ~/.fzf/bin $PATH
-    
 end

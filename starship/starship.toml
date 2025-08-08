@@ -5,10 +5,15 @@ format = """$shell$hostname$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [shell]
-  fish_indicator = "  "
-  zsh_indicator = " 󰬇"
-  bash_indicator = " $"
-  disabled = false
+fish_indicator = "[  ](bold purple)"
+zsh_indicator = " 󰬇"
+bash_indicator = " $"
+disabled = false
+
+[localip]
+ssh_only = false
+format = " [$localipv4](blue) "
+disabled = false
 
 [character]
 # success_symbol = "[ \\$](green)"
@@ -16,33 +21,28 @@ success_symbol = "[ >∶](green)"
 error_symbol = "[ 󰙦 ](red)"
 vimcmd_symbol = "[  ](green)"
 
+[hostname]
+ssh_only = false
+format = "on [$hostname](fg:green) "
+
 [directory]
 truncate_to_repo = false
 format = "in [$path]($style)[$read_only]($read_only_style) "
 style='bold purple'
 
-[git_branch]
-symbol = ""
-format = " [on]() [$symbol $branch(:$remote_branch)](bold green)"
-
-[hostname]
-ssh_only = false
-format = "on [$hostname](fg:green) "
-
-[python]
-format=' [with]() [${symbol} ${version}](bold blue)'
-symbol=""
-
-[localip]
-ssh_only = false
-format = " [$localipv4](blue) "
-disabled = false
-
 [cmd_duration]
 min_time = 0
-format = "[took]() [$duration](bold purple)"
+format = "[took]() [$duration](bold purple) "
 show_milliseconds = true
 disabled = false
+
+[git_branch]
+symbol = ""
+format = "[on]() [$symbol $branch(:$remote_branch)](bold green) "
+
+[python]
+format='[with]() [${symbol} ${version}](bold blue) '
+symbol=""
 
 [nix_shell]
 disabled = false
