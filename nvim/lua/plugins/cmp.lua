@@ -22,10 +22,13 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			-- snippets = { preset = "luasnip" },
+			snippets = { preset = "luasnip" },
 
 			keymap = {
-				preset = "enter",
+				preset = "default",
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
 			},
 
 			cmdline = {
@@ -33,17 +36,6 @@ return {
 				completion = {
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
-				},
-				keymap = {
-					preset = "none",
-					["<Tab>"] = { "select_and_accept" },
-					["<C-n>"] = { "select_next" },
-					["<C-p>"] = { "select_prev" },
-					["<CR>"] = {
-						"fallback",
-						"select_accept_and_enter",
-						"accept_and_enter",
-					},
 				},
 			},
 

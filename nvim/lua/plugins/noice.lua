@@ -13,13 +13,13 @@ return {
 			-- popupmenu = {
 			-- 	enabled = false,
 			-- },
-			-- -- this is the messages that appear in top right
-			-- -- notify = {
-			-- -- 	enabled = false,
-			-- -- },
-			-- messages = {
-			-- 	enabled = false,
-			-- },
+			-- this is the messages that appear in top right
+			notify = {
+				enabled = false,
+			},
+			messages = {
+				enabled = false,
+			},
 			-- lsp = {
 			-- 	signature = {
 			-- 		enabled = false,
