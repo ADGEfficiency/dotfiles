@@ -11,6 +11,7 @@ set -gx EDITOR nvim
 
 alias 'claude'='npx claude'
 alias 't'='tmux new'
+alias 's'='search'
 
 # Add homebrew to PATH
 set -gx PATH /opt/homebrew/bin $PATH

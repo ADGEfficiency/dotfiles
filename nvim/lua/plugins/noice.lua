@@ -18,23 +18,24 @@ return {
 				enabled = false,
 			},
 			messages = {
-				enabled = false,
+				enabled = true,
+				view = "mini",
 			},
-			-- lsp = {
-			-- 	signature = {
-			-- 		enabled = false,
-			-- 	},
-			-- 	progress = {
-			-- 		enabled = false,
-			-- 	},
-			-- 	message = {
-			-- 		enabled = false,
-			-- 	},
-			-- },
+			lsp = {
+				signature = {
+					enabled = false,
+				},
+				progress = {
+					enabled = false,
+				},
+				message = {
+					enabled = false,
+				},
+			},
 			-- presets = {
-			-- 	bottom_search = false,
-			-- 	command_palette = false,
-			-- 	-- long_message_to_split = true,
+			-- bottom_search = false,
+			-- command_palette = false,
+			-- long_message_to_split = true,
 			-- 	inc_rename = false,
 			-- 	lsp_doc_border = false,
 			-- },
