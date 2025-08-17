@@ -9,6 +9,7 @@ set -gx PERSONAL_PATH "$HOME/personal"
 set -gx TODO "$PERSONAL_PATH/todo.md"
 set -gx EDITOR nvim
 
+bass source ~/dotfiles/scripts/aliases.sh
 alias 'claude'='npx claude'
 alias 't'='tmux new'
 alias 's'='search'
