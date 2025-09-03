@@ -71,6 +71,9 @@ return {
 			-- Capabilities
 			local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
+			capabilities.textDocument.completion.completionItem.resolveSupport = {
+				properties = { "documentation", "detail", "additionalTextEdits" },
+			}
 
 			-- Flags
 			local lsp_flags = {
@@ -105,7 +108,6 @@ return {
 					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stdio" },
 				},
 				basedpyright = {},
-				-- pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {
 					cmd = { "ruff", "server" },
 					filetypes = { "python" },

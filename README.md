@@ -2,10 +2,11 @@
 
 Setup and configuration for my terminal based developer workflow:
 
-- Zsh for a shell,
-- Nix for package management of shell programs,
-- uv for Python,
-- Neovim for text editing.
+- Zsh for a shell
+- Nix for package management of shell programs
+- uv for Python
+- Neovim for text editing
+- Stow for dotfiles management
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 

@@ -12,7 +12,6 @@ return {
 			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 		end,
 	},
-
 	{ "sindrets/diffview.nvim" },
 	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },

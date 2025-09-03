@@ -154,3 +154,4 @@ vim.opt.wildignore = "+=*.egg-info/**"
 
 -- Enable wildmenu for command-line completion
 vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"

@@ -25,10 +25,12 @@ return {
 			-- snippets = { preset = "luasnip" },
 
 			keymap = {
-				preset = "default",
 				["<Tab>"] = { "select_next", "fallback" },
 				["<S-Tab>"] = { "select_prev", "fallback" },
-				["<CR>"] = { "accept", "fallback" },
+				["<CR>"] = {
+					-- "accept",
+					"fallback",
+				},
 			},
 
 			cmdline = {
@@ -37,6 +39,7 @@ return {
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
+				keymap = { preset = "inherit" },
 			},
 
 			completion = {
@@ -74,14 +77,17 @@ return {
 				},
 
 				list = {
-					selection = { auto_insert = true, preselect = false },
+					selection = {
+						auto_insert = true,
+						preselect = false,
+					},
 				},
 				menu = {
-					cmdline_position = function()
-						local Api = require("noice.api")
-						local pos = Api.get_cmdline_position()
-						return { pos.screenpos.row, pos.screenpos.col }
-					end,
+					-- cmdline_position = function()
+					-- 	local Api = require("noice.api")
+					-- 	local pos = Api.get_cmdline_position()
+					-- 	return { pos.screenpos.row, pos.screenpos.col }
+					-- end,
 					border = "single",
 					auto_show = function()
 						return vim.bo.buftype ~= "prompt"
