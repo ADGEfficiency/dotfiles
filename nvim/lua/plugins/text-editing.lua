@@ -15,13 +15,9 @@ return {
 	{ "sindrets/diffview.nvim" },
 	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },
-	{ "nvim-tree/nvim-web-devicons" },
-	{ "tpope/vim-commentary" },
 	{ "mattn/emmet-vim" },
-	{ "tpope/vim-surround" },
 	{ "tpope/vim-repeat" },
 	{ "farmergreg/vim-lastplace" },
-	{ "axelf4/vim-strip-trailing-whitespace" },
 	{
 		"folke/zen-mode.nvim",
 		opts = {
@@ -49,7 +45,6 @@ return {
 		end,
 	},
 	{ "norcalli/nvim-colorizer.lua" },
-	{ "windwp/nvim-ts-autotag" },
 	{ "kana/vim-textobj-user" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -117,11 +112,6 @@ return {
 	--- Text editing - HTML
 	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },
-	{
-		"folke/todo-comments.nvim",
-		cmd = { "TodoTrouble", "TodoTelescope" },
-		config = true,
-	},
 	{
 		"PedramNavid/dbtpal",
 		dependencies = {

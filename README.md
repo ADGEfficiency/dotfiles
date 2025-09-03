@@ -112,3 +112,5 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
+
+

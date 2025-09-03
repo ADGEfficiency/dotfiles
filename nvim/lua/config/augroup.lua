@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.smartindent = false
 		vim.opt_local.expandtab = true
 		vim.g.indentLine_enabled = 0
-		vim.cmd([[syntax keyword Todo TODO DONE]])
 		vim.opt.complete:append("k")
 		vim.opt_local.conceallevel = 0
 	end,
