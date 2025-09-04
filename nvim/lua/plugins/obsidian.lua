@@ -27,6 +27,12 @@ return {
 			nvim_cmp = false,
 			blink = true,
 			min_chars = 2,
+			create_new = false,
+		},
+		legacy_commands = false,
+		hl_groups = {
+			-- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
+			ObsidianTodo = { fg = "NONE", bg = "NONE" },
 		},
 	},
 }
