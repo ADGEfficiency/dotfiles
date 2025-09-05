@@ -21,13 +21,14 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			-- snippets = { preset = "luasnip" },
+			snippets = { preset = "luasnip" },
 
 			keymap = {
 				["<Tab>"] = { "select_next", "fallback" },
 				["<S-Tab>"] = { "select_prev", "fallback" },
 				["<CR>"] = {
 					-- "accept",
+					"accept",
 					"fallback",
 				},
 			},
@@ -190,6 +191,7 @@ return {
 				min_keyword_length = 2,
 				default = {
 					"copilot",
+					"snippets",
 					"path",
 					"lsp",
 					"buffer",
@@ -200,6 +202,7 @@ return {
 				per_filetype = {
 					markdown = {
 						"copilot",
+						"snippets",
 						"path",
 						"lsp",
 						"buffer",
@@ -208,6 +211,7 @@ return {
 						"dictionary",
 					},
 					go = {
+						"snippets",
 						"path",
 						"lsp",
 						"buffer",
@@ -215,6 +219,7 @@ return {
 					},
 					python = {
 						"copilot",
+						"snippets",
 						"path",
 						"lsp",
 						"buffer",
