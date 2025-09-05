@@ -28,7 +28,6 @@ return {
 				["<S-Tab>"] = { "select_prev", "fallback" },
 				["<CR>"] = {
 					-- "accept",
-					"accept",
 					"fallback",
 				},
 			},

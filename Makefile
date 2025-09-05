@@ -1,27 +1,23 @@
 default:
 	@echo "hello ^^"
 
-.PHONY: setup-macos setup-ubuntu setup-wsl setup-stow
+.PHONY: setup-macos setup-ubuntu setup-wsl setup-common setup-stow
 
-setup-macos: export OS=macos
-setup-macos: brew-pkgs nix-pkgs dotfiles
+setup-common:
 	bash ./tmux/setup.sh
 	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
+
+setup-macos: export OS=macos
+setup-macos: brew-pkgs nix-pkgs dotfiles setup-common
 	bash ./macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
-setup-ubuntu: dotfiles nix-pkgs dotfiles
-	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
-	bash ./fzf/setup.sh
+setup-ubuntu: dotfiles nix-pkgs dotfiles setup-common
 	bash ./ubuntu/setup.sh
 
 setup-wsl: export OS=wsl
-setup-wsl: dotfiles nix-pkgs dotfiles
-	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
-	bash ./fzf/setup.sh
+setup-wsl: dotfiles nix-pkgs dotfiles setup-common
 
 setup-stow:
 	bash ./stow/setup.sh
