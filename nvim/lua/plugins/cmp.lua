@@ -14,7 +14,6 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
-			"rafamadriz/friendly-snippets",
 			"L3MON4D3/LuaSnip",
 		},
 		version = "*",
@@ -36,6 +35,7 @@ return {
 			cmdline = {
 				enabled = true,
 				completion = {
+					keyword = { range = "full" },
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
@@ -187,9 +187,8 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				min_keyword_length = 10,
+				min_keyword_length = 2,
 				default = {
-					"snippets",
 					"copilot",
 					"path",
 					"lsp",
@@ -200,7 +199,6 @@ return {
 				},
 				per_filetype = {
 					markdown = {
-						"snippets",
 						"copilot",
 						"path",
 						"lsp",
@@ -212,7 +210,6 @@ return {
 					go = {
 						"path",
 						"lsp",
-						"snippets",
 						"buffer",
 						"ripgrep",
 					},
@@ -220,7 +217,6 @@ return {
 						"copilot",
 						"path",
 						"lsp",
-						"snippets",
 						"buffer",
 						"ripgrep",
 					},

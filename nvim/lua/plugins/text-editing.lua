@@ -16,8 +16,6 @@ return {
 	{ "mhinz/vim-grepper" },
 	{ "FooSoft/vim-argwrap" },
 	{ "mattn/emmet-vim" },
-	{ "tpope/vim-repeat" },
-	{ "farmergreg/vim-lastplace" },
 	{
 		"folke/zen-mode.nvim",
 		opts = {

@@ -9,6 +9,14 @@ return {
 			require("mini.pairs").setup()
 			require("mini.trailspace").setup()
 			
+			-- utilities
+			require("mini.misc").setup()
+			require("mini.misc").setup_restore_cursor()
+			require("mini.operators").setup()
+			
+			-- keymap for zoom
+			vim.keymap.set('n', '<leader>z', require('mini.misc').zoom, { desc = 'Zoom current buffer' })
+			
 			-- enhanced text objects
 			require("mini.ai").setup({
 				custom_textobjects = {
