@@ -45,7 +45,6 @@ return {
 		end,
 	},
 	{ "norcalli/nvim-colorizer.lua" },
-	{ "kana/vim-textobj-user" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		opts = {
@@ -103,9 +102,7 @@ return {
 
 	-- Text editing - Python
 	{ "Vimjas/vim-python-pep8-indent" },
-	{ "bps/vim-textobj-python" },
 	--- Text editing - Markdown
-	{ "coachshea/vim-textobj-markdown" },
 	{ "dhruvasagar/vim-table-mode" },
 	{ "dkarter/bullets.vim" },
 	{ "mzlogin/vim-markdown-toc" },
