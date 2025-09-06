@@ -24,8 +24,14 @@ return {
 			snippets = { preset = "luasnip" },
 
 			keymap = {
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<Tab>"] = {
+					"select_next",
+					-- "fallback"
+				},
+				["<S-Tab>"] = {
+					"select_prev",
+					-- "fallback"
+				},
 				["<CR>"] = {
 					-- "accept",
 					"fallback",
@@ -39,7 +45,20 @@ return {
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
-				keymap = { preset = "inherit" },
+				keymap = {
+					["<Tab>"] = {
+						"select_next",
+						-- "fallback"
+					},
+					["<S-Tab>"] = {
+						"select_prev",
+						-- "fallback"
+					},
+					["<CR>"] = {
+						"select_accept_and_enter",
+						"fallback",
+					},
+				},
 			},
 
 			completion = {
