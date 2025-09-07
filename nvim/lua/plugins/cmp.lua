@@ -23,6 +23,8 @@ return {
 		opts = {
 			snippets = { preset = "luasnip" },
 
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+
 			keymap = {
 				["<Tab>"] = {
 					"select_next",
@@ -41,7 +43,7 @@ return {
 			cmdline = {
 				enabled = true,
 				completion = {
-					keyword = { range = "full" },
+					-- keyword = { range = "full" },
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
@@ -55,7 +57,7 @@ return {
 						-- "fallback"
 					},
 					["<CR>"] = {
-						"select_accept_and_enter",
+						-- "select_accept_and_enter",
 						"fallback",
 					},
 				},
