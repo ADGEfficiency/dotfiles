@@ -3,7 +3,8 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 export EDITOR=$(which nvim)
-export XDG_CONFIG_HOME=$HOME/dotfiles
+# export XDG_CONFIG_HOME=$HOME/dotfiles
+source ~/dotfiles/dotfiles/common/env.sh
 if command -v launchctl >/dev/null 2>&1; then
   launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 fi

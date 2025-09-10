@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export XDG_CONFIG_HOME=~/dotfiles
+source ~/dotfiles/common/env.sh
 
 if [ -e "$HOME"/.nix-profile/etc/profile.d/nix.sh ]; then . "$HOME"/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export EDITOR=$(which nvim)

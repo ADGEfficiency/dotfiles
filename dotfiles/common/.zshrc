@@ -32,14 +32,13 @@ ruby_init() {
 
 pretzo_init() {
   #  this is here for a reason ^^
-  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
   source $HOME/dotfiles/zsh/.zprezto
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
   source ~/.zprezto/init.zsh
 }
 
 starship_init() {
-  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+  export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
   eval "$(starship init zsh)"
 }
 
@@ -67,7 +66,7 @@ alias brew='arch -arm64 brew'
 source ~/dotfiles/macos/pyenv-flags
 
 # custom ipython config
-export IPYTHONDIR="$HOME/dotfiles/.ipython"
+export IPYTHONDIR="$HOME/dotfiles/config/.ipython"
 
 # need a fancy npm setup when npm manages nix - requires a .npmrc with a prefix
 export PATH=~/.npm-packages/bin:$PATH
