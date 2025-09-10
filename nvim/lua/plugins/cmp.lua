@@ -155,7 +155,7 @@ return {
 										Package = "",
 										Property = "󰜢",
 										Reference = "󰈇",
-										Ripgrep = "",
+										Ripgrep = "",
 										Snippet = "",
 										String = "󰉿",
 										Struct = "󰙅",

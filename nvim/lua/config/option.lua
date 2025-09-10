@@ -56,8 +56,8 @@ vim.opt.ignorecase = true
 vim.opt.list = true
 vim.opt.listchars = "tab:>-"
 
--- Enable spell checking and set language
-vim.opt.spell = true
+-- Spell checking and language
+vim.opt.spell = false
 vim.opt.spelllang = "en_nz"
 vim.opt.spellsuggest = { "best", 9 }
 
