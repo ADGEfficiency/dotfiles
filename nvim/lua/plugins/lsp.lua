@@ -92,18 +92,21 @@ return {
 					-- 	filetypes = { "markdown" },
 					-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
 				},
-				-- lua_ls = {
-				-- 	cmd = { "lua-language-server", "--force-accept-workspace" },
-				-- 	settings = {
-				-- 		Lua = {
-				-- 			runtime = { version = "LuaJIT" },
-				-- 			diagnostics = { globals = { "vim" } },
-				-- 			workspace = { library = ".", checkThirdParty = false },
-				-- 			telemetry = { enable = false },
-				-- 		},
-				-- 	},
-				-- },
-				marksman = {},
+				lua_ls = {
+					cmd = {
+						"lua-language-server",
+						-- "--force-accept-workspace"
+					},
+					-- settings = {
+					-- 	Lua = {
+					-- 		runtime = { version = "LuaJIT" },
+					-- 		diagnostics = { globals = { "vim" } },
+					-- 		-- workspace = { library = ".", checkThirdParty = false },
+					-- 		telemetry = { enable = false },
+					-- 	},
+					-- },
+				},
+				-- marksman = {},
 				prosemd_lsp = {
 					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stdio" },
 				},
