@@ -111,7 +111,7 @@ alias gmv='git mv '
 alias gcb='git checkout '
 alias gnb='git checkout -b'
 alias gp='git push origin '
-alias gs='git status --short --branch --show-stash --verbose -uno'
+alias gs='git status --short --branch --show-stash --verbose'
 alias nbg='git checkout -b'
 alias gss='git stash'
 alias gst='git stash'
@@ -153,3 +153,7 @@ alias lg='lazygit'
 
 alias air='ssh adamgreen@air.local'
 alias macbook='ssh adam@macbook.local'
+
+alias dab='databricks bundle'
+
+alias ur='uv run'

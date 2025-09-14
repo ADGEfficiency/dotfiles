@@ -85,10 +85,10 @@ return {
 				-- gopls = {},
 				html = {},
 				-- jsonls = {},
-				ltex = {
-					-- 	filetypes = { "markdown" },
-					-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
-				},
+				-- ltex = {
+				-- 	filetypes = { "markdown" },
+				-- 	-- 	settings = { ltex = { enabled = { "markdown" }, language = { "en-NZ" } } },
+				-- },
 				-- lua_ls = {
 				-- 	cmd = { "lua-language-server", "--force-accept-workspace" },
 				-- 	settings = {
@@ -101,9 +101,9 @@ return {
 				-- 	},
 				-- },
 				marksman = {},
-				prosemd_lsp = {
-					cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stdio" },
-				},
+				-- prosemd_lsp = {
+				-- 	cmd = { os.getenv("HOME") .. "/.cargo/bin/prosemd-lsp", "--stdio" },
+				-- },
 				basedpyright = {},
 				-- pyright = { cmd = { "pyright-langserver", "--stdio" } },
 				ruff = {

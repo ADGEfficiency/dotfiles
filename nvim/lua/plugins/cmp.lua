@@ -22,7 +22,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = "luasnip" },
+			-- snippets = { preset = "luasnip" },
 
 			keymap = {
 				preset = "enter",
@@ -155,7 +155,7 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					"snippets",
+					-- "snippets",
 					"copilot",
 					"path",
 					"lsp",
@@ -166,7 +166,7 @@ return {
 				},
 				per_filetype = {
 					markdown = {
-						"snippets",
+						-- "snippets",
 						"copilot",
 						"path",
 						"lsp",
@@ -178,7 +178,7 @@ return {
 					go = {
 						"path",
 						"lsp",
-						"snippets",
+						-- "snippets",
 						"buffer",
 						"ripgrep",
 					},
@@ -186,7 +186,7 @@ return {
 						"copilot",
 						"path",
 						"lsp",
-						"snippets",
+						-- "snippets",
 						"buffer",
 						"ripgrep",
 					},

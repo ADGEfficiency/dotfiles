@@ -39,15 +39,12 @@ return {
 				jinja2 = { "markdownlint", "codespell" },
 				json = { "jsonlint" },
 				markdown = { "markdownlint", "codespell" },
-				python = {
-					"ruff",
-					-- "mypy",
-					-- "flake8",
-					"pydocstyle",
-					-- "pylint",
-				},
+				python = { "ruff" },
 				sql = { "sqlfluff" },
-				yaml = { "actionlint", "yamllint" },
+				yaml = {
+					-- "actionlint",
+					"yamllint",
+				},
 			}
 
 			vim.api.nvim_create_autocmd({

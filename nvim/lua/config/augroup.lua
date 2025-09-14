@@ -47,9 +47,15 @@ vim.api.nvim_exec(
 )
 
 -- .py
+vim.api.nvim_create_augroup("NoSpellForCode", { clear = true })
+
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "python",
+	group = "NoSpellForCode",
+	pattern = { "python", "go" },
 	callback = function()
-		vim.cmd("highlight ColorColumn cterm=bold ctermbg=238 gui=bold guibg=#424450")
-	end,
+    vim.opt_local.spell = false
+    if vim.bo.filetype == "python" then
+      vim.opt_local.colorcolumn = "88"
+    end
+  end
 })
