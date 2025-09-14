@@ -14,7 +14,6 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
-			"rafamadriz/friendly-snippets",
 			"L3MON4D3/LuaSnip",
 		},
 		version = "*",
@@ -24,25 +23,42 @@ return {
 		opts = {
 			-- snippets = { preset = "luasnip" },
 
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+
 			keymap = {
-				preset = "enter",
+				["<Tab>"] = {
+					"select_next",
+					-- "fallback"
+				},
+				["<S-Tab>"] = {
+					"select_prev",
+					-- "fallback"
+				},
+				["<CR>"] = {
+					-- "accept",
+					"fallback",
+				},
 			},
 
 			cmdline = {
 				enabled = true,
 				completion = {
+					-- keyword = { range = "full" },
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
 				keymap = {
-					preset = "none",
-					["<Tab>"] = { "select_and_accept" },
-					["<C-n>"] = { "select_next" },
-					["<C-p>"] = { "select_prev" },
+					["<Tab>"] = {
+						"select_next",
+						-- "fallback"
+					},
+					["<S-Tab>"] = {
+						"select_prev",
+						-- "fallback"
+					},
 					["<CR>"] = {
+						-- "select_accept_and_enter",
 						"fallback",
-						"select_accept_and_enter",
-						"accept_and_enter",
 					},
 				},
 			},
@@ -82,15 +98,13 @@ return {
 				},
 
 				list = {
-					selection = { auto_insert = true, preselect = false },
+					selection = {
+						auto_insert = true,
+						preselect = false,
+					},
 				},
 				menu = {
-					cmdline_position = function()
-						local Api = require("noice.api")
-						local pos = Api.get_cmdline_position()
-						return { pos.screenpos.row, pos.screenpos.col }
-					end,
-					border = "single",
+					border = nil,
 					auto_show = function()
 						return vim.bo.buftype ~= "prompt"
 							and vim.b.completion ~= false
@@ -98,20 +112,60 @@ return {
 					end,
 					draw = {
 						columns = {
-							{ "label", "label_description", gap = 3 },
-							{ "kind_icon", gap = 1, "source_name", gap = 1, "kind" },
+							{
+								"label",
+								-- "label_description",
+								-- gap = 3
+							},
+							{
+								"kind_icon",
+								gap = 1,
+								"source_name",
+							},
 						},
 						components = {
 							kind_icon = {
 								ellipsis = false,
 								text = function(ctx)
-									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-									return kind_icon
-								end,
-								-- Optionally, you may also use the highlights from mini.icons
-								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-									return hl
+									local icons = {
+										Array = "󰅪",
+										Boolean = "⊨",
+										Class = "󰠱",
+										Color = "󰏘",
+										Constant = "󰏿",
+										Constructor = "",
+										Copilot = "󱚣",
+										Enum = "",
+										EnumMember = "",
+										Event = "",
+										Field = "󰜢",
+										File = "󰈙",
+										Folder = "󰉋",
+										Function = "󰊕",
+										Interface = "",
+										Key = "󰌋",
+										Keyword = "󰌋",
+										Method = "󰆧",
+										Module = "",
+										Namespace = "󰌗",
+										Null = "󰟢",
+										Number = "󰎠",
+										Object = "󰅩",
+										Operator = "󰆕",
+										Package = "",
+										Property = "󰜢",
+										Reference = "󰈇",
+										Ripgrep = "",
+										Snippet = "",
+										String = "󰉿",
+										Struct = "󰙅",
+										Text = "󰉿",
+										TypeParameter = "",
+										Unit = "󰑭",
+										Value = "󰎠",
+										Variable = "󰀫",
+									}
+									return icons[ctx.kind] or "●"
 								end,
 							},
 						},
@@ -131,7 +185,7 @@ return {
 					min_width = 1,
 					max_width = 400,
 					max_height = 10,
-					border = nil, -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
+					-- border = nil, -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
 					winblend = 0,
 					winhighlight = "Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder",
 					scrollbar = false, -- Note that the gutter will be disabled when border ~= 'none'
@@ -154,9 +208,10 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
+				min_keyword_length = 2,
 				default = {
-					-- "snippets",
 					"copilot",
+					"snippets",
 					"path",
 					"lsp",
 					"buffer",
@@ -166,8 +221,8 @@ return {
 				},
 				per_filetype = {
 					markdown = {
-						-- "snippets",
 						"copilot",
+						"snippets",
 						"path",
 						"lsp",
 						"buffer",
@@ -176,17 +231,17 @@ return {
 						"dictionary",
 					},
 					go = {
+						"snippets",
 						"path",
 						"lsp",
-						-- "snippets",
 						"buffer",
 						"ripgrep",
 					},
 					python = {
 						"copilot",
+						"snippets",
 						"path",
 						"lsp",
-						-- "snippets",
 						"buffer",
 						"ripgrep",
 					},

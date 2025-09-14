@@ -3,6 +3,7 @@
   diffs = diff --staged
   logg = log --pretty=fuller --abbrev-commit --stat -n 5
   loggg = log --pretty=fuller --abbrev-commit --stat --patch -n 5
+  logggg = log --oneline --decorate
   rmf = rm -f
 
 [column]
@@ -39,7 +40,7 @@
   tool = nvimdiff
 
 [mergetool "nvimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE
+  cmd = nvim -d $LOCAL $REMOTE $MERGED
 
 [pull]
   rebase = false

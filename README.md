@@ -2,10 +2,11 @@
 
 Setup and configuration for my terminal based developer workflow:
 
-- Zsh for a shell,
-- Nix for package management of shell programs,
-- uv for Python,
-- Neovim for text editing.
+- Zsh for a shell
+- Nix for package management of shell programs
+- uv for Python
+- Neovim for text editing
+- Stow for dotfiles management
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 
@@ -16,7 +17,7 @@ This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
 Setup an Ubuntu machine:
 
 ```shell-session
-$ make setup-ubuntu OS=ubuntu
+$ make setup-ubuntu
 ```
 
 This will also setup dependencies with Nix.
@@ -26,14 +27,14 @@ This will also setup dependencies with Nix.
 Setup an macOS machine:
 
 ```shell-session
-$ make setup-macos OS=macos
+$ make setup-macos
 ```
 
 This will also setup dependencies with Nix.
 
 ### Python
 
-Ian stall `uv` and setup a global Python installation in a virtual environment:
+Install `uv` and setup a global Python installation in a virtual environment:
 
 ```bash
 $ make python
@@ -44,17 +45,23 @@ $ make python
 Use GNU Stow to symlink dotfiles for Bash, Zsh, Tmux and Git:
 
 ```shell-session
-$ make dotfiles OS=macos
+$ make dotfiles
+```
+
+Note: The `OS` variable is automatically set by the `setup-macos` and `setup-ubuntu` targets. For manual dotfiles setup, you can export the OS variable first:
+
+```shell-session
+$ export OS=macos && make dotfiles
 ```
 
 Valid values for `OS` are `macos`, `wsl` or `windows`.
 
-A script `./scripts/bootstrap-stow.sh` will attempt to bootstrap Stow if it's not already available. Stow bootstrapping is not setup for Windows because Windows is awful.
+A script `./stow/setup.sh` will attempt to bootstrap Stow if it's not already available. Stow bootstrapping is not setup for Windows because Windows is awful.
 
 You can run the setup without bootstrapping Stow with:
 
 ```shell-session
-$ make dotfiles OS=macos -o bootstrap-stow
+$ make dotfiles OS=macos -o setup-stow
 ```
 
 ### Nix
@@ -105,3 +112,5 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
+
+

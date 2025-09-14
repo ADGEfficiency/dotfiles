@@ -12,7 +12,7 @@ for space in 2 3 4; do
   echo "Configuring space $space"
   yabai -m config --space "$space" \
     layout bsp \
-    auto_balance off \
+    auto_balance on \
     split_ratio 0.5 \
     split_type vertical \
     mouse_follows_focus off \
