@@ -21,8 +21,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			-- snippets = { preset = "luasnip" },
-
+			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 
 			keymap = {
