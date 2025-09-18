@@ -31,7 +31,6 @@ return {
 				id = note.id,
 				created = os.date("%Y-%m-%d %H:%M:%S"),
 				link = "",
-				parent = "",
 				tags = { "note" }, -- Add your default tags here
 			}
 
