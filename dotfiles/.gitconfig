@@ -54,7 +54,10 @@
   followTags = true
 
 [url "git@github.com:"]
-	insteadOf = "https://github.com/"
+  insteadOf = "https://github.com/"
+
+[url "git@ssh.dev.azure.com:v3/"]
+  insteadOf = "https://dev.azure.com/"
 
 [user]
   email = adam.green@adgefficiency.com

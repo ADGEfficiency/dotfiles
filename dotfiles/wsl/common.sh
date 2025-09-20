@@ -1,6 +1,6 @@
-alias docs='cd ~/onedrive/docs'
+alias docs='cd "/mnt/c/Users/ag43/OneDrive - Meridian Energy Limited/Documents/docs"'
 alias od='cd ~/onedrive'
-export TODO_DIR="/home/adam/onedrive/docs/project"
-keychain --quiet ~/.ssh/github_ed25519
-keychain --quiet ~/.ssh/azure-devops_id_rsa
+export TODO_DIR="/mnt/c/Users/ag43/OneDrive - Meridian Energy Limited/Documents/docs/project"
+keychain --quiet ~/.ssh/ado
+keychain --quiet ~/.ssh/github
 alias expl='explorer.exe .'
