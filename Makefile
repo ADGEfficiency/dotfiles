@@ -1,40 +1,40 @@
-# can be either macos or ubuntu
-OS = macos
-
-.PHONY: default bootstrap-stow dotfiles test setup-macos setup-ubuntu
-
 default:
-	echo "hello ^^"
+	@echo "hello ^^"
 
-.PHONY: setup-macos setup-ubuntu boostrap-stow
+.PHONY: setup-macos setup-ubuntu setup-wsl setup-common setup-stow
 
-setup-macos: brew-pkgs nix-pkgs dotfiles
+setup-common:
 	bash ./tmux/setup.sh
-	bash ./scripts/setup-zpretzo.sh
+	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
+
+setup-macos: export OS=macos
+setup-macos: brew-pkgs nix-pkgs dotfiles setup-common
 	bash ./macos/setup.sh
 
-setup-ubuntu: dotfiles nix-pkgs dotfiles
-	bash ./tmux/setup.sh
-	bash ./scripts/setup-zpretzo.sh
-	bash ./fzf/setup.sh
+setup-ubuntu: export OS=ubuntu
+setup-ubuntu: dotfiles nix-pkgs dotfiles setup-common
 	bash ./ubuntu/setup.sh
 
-bootstrap-stow:
-	bash ./scripts/bootstrap-stow.sh
+setup-wsl: export OS=wsl
+setup-wsl: dotfiles nix-pkgs dotfiles setup-common
+
+setup-stow:
+	bash ./stow/setup.sh
 
 .PHONY: dotfiles test
 
 STOW_ARGS=-vv
-dotfiles: bootstrap-stow
+dotfiles: setup-stow
 	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
 	stow $(STOW_ARGS) dotfiles
 	stow $(STOW_ARGS) yabai
+	ln -sf ~/dotfiles/fish ~/.config/fish\
 
 test: setup-nix
 	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
-.PHONY: setup-pyenv python js
+.PHONY: setup-uv python js
 
 setup-uv:
 	bash ./python/setup-uv.sh
@@ -44,10 +44,7 @@ python: setup-uv
 	~/.local/bin/uv pip install -r ./python/pyproject.toml
 
 js:
-	npm install -g @tailwindcss/language-server markserv
-	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify
-	npm install -g jsonlint jshint
-	npm install -g sql-language-server
+	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify jsonlint jshint sql-language-server @tailwindcss/language-server markserv
 
 .PHONY: clean-nvim setup-vim
 

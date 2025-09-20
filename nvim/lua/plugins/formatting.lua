@@ -25,10 +25,10 @@ return {
 					yaml = { "yamlfix" },
 					sql = { "sqlfluff" },
 					["*"] = {
-						-- "codespell",
-						-- "trim_newlines",
-						-- "injected",
-						-- "trim_whitespace",
+						"codespell",
+						"trim_newlines",
+						"injected",
+						"trim_whitespace",
 					},
 				},
 			})
