@@ -19,7 +19,7 @@ return {
 					lua = { "stylua" },
 					go = { "gofmt" },
 					python = { "isort", "ruff_format" },
-					-- markdown = { "injected" },
+					markdown = { "injected" },
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
