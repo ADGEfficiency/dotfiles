@@ -32,7 +32,7 @@ return {
 					layout_config = { width = 0.9 },
 					prompt_prefix = " ",
 					selection_caret = " ",
-					path_display = { "smart" },
+					path_display = { "filename_first" },
 					mappings = {
 						i = {
 							["<C-n>"] = actions.move_selection_next,
