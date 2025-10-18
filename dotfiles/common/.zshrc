@@ -35,7 +35,7 @@ pretzo_init() {
   export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
   source $HOME/dotfiles/zsh/.zprezto
   source $HOME/dotfiles/dotfiles/common/.zpreztorc
-  source ~/.zprezto/init.zsh
+  source $HOME/dotfiles/zsh/.zprezto/init.zsh
 }
 
 starship_init() {

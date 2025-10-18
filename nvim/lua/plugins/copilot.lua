@@ -42,6 +42,7 @@ return {
 			context = "buffers",
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 			auto_follow_cursor = false,
+			model = "gpt-4o",
 		},
 	},
 }

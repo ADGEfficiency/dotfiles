@@ -81,6 +81,11 @@ remote() {
   git remote set-url origin $1
 }
 
+track() {
+  git fetch origin "$1"
+  git checkout -b "$1" "origin/$1"
+}
+
 # create branch if it doesn't exist, otherwise change to branch
 gb() {
   if git show-ref --verify --quiet refs/heads/"$1"; then

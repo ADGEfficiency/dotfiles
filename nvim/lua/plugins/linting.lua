@@ -54,7 +54,10 @@ return {
 				markdown = { "markdownlint", "codespell" },
 				python = { "ruff", "pydocstyle" },
 				sql = { "sqlfluff" },
-				yaml = { "actionlint", "yamllint" },
+				yaml = {
+					-- "actionlint",
+					"yamllint",
+				},
 			}
 
 			-- auto-run linting on buffer events
