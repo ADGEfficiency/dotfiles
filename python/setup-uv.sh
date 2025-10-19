@@ -5,3 +5,4 @@ uv tool install ruff --python 3.11.9
 uv tool install yamllint --python 3.11.9
 uv tool install pydocstyle --python 3.11.9
 uv tool install sqlfluff --python 3.11.9
+uv tool install pynvim --python 3.11.9
