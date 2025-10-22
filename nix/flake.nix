@@ -15,7 +15,7 @@
         defaultPackage = with pkgs; buildEnv {
           name = "shell";
           paths = [
-            actionlint
+            # actionlint # Installed via Homebrew to avoid nokogiri build issues
             go-tools
             bash
             bat
@@ -60,7 +60,7 @@
             nodePackages_latest.prettier
             nodePackages_latest.sql-formatter
             nodePackages_latest.stylelint
-            nodejs_20
+            nodejs_22
             ov
             pandoc
             ripgrep

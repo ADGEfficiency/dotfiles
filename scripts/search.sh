@@ -16,7 +16,9 @@ open_files_with_editor() {
   fi
 }
 
-cd "$1" || exit
+# Use provided directory or default to current directory
+target_dir="${1:-.}"
+cd "$target_dir" || exit
 
 if [ "$TERM_HEIGHT" -ge "$MIN_HEIGHT" ]; then
   files=$(fzf --preview 'bat --style=numbers --color=always {}' --height 60% -m)
