@@ -64,6 +64,41 @@ return {
 					"-",
 				},
 			}
+
+			require("conform").formatters.ruff_format = {
+				command = "ruff",
+				args = {
+					"format",
+					"--force-exclude",
+					"--stdin-filename",
+					"$FILENAME",
+					"-",
+				},
+				range_args = function(_, ctx)
+					return {
+						"format",
+						"--force-exclude",
+						"--range",
+						string.format(
+							"%d:%d-%d:%d",
+							ctx.range.start[1],
+							ctx.range.start[2] + 1,
+							ctx.range["end"][1],
+							ctx.range["end"][2] + 1
+						),
+						"--stdin-filename",
+						"$FILENAME",
+						"-",
+					}
+				end,
+				stdin = true,
+				cwd = require("conform.util").root_file({
+					"pyproject.toml",
+					"ruff.toml",
+					".ruff.toml",
+				}),
+			}
+
 			require("conform").formatters.injected = {
 				options = {
 					ignore_errors = false,

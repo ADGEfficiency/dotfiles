@@ -1,4 +1,13 @@
 return {
+	{
+		"ggandor/leap.nvim",
+		dependencies = { "tpope/vim-repeat" },
+		config = function()
+			-- Set up recommended keymaps for leap.nvim
+			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+			vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
+		end,
+	},
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	{
 		"toppair/peek.nvim",

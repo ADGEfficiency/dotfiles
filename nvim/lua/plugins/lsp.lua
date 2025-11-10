@@ -118,6 +118,9 @@ return {
 					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					vim.keymap.set("n", "grr", vim.lsp.buf.rename, bufopts)
+					vim.keymap.set("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
+					vim.keymap.set("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+					vim.keymap.set("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
 				end,
 			})
 		end,

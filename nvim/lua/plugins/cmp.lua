@@ -48,7 +48,7 @@ return {
 				},
 				keymap = {
 					["<Tab>"] = {
-						"select_next",
+						"accept",
 						-- "fallback"
 					},
 					["<S-Tab>"] = {
