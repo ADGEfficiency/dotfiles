@@ -30,9 +30,17 @@ return {
 				defaults = {
 					layout_strategy = "flex",
 					layout_config = { width = 0.9 },
-					prompt_prefix = " ",
-					selection_caret = " ",
+					prompt_prefix = " ",
+					selection_caret = " ",
 					path_display = { "smart" },
+					file_ignore_patterns = {
+						"node_modules",
+						".git/",
+						"__pycache__",
+						"%.pyc",
+						"venv/",
+						"%.cache",
+					},
 					mappings = {
 						i = {
 							["<C-n>"] = actions.move_selection_next,
@@ -86,15 +94,17 @@ return {
 					fzf = {
 						fuzzy = true, -- false will only do exact matching
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-						["ui-select"] = {
-							require("telescope.themes").get_dropdown(),
-						},
+					},
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown(),
 					},
 				},
 			})
-			require("telescope").load_extension("fzf")
+			-- Load extensions with error handling
+			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
-			require("telescope").load_extension("git_file_history")
+			pcall(require("telescope").load_extension, "git_file_history")
+			pcall(require("telescope").load_extension, "make")
 		end,
 	},
 }
