@@ -157,3 +157,4 @@ alias macbook='ssh adam@macbook.local'
 alias f='fish'
 
 alias ai='claude'
+alias ai-talk='claude converse'
