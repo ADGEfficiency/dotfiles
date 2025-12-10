@@ -48,7 +48,7 @@ return {
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 			auto_follow_cursor = false,
 			auto_insert_mode = true,
-			model = "gpt-4o",
+			model = "gpt-4o-mini",
 		},
 	},
 }
