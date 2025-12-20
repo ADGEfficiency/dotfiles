@@ -53,15 +53,32 @@ return {
 
 			-- lua
 			vim.lsp.config["luals"] = {
-				cmd = { "lua-language-server" },
+				cmd = { "lua-language-server", "--force-accept-workspace" },
 				filetypes = { "lua" },
-				root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+				root_markers = {
+					".luarc.json",
+					".luarc.jsonc",
+					".git",
+				},
 				settings = {
 					Lua = {
 						runtime = {
 							version = "LuaJIT",
 						},
-						diagnostics = { globals = { "vim" } },
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = {
+								vim.env.VIMRUNTIME,
+								"${3rd}/luv/library",
+								"${3rd}/luassert/library",
+							},
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
 					},
 				},
 			}

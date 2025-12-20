@@ -102,22 +102,12 @@ gac() {
   git add -u && git commit -m "$1" && git push origin
 }
 
-# Show a random quote/snippet from two files
-# Combines quotes.md and random_snippets.md from personal repo
 quote() {
   QUOTES="$PERSONAL_PATH/resource/quotes.md"
   SNIPPETS="$PERSONAL_PATH/resource/random_snippets.md"
-
-  # Get all non-empty lines from both files, skipping YAML headers
-  ALL_LINES=$(tail -n +6 "$QUOTES" "$SNIPPETS" | grep -v "^$")
-
-  # Count total lines
+  ALL_LINES=$(tail -n +6 "$QUOTES" "$SNIPPETS" | grep -v "^$" | grep -v "^#")
   NUM_LINES=$(echo "$ALL_LINES" | wc -l)
-
-  # Select a random line number
   LINE=$((1 + RANDOM % NUM_LINES))
-
-  # Print the selected line
   echo -n "$ALL_LINES" | sed -n "${LINE}p"
 }
 
