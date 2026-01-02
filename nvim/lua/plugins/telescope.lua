@@ -21,6 +21,20 @@ return {
 				return
 			end
 			local actions = require("telescope.actions")
+			local action_state = require("telescope.actions.state")
+
+			-- Custom action to open all selected files
+			local function multi_open(prompt_bufnr)
+				local picker = action_state.get_current_picker(prompt_bufnr)
+				local multi = picker:get_multi_selection()
+				actions.select_default(prompt_bufnr)
+				for _, entry in pairs(multi) do
+					if entry.path ~= nil then
+						vim.cmd(string.format("edit %s", entry.path))
+					end
+				end
+			end
+
 			telescope.setup({
 				pickers = {
 					find_files = {
@@ -48,7 +62,7 @@ return {
 							["<C-c>"] = actions.close,
 							["<Down>"] = actions.move_selection_next,
 							["<Up>"] = actions.move_selection_previous,
-							["<CR>"] = actions.select_default,
+							["<CR>"] = multi_open,
 							["<C-x>"] = actions.select_horizontal,
 							["<C-v>"] = actions.select_vertical,
 							["<C-t>"] = actions.select_tab,
@@ -64,7 +78,7 @@ return {
 						},
 						n = {
 							["<esc>"] = actions.close,
-							["<CR>"] = actions.select_default,
+							["<CR>"] = multi_open,
 							["<C-x>"] = actions.select_horizontal,
 							["<C-v>"] = actions.select_vertical,
 							["<C-t>"] = actions.select_tab,
