@@ -69,7 +69,7 @@ setup-nix:
 
 NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 nix-pkgs: setup-nix
-	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && nix profile install$(NIX_ARGS)
+	. ./nix/load-"$(OS)".sh && cd nix && nix flake update $(NIX_ARGS) && (nix profile upgrade $(NIX_ARGS) nix || nix profile install $(NIX_ARGS) .)
 
 .PHONY: setup-brew brew-pkgs
 

@@ -198,6 +198,7 @@ return {
 				},
 				per_filetype = {
 					markdown = {
+						"obsidian",
 						"copilot",
 						"snippets",
 						"path",
@@ -281,6 +282,10 @@ return {
 						module = "blink-emoji",
 						name = "Emoji",
 						score_offset = 1,
+					},
+					obsidian = {
+						name = "obsidian",
+						module = "blink.compat.source",
 					},
 				},
 			},

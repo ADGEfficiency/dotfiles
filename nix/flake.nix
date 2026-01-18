@@ -32,6 +32,8 @@
             entr
             findutils
             # fish
+            fd
+            csvlens
             flyctl
             gh
             git

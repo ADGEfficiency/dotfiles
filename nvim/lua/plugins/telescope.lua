@@ -14,6 +14,7 @@ return {
 				"isak102/telescope-git-file-history.nvim",
 				dependencies = { "tpope/vim-fugitive" },
 			},
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
 			local status_ok, telescope = pcall(require, "telescope")
@@ -107,6 +108,8 @@ return {
 				extensions = {
 					fzf = {
 						fuzzy = true, -- false will only do exact matching
+						override_generic_sorter = true,
+						override_file_sorter = true,
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					},
 					["ui-select"] = {
