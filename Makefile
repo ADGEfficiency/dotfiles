@@ -32,7 +32,7 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
 test: setup-nix
-	bash ./nix/load-"$(OS)".sh && bash ./tests/*.sh
+	. ./nix/load-"$(OS)".sh && bash ./tests/*.sh
 
 .PHONY: setup-uv python js
 
