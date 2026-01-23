@@ -53,15 +53,32 @@ return {
 
 			-- lua
 			vim.lsp.config["luals"] = {
-				cmd = { "lua-language-server" },
+				cmd = { "lua-language-server", "--force-accept-workspace" },
 				filetypes = { "lua" },
-				root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+				root_markers = {
+					".luarc.json",
+					".luarc.jsonc",
+					".git",
+				},
 				settings = {
 					Lua = {
 						runtime = {
 							version = "LuaJIT",
 						},
-						diagnostics = { globals = { "vim" } },
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = {
+								vim.env.VIMRUNTIME,
+								"${3rd}/luv/library",
+								"${3rd}/luassert/library",
+							},
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
 					},
 				},
 			}
@@ -118,6 +135,9 @@ return {
 					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					vim.keymap.set("n", "grr", vim.lsp.buf.rename, bufopts)
+					vim.keymap.set("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
+					vim.keymap.set("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+					vim.keymap.set("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
 				end,
 			})
 		end,

@@ -5,6 +5,9 @@ return {
 			{
 				"windwp/nvim-ts-autotag",
 			},
+			{
+				"nvim-treesitter/nvim-treesitter-textobjects",
+			},
 		},
 		config = function()
 			local status_ok, configs = pcall(require, "nvim-treesitter.configs")
@@ -34,6 +37,15 @@ return {
 					enable = true,
 					-- disable = { "markdown" },
 					additional_vim_regex_highlighting = true,
+				},
+				textobjects = {
+					select = {
+						enable = true,
+						keymaps = {
+							["ib"] = "@block.inner",
+							["ab"] = "@block.outer",
+						},
+					},
 				},
 			})
 		end,

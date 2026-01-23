@@ -25,11 +25,11 @@ vim.cmd([[
 
 -- Search in personal notes
 local function searchPersonalNotes()
-	require("telescope.builtin").find_files({
+	require("telescope.builtin").find_files(require("telescope.themes").get_ivy({
 		prompt_title = "<Personal Notes>",
 		search_dirs = { "~/personal", "~/programming-resources" },
 		path_display = { "absolute" },
-	})
+	}))
 end
 _G.searchPersonalNotes = searchPersonalNotes
 -- :S

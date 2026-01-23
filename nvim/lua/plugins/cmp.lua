@@ -27,7 +27,7 @@ return {
 			keymap = {
 				["<Tab>"] = {
 					"select_next",
-					"fallback",
+					-- "fallback"
 				},
 				["<S-Tab>"] = {
 					"select_prev",
@@ -42,21 +42,14 @@ return {
 			cmdline = {
 				enabled = true,
 				completion = {
-					-- keyword = { range = "full" },
 					menu = { auto_show = true },
 					ghost_text = { enabled = true },
 				},
 				keymap = {
 					["<Tab>"] = {
-						"select_next",
-						-- "fallback"
-					},
-					["<S-Tab>"] = {
-						"select_prev",
-						-- "fallback"
+						"accept",
 					},
 					["<CR>"] = {
-						-- "select_accept_and_enter",
 						"fallback",
 					},
 				},
@@ -220,6 +213,7 @@ return {
 				},
 				per_filetype = {
 					markdown = {
+						"obsidian",
 						"copilot",
 						"snippets",
 						"path",
@@ -303,6 +297,10 @@ return {
 						module = "blink-emoji",
 						name = "Emoji",
 						score_offset = 1,
+					},
+					obsidian = {
+						name = "obsidian",
+						module = "blink.compat.source",
 					},
 				},
 			},
