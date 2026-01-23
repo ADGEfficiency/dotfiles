@@ -40,15 +40,16 @@ return {
 		opts = {
 			system_prompt = [[You are an expert software engineer.
 - Provide clear, concise explanations
-- Do not include comments unless necessary
+- Include comments only if necessary
+- Include functions only if necessary
 - Include docstrings
-- Any Python code should pass strict type checking]],
+- All Python code should pass strict type checking]],
 			debug = true,
 			context = "buffers",
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 			auto_follow_cursor = false,
 			auto_insert_mode = true,
-			model = "gpt-4o-mini",
+			model = "gpt-4",
 		},
 	},
 }

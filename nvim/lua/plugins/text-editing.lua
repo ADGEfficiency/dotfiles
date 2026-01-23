@@ -1,5 +1,4 @@
 return {
-	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	{
 		"toppair/peek.nvim",
 		event = { "VeryLazy" },
