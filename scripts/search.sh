@@ -3,30 +3,12 @@
 TERM_HEIGHT=$(tput lines)
 MIN_HEIGHT=20
 
-open_files_with_editor() {
-  if [ "$BASH_VERSION" != "" ]; then
-    # Bash-specific way to handle files
-    eval "$EDITOR" "$@"
-  elif [ "$ZSH_VERSION" != "" ]; then
-    # Zsh-specific way to handle array arguments
-    eval "$EDITOR" "@"
-  else
-    # Fallback for other POSIX-compliant shells
-    eval "$EDITOR" "$@"
-  fi
-}
-
 # Use provided directory or default to current directory
 target_dir="${1:-.}"
 cd "$target_dir" || exit
 
 if [ "$TERM_HEIGHT" -ge "$MIN_HEIGHT" ]; then
-  files=$(fzf --preview 'bat --style=numbers --color=always {}' --height 60% -m)
+  fzf --preview 'bat --style=numbers --color=always {}' --height 60% -m --print0 | xargs -0 $EDITOR
 else
-  files=$(fzf --no-preview --height 40% -m)
-fi
-
-if [ $? -eq 0 ]; then
-  # Open selected files with the preferred editor
-  open_files_with_editor "$(echo "$files" | tr '\n' ' ')"
+  fzf --no-preview --height 40% -m --print0 | xargs -0 $EDITOR
 fi
