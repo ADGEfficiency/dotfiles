@@ -1,7 +1,6 @@
 tap "hudochenkov/sshpass"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
-tap "efm-langserver/tap"
 
 # Core tools
 brew "bash"
@@ -36,7 +35,7 @@ brew "zoxide"
 # Language servers & linters
 brew "actionlint"
 brew "codespell"
-brew "efm-langserver/tap/efm-langserver"
+brew "efm-langserver"
 brew "golangci-lint"
 brew "gopls"
 brew "hadolint"
