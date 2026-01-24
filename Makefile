@@ -7,6 +7,7 @@ setup-common:
 	bash ./tmux/setup.sh
 	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
+	bash ./scripts/setup-extras.sh
 
 setup-macos: export OS=macos
 setup-macos: brew-pkgs dotfiles setup-common
