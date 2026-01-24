@@ -1,4 +1,13 @@
 return {
+	{
+		"ggandor/leap.nvim",
+		dependencies = { "tpope/vim-repeat" },
+		config = function()
+			-- Set up recommended keymaps for leap.nvim
+			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+			vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
+		end,
+	},
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	{
 		"toppair/peek.nvim",
@@ -76,6 +85,17 @@ return {
 	{ "dhruvasagar/vim-table-mode" },
 	{ "dkarter/bullets.vim" },
 	{ "mzlogin/vim-markdown-toc" },
+	-- install with yarn or npm
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+
 	--- Text editing - HTML
 	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },

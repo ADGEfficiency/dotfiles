@@ -1,6 +1,6 @@
 # dotfiles
 
-Setup and configuration for my terminal based developer workflow:
+Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
 
 - Zsh for a shell
 - Nix for package management of shell programs
@@ -9,6 +9,12 @@ Setup and configuration for my terminal based developer workflow:
 - Stow for dotfiles management
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
+
+You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves:
+
+- Installing packages with Nix or Homebrew
+- Setting up symlinks with Stow
+- Setting up tmux & Zsh
 
 ## Use
 
@@ -86,6 +92,12 @@ Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XD
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
+### Shell Customization
+
+The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory, or pass a path like `s ~/projects`. Supports multi-select with Tab.
+
+Lot's of aliases - see `scripts/aliases.sh`.
+
 ### Getting Kitty to Play Nice on macOS
 
 Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
@@ -112,5 +124,3 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
-
-

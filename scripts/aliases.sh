@@ -50,8 +50,8 @@ alias pipr='pip install -r requirements.txt'
 # files
 alias cheat='$EDITOR $PERSONAL_PATH/resource/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
-alias inb='inbox'
-alias inbox='$EDITOR $PERSONAL_PATH/inbox/inbox.md'
+alias inbox='$EDITOR $PERSONAL_PATH/area/inbox/inbox.md'
+alias ibx='inbox'
 alias quotes='$EDITOR $PERSONAL_PATH/lists/quotes.md'
 alias someday='$EDITOR $PERSONAL_PATH/someday.md'
 
@@ -155,3 +155,6 @@ alias air='ssh adamgreen@air.local'
 alias macbook='ssh adam@macbook.local'
 
 alias f='fish'
+
+alias ai='claude'
+alias ai-talk='claude converse'

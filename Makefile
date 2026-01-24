@@ -26,13 +26,13 @@ setup-stow:
 
 STOW_ARGS=-vv
 dotfiles: setup-stow
-	stow $(STOW_ARGS) -d dotfiles -t $(HOME) $(OS)
-	stow $(STOW_ARGS) dotfiles
-	stow $(STOW_ARGS) yabai
+	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)"$(OS)
+	stow "$(STOW_ARGS)" dotfiles
+	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
-test: setup-nix
-	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
+test: nix-pkgs
+	. ./nix/load-"$(OS)".sh && bash ./tests/*.sh
 
 .PHONY: setup-uv python js
 
@@ -64,12 +64,12 @@ setup-vim:
 
 setup-nix:
 	curl -L https://nixos.org/nix/install | sh
-	. ./nix/load-$(OS).sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
-	. ./nix/load-$(OS).sh && nix-channel --update
+	. ./nix/load-"$(OS)".sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
+	. ./nix/load-"$(OS)".sh && nix-channel --update
 
 NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 nix-pkgs: setup-nix
-	. ./nix/load-$(OS).sh && cd nix && nix flake update $(NIX_ARGS) && nix profile install $(NIX_ARGS)
+	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && (nix profile upgrade "$(NIX_ARGS)" nix || nix profile install "$(NIX_ARGS)" .)
 
 .PHONY: setup-brew brew-pkgs
 
@@ -78,6 +78,6 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint mactex pandoc fzf keychain wordnet
+	brew install hadolint vale actionlint mactex pandoc fzf keychain wordnet entr
 	brew install koekeishiya/formulae/yabai
 	brew install koekeishiya/formulae/skhd
