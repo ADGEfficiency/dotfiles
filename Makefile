@@ -10,7 +10,7 @@ setup-common:
 	bash ./scripts/setup-extras.sh
 
 setup-macos: export OS=macos
-setup-macos: brew-pkgs dotfiles setup-common
+setup-macos: brew-pkgs dotfiles setup-common setup-python
 	bash ./macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
@@ -32,17 +32,14 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
-.PHONY: setup-uv python js
+.PHONY: setup-uv python
 
 setup-uv:
 	bash ./python/setup-uv.sh
 
-python: setup-uv
+setup-python: setup-uv
 	cd ~ && ~/.local/bin/uv venv --python 3.11.9
 	~/.local/bin/uv pip install -r ./python/pyproject.toml
-
-js:
-	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify jsonlint jshint sql-language-server @tailwindcss/language-server markserv
 
 .PHONY: clean-nvim setup-vim
 
