@@ -2,6 +2,7 @@ bash $HOME/dotfiles/scripts/trace.sh "$0"
 # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 #   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 # fi
+eval "$(mise activate zsh)"
 export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=$HOME/dotfiles
 if command -v launchctl >/dev/null 2>&1; then
