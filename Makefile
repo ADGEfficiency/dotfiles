@@ -31,7 +31,7 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
-test: setup-nix
+test: nix-pkgs
 	. ./nix/load-"$(OS)".sh && bash ./tests/*.sh
 
 .PHONY: setup-uv python js
