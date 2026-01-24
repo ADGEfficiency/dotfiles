@@ -70,9 +70,9 @@ source ~/dotfiles/macos/pyenv-flags
 export IPYTHONDIR="$HOME/dotfiles/.ipython"
 
 # need a fancy npm setup when npm manages nix - requires a .npmrc with a prefix
-export PATH=~/.npm-packages/bin:$PATH
-export NODE_PATH=~/.npm-packages/lib/node_modules
-export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
+# export PATH=~/.npm-packages/bin:$PATH
+# export NODE_PATH=~/.npm-packages/lib/node_modules
+# export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
 pyenv_init
 starship_init
