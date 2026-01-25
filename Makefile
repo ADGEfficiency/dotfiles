@@ -1,7 +1,7 @@
 default:
 	@echo "hello ^^"
 
-.PHONY: setup-macos setup-ubuntu setup-wsl setup-common setup-stow
+.PHONY: setup-common setup-macos setup-ubuntu setup-wsl
 
 setup-common:
 	bash ./tmux/setup.sh
@@ -14,18 +14,18 @@ setup-macos: brew-pkgs dotfiles setup-common setup-python
 	bash ./macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
-setup-ubuntu: dotfiles setup-common
+setup-ubuntu: brew-pkgs dotfiles setup-common
 	bash ./ubuntu/setup.sh
 
 setup-wsl: export OS=wsl
 setup-wsl: dotfiles setup-common
 
+.PHONY: setup-stow dotfiles
+
+STOW_ARGS=-vv
 setup-stow:
 	bash ./stow/setup.sh
 
-.PHONY: dotfiles test
-
-STOW_ARGS=-vv
 dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
