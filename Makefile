@@ -32,7 +32,7 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
 test: setup-nix
-	bash ./nix/load-"$(OS)".sh && bash ./tests/*.sh
+	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
 
 .PHONY: setup-uv python js
 
@@ -69,7 +69,13 @@ setup-nix:
 
 NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 nix-pkgs: setup-nix
+<<<<<<< HEAD
 	. ./nix/load-"$(OS)".sh && cd nix && nix flake update $(NIX_ARGS) && (nix profile upgrade $(NIX_ARGS) nix || nix profile install $(NIX_ARGS) .)
+||||||| 99ba32c
+	. ./nix/load-$(OS).sh && cd nix && nix flake update $(NIX_ARGS) && nix profile install $(NIX_ARGS)
+=======
+	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && (nix profile upgrade "$(NIX_ARGS)" nix || nix profile install "$(NIX_ARGS)" .)
+>>>>>>> 204fef1e307c84bddae0b0e0618cd3fd5c973deb
 
 .PHONY: setup-brew brew-pkgs
 

@@ -23,21 +23,6 @@ return {
 		opts = {
 			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-			keymap = {
-				["<Tab>"] = {
-					"select_next",
-					-- "fallback"
-				},
-				["<S-Tab>"] = {
-					"select_prev",
-					-- "fallback"
-				},
-				["<CR>"] = {
-					-- "accept",
-					"fallback",
-				},
-			},
-
 			cmdline = {
 				enabled = true,
 				completion = {
@@ -53,7 +38,6 @@ return {
 					},
 				},
 			},
-
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
@@ -87,7 +71,6 @@ return {
 						},
 					},
 				},
-
 				list = {
 					selection = {
 						auto_insert = true,
@@ -163,7 +146,6 @@ return {
 					},
 				},
 			},
-
 			signature = {
 				enabled = true,
 				trigger = {

@@ -1,6 +1,6 @@
 # dotfiles
 
-Setup and configuration for my terminal based developer workflow:
+Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
 
 - Zsh for a shell
 - Nix for package management of shell programs
@@ -9,6 +9,12 @@ Setup and configuration for my terminal based developer workflow:
 - Stow for dotfiles management
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
+
+You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves:
+
+- Installing packages with Nix or Homebrew
+- Setting up symlinks with Stow
+- Setting up tmux & Zsh
 
 ## Use
 
