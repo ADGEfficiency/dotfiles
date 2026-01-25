@@ -23,7 +23,6 @@ return {
 		opts = {
 			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-
 			keymap = {
 				["<Tab>"] = {
 					"select_next",
@@ -298,10 +297,10 @@ return {
 						name = "Emoji",
 						score_offset = 1,
 					},
-					obsidian = {
-						name = "obsidian",
-						module = "blink.compat.source",
-					},
+					-- obsidian = {
+					-- 	name = "obsidian",
+					-- 	module = "blink.compat.source",
+					-- },
 				},
 			},
 		},

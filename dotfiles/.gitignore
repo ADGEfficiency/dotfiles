@@ -38,3 +38,4 @@ temp
 temp.*
 temp
 .databricks
+.venv
