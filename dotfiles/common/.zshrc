@@ -54,7 +54,8 @@ atuin_init() {
 
 fpath=($HOME/dotfiles/zsh/custom-autocomplete/ $fpath)
 autoload -U compinit
-compinit
+# Use cached completion dump for faster loading (skip security check)
+compinit -C
 autoload -Uz $HOME/dotfiles/zsh/custom-autocomplete/todo
 
 export HISTFILE=~/.zsh_history
@@ -78,9 +79,33 @@ pyenv_init
 starship_init
 flyctl_init
 
-eval "$(zoxide init zsh)"
+# Lazy-load mise for faster startup (only initialize on first use)
+mise() {
+  unfunction mise
+  eval "$(command mise activate zsh)"
+  mise "$@"
+}
+
+# Lazy-load zoxide (only initialize on first use of z/zi commands)
+z() {
+  unfunction z zi 2>/dev/null
+  eval "$(zoxide init zsh)"
+  z "$@"
+}
+zi() {
+  unfunction z zi 2>/dev/null
+  eval "$(zoxide init zsh)"
+  zi "$@"
+}
+
 eval "$(ssh-agent)"  &>/dev/null &>/dev/null
-eval "$(direnv hook zsh)"
+
+# Lazy-load direnv (only initialize on first cd)
+direnv() {
+  unfunction direnv
+  eval "$(command direnv hook zsh)"
+  direnv "$@"
+}
 
 # done twice for a reason
 pretzo_init
