@@ -110,3 +110,4 @@ cask "font-hack-nerd-font"
 cask "mactex"
 
 brew "markdownlint-cli"
+cask "copilot-cli"
