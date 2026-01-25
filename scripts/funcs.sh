@@ -140,7 +140,6 @@ delete_env() {
 
 
 #  utilities for viewing files
-
 json() {
   cat $1 | jq | less
 }
