@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: rm ~/.bashrc ~/.bash_profile
-      - run: make setup-ubuntu
+      - run: make setup-ubuntu -o brew-pkgs
   macos:
     runs-on: macos-latest
     env:
