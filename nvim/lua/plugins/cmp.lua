@@ -279,10 +279,10 @@ return {
 						name = "Emoji",
 						score_offset = 1,
 					},
-					-- obsidian = {
-					-- 	name = "obsidian",
-					-- 	module = "blink.compat.source",
-					-- },
+					obsidian = {
+						name = "obsidian",
+						module = "blink.compat.source",
+					},
 				},
 			},
 		},
