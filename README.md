@@ -2,12 +2,12 @@
 
 Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
 
-- Zsh for a shell
-- Homebrew for shell tools
-- mise for programming language runtimes (except Python)
-- uv for Python runtime and virtual environments
-- Neovim for text editing
-- Stow for dotfiles management
+- **Zsh** for a shell
+- **Homebrew** for shell tools
+- **mise** for programming language runtimes (except Python)
+- **uv** for Python runtime and virtual environments
+- **Neovim** for text editing
+- **Stow** for dotfiles symlinking
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlimk files.
 
