@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: rm ~/.bashrc ~/.bash_profile
-      - run: make setup-ubuntu -o brew-pkgs
+      - run: make setup-ubuntu
   macos:
     runs-on: macos-latest
     env:
@@ -18,3 +18,5 @@ jobs:
       NIXPKGS_ALLOW_BROKEN: 1
     steps:
       - uses: actions/checkout@v3
+      - run: rm ~/.bashrc ~/.bash_profile
+      - run: make setup-macos
