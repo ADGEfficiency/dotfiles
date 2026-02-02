@@ -2,19 +2,21 @@
 
 Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
 
-- Zsh for a shell
-- Nix for package management of shell programs
-- uv for Python
-- Neovim for text editing
-- Stow for dotfiles management
+- **Zsh** for a shell
+- **Homebrew** for shell tools
+- **mise** for programming language runtimes (except Python)
+- **uv** for Python runtime and virtual environments
+- **Neovim** for text editing
+- **Stow** for dotfiles symlinking
 
-This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`.
+This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlimk files.
 
 You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves:
 
-- Installing packages with Nix or Homebrew
+- Installing packages with Homebrew
 - Setting up symlinks with Stow
 - Setting up tmux & Zsh
+- Installing language runtimes with mise
 
 ## Use
 
@@ -30,20 +32,24 @@ This will also setup dependencies with Nix.
 
 ### macOS
 
-Setup an macOS machine:
+Setup a macOS machine:
 
 ```shell-session
 $ make setup-macos
 ```
 
-This will also setup dependencies with Nix.
+This will:
+- Install Homebrew if not already installed
+- Install all packages from the Brewfile
+- Setup dotfiles with Stow
+- Configure tmux, Zsh, and fzf
 
 ### Python
 
 Install `uv` and setup a global Python installation in a virtual environment:
 
 ```bash
-$ make python
+$ make setup-python
 ```
 
 ## Components
@@ -70,21 +76,21 @@ You can run the setup without bootstrapping Stow with:
 $ make dotfiles OS=macos -o setup-stow
 ```
 
-### Nix
+### Homebrew
 
-Install packages with Nix from a Nix Flake - I use Nix for things like direnv and Neovim:
-
-```shell-session
-$ make nix-pkgs
-```
-
-This will setup dependencies with Nix from `./nix/flake.nix`.
-
-It will also install Nix itself. Nix doesn't like to be installed multiple times - you can avoid this step with:
+Install packages with Homebrew from the Brewfile:
 
 ```shell-session
-$ make nix-pkgs -o setup-nix
+$ make brew-pkgs
 ```
+
+This will:
+- Install Homebrew if not already installed
+- Install all packages defined in `./brew/Brewfile`
+
+### mise
+
+mise is used for managing programming language runtime versions (Python, Node.js, Go, etc.). It's automatically installed via the Brewfile and activated in Zsh via an `eval`.
 
 ### Neovim
 

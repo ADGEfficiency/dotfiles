@@ -17,6 +17,9 @@ alias 's'='search'
 # Add homebrew to PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
+# Add npm global packages to PATH
+set -gx PATH ~/.npm-packages/bin $PATH
+
 # Disable fish greeting message
 set -g fish_greeting
 
