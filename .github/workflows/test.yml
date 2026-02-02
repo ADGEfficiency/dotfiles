@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: rm ~/.bashrc ~/.bash_profile
-      - run: make setup-ubuntu
+      # not brew packages as it's annoying to do the $PATH changes after install....
+      - run: make setup-ubuntu -o brew-pkgs
   macos:
     runs-on: macos-latest
     env:
@@ -19,4 +20,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: rm ~/.bashrc ~/.bash_profile
-      - run: make setup-macos
+      # not brew packages as it's annoying to do the $PATH changes after install....
+      - run: make setup-macos -o brew-pkgs
