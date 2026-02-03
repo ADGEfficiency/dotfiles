@@ -112,6 +112,9 @@ vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- CopilotChat
 vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
+vim.keymap.set("n", "<leader>sc", function()
+	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
+end, { desc = "Toggle Copilot Chat (horizontal)" })
 
 -- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")

@@ -23,7 +23,6 @@ return {
 		opts = {
 			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-
 			cmdline = {
 				enabled = true,
 				completion = {
@@ -35,11 +34,11 @@ return {
 						"accept",
 					},
 					["<CR>"] = {
+						"accept_and_enter",
 						"fallback",
 					},
 				},
 			},
-
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
@@ -73,7 +72,6 @@ return {
 						},
 					},
 				},
-
 				list = {
 					selection = {
 						auto_insert = true,
@@ -149,7 +147,6 @@ return {
 					},
 				},
 			},
-
 			signature = {
 				enabled = true,
 				trigger = {

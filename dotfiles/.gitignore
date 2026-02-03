@@ -37,4 +37,5 @@ pre
 temp
 temp.*
 temp
+.databricks
 **/.mypy_cache

@@ -32,7 +32,6 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
-.PHONY: setup-uv python
 
 setup-uv:
 	bash ./python/setup-uv.sh
@@ -54,6 +53,17 @@ clean-nvim:
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	"vim" +PluginInstall +qall
+
+.PHONY: setup-nix nix-pkgs
+
+setup-nix:
+	curl -L https://nixos.org/nix/install | sh
+	. ./nix/load-"$(OS)".sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
+	. ./nix/load-"$(OS)".sh && nix-channel --update
+
+NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
+nix-pkgs: setup-nix
+	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && (nix profile upgrade "$(NIX_ARGS)" nix || nix profile install "$(NIX_ARGS)" .)
 
 .PHONY: setup-brew brew-pkgs
 
