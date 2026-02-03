@@ -9,6 +9,9 @@ jobs:
       XDG_CONFIG_HOME: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v3
+      - run: rm ~/.bashrc ~/.bash_profile
+      # not brew packages as it's annoying to do the $PATH changes after install....
+      - run: make setup-ubuntu -o brew-pkgs
   macos:
     runs-on: macos-latest
     env:
@@ -16,3 +19,6 @@ jobs:
       NIXPKGS_ALLOW_BROKEN: 1
     steps:
       - uses: actions/checkout@v3
+      - run: rm ~/.bashrc ~/.bash_profile
+      # not brew packages as it's annoying to do the $PATH changes after install....
+      - run: make setup-macos -o brew-pkgs

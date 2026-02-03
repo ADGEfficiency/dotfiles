@@ -1,50 +1,44 @@
 default:
 	@echo "hello ^^"
 
-.PHONY: setup-macos setup-ubuntu setup-wsl setup-common setup-stow
+.PHONY: setup-common setup-macos setup-ubuntu setup-wsl
 
 setup-common:
 	bash ./tmux/setup.sh
 	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
+	bash ./scripts/setup-extras.sh
 
 setup-macos: export OS=macos
-setup-macos: brew-pkgs nix-pkgs dotfiles setup-common
+setup-macos: brew-pkgs dotfiles setup-common setup-python
 	bash ./macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
-setup-ubuntu: dotfiles nix-pkgs dotfiles setup-common
+setup-ubuntu: brew-pkgs dotfiles setup-common
 	bash ./ubuntu/setup.sh
 
 setup-wsl: export OS=wsl
-setup-wsl: dotfiles nix-pkgs dotfiles setup-common
+setup-wsl: dotfiles setup-common
 
+.PHONY: setup-stow dotfiles
+
+STOW_ARGS=-vv
 setup-stow:
 	bash ./stow/setup.sh
 
-.PHONY: dotfiles test
-
-STOW_ARGS=-vv
 dotfiles: setup-stow
-	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)"$(OS)
+	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish\
 
-test: setup-nix
-	bash ./nix/load-$(OS).sh && bash ./tests/*.sh
-
-.PHONY: setup-uv python js
 
 setup-uv:
 	bash ./python/setup-uv.sh
 
-python: setup-uv
+setup-python: setup-uv
 	cd ~ && ~/.local/bin/uv venv --python 3.11.9
 	~/.local/bin/uv pip install -r ./python/pyproject.toml
-
-js:
-	npm install -g remark-cli remark-lint remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended remark-stringify jsonlint jshint sql-language-server @tailwindcss/language-server markserv
 
 .PHONY: clean-nvim setup-vim
 
@@ -69,13 +63,7 @@ setup-nix:
 
 NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 nix-pkgs: setup-nix
-<<<<<<< HEAD
-	. ./nix/load-"$(OS)".sh && cd nix && nix flake update $(NIX_ARGS) && (nix profile upgrade $(NIX_ARGS) nix || nix profile install $(NIX_ARGS) .)
-||||||| 99ba32c
-	. ./nix/load-$(OS).sh && cd nix && nix flake update $(NIX_ARGS) && nix profile install $(NIX_ARGS)
-=======
 	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && (nix profile upgrade "$(NIX_ARGS)" nix || nix profile install "$(NIX_ARGS)" .)
->>>>>>> 204fef1e307c84bddae0b0e0618cd3fd5c973deb
 
 .PHONY: setup-brew brew-pkgs
 
@@ -84,6 +72,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew install hadolint vale actionlint mactex pandoc fzf keychain wordnet entr
-	brew install koekeishiya/formulae/yabai
-	brew install koekeishiya/formulae/skhd
+	brew bundle --file ~/dotfiles/brew/Brewfile --no-upgrade

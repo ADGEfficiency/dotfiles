@@ -21,12 +21,12 @@ alias back='cd -'
 alias c='clear'
 alias cll='clear && ll'
 alias cls='clear && ls'
-alias ctree='clear && tree'
+
+# alias tree='fd --type f | tree --fromfile'
 
 # lsd
 alias ll='lsd --almost-all --group-directories-first'
 alias ls='lsd --almost-all --long --icon always --git --date relative --group-directories-first -a'
-alias tree='lsd --almost-all --tree'
 
 # program customization
 alias bat='bat --color=always --paging=always'
