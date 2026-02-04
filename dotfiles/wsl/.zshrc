@@ -1,6 +1,7 @@
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source "$HOME/dotfiles/dotfiles/common/.zshrc"
 source "$HOME/dotfiles/dotfiles/wsl/common.sh"
 eval $(keychain --quiet --eval github ado)
 # eval $(keychain --eval --agents ssh -Q --quiet $HOME/.ssh/azure-devops_id_rsa)
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

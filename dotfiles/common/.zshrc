@@ -63,8 +63,8 @@ export HISTFILESIZE=10000000
 export HISTSIZE=$HISTFILESIZE
 SAVEHIST=$HISTSIZE
 export AWS_LOG_LEVEL=3
-
-alias brew='arch -arm64 brew'
+# 
+# alias brew='arch -arm64 brew'
 source ~/dotfiles/macos/pyenv-flags
 
 # custom ipython config

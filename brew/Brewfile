@@ -97,7 +97,9 @@ brew "wordnet"
 
 # Taps
 brew "hudochenkov/sshpass/sshpass"
-brew "koekeishiya/formulae/skhd"
+if OS.mac?
+  brew "koekeishiya/formulae/skhd"
+end
 brew "koekeishiya/formulae/yabai"
 
 # Casks

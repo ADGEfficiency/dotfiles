@@ -1,7 +1,7 @@
 bash $HOME/dotfiles/scripts/trace.sh "$0"
-# if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-#   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-# fi
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 # Moved mise activation to .zshrc for interactive shells only (performance optimization)
 export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=$HOME/dotfiles
