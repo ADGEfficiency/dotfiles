@@ -26,7 +26,7 @@ return {
 					-- Markdown text objects
 					h = require("mini.ai").gen_spec.treesitter({ a = "@markup.heading", i = "@markup.heading" }),
 					-- Code blocks in markdown
-					C = function(ai_type)
+					b = function(ai_type)
 						local pattern = "```.-```"
 						return require("mini.ai").gen_spec.pair(pattern, pattern, {
 							type = "non-balanced",

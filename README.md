@@ -11,6 +11,8 @@ Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlimk files.
 
+Different files are symlinked based on the `OS` `Makefile` variable - usually it's just getting RC files for specific OS, ie `./dotfiles/macos/.zshrc`.
+
 You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves:
 
 - Installing packages with Homebrew
@@ -28,7 +30,7 @@ Setup an Ubuntu machine:
 $ make setup-ubuntu
 ```
 
-This will also setup dependencies with Nix.
+This will also setup dependencies with Homebrew.
 
 ### macOS
 
@@ -40,7 +42,7 @@ $ make setup-macos
 
 This will:
 - Install Homebrew if not already installed
-- Install all packages from the Brewfile
+- Install all dependencies from `./brew/Brewfile`
 - Setup dotfiles with Stow
 - Configure tmux, Zsh, and fzf
 
@@ -94,7 +96,7 @@ mise is used for managing programming language runtime versions (Python, Node.js
 
 ### Neovim
 
-Neovim config is in `./nvim`. To use the Neovim setup, put this folder into `$XDG_CONFIG_HOME`.
+Neovim config is in `./nvim`. To use the Neovim setup alone, put the `nvim` folder into `$XDG_CONFIG_HOME`.
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
@@ -102,7 +104,7 @@ I use Lazy for package management in Neovim - it will install packages when you 
 
 The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory, or pass a path like `s ~/projects`. Supports multi-select with Tab.
 
-Lot's of aliases - see `scripts/aliases.sh`.
+Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell helper functions in `./scripts/funcs.sh`.
 
 ### Getting Kitty to Play Nice on macOS
 
