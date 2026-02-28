@@ -1,6 +1,5 @@
 source $HOME/dotfiles/dotfiles/common/.zshrc
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
-# eval "$(gh copilot alias -- zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 . "$HOME/.local/bin/env"
 

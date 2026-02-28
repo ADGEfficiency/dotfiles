@@ -35,6 +35,7 @@ return {
 						"accept",
 					},
 					["<CR>"] = {
+						-- "select_accept_and_enter",
 						"fallback",
 					},
 				},
