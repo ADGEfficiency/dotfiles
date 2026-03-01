@@ -30,7 +30,10 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
-	ln -sf ~/dotfiles/fish ~/.config/fish\
+	ln -sf ~/dotfiles/fish ~/.config/fish
+	mkdir -p "$(HOME)/.agents"
+	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
+	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 
 .PHONY: setup-uv python
 

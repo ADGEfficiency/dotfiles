@@ -23,14 +23,6 @@ return {
 		},
 	},
 	{
-		"zbirenbaum/copilot-cmp",
-		event = { "BufEnter" },
-		dependencies = { "zbirenbaum/copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
-	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "main",
 		dependencies = {
@@ -43,6 +35,8 @@ return {
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 			auto_follow_cursor = false,
 			model = "gpt-4o",
+			sticky = "@copilot",
+			auto_fold = false,
 		},
 	},
 }

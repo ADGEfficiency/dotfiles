@@ -15,15 +15,14 @@ return {
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
 			"L3MON4D3/LuaSnip",
+			"bydlw98/blink-cmp-env",
 		},
 		version = "*",
-
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
 			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-
 			cmdline = {
 				enabled = true,
 				completion = {
@@ -35,12 +34,10 @@ return {
 						"accept",
 					},
 					["<CR>"] = {
-						-- "select_accept_and_enter",
 						"fallback",
 					},
 				},
 			},
-
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
@@ -74,7 +71,6 @@ return {
 						},
 					},
 				},
-
 				list = {
 					selection = {
 						auto_insert = true,
@@ -89,18 +85,7 @@ return {
 							and vim.bo.filetype ~= "TelescopePrompt"
 					end,
 					draw = {
-						columns = {
-							{
-								"label",
-								-- "label_description",
-								-- gap = 3
-							},
-							{
-								"kind_icon",
-								gap = 1,
-								"source_name",
-							},
-						},
+						columns = { { "label" }, { "kind_icon", gap = 1, "source_name" } },
 						components = {
 							kind_icon = {
 								ellipsis = false,
@@ -150,7 +135,6 @@ return {
 					},
 				},
 			},
-
 			signature = {
 				enabled = true,
 				trigger = {
@@ -182,21 +166,9 @@ return {
 				-- Adjusts spacing to ensure icons are aligned
 				nerd_font_variant = "mono",
 			},
-
-			-- Default list of enabled providers defined so that you can extend it
-			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				min_keyword_length = 2,
-				default = {
-					"copilot",
-					"snippets",
-					"path",
-					"lsp",
-					"buffer",
-					"ripgrep",
-					"emoji",
-					"dictionary",
-				},
+				default = { "copilot", "snippets", "path", "lsp", "buffer", "ripgrep", "emoji", "dictionary" },
 				per_filetype = {
 					markdown = {
 						"obsidian",
@@ -209,21 +181,8 @@ return {
 						"emoji",
 						"dictionary",
 					},
-					go = {
-						"snippets",
-						"path",
-						"lsp",
-						"buffer",
-						"ripgrep",
-					},
-					python = {
-						"copilot",
-						"snippets",
-						"path",
-						"lsp",
-						"buffer",
-						"ripgrep",
-					},
+					go = { "snippets", "path", "lsp", "buffer", "ripgrep" },
+					python = { "copilot", "snippets", "path", "lsp", "buffer", "ripgrep" },
 				},
 				providers = {
 					copilot = {

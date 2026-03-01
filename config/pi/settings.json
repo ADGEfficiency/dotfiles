@@ -1,0 +1,6 @@
+{
+  "lastChangelogVersion": "0.55.3",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-6",
+  "theme": "dracula"
+}
