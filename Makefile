@@ -32,8 +32,8 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" yabai
 	ln -sf ~/dotfiles/fish ~/.config/fish
 	mkdir -p "$(HOME)/.agents"
-	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
+	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
 
