@@ -156,5 +156,6 @@ alias macbook='ssh adam@macbook.local'
 
 alias f='fish'
 
+alias secret='nvim /home/adam/src/.env.secret'
 alias ai='claude'
 alias ai-talk='claude converse'

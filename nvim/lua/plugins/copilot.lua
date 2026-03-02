@@ -30,6 +30,12 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 		opts = {
+			system_prompt = [[You are an expert software engineer.
+- Provide clear, concise explanations
+- Include comments only if necessary
+- Include functions only if necessary
+- Include docstrings
+- All Python code should pass strict type checking]],
 			debug = true,
 			context = "buffers",
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
@@ -37,6 +43,7 @@ return {
 			model = "gpt-4o",
 			sticky = "@copilot",
 			auto_fold = false,
+			auto_insert_mode = true,
 		},
 	},
 }
