@@ -34,6 +34,7 @@ dotfiles: setup-stow
 	mkdir -p "$(HOME)/.agents"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
+	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
 
 
 setup-uv:
