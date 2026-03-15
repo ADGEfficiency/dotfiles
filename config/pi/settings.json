@@ -1,6 +1,11 @@
 {
   "lastChangelogVersion": "0.55.3",
   "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-4-6",
-  "theme": "dracula"
+  "defaultModel": "claude-sonnet-4-6",
+  "theme": "dracula",
+  "packages": [
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-web-access",
+    "npm:pi-powerline-footer"
+  ]
 }
