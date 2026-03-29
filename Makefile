@@ -21,7 +21,7 @@ setup-ubuntu: brew-pkgs dotfiles setup-common
 setup-wsl: export OS=wsl
 setup-wsl: dotfiles setup-common
 
-.PHONY: setup-stow dotfiles
+.PHONY: setup-stow dotfiles setup-uv setup-python
 
 STOW_ARGS=-vv
 setup-stow:
@@ -31,13 +31,13 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
+	stow "$(STOW_ARGS)" skhd
 	ln -sf ~/dotfiles/fish ~/.config/fish
 	mkdir -p "$(HOME)/.agents"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
-
 
 setup-uv:
 	bash ./python/setup-uv.sh
@@ -59,17 +59,6 @@ clean-nvim:
 setup-vim:
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	"vim" +PluginInstall +qall
-
-.PHONY: setup-nix nix-pkgs
-
-setup-nix:
-	curl -L https://nixos.org/nix/install | sh
-	. ./nix/load-"$(OS)".sh && nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
-	. ./nix/load-"$(OS)".sh && nix-channel --update
-
-NIX_ARGS=--extra-experimental-features nix-command --extra-experimental-features flakes
-nix-pkgs: setup-nix
-	. ./nix/load-"$(OS)".sh && cd nix && nix flake update "$(NIX_ARGS)" && (nix profile upgrade "$(NIX_ARGS)" nix || nix profile install "$(NIX_ARGS)" .)
 
 .PHONY: setup-brew brew-pkgs
 
