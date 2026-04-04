@@ -76,6 +76,11 @@ km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 -- Run current buffer in Python
 km("n", "<F6>", ":!python %:p <cr>", opts)
 
+-- mini.surround help
+vim.keymap.set("n", "<leader>?s", function()
+    print("Surround: ys{motion}{char} add | ds{char} delete | cs{old}{new} replace")
+end, { desc = "Surround help" })
+
 -- Plugins
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)

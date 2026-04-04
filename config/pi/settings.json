@@ -1,11 +1,13 @@
 {
-  "lastChangelogVersion": "0.55.3",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-sonnet-4-6",
+  "lastChangelogVersion": "0.63.2",
+  "defaultProvider": "openrouter",
+  "defaultModel": "moonshotai/kimi-k2.5",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
     "npm:pi-web-access",
-    "npm:pi-powerline-footer"
-  ]
+    "npm:pi-powerline-footer",
+    "npm:pi-vim"
+  ],
+  "defaultThinkingLevel": "minimal"
 }

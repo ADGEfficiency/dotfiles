@@ -125,6 +125,13 @@ alias tl='tmux ls'
 alias ts='tmux ls'
 alias tls='tmux ls'
 
+# zellij - similar to tmux
+alias za='zellij attach'
+alias zn='zellij'
+alias zl='zellij list-sessions'
+alias zls='zellij list-sessions'
+alias zk='zellij kill-all-sessions --yes'
+
 # docker
 alias dc='docker compose'
 

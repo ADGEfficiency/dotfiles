@@ -5,7 +5,17 @@ return {
 		config = function()
 			-- text editing
 			require("mini.comment").setup()
-			require("mini.surround").setup()
+			require("mini.surround").setup({
+    mappings = {
+        add = "ys",            -- ys{motion}{char} - add surround (normal), ys{char} - visual
+        delete = "ds",         -- ds{char} - delete surround
+        replace = "cs",        -- cs{old}{new} - replace surround
+        find = "sf",           -- find surround to the right
+        find_left = "sF",      -- find surround to the left
+        highlight = "sh",      -- highlight surround
+        update_n_lines = "sn", -- update n lines
+    },
+})
 			require("mini.pairs").setup()
 			require("mini.trailspace").setup()
 

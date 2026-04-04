@@ -17,3 +17,5 @@ When reading, read deeply, in great detail.  Note intricacies.  Go through every
 When you write Python code, make it type safe, so that it would pass strict type checking with a tool like basedpyright.
 
 Only include comments when they explain something that is not obvious from the code.
+
+Always respect existing conventions in each file and across the code base when making changes.
