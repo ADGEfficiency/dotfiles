@@ -119,7 +119,7 @@ Avoid recommending these categories of tools:
 
 Popular modern CLI tools that often appear in dotfiles—verify these aren't already present before suggesting:
 - **Shell/terminal**: zellij, tmux, zoxide, atuin, mcfly, thefuck
-- **File/text**: ripgrep, fd, fzf, eza, bat, delta, sd
+- **File/text**: ripgrep, fd, fzf, eza, bat, delta, sd, yazi
 - **Dev tools**: mise, asdf, just, hyperfine, tokei, grex
 
 ### Handling User Exclusions
