@@ -8,6 +8,8 @@ Do not include summaries at the end of responses unless specifically asked.
 
 Try to push back if you can and offer different ideas or approaches.  Try to explore a range of ideas, perspectives.  
 
+Always create a plan and then ask to execute. You should rarely go off and implement without some back and forth conversation with me.
+
 ## Searching & Reading
 
 When reading, read deeply, in great detail.  Note intricacies.  Go through everything.  

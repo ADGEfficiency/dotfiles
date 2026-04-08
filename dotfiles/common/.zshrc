@@ -147,13 +147,7 @@ zi() {
 }
 
 eval "$(ssh-agent)"  &>/dev/null &>/dev/null
-
-# Lazy-load direnv (only initialize on first cd)
-direnv() {
-  unfunction direnv
-  eval "$(command direnv hook zsh)"
-  direnv "$@"
-}
+eval "$(direnv hook zsh)"
 
 # done twice for a reason
 pretzo_init
