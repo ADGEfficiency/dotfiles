@@ -40,6 +40,12 @@ return {
 				},
 			},
 			completion = {
+				keymap = {
+					["<CR>"] = {
+						"accept_and_enter",
+						"fallback",
+					},
+				},
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
 					auto_show = true,
