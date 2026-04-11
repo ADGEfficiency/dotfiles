@@ -13,7 +13,7 @@ return {
 		end,
 	},
 	{ "sindrets/diffview.nvim" },
-	{ "mhinz/vim-grepper" },
+
 	{ "FooSoft/vim-argwrap" },
 	{ "mattn/emmet-vim" },
 	{
@@ -87,7 +87,6 @@ return {
 	},
 
 	--- Text editing - HTML
-	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },
 	{
 		"PedramNavid/dbtpal",

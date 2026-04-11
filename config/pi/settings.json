@@ -9,6 +9,6 @@
     "npm:pi-vim",
     "npm:@ifi/pi-plan"
   ],
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "quietStartup": false
 }
