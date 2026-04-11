@@ -16,7 +16,7 @@
 [core]
   editor = nvim
   excludesfile = ~/dotfiles/dotfiles/.gitignore
-  pager = bat
+  pager = delta
 
 [diff]
   algorithm = histogram
@@ -25,6 +25,16 @@
   context = 10
   mnemonicPrefix = true
   renames = true
+
+[delta]
+  navigate = true
+  light = false
+  side-by-side = true
+  line-numbers = true
+  hyperlinks = true
+
+[interactive]
+  diffFilter = delta --color-only
 
 [fetch]
   prune = true
@@ -35,7 +45,7 @@
   defaultBranch = main
 
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
   ff = true
   tool = nvimdiff
 

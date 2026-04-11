@@ -64,7 +64,7 @@ alias epl='cd $HOME/energy-py-linear'
 alias expt='cd $HOME/energy-py-experiments'
 alias per='cd $PERSONAL_PATH'
 alias docs='cd $PERSONAL_PATH'
-alias prog='cd $HOME/programming-resources'
+alias prog='cd $PERSONAL_PATH/resource/programming'
 alias syl='cd $HOME/handbook'
 alias teach='cd $HOME/teaching-monolith'
 alias web='cd $HOME/climate-code/website'
@@ -124,6 +124,13 @@ alias tab='tmux attach -t base'
 alias tl='tmux ls'
 alias ts='tmux ls'
 alias tls='tmux ls'
+
+# zellij - similar to tmux
+alias za='zellij attach'
+alias zn='zellij'
+alias zl='zellij list-sessions'
+alias zls='zellij list-sessions'
+alias zk='zellij kill-all-sessions --yes'
 
 # docker
 alias dc='docker compose'

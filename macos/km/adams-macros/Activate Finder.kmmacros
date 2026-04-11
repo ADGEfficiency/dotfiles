@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>624329848.61627197</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>1972</integer>
+						<key>AllWindows</key>
+						<false/>
+						<key>AlreadyActivatedActionType</key>
+						<string>Hide</string>
+						<key>Application</key>
+						<dict>
+							<key>BundleIdentifier</key>
+							<string>com.apple.finder</string>
+							<key>Name</key>
+							<string>Finder</string>
+							<key>NewFile</key>
+							<string>/System/Library/CoreServices/Finder.app</string>
+						</dict>
+						<key>MacroActionType</key>
+						<string>ActivateApplication</string>
+						<key>ReopenWindows</key>
+						<true/>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>691403255.55500901</real>
+				<key>ModificationDate</key>
+				<real>691403279.84610605</real>
+				<key>Name</key>
+				<string>Activate Finder</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>96</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>0FE311D8-2BD4-431A-83EB-D28C6B64BB11</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>adams-macros</string>
+		<key>ToggleMacroUID</key>
+		<string>72F63232-9754-45AC-8EC5-D8D1218F06EA</string>
+		<key>UID</key>
+		<string>542BC640-C047-4088-A052-38BEC2E4354B</string>
+	</dict>
+</array>
+</plist>

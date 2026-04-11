@@ -70,7 +70,7 @@ v() {
 alias vinit=v
 alias vact=v
 vneu() {
-  uv venv --python 3.11.10 && source .venv/bin/activate && which python
+  uv venv --python 3.12.13 && source .venv/bin/activate && which python
 }
 vdel() {
   rm .venv
