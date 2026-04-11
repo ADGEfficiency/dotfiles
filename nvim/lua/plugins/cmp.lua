@@ -171,6 +171,7 @@ return {
 				min_keyword_length = 2,
 				default = { "copilot", "snippets", "path", "lsp", "buffer", "ripgrep", "emoji", "dictionary" },
 				per_filetype = {
+					codecompanion = { "codecompanion" },
 					markdown = {
 						"obsidian",
 						"copilot",

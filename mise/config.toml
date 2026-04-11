@@ -23,4 +23,3 @@ rust = "latest"
 
 # Cargo tools
 "cargo:prosemd-lsp" = "latest"
-"github:can1357/oh-my-pi" = "latest"

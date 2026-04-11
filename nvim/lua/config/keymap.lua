@@ -78,7 +78,7 @@ km("n", "<F6>", ":!python %:p <cr>", opts)
 
 -- mini.surround help
 vim.keymap.set("n", "<leader>?s", function()
-    print("Surround: ys{motion}{char} add | ds{char} delete | cs{old}{new} replace")
+	print("Surround: ys{motion}{char} add | ds{char} delete | cs{old}{new} replace")
 end, { desc = "Surround help" })
 
 -- Plugins
@@ -116,10 +116,7 @@ km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('tele
 vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- CopilotChat
-vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
-vim.keymap.set("n", "<leader>sc", function()
-	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
-end, { desc = "Toggle Copilot Chat (horizontal)" })
+vim.keymap.set("n", "<leader>c", ":CodeCompanionChat<CR>")
 
 -- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
