@@ -16,12 +16,13 @@ return {
         update_n_lines = "sn", -- update n lines
     },
 })
-			require("mini.pairs").setup()
 			require("mini.trailspace").setup()
 
 			-- utilities
 			require("mini.misc").setup()
 			require("mini.misc").setup_restore_cursor()
+			require("mini.bufremove").setup()
+			vim.api.nvim_create_user_command("BD", function() require("mini.bufremove").delete() end, {})
 			require("mini.operators").setup()
 
 			-- keymap for zoom
