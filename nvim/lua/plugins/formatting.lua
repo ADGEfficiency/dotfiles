@@ -11,15 +11,22 @@ return {
 				},
 
 				formatters_by_ft = {
-					bash = { "beautysh", "shellharden" },
+					bash = {
+						"beautysh",
+						"shellharden",
+					},
 					sh = { "beautysh", "shellharden" },
 					html = { "djlintJinja", "prettier" },
 					jinja = { "djlintJinja" },
 					json = { "jq" },
 					lua = { "stylua" },
 					go = { "gofmt" },
-					python = { "isort", "ruff_format" },
-					markdown = { "injected" },
+					python = {
+						"isort",
+						"ruff_format",
+						"trim_whitespace",
+					},
+					-- markdown = { "injected" },
 					javascript = { "prettier" },
 					css = { "stylelint" },
 					yaml = { "yamlfix" },
@@ -27,8 +34,6 @@ return {
 					["*"] = {
 						"codespell",
 						"trim_newlines",
-						"injected",
-						"trim_whitespace",
 					},
 				},
 			})
@@ -113,7 +118,7 @@ return {
 						javascript = "js",
 						julia = "jl",
 						latex = "tex",
-						markdown = "md",
+						-- markdown = "md",
 						python = "py",
 						ruby = "rb",
 						rust = "rs",

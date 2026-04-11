@@ -1,15 +1,5 @@
 return {
 	{
-		"ggandor/leap.nvim",
-		dependencies = { "tpope/vim-repeat" },
-		config = function()
-			-- Set up recommended keymaps for leap.nvim
-			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
-			vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
-		end,
-	},
-	{ "akinsho/git-conflict.nvim", version = "*", config = true },
-	{
 		"toppair/peek.nvim",
 		event = { "VeryLazy" },
 		build = "deno task --quiet build:fast",
@@ -23,7 +13,7 @@ return {
 		end,
 	},
 	{ "sindrets/diffview.nvim" },
-	{ "mhinz/vim-grepper" },
+
 	{ "FooSoft/vim-argwrap" },
 	{ "mattn/emmet-vim" },
 	{
@@ -52,7 +42,7 @@ return {
 			vim.g.undotree_ShortIndicators = 1
 		end,
 	},
-	{ "norcalli/nvim-colorizer.lua" },
+	{ "NvChad/nvim-colorizer.lua" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		opts = {
@@ -97,7 +87,6 @@ return {
 	},
 
 	--- Text editing - HTML
-	{ "alvan/vim-closetag" },
 	{ "Glench/Vim-Jinja2-Syntax" },
 	{
 		"PedramNavid/dbtpal",

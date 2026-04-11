@@ -52,7 +52,7 @@ return {
 				jinja2 = { "markdownlint", "codespell" },
 				json = { "jsonlint" },
 				markdown = { "markdownlint", "codespell" },
-				python = { "ruff", "pydocstyle" },
+				python = { "pydocstyle" },
 				sql = { "sqlfluff" },
 				yaml = {
 					-- "actionlint",

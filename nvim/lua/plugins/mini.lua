@@ -5,13 +5,24 @@ return {
 		config = function()
 			-- text editing
 			require("mini.comment").setup()
-			require("mini.surround").setup()
-			require("mini.pairs").setup()
+			require("mini.surround").setup({
+    mappings = {
+        add = "ys",            -- ys{motion}{char} - add surround (normal), ys{char} - visual
+        delete = "ds",         -- ds{char} - delete surround
+        replace = "cs",        -- cs{old}{new} - replace surround
+        find = "sf",           -- find surround to the right
+        find_left = "sF",      -- find surround to the left
+        highlight = "sh",      -- highlight surround
+        update_n_lines = "sn", -- update n lines
+    },
+})
 			require("mini.trailspace").setup()
 
 			-- utilities
 			require("mini.misc").setup()
 			require("mini.misc").setup_restore_cursor()
+			require("mini.bufremove").setup()
+			vim.api.nvim_create_user_command("BD", function() require("mini.bufremove").delete() end, {})
 			require("mini.operators").setup()
 
 			-- keymap for zoom

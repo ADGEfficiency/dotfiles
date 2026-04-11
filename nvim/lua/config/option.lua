@@ -11,9 +11,7 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Use system clipboard for copy-paste
-vim.cmd([[
-  set clipboard+=unnamedplus
-]])
+vim.opt.clipboard:append("unnamedplus")
 
 if vim.fn.has("wsl") == 1 then
 	vim.g.clipboard = {
@@ -130,9 +128,6 @@ vim.opt.numberwidth = 4
 -- Always show the sign column, prevents text shifting
 vim.opt.signcolumn = "yes"
 
--- Disable line wrapping
-vim.opt.wrap = false
-
 -- global status bar (bottom one)
 vim.opt.laststatus = 3
 
@@ -150,7 +145,7 @@ vim.opt.guifont = "monospace:h17"
 vim.opt.backspace = "indent,eol,start"
 
 -- Specify patterns to ignore during wildcard expansion
-vim.opt.wildignore = "+=*.egg-info/**"
+vim.opt.wildignore:append("*.egg-info/**")
 
 -- Enable wildmenu for command-line completion
 vim.opt.wildmenu = true

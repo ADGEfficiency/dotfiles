@@ -7,6 +7,7 @@ setup-common:
 	bash ./tmux/setup.sh
 	bash ./zsh/setup.sh
 	bash ./fzf/setup.sh
+	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
 
 setup-macos: export OS=macos
@@ -20,7 +21,7 @@ setup-ubuntu: brew-pkgs dotfiles setup-common
 setup-wsl: export OS=wsl
 setup-wsl: dotfiles setup-common
 
-.PHONY: setup-stow dotfiles
+.PHONY: setup-stow dotfiles setup-uv setup-python
 
 STOW_ARGS=-vv
 setup-stow:
@@ -30,9 +31,13 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
-	ln -sf ~/dotfiles/fish ~/.config/fish\
-
-.PHONY: setup-uv python
+	stow "$(STOW_ARGS)" skhd
+	ln -sf ~/dotfiles/fish ~/.config/fish
+	mkdir -p "$(HOME)/.agents"
+	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
+	mkdir -p "$(HOME)/.claude"
+	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
+	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
 
 setup-uv:
 	bash ./python/setup-uv.sh

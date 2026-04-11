@@ -10,13 +10,6 @@ km("n", ",", "<Nop>", opts)
 km("n", "j", "gj", opts)
 km("n", "k", "gk", opts)
 
--- Move by actual lines with J and K
-km("n", "<C-j>", "j", opts)
-km("n", "<C-k>", "k", opts)
-
--- Insert file name
-km("n", "<leader>r", ":r! echo %:p<cr>", opts)
-
 -- Copy entire file
 km("n", "YY", ":%y<cr>", opts)
 
@@ -56,9 +49,6 @@ km("n", "<leader>fv", ":vsplit | ObsidianFollowLink<CR>", opts)
 -- Open shell history
 km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 
--- Paste in path to open buffer
-km("n", "<leader>r", ":r! echo %:p<cr>", opts)
-
 -- Rebalance windows
 km("n", "<leader>b", "<C-w>=<cr>", opts)
 
@@ -76,13 +66,17 @@ km("n", "<leader>m", 'A<CR>if __name__ == "__main__":<ESC>', opts)
 -- Run current buffer in Python
 km("n", "<F6>", ":!python %:p <cr>", opts)
 
+-- mini.surround help
+vim.keymap.set("n", "<leader>?s", function()
+	print("Surround: ys{motion}{char} add | ds{char} delete | cs{old}{new} replace")
+end, { desc = "Surround help" })
+
 -- Plugins
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 km("v", "<leader>ll", ":Noice dismiss", opts)
-vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
 
 -- Open grepper and search for current word
 km("n", "<leader>g", ":Grepper -tool rg -noprompt -cword <CR>", opts)
@@ -111,7 +105,7 @@ km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('tele
 vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- CopilotChat
-vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
+vim.keymap.set("n", "<leader>c", ":CodeCompanionChat<CR>")
 
 -- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")

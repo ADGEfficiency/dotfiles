@@ -111,3 +111,5 @@ cask "mactex"
 
 brew "markdownlint-cli"
 cask "copilot-cli"
+brew "git-delta"
+cask "keycastr"

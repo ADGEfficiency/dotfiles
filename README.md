@@ -1,12 +1,13 @@
 # dotfiles
 
-Setup and configuration for my terminal based developer workflow (MacOS/Ubuntu):
+Setup and configuration for my terminal based developer workflow across three `OS` (MacOS, Ubuntu & WSL):
 
 - **Zsh** for a shell
 - **Homebrew** for shell tools
 - **mise** for programming language runtimes (except Python)
 - **uv** for Python runtime and virtual environments
 - **Neovim** for text editing
+- **Makefile** for setup & maintenance
 - **Stow** for dotfiles symlinking
 
 This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlimk files.
@@ -132,3 +133,11 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
+
+## Agent Configuration
+
+PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
+
+CLAUDE.md at the repo root serves the same purpose for Claude Code.
+
+Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).

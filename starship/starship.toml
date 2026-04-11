@@ -5,9 +5,9 @@ format = """$shell$hostname$directory$line_break$character"""
 right_format = """$cmd_duration$git_branch$python$nix_shell"""
 
 [shell]
-fish_indicator = "[  ](bold purple)"
-zsh_indicator = " 󰬇"
-bash_indicator = " $"
+fish_indicator = " fish"
+zsh_indicator = " zsh"
+bash_indicator = " bash"
 disabled = false
 
 [localip]
