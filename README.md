@@ -134,7 +134,6 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
 
-
 ## Agent Configuration
 
 PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
