@@ -14,14 +14,12 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
-			"L3MON4D3/LuaSnip",
 			"bydlw98/blink-cmp-env",
 		},
 		version = "*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			cmdline = {
 				enabled = true,
@@ -39,13 +37,12 @@ return {
 					},
 				},
 			},
+			keymap = {
+				["<CR>"] = { "fallback" },
+				["<Tab>"] = { "snippet_forward", "select_and_accept", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
+			},
 			completion = {
-				keymap = {
-					["<CR>"] = {
-						"accept_and_enter",
-						"fallback",
-					},
-				},
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
 					auto_show = true,
@@ -175,7 +172,16 @@ return {
 			},
 			sources = {
 				min_keyword_length = 2,
-				default = { "copilot", "snippets", "path", "lsp", "buffer", "ripgrep", "emoji", "dictionary" },
+				default = {
+					"copilot",
+					"snippets",
+					"path",
+					"lsp",
+					"buffer",
+					"ripgrep",
+					"emoji",
+					"dictionary",
+				},
 				per_filetype = {
 					codecompanion = { "codecompanion" },
 					markdown = {
@@ -202,10 +208,11 @@ return {
 						max_items = 1,
 					},
 					snippets = {
-						module = "blink.cmp.sources.snippets",
-						name = "snippets",
 						max_items = 2,
 						score_offset = 100,
+						opts = {
+							search_paths = { vim.fn.stdpath("config") .. "/snippets" },
+						},
 					},
 					path = {
 						opts = {
