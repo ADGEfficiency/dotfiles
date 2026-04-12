@@ -5,9 +5,9 @@
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
-    "npm:pi-web-access",
     "npm:pi-vim",
-    "npm:@ifi/pi-plan"
+    "npm:@ifi/pi-plan",
+    "npm:@ollama/pi-web-search"
   ],
   "defaultThinkingLevel": "medium",
   "quietStartup": false

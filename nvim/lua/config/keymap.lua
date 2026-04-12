@@ -49,6 +49,9 @@ km("n", "<leader>fv", ":vsplit | ObsidianFollowLink<CR>", opts)
 -- Open shell history
 km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 
+-- Insert current file path
+km("n", "<leader>r", ":r! echo %:p<cr>", opts)
+
 -- Rebalance windows
 km("n", "<leader>b", "<C-w>=<cr>", opts)
 
@@ -68,7 +71,7 @@ km("n", "<F6>", ":!python %:p <cr>", opts)
 
 -- mini.surround help
 vim.keymap.set("n", "<leader>?s", function()
-	print("Surround: ys{motion}{char} add | ds{char} delete | cs{old}{new} replace")
+	print("Surround: sa{motion}{char} add | ds{char} delete | cs{old}{new} replace")
 end, { desc = "Surround help" })
 
 -- Plugins
