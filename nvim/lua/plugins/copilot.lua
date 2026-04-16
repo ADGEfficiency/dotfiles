@@ -50,18 +50,20 @@ return {
 		"olimorris/codecompanion.nvim",
 		version = "^19.0.0",
 		opts = {
-			chat = {
-				adapter = {
-					name = "copilot",
-					model = "claude-sonnet-4.6",
-				},
-				inline = {
-					adapter = "copilot",
-					model = "claude-sonnet-4.6",
-				},
-				cmd = {
-					adapter = "copilot",
-					model = "claude-sonnet-4.6",
+			interactions = {
+				chat = {
+					adapter = {
+						name = "copilot",
+						model = "claude-sonnet-4.6",
+					},
+					inline = {
+						adapter = "copilot",
+						model = "claude-sonnet-4.6",
+					},
+					cmd = {
+						adapter = "copilot",
+						model = "claude-sonnet-4.6",
+					},
 				},
 			},
 		},
