@@ -1,0 +1,26 @@
+{
+  "lang": {
+    "prefix": "lang",
+    "body": ["lang:shell-session:"]
+  },
+  "---": {
+    "prefix": "---",
+    "body": ["---", "tags:", "- $1", "---"]
+  },
+  "tags": {
+    "prefix": "tags",
+    "body": ["---", "tags:", "- $1", "---"]
+  },
+  "python": {
+    "prefix": "python",
+    "body": ["```python", "$1", "```"]
+  },
+  "shell-session": {
+    "prefix": "shell-session",
+    "body": ["```shell-session", "$1", "```"]
+  },
+  "`": {
+    "prefix": "`",
+    "body": ["```$1", "```"]
+  }
+}
