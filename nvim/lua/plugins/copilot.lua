@@ -49,7 +49,22 @@ return {
 	{
 		"olimorris/codecompanion.nvim",
 		version = "^19.0.0",
-		opts = {},
+		opts = {
+			chat = {
+				adapter = {
+					name = "copilot",
+					model = "claude-sonnet-4.6",
+				},
+				inline = {
+					adapter = "copilot",
+					model = "claude-sonnet-4.6",
+				},
+				cmd = {
+					adapter = "copilot",
+					model = "claude-sonnet-4.6",
+				},
+			},
+		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
