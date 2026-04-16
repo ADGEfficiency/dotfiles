@@ -77,4 +77,7 @@
   enabled = true
 
 [credential]
-	helper = manager
+  helper = manager
+
+[status]
+  submoduleSummary = true

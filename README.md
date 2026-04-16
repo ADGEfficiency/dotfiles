@@ -10,18 +10,18 @@ Setup and configuration for my terminal based developer workflow across three `O
 - **Makefile** for setup & maintenance
 - **Stow** for dotfiles symlinking
 
-This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlimk files.
+This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlink files.
 
-Different files are symlinked based on the `OS` `Makefile` variable - usually it's just getting RC files for specific OS, ie `./dotfiles/macos/.zshrc`.
+Different files are symlinked based on the `OS` `Makefile` variable - usually it's just getting RC files for specific OS, ie `./dotfiles/$OS/.zshrc` becomes `./dotfiles/macos/.zshrc`.
 
-You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves:
+## Use
+
+You can setup your machine using commands in `Makefile`.  Commonly setting up a machine involves doing things like:
 
 - Installing packages with Homebrew
 - Setting up symlinks with Stow
 - Setting up tmux & Zsh
 - Installing language runtimes with mise
-
-## Use
 
 ### Ubuntu
 
