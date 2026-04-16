@@ -22,30 +22,6 @@ return {
 			},
 		},
 	},
-	-- 	{
-	-- 		"CopilotC-Nvim/CopilotChat.nvim",
-	-- 		branch = "main",
-	-- 		dependencies = {
-	-- 			{ "zbirenbaum/copilot.lua" },
-	-- 			{ "nvim-lua/plenary.nvim" },
-	-- 		},
-	-- 		opts = {
-	-- 			system_prompt = [[You are an expert software engineer.
-	-- - Provide clear, concise explanations
-	-- - Include comments only if necessary
-	-- - Include functions only if necessary
-	-- - Include docstrings
-	-- - All Python code should pass strict type checking]],
-	-- 			debug = true,
-	-- 			context = "buffers",
-	-- 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
-	-- 			auto_follow_cursor = false,
-	-- 			model = "gpt-4o",
-	-- 			sticky = "@copilot",
-	-- 			auto_fold = false,
-	-- 			auto_insert_mode = true,
-	-- 		},
-	-- 	},
 	{
 		"olimorris/codecompanion.nvim",
 		version = "^19.0.0",
@@ -55,6 +31,17 @@ return {
 					adapter = {
 						name = "copilot",
 						model = "claude-sonnet-4.6",
+					},
+					keymaps = {
+						send = {
+							callback = function(chat)
+								vim.cmd("stopinsert")
+								chat:add_buf_message({ role = "llm", content = "" })
+								chat:submit()
+							end,
+							index = 1,
+							description = "Send",
+						},
 					},
 					inline = {
 						adapter = "copilot",
@@ -67,6 +54,10 @@ return {
 				},
 			},
 		},
+		config = function(_, opts)
+			require("config.codecompanion_spinner"):init()
+			require("codecompanion").setup(opts)
+		end,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
