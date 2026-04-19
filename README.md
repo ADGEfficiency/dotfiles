@@ -134,10 +134,15 @@ Had weird issue with the first execution of Kitty not loading the `kitty.conf` c
 $ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
 ```
 
-## Agent Configuration
+## AI Configuration
+
+Two AGENTS.md:
+
+- `./AGENTS.md` for this repo
+- `./pi/config/pi/agent/AGENTS.md` for Pi & Claude Code
 
 PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
 
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
+CLAUDE.md at the repo root serves the same purpose for Claude Code, but is symlinked to `AGENTS.md`.
 
 Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
