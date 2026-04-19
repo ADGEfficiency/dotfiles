@@ -123,7 +123,22 @@ return {
 
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+					-- Large hover window shared by K and gk
+					local function large_hover()
+						vim.lsp.buf.hover({
+							border = "none",
+							height = 10,
+							width = 80,
+						})
+					end
+					vim.keymap.set("n", "K", large_hover, bufopts)
+					-- Same large hover but focus immediately
+					vim.keymap.set("n", "gk", function()
+						large_hover()
+						vim.defer_fn(function()
+							vim.cmd("wincmd w")
+						end, 10)
+					end, bufopts)
 					vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 					vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)

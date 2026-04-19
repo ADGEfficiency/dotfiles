@@ -26,6 +26,8 @@ return {
 					"html",
 					"javascript",
 					"bash",
+					"markdown",
+					"markdown_inline",
 				},
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
