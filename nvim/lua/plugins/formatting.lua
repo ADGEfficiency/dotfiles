@@ -29,7 +29,10 @@ return {
 					-- markdown = { "injected" },
 					javascript = { "prettier" },
 					css = { "stylelint" },
-					yaml = { "yamlfix" },
+					yaml = {
+						"yamlfix",
+						"trim_whitespace",
+					},
 					sql = { "sqlfluff" },
 					["*"] = {
 						"codespell",

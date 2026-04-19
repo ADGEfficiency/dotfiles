@@ -102,6 +102,9 @@ if OS.mac?
 end
 brew "koekeishiya/formulae/yabai"
 
+# TODO!!!
+# brew tap databricks/tap
+
 # Casks
 cask "amethyst"
 cask "claude-code"
@@ -113,3 +116,4 @@ cask "mactex"
 
 brew "markdownlint-cli"
 cask "copilot-cli"
+brew "azure-cli"
