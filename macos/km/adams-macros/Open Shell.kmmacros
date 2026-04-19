@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>624329848.61627197</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>38</integer>
+						<key>AllWindows</key>
+						<false/>
+						<key>AlreadyActivatedActionType</key>
+						<string>SwitchToLast</string>
+						<key>Application</key>
+						<dict>
+							<key>BundleIdentifier</key>
+							<string>net.kovidgoyal.kitty</string>
+							<key>Name</key>
+							<string>kitty</string>
+							<key>NewFile</key>
+							<string>/Applications/kitty.app</string>
+						</dict>
+						<key>IsActive</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ActivateApplication</string>
+						<key>ReopenWindows</key>
+						<true/>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>39</integer>
+						<key>DisplayKind</key>
+						<string>Asynchronously</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string>~/dotfiles/macos/applescripts/open_terminal.scpt</string>
+						<key>Text</key>
+						<string>if isAppRunning("iTerm") then
+	tell application "iTerm"
+		set myterm to (make new terminal)
+		tell myterm
+			set mysession to (make new session at the end of sessions)
+			tell mysession
+				exec command "/bin/bash -l"
+			end tell
+		end tell
+		activate
+	end tell
+else
+	activate application "iTerm"
+end if</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<false/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>622642297.28663504</real>
+				<key>ModificationDate</key>
+				<real>739174732.94170904</real>
+				<key>Name</key>
+				<string>Open Shell</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>8</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4608</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>42151B21-5BB3-4452-9BA2-777F08A7CD81</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>adams-macros</string>
+		<key>ToggleMacroUID</key>
+		<string>72F63232-9754-45AC-8EC5-D8D1218F06EA</string>
+		<key>UID</key>
+		<string>542BC640-C047-4088-A052-38BEC2E4354B</string>
+	</dict>
+</array>
+</plist>

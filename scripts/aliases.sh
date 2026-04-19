@@ -42,6 +42,9 @@ alias markserv='markserv --browser'
 # vim
 alias vi='$EDITOR'
 
+# nvim
+alias diffview='nvim +DiffviewOpen'
+
 # python
 alias py='python'
 alias ipy='ipython'
@@ -64,7 +67,7 @@ alias epl='cd $HOME/energy-py-linear'
 alias expt='cd $HOME/energy-py-experiments'
 alias per='cd $PERSONAL_PATH'
 alias docs='cd $PERSONAL_PATH'
-alias prog='cd $HOME/programming-resources'
+alias prog='cd $PERSONAL_PATH/resource/programming'
 alias syl='cd $HOME/handbook'
 alias teach='cd $HOME/teaching-monolith'
 alias web='cd $HOME/climate-code/website'
@@ -102,8 +105,8 @@ alias gall='git add * && git add -u && git commit -m "sync all the things" && gi
 alias gc='git commit -m '
 alias gcm='git commit'
 alias gcb='git checkout '
-alias gd='git diff --staged'
-alias gdiff='git diff --staged'
+alias gd='git diff --staged --submodule=diff'
+alias gdiff='git diff --staged --submodule=diff'
 alias glog='git log --pretty=fuller --abbrev-commit --stat -n 5'
 alias glogg='git log --pretty=fuller --abbrev-commit --stat --patch -n 5'
 alias gls='clear && git status --short'
@@ -111,7 +114,7 @@ alias gmv='git mv '
 alias gcb='git checkout '
 alias gnb='git checkout -b'
 alias gp='git push origin '
-alias gs='git status --short --branch --show-stash --verbose'
+alias gs='git status --short --branch --show-stash --verbose --ignore-submodules=none'
 alias nbg='git checkout -b'
 alias gss='git stash'
 alias gst='git stash'
@@ -124,6 +127,13 @@ alias tab='tmux attach -t base'
 alias tl='tmux ls'
 alias ts='tmux ls'
 alias tls='tmux ls'
+
+# zellij - similar to tmux
+alias za='zellij attach'
+alias zn='zellij'
+alias zl='zellij list-sessions'
+alias zls='zellij list-sessions'
+alias zk='zellij kill-all-sessions --yes'
 
 # docker
 alias dc='docker compose'

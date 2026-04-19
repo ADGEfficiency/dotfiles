@@ -1,0 +1,10 @@
+{
+  "bang": {
+    "prefix": "bang",
+    "body": ["#!/usr/bin/env bash"]
+  },
+  "!": {
+    "prefix": "!",
+    "body": ["#!/usr/bin/env bash"]
+  }
+}

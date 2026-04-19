@@ -22,34 +22,41 @@ return {
 			},
 		},
 	},
+	-- 	{
+	-- 		"CopilotC-Nvim/CopilotChat.nvim",
+	-- 		branch = "main",
+	-- 		dependencies = {
+	-- 			{ "zbirenbaum/copilot.lua" },
+	-- 			{ "nvim-lua/plenary.nvim" },
+	-- 		},
+	-- 		opts = {
+	-- 			system_prompt = [[You are an expert software engineer.
+	-- - Provide clear, concise explanations
+	-- - Include comments only if necessary
+	-- - Include functions only if necessary
+	-- - Include docstrings
+	-- - All Python code should pass strict type checking]],
+	-- 			debug = true,
+	-- 			context = "buffers",
+	-- 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
+	-- 			auto_follow_cursor = false,
+	-- 			model = "gpt-4o",
+	-- 			sticky = "@copilot",
+	-- 			auto_fold = false,
+	-- 			auto_insert_mode = true,
+	-- 		},
+	-- 	},
 	{
-		"zbirenbaum/copilot-cmp",
-		event = { "BufEnter" },
-		dependencies = { "zbirenbaum/copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
+		"olimorris/codecompanion.nvim",
+		version = "^19.0.0",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "main",
-		dependencies = {
-			{ "zbirenbaum/copilot.lua" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-		opts = {
-			system_prompt = [[You are an expert software engineer.
-- Provide clear, concise explanations
-- Include comments only if necessary
-- Include functions only if necessary
-- Include docstrings
-- All Python code should pass strict type checking]],
-			debug = true,
-			context = "buffers",
-			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
-			auto_follow_cursor = false,
-			auto_insert_mode = true,
-			model = "gpt-4",
-		},
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "codecompanion" },
 	},
 }

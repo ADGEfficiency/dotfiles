@@ -37,3 +37,5 @@ pre
 temp
 temp.*
 temp
+config/pi/auth.json
+config/pi/sessions/

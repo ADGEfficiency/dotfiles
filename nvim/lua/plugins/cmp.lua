@@ -14,14 +14,12 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
 			"nvim-lua/plenary.nvim",
-			"L3MON4D3/LuaSnip",
+			"bydlw98/blink-cmp-env",
 		},
 		version = "*",
-
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			cmdline = {
 				enabled = true,
@@ -38,6 +36,11 @@ return {
 						"fallback",
 					},
 				},
+			},
+			keymap = {
+				["<CR>"] = { "fallback" },
+				["<Tab>"] = { "snippet_forward", "select_and_accept", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
 			},
 			completion = {
 				documentation = {
@@ -86,18 +89,7 @@ return {
 							and vim.bo.filetype ~= "TelescopePrompt"
 					end,
 					draw = {
-						columns = {
-							{
-								"label",
-								-- "label_description",
-								-- gap = 3
-							},
-							{
-								"kind_icon",
-								gap = 1,
-								"source_name",
-							},
-						},
+						columns = { { "label" }, { "kind_icon", gap = 1, "source_name" } },
 						components = {
 							kind_icon = {
 								ellipsis = false,
@@ -178,9 +170,6 @@ return {
 				-- Adjusts spacing to ensure icons are aligned
 				nerd_font_variant = "mono",
 			},
-
-			-- Default list of enabled providers defined so that you can extend it
-			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				min_keyword_length = 2,
 				default = {
@@ -194,6 +183,7 @@ return {
 					"dictionary",
 				},
 				per_filetype = {
+					codecompanion = { "codecompanion" },
 					markdown = {
 						"obsidian",
 						"copilot",
@@ -205,21 +195,8 @@ return {
 						"emoji",
 						"dictionary",
 					},
-					go = {
-						"snippets",
-						"path",
-						"lsp",
-						"buffer",
-						"ripgrep",
-					},
-					python = {
-						"copilot",
-						"snippets",
-						"path",
-						"lsp",
-						"buffer",
-						"ripgrep",
-					},
+					go = { "snippets", "path", "lsp", "buffer", "ripgrep" },
+					python = { "copilot", "snippets", "path", "lsp", "buffer", "ripgrep" },
 				},
 				providers = {
 					copilot = {
@@ -231,10 +208,11 @@ return {
 						max_items = 1,
 					},
 					snippets = {
-						module = "blink.cmp.sources.snippets",
-						name = "snippets",
 						max_items = 2,
 						score_offset = 100,
+						opts = {
+							search_paths = { vim.fn.stdpath("config") .. "/snippets" },
+						},
 					},
 					path = {
 						opts = {

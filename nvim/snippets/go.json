@@ -1,0 +1,272 @@
+{
+  "import-test": {
+    "prefix": "import-test",
+    "body": ["import \"testing\""]
+  },
+  "v": {
+    "prefix": "v",
+    "body": ["${1} := ${2}"]
+  },
+  "vr": {
+    "prefix": "vr",
+    "body": ["var ${1:t} ${0:string}"]
+  },
+  "var": {
+    "prefix": "var",
+    "body": ["var ${1} ${2} = ${3}"]
+  },
+  "vars": {
+    "prefix": "vars",
+    "body": ["var (", "\t${1} ${2} = ${3}", ")"]
+  },
+  "ap": {
+    "prefix": "ap",
+    "body": ["append(${1:slice}, ${0:value})"]
+  },
+  "bl": {
+    "prefix": "bl",
+    "body": ["bool"]
+  },
+  "bt": {
+    "prefix": "bt",
+    "body": ["byte"]
+  },
+  "br": {
+    "prefix": "br",
+    "body": ["break"]
+  },
+  "ch": {
+    "prefix": "ch",
+    "body": ["chan ${0:int}"]
+  },
+  "cs": {
+    "prefix": "cs",
+    "body": ["case ${1:value}:", "\t$0"]
+  },
+  "co": {
+    "prefix": "co",
+    "body": ["const (", "\t${1:NAME1} = iota", "\t${0:NAME2}", ")"]
+  },
+  "cn": {
+    "prefix": "cn",
+    "body": ["continue"]
+  },
+  "df": {
+    "prefix": "df",
+    "body": ["defer ${0:func}()"]
+  },
+  "dfr": {
+    "prefix": "dfr",
+    "body": ["defer func() {", "\tif err := recover(); err != nil {", "\t\t$0", "\t}", "}()"]
+  },
+  "im": {
+    "prefix": "im",
+    "body": ["import (", "\t\"${1:package}\"", ")"]
+  },
+  "in": {
+    "prefix": "in",
+    "body": ["interface{}"]
+  },
+  "inf": {
+    "prefix": "inf",
+    "body": ["interface ${1:name} {", "\t${2:/* methods */}", "}"]
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if $1 {", "\t${2}", "}"]
+  },
+  "ife": {
+    "prefix": "ife",
+    "body": ["if $1 {", "\t${2}", "} else {", "\t${0}", "}"]
+  },
+  "el": {
+    "prefix": "el",
+    "body": ["else {", "\t$0", "}"]
+  },
+  "ir": {
+    "prefix": "ir",
+    "body": ["if err != nil {", "\treturn err", "}", "${0}"]
+  },
+  "f": {
+    "prefix": "f",
+    "body": ["false"]
+  },
+  "ft": {
+    "prefix": "ft",
+    "body": ["fallthrough"]
+  },
+  "fl": {
+    "prefix": "fl",
+    "body": ["float32"]
+  },
+  "f3": {
+    "prefix": "f3",
+    "body": ["float32"]
+  },
+  "f6": {
+    "prefix": "f6",
+    "body": ["float64"]
+  },
+  "for": {
+    "prefix": "for",
+    "body": ["for ${1}{", "\t$0", "}"]
+  },
+  "fori": {
+    "prefix": "fori",
+    "body": ["for ${2:i} := 0; $2 < ${1:count}; $2${3:++} {", "\t$0", "}"]
+  },
+  "forr": {
+    "prefix": "forr",
+    "body": ["for ${1:e} := range ${2:collection} {", "\t$0", "}"]
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": ["func ${1:funcName}(${2}) ${3:error} {", "\t${4}", "}", "${0}"]
+  },
+  "fum": {
+    "prefix": "fum",
+    "body": ["func (${1:receiver} ${2:type}) ${3:funcName}(${4}) ${5:error} {", "\t${6}", "}", "${0}"]
+  },
+  "fumh": {
+    "prefix": "fumh",
+    "body": ["func (${1:receiver} ${2:type}) ${3:funcName}(${4:w} http.ResponseWriter, ${5:r} *http.Request) {", "\t$0", "}"]
+  },
+  "lf": {
+    "prefix": "lf",
+    "body": ["log.Printf(\"%${1:s}\", ${2:var})"]
+  },
+  "lp": {
+    "prefix": "lp",
+    "body": ["log.Println(\"${1}\")"]
+  },
+  "mk": {
+    "prefix": "mk",
+    "body": ["make(${1:[]string}, ${0:0})"]
+  },
+  "mp": {
+    "prefix": "mp",
+    "body": ["map[${1:string}]${0:int}"]
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["func main() {", "\t${1}", "}", "${0}"]
+  },
+  "nw": {
+    "prefix": "nw",
+    "body": ["new(${0:type})"]
+  },
+  "pa": {
+    "prefix": "pa",
+    "body": ["package ${1:main}"]
+  },
+  "pn": {
+    "prefix": "pn",
+    "body": ["panic(\"${0:msg}\")"]
+  },
+  "pf": {
+    "prefix": "pf",
+    "body": ["fmt.Printf(\"%${1:s}\\n\", ${2:var})"]
+  },
+  "pl": {
+    "prefix": "pl",
+    "body": ["fmt.Println(\"${1:s}\")"]
+  },
+  "rn": {
+    "prefix": "rn",
+    "body": ["range ${0}"]
+  },
+  "rt": {
+    "prefix": "rt",
+    "body": ["return ${0}"]
+  },
+  "rs": {
+    "prefix": "rs",
+    "body": ["result"]
+  },
+  "sl": {
+    "prefix": "sl",
+    "body": ["select {", "case ${1:v1} := <-${2:chan1}", "\t${3}", "default:", "\t${0}", "}"]
+  },
+  "sr": {
+    "prefix": "sr",
+    "body": ["string"]
+  },
+  "st": {
+    "prefix": "st",
+    "body": ["struct ${1:name} {", "\t${2:/* data */}", "}", "${0}"]
+  },
+  "sw": {
+    "prefix": "sw",
+    "body": ["switch ${1:var} {", "case ${2:value1}:", "\t${3}", "case ${4:value2}:", "\t${5}", "default:", "\t${0}", "}"]
+  },
+  "ps": {
+    "prefix": "ps",
+    "body": ["fmt.Sprintf(\"%${1:s}\", ${2:var})"]
+  },
+  "t": {
+    "prefix": "t",
+    "body": ["true"]
+  },
+  "g": {
+    "prefix": "g",
+    "body": ["go ${1:funcName}(${0})"]
+  },
+  "ga": {
+    "prefix": "ga",
+    "body": ["go func(${1} ${2:type}) {", "\t${3:/* code */}", "}(${0})"]
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["func Test${1:name}(t *testing.T) {", "\t$0", "}"]
+  },
+  "testt": {
+    "prefix": "testt",
+    "body": [
+      "func Test${1:name}(t *testing.T) {",
+      "\ttests := []struct {",
+      "\t\tname string",
+      "\t}{",
+      "\t\t{",
+      "\t\t\tname: \"${2:test name}\",",
+      "\t\t},",
+      "\t}",
+      "",
+      "\tfor _, test := range tests {",
+      "\t\tt.Run(test.name, func(t *testing.T) {",
+      "\t\t\t$0",
+      "\t\t})",
+      "\t}",
+      "}"
+    ]
+  },
+  "bench": {
+    "prefix": "bench",
+    "body": ["func Benchmark${1:name}(b *testing.B) {", "\tfor i := 0; i < b.N; i++ {", "\t\t${2}", "\t}", "}", "${0}"]
+  },
+  "cl": {
+    "prefix": "cl",
+    "body": ["type ${1:name} struct {", "\t${2:attrName} ${3:attrType}", "}"]
+  },
+  "om": {
+    "prefix": "om",
+    "body": ["if ${1:value}, ok := ${2:map}[${3:key}]; ok {", "\t${4:/* code */}", "}"]
+  },
+  "gg": {
+    "prefix": "gg",
+    "body": ["var ${1:var} = struct{", "\t${2:name} ${3:type}", "}{", "\t$2: ${4:value},", "}"]
+  },
+  "ja": {
+    "prefix": "ja",
+    "body": [
+      "type ${1:parentType}Alias $1",
+      "",
+      "func (p *$1) MarshalJSON() ([]byte, error) {",
+      "\treturn json.Marshal(&struct{ *$1Alias }{(*$1Alias)(p)})",
+      "}"
+    ]
+  },
+  "errwr": {
+    "prefix": "errwr",
+    "body": ["if ${1}err != nil {", "\treturn fmt.Errorf(\"${2} %w\", err)", "}"]
+  }
+}

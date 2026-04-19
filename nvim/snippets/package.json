@@ -1,0 +1,13 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      { "language": "all", "path": "./all.json" },
+      { "language": "python", "path": "./python.json" },
+      { "language": "go", "path": "./go.json" },
+      { "language": "markdown", "path": "./markdown.json" },
+      { "language": "sh", "path": "./sh.json" },
+      { "language": "zsh", "path": "./zsh.json" }
+    ]
+  }
+}

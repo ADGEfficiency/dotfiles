@@ -47,7 +47,7 @@ return {
         hi BufferVisibleSignRight guifg='#282A36' guibg='#282A36'
       ]])
 
-			opts = {}
+			local opts = {}
 			vim.api.nvim_set_keymap("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
 			vim.api.nvim_set_keymap("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>", opts)
 			vim.api.nvim_set_keymap("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>", opts)
@@ -61,7 +61,6 @@ return {
 		ft = "qf",
 	},
 	{ "simeji/winresizer" },
-	{ "qpkorr/vim-bufkill" },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()

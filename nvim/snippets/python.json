@@ -1,0 +1,70 @@
+{
+  "docstring": {
+    "prefix": "docstring",
+    "body": ["\"\"\"", "$0", "\"\"\""]
+  },
+  "block": {
+    "prefix": "block",
+    "body": ["\"\"\"", "$0", "\"\"\""]
+  },
+  "!": {
+    "prefix": "!",
+    "body": ["#!/usr/bin/env python3"]
+  },
+  "bang": {
+    "prefix": "bang",
+    "body": ["#!/usr/bin/env python3"]
+  },
+  "typing": {
+    "prefix": "typing",
+    "body": ["import typing"]
+  },
+  "pathlib": {
+    "prefix": "pathlib",
+    "body": ["import pathlib"]
+  },
+  "rich": {
+    "prefix": "rich",
+    "body": ["from rich import print"]
+  },
+  "pandas": {
+    "prefix": "pandas",
+    "body": ["import pandas as pd"]
+  },
+  "numpy": {
+    "prefix": "numpy",
+    "body": ["import numpy as np"]
+  },
+  "matplotlib": {
+    "prefix": "matplotlib",
+    "body": ["import matplotlib.pyplot as plt", "fig, axes = plt.subplots()"]
+  },
+  "pydantic": {
+    "prefix": "pydantic",
+    "body": ["import pydantic", "", "class ${1}(pydantic.BaseModel):"]
+  },
+  "pydantic-class": {
+    "prefix": "pydantic-class",
+    "body": ["class ${1}(pydantic.BaseModel):", "    ${2}: ${3}"]
+  },
+  "mkdir": {
+    "prefix": "mkdir",
+    "body": [".mkdir(exist_ok=True, parents=True)"]
+  },
+  "defaultdict": {
+    "prefix": "defaultdict",
+    "body": ["import collections", "", "$0 = collections.defaultdict(list)"]
+  },
+  "@pytest-param": {
+    "prefix": "@pytest-param",
+    "body": ["@pytest.mark.parametrize($0)"]
+  },
+  "with-pytest-raises": {
+    "prefix": "with-pytest-raises",
+    "body": ["with pytest.raises(Exception) as err:"]
+  },
+  "dataclasses": {
+    "prefix": "dataclasses",
+    "body": ["import dataclasses", "", "@dataclasses.dataclass", "class $0:"]
+  }
+}
