@@ -12,7 +12,9 @@ Always create a plan and then ask to execute. You should rarely go off and imple
 
 ## Searching & Reading
 
-When reading, read deeply, in great detail.  Note intricacies.  Go through everything.  
+Read deeply in great detail. Note intricacies.  Go through everything.  
+
+Search the internet if you need it - I always want you to check documentation.
 
 ## Programming
 
@@ -21,3 +23,5 @@ When you write Python code, make it type safe, so that it would pass strict type
 Only include comments when they explain something that is not obvious from the code.
 
 Always respect existing conventions in each file and across the code base when making changes.
+
+Always ask for permissions before starting work.  Never edit files until you have presented a plat to the user.

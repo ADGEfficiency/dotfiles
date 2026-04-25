@@ -3,7 +3,7 @@ return {
 	ft = "markdown",
 	init = function()
 		vim.g.vim_markdown_folding = 1
-		vim.g.vim_markdown_folding_level = 1
+		vim.g.vim_markdown_folding_level = 6
 		vim.g.vim_markdown_frontmatter = 1
 		vim.g.vim_markdown_no_default_key_mappings = 1
 		vim.g.vim_markdown_folding_style_pythonic = 1
