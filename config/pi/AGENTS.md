@@ -16,9 +16,25 @@ Read deeply in great detail. Note intricacies.  Go through everything.
 
 Search the internet if you need it - I always want you to check documentation.
 
+## How to Act
+
+Simplest possible solution that could work
+
+Delete dead code immediately
+
+When the edit tool doesn't wor, favour `grep -n` with small targeted replacements over rewriting the entire file. Rewriting the entire file can introduce bugs and noisy diffs.
+
 ## Programming
 
 When you write Python code, make it type safe, so that it would pass strict type checking with a tool like basedpyright.
+
+Modern type hints for all function signatures (Python 3.13+).
+
+Docstrings for all public functions
+
+Use dataclasses or pydantic for data objects
+
+Use context managers for resource management
 
 Only include comments when they explain something that is not obvious from the code.
 
