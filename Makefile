@@ -37,7 +37,8 @@ dotfiles: setup-stow
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
-	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
+	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
+	# ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.pi/agent/AGENTS.md"
 
 setup-uv:
 	bash ./python/setup-uv.sh
