@@ -64,6 +64,7 @@ setup-vim:
 
 setup-brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew

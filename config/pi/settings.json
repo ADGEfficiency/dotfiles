@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.68.0",
+  "lastChangelogVersion": "0.69.0",
   "defaultProvider": "github-copilot",
-  "defaultModel": "claude-opus-4.6",
+  "defaultModel": "gpt-4.1",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
@@ -9,6 +9,6 @@
     "npm:@ifi/pi-plan",
     "npm:@ollama/pi-web-search"
   ],
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "off",
   "quietStartup": false
 }

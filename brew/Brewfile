@@ -31,6 +31,8 @@ brew "tig"
 brew "tree"
 brew "wget"
 brew "zoxide"
+brew "deno"
+brew "yarn"
 
 # Language servers & linters
 brew "actionlint"
@@ -119,3 +121,6 @@ cask "copilot-cli"
 brew "azure-cli"
 brew "git-delta"
 cask "keycastr"
+
+tap "databricks/tap"
+brew "databricks"
