@@ -101,7 +101,9 @@ km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telesc
 -- Search for a string under cursor
 km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for current word
-km("n", "<leader>g", "<cmd>Telescope grep_string<CR>", opts)
+vim.keymap.set("n", "<leader>g", function()
+    require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({ hidden = true }))
+end, opts)
 
 -- Oil
 vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")

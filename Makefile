@@ -32,13 +32,14 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
 	stow "$(STOW_ARGS)" skhd
-	ln -sf ~/dotfiles/fish ~/.config/fish
 	mkdir -p "$(HOME)/.agents"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
 	# PI is not configured via symlink - instead use PI_CODING_AGENT_DIR
+	ln -sf ~/dotfiles/fish ~/.config/fish
+	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 
 setup-uv:
 	bash ./python/setup-uv.sh
