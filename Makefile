@@ -38,7 +38,7 @@ dotfiles: setup-stow
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
-	# ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.pi/agent/AGENTS.md"
+	# PI is not configured here - instead use PI_CODING_AGENT_DIR
 
 setup-uv:
 	bash ./python/setup-uv.sh
