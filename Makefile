@@ -6,7 +6,7 @@ default:
 setup-common:
 	bash ./tmux/setup.sh
 	bash ./zsh/setup.sh
-	bash ./fzf/setup.sh
+	bash ./config/fzf/setup.sh
 	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
 
