@@ -4,7 +4,7 @@ default:
 .PHONY: setup-common setup-macos setup-ubuntu setup-wsl
 
 setup-common:
-	bash ./tmux/setup.sh
+	bash ./config/tmux/setup.sh
 	bash ./zsh/setup.sh
 	bash ./config/fzf/setup.sh
 	bash ./scripts/setup-pi.sh
