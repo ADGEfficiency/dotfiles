@@ -13,8 +13,8 @@ alt + shift + ctrl + cmd + shift - s : yabai -m window --resize left:20:0 || yab
 # Balance size of windows
 # alt + ctrl + cmd - 6 : yabai -m space --balance
 hyper - 6 : yabai -m space --balance
-hyper - 7 : sh $HOME/dotfiles/skhd/balance.sh 0.3
-hyper - 8 : sh $HOME/dotfiles/skhd/balance.sh 0.15
+hyper - 7 : sh $HOME/dotfiles/scripts/balance.sh 0.3
+hyper - 8 : sh $HOME/dotfiles/scripts/balance.sh 0.15
 
 # Mirror tree y-axis
 hyper - m : yabai -m space --mirror y-axis

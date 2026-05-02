@@ -30,8 +30,8 @@ setup-stow:
 dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
-	stow "$(STOW_ARGS)" yabai
-	stow "$(STOW_ARGS)" skhd
+	stow "$(STOW_ARGS)" config/yabai
+	stow "$(STOW_ARGS)" config/skhd
 
 	# ai agent config
 	mkdir -p "$(HOME)/.agents"
@@ -79,4 +79,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew bundle --file ~/dotfiles/brew/Brewfile --no-upgrade
+	brew bundle --file ~/dotfiles/config/brew/Brewfile --no-upgrade
