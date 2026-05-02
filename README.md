@@ -97,7 +97,7 @@ mise is used for managing programming language runtime versions (Python, Node.js
 
 ### Neovim
 
-Neovim config is in `./nvim`. To use the Neovim setup alone, put the `nvim` folder into `$XDG_CONFIG_HOME`.
+Neovim config is in `./config/nvim`. To use the Neovim setup alone, put the `nvim` folder into `$XDG_CONFIG_HOME` (commonly `~/.config`).
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 

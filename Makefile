@@ -32,14 +32,24 @@ dotfiles: setup-stow
 	stow "$(STOW_ARGS)" dotfiles
 	stow "$(STOW_ARGS)" yabai
 	stow "$(STOW_ARGS)" skhd
+
+	# ai agent config
 	mkdir -p "$(HOME)/.agents"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
 	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
-	# PI is not configured via symlink - instead use PI_CODING_AGENT_DIR
-	ln -sf ~/dotfiles/fish ~/.config/fish
+	# PI coding agent is not configured via symlink - uses PI_CODING_AGENT_DIR
+
+	# explicit opt-in to the symlink from config into ~/.config
+	# guess I should use XDG_CONFIG_HOME here, rather that hardcode ~/.config?
+	ln -sf ~/dotfiles/config/fish ~/.config/fish
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+	ln -sf ~/dotfiles/config/lazygit ~/.config/lazygit
+	ln -sf ~/dotfiles/config/direnv ~/.config/direnv
+	ln -sf ~/dotfiles/config/mise ~/.config/mise
+	ln -sf ~/dotfiles/config/fzf ~/.config/fzf
+	ln -sf ~/dotfiles/config/lsd ~/.config/lsd
 
 setup-uv:
 	bash ./python/setup-uv.sh
