@@ -42,7 +42,6 @@ dotfiles: setup-stow
 	# PI coding agent is not configured via symlink - uses PI_CODING_AGENT_DIR
 
 	# explicit opt-in to the symlink from config into ~/.config
-	# guess I should use XDG_CONFIG_HOME here, rather that hardcode ~/.config?
 	ln -sf ~/dotfiles/config/fish ~/.config/fish
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 	ln -sf ~/dotfiles/config/lazygit ~/.config/lazygit

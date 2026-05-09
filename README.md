@@ -10,9 +10,10 @@ Setup and configuration for my terminal based developer workflow across three `O
 - **Makefile** for setup & maintenance
 - **Stow** for dotfiles symlinking
 
-This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlink files.
+This repo should be cloned into `$HOME`. Symlinks into the right places are managed in two ways:
 
-Different files are symlinked based on the `OS` `Makefile` variable - usually it's just getting RC files for specific OS, ie `./dotfiles/$OS/.zshrc` becomes `./dotfiles/macos/.zshrc`.
+- **Stow** handles files that belong in `$HOME` (e.g. `.zshrc`, `.gitconfig`). OS-specific files live in `./dotfiles/$OS/` (e.g. `./dotfiles/macos/.zshrc`) and common files in `./dotfiles/`.
+- **Explicit symlinks** (`ln -sf`) wire up individual `./config/*` directories into `~/.config/` (e.g. `./config/nvim` → `~/.config/nvim`). Only directories that are explicitly opted-in to in the `Makefile` are linked.
 
 ## Use
 
