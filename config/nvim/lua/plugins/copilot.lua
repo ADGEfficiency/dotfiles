@@ -26,11 +26,35 @@ return {
 		"olimorris/codecompanion.nvim",
 		version = "^19.0.0",
 		opts = {
+			rules = {
+				default = {
+					description = "AGENTS.md files",
+					files = {
+						"AGENTS.md",
+						"~/dotfiles/config/pi/AGENTS.md",
+					},
+				},
+				opts = {
+					chat = {
+						enabled = true,
+						autoload = "default",
+					},
+				},
+			},
 			interactions = {
 				chat = {
 					adapter = {
 						name = "copilot",
 						model = "claude-sonnet-4.6",
+					},
+					tools = {
+						opts = {
+							default_tools = {
+								"files",
+								"run_command",
+								"get_diagnostics",
+							},
+						},
 					},
 					keymaps = {
 						send = {

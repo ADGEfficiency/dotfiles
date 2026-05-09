@@ -94,6 +94,7 @@ km(
 -- Search for files in cwd
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
 --- Search through recent files
+km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for a string
@@ -102,7 +103,10 @@ km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telesc
 km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for current word
 vim.keymap.set("n", "<leader>g", function()
-    require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({ hidden = true }))
+	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
+end, opts)
+vim.keymap.set("n", "<leader>.", function()
+	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
 end, opts)
 
 -- Oil

@@ -50,6 +50,7 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/config/mise ~/.config/mise
 	ln -sf ~/dotfiles/config/fzf ~/.config/fzf
 	ln -sf ~/dotfiles/config/lsd ~/.config/lsd
+	ln -sf ~/dotfiles/config/kitty ~/.config/kitty
 
 setup-uv:
 	bash ./python/setup-uv.sh

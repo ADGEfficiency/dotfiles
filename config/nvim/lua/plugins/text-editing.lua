@@ -42,7 +42,6 @@ return {
 			vim.g.undotree_ShortIndicators = 1
 		end,
 	},
-	{ "NvChad/nvim-colorizer.lua" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		opts = {
