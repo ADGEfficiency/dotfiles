@@ -49,12 +49,8 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/config/lsd ~/.config/lsd
 	ln -sf ~/dotfiles/config/kitty ~/.config/kitty
 
-setup-uv:
+setup-python:
 	bash ./python/setup-uv.sh
-
-setup-python: setup-uv
-	cd ~ && ~/.local/bin/uv venv --python 3.11.9
-	~/.local/bin/uv pip install -r ./python/pyproject.toml
 
 .PHONY: clean-nvim setup-vim
 
