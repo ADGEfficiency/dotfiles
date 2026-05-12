@@ -30,8 +30,6 @@ setup-stow:
 dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
-	stow "$(STOW_ARGS)" config/yabai
-	stow "$(STOW_ARGS)" config/skhd
 
 	# ai agent config
 	mkdir -p "$(HOME)/.agents"
