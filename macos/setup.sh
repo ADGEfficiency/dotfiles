@@ -8,5 +8,3 @@ brew install --HEAD koekeishiya/formulae/skhd
 chmod +x ~/dotfiles/skhd/skhdrc
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
-mkdir -p ~/.config/kitty
-ln -s ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
