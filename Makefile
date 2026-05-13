@@ -39,6 +39,7 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
 	# PI coding agent is not configured via symlink - uses PI_CODING_AGENT_DIR
 
+	mkdir -p ~/.config
 	# explicit opt-in to the symlink from config into ~/.config
 	ln -sf ~/dotfiles/config/fish ~/.config/fish
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
