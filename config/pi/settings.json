@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.67.68",
   "defaultProvider": "openrouter",
-  "defaultModel": "qwen/qwen3.6-plus",
+  "defaultModel": "anthropic/claude-opus-4.7",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
