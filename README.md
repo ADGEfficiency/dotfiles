@@ -108,37 +108,10 @@ The `s` command opens a fuzzy file finder (fzf) to search and open files in `$ED
 
 Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell helper functions in `./scripts/funcs.sh`.
 
-### Getting Kitty to Play Nice on macOS
+## AI Agent Configuration
 
-Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
+`PI_CODING_AGENT_DIR` in dotfiles/common/env.sh points pi's config to `~/dotfiles/config/pi/`.
 
-```
-# ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
+`CLAUDE.md` at the repo root serves the same purpose for Claude Code.
 
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
-## Agent Configuration
-
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
-
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
-
-Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
+Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).
