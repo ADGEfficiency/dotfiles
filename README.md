@@ -3,7 +3,8 @@
 Setup and configuration for my terminal based developer workflow across three `OS` (MacOS, Ubuntu & WSL):
 
 - **Zsh** shell
-- **Homebrew** for shell tools
+- **Tmux** for shell session management
+- **Homebrew** for managing shell tools
 - **mise** for programming language runtimes (except Python)
 - **uv** for Python runtime and virtual environments
 - **Neovim** for text editing
