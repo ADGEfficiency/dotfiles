@@ -5,8 +5,8 @@ default:
 
 setup-common:
 	bash ./config/tmux/setup.sh
-	bash ./zsh/setup.sh
-	bash ./config/fzf/setup.sh
+	bash ./scripts/setup-zsh.sh
+	bash ./scripts/setup-fzf.sh
 	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
 
@@ -51,7 +51,7 @@ dotfiles: setup-stow
 	ln -sf ~/dotfiles/config/kitty ~/.config/kitty
 
 setup-python:
-	bash ./python/setup-uv.sh
+	bash ./scripts/setup-uv.sh
 
 .PHONY: clean-nvim setup-vim
 

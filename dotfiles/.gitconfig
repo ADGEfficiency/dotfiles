@@ -10,7 +10,7 @@
   ui = auto
 
 [commit]
-  template = ~/dotfiles/git/.git_commit_template.txt
+  template = ~/dotfiles/config/git/.git_commit_template.txt
   verbose = true
 
 [core]
