@@ -2,7 +2,7 @@
 
 Setup and configuration for my terminal based developer workflow across three `OS` (MacOS, Ubuntu & WSL):
 
-- **Zsh** for a shell
+- **Zsh** shell
 - **Homebrew** for shell tools
 - **mise** for programming language runtimes (except Python)
 - **uv** for Python runtime and virtual environments

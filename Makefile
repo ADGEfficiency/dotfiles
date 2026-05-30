@@ -12,14 +12,15 @@ setup-common:
 
 setup-macos: export OS=macos
 setup-macos: brew-pkgs dotfiles setup-common setup-python
-	bash ./macos/setup.sh
+	bash ./os/macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
 setup-ubuntu: brew-pkgs dotfiles setup-common
-	bash ./ubuntu/setup.sh
+	bash ./os/ubuntu/setup.sh
 
 setup-wsl: export OS=wsl
 setup-wsl: dotfiles setup-common
+	bash ./os/wsl/setup.sh
 
 .PHONY: setup-stow dotfiles setup-uv setup-python
 
