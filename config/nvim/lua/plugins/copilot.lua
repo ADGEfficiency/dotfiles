@@ -7,6 +7,15 @@ return {
 		opts = {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
+			-- TODO
+			-- nes = {
+			-- 	enabled = true,
+			-- 	keymap = {
+			-- 		accept_and_goto = "<leader>ng",
+			-- 		accept = "<leader>ne",
+			-- 		dismiss = "<leader>nd",
+			-- 	},
+			-- },
 			filetypes = {
 				["*"] = true,
 				cvs = false,

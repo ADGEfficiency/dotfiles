@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.67.68",
   "defaultProvider": "openrouter",
-  "defaultModel": "anthropic/claude-opus-4.7",
+  "defaultModel": "qwen/qwen3.6-plus",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
@@ -10,6 +10,6 @@
     "npm:@ollama/pi-web-search",
     "npm:pi-mono-status-line"
   ],
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "off",
   "quietStartup": true
 }
