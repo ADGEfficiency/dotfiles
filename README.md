@@ -2,17 +2,19 @@
 
 Setup and configuration for my terminal based developer workflow across three `OS` (MacOS, Ubuntu & WSL):
 
-- **Zsh** for a shell
-- **Homebrew** for shell tools
+- **Zsh** shell
+- **Tmux** for shell session management
+- **Homebrew** for managing shell tools
 - **mise** for programming language runtimes (except Python)
 - **uv** for Python runtime and virtual environments
 - **Neovim** for text editing
 - **Makefile** for setup & maintenance
 - **Stow** for dotfiles symlinking
 
-This repo should be cloned into `$HOME` and set as `$XDG_CONFIG_HOME`. Many tools rely on setting this for the config stored in this repo to work.  For other config that requires files in `$HOME` (such as `$HOME/.bashrc`) Stow is used to symlink files.
+This repo should be cloned into `$HOME`. Symlinks into the right places are managed in two ways:
 
-Different files are symlinked based on the `OS` `Makefile` variable - usually it's just getting RC files for specific OS, ie `./dotfiles/$OS/.zshrc` becomes `./dotfiles/macos/.zshrc`.
+- **Stow** handles files that belong in `$HOME` (e.g. `.zshrc`, `.gitconfig`). OS-specific files live in `./dotfiles/$OS/` (e.g. `./dotfiles/macos/.zshrc`) and common files in `./dotfiles/`.
+- **Explicit symlinks** (`ln -sf`) wire up individual `./config/*` directories into `~/.config/` (e.g. `./config/nvim` → `~/.config/nvim`). Only directories that are explicitly opted-in to in the `Makefile` are linked.
 
 ## Use
 
@@ -97,47 +99,22 @@ mise is used for managing programming language runtime versions (Python, Node.js
 
 ### Neovim
 
-Neovim config is in `./nvim`. To use the Neovim setup alone, put the `nvim` folder into `$XDG_CONFIG_HOME`.
+Neovim config is in `./config/nvim`. To use the Neovim setup alone, put the `nvim` folder into `$XDG_CONFIG_HOME` (commonly `~/.config`).
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
-### Shell Customization
+### `s`
 
 The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory, or pass a path like `s ~/projects`. Supports multi-select with Tab.
 
+### Aliases
+
 Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell helper functions in `./scripts/funcs.sh`.
 
-### Getting Kitty to Play Nice on macOS
+## AI Agent Configuration
 
-Had weird issue with the first execution of Kitty not loading the `kitty.conf` correctly - fixed with:
+`PI_CODING_AGENT_DIR` in dotfiles/common/env.sh points pi's config to `~/dotfiles/config/pi/`.
 
-```
-# ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
+`CLAUDE.md` at the repo root serves the same purpose for Claude Code.
 
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
-## Agent Configuration
-
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
-
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
-
-Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
+Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).

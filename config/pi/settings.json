@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.66.1",
+  "lastChangelogVersion": "0.78.0",
   "defaultProvider": "openrouter",
   "defaultModel": "moonshotai/kimi-k2.5",
   "theme": "dracula",
@@ -7,8 +7,10 @@
     "npm:@aliou/pi-guardrails",
     "npm:pi-vim",
     "npm:@ifi/pi-plan",
-    "npm:@ollama/pi-web-search"
+    "npm:@ollama/pi-web-search",
+    "npm:pi-mono-status-line",
+    "npm:@guwidoe/pi-prompt-suggester"
   ],
-  "defaultThinkingLevel": "medium",
-  "quietStartup": false
+  "defaultThinkingLevel": "off",
+  "quietStartup": true
 }
