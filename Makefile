@@ -5,7 +5,7 @@ default:
 
 setup-common:
 	bash ./config/tmux/setup.sh
-	basd ./config/fzf/setup.sh
+	bash ./config/fzf/setup.sh
 	bash ./scripts/setup-zsh.sh
 	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
