@@ -6,7 +6,6 @@ default:
 setup-common:
 	bash ./config/tmux/setup.sh
 	bash ./scripts/setup-zsh.sh
-	bash ./scripts/setup-fzf.sh
 	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
 
