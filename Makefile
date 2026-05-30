@@ -42,14 +42,14 @@ dotfiles: setup-stow
 
 	mkdir -p ~/.config
 	# explicit opt-in to the symlink from config into ~/.config
-	ln -sf ~/dotfiles/config/fish ~/.config/fish
-	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
-	ln -sf ~/dotfiles/config/lazygit ~/.config/lazygit
-	ln -sf ~/dotfiles/config/direnv ~/.config/direnv
-	ln -sf ~/dotfiles/config/mise ~/.config/mise
-	ln -sf ~/dotfiles/config/fzf ~/.config/fzf
-	ln -sf ~/dotfiles/config/lsd ~/.config/lsd
-	ln -sf ~/dotfiles/config/kitty ~/.config/kitty
+	ln -sfn ~/dotfiles/config/fish ~/.config/fish
+	ln -sfn ~/dotfiles/config/nvim ~/.config/nvim
+	ln -sfn ~/dotfiles/config/lazygit ~/.config/lazygit
+	ln -sfn ~/dotfiles/config/direnv ~/.config/direnv
+	ln -sfn ~/dotfiles/config/mise ~/.config/mise
+	ln -sfn ~/dotfiles/config/fzf ~/.config/fzf
+	ln -sfn ~/dotfiles/config/lsd ~/.config/lsd
+	ln -sfn ~/dotfiles/config/kitty ~/.config/kitty
 
 setup-python:
 	bash ./scripts/setup-uv.sh
