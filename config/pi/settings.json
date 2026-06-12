@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.69.0",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-4.1",
+  "defaultProvider": "databricks",
+  "defaultModel": "databricks-claude-sonnet-4-6",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",

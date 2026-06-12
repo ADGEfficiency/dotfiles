@@ -38,4 +38,10 @@ Only include comments when they explain something that is not obvious from the c
 
 Always respect existing conventions in each file and across the code base when making changes.
 
+Don't put _df suffixes onto dataframe variables - use data as the default name for a dataframe
+
+Favour flat unnested code
+
+Fail at the source of the error rather than checking and failing
+
 Never start changing code unless you have explicit approval to start making changes.

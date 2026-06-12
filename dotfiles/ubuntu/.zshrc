@@ -8,3 +8,4 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     ssh-add ~/.ssh/ado 2>/dev/null
     ssh-add ~/.ssh/github 2>/dev/null
 fi
+alias expl='explorer.exe .'
