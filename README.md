@@ -177,7 +177,4 @@ PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/c
 
 CLAUDE.md at the repo root serves the same purpose for Claude Code.
 
-Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
-=======
 Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).
->>>>>>> dacbf2ff02af0435dad113fec6089182f393df64

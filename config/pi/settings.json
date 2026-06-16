@@ -1,17 +1,7 @@
 {
-<<<<<<< HEAD
-  "lastChangelogVersion": "0.69.0",
-  "defaultProvider": "databricks",
-  "defaultModel": "databricks-claude-sonnet-4-6",
-||||||| 5f1ddca
-  "lastChangelogVersion": "0.66.1",
-  "defaultProvider": "openrouter",
-  "defaultModel": "moonshotai/kimi-k2.5",
-=======
   "lastChangelogVersion": "0.78.0",
   "defaultProvider": "openrouter",
   "defaultModel": "moonshotai/kimi-k2.5",
->>>>>>> dacbf2ff02af0435dad113fec6089182f393df64
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
@@ -21,13 +11,6 @@
     "npm:pi-mono-status-line",
     "npm:@guwidoe/pi-prompt-suggester"
   ],
-  "defaultThinkingLevel": "off",
-<<<<<<< HEAD
-  "quietStartup": false
-||||||| 5f1ddca
   "defaultThinkingLevel": "medium",
-  "quietStartup": false
-=======
   "quietStartup": true
->>>>>>> dacbf2ff02af0435dad113fec6089182f393df64
 }
