@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>738978193.27756405</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>6</integer>
+						<key>Alpha</key>
+						<integer>70</integer>
+						<key>Blue</key>
+						<integer>128</integer>
+						<key>Green</key>
+						<integer>128</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>WindowSwitcher</string>
+						<key>MouseRollover</key>
+						<true/>
+						<key>Red</key>
+						<integer>0</integer>
+						<key>SortAlphabetically</key>
+						<false/>
+						<key>SwitcherUnderMouse</key>
+						<false/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>738978193.27269697</real>
+				<key>ModificationDate</key>
+				<real>738978193.27269697</real>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>48</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>4096</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>2A8E653C-5490-47B3-95C1-EA2B2F004A94</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Switcher Group</string>
+		<key>ToggleMacroUID</key>
+		<string>F95D4A91-A2CD-42E7-AFC5-A4D862BDFC7B</string>
+		<key>UID</key>
+		<string>F880C574-20B4-4DB2-B48E-B3F7474D524E</string>
+	</dict>
+</array>
+</plist>

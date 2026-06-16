@@ -1,0 +1,133 @@
+tap "hudochenkov/sshpass"
+tap "koekeishiya/formulae"
+tap "nikitabobko/tap"
+
+# Core tools
+brew "bash"
+brew "git"
+brew "neovim"
+brew "tmux"
+brew "zsh"
+
+# GNU utils
+brew "coreutils"
+brew "findutils"
+brew "grep"
+brew "gnu-sed"
+brew "make"
+
+# Shell & terminal
+brew "bat"
+brew "direnv"
+brew "mise"
+brew "fd"
+brew "fzf"
+brew "htop"
+brew "jq"
+brew "lsd"
+brew "ripgrep"
+brew "starship"
+brew "tig"
+brew "tree"
+brew "wget"
+brew "zoxide"
+brew "deno"
+brew "yarn"
+
+# Language servers & linters
+brew "actionlint"
+brew "codespell"
+brew "efm-langserver"
+brew "golangci-lint"
+brew "gopls"
+brew "hadolint"
+brew "jsonlint"
+brew "ltex-ls"
+brew "lua-language-server"
+brew "marksman"
+brew "shellcheck"
+brew "shellharden"
+brew "sql-language-server"
+brew "stylua"
+brew "tailwindcss-language-server"
+brew "vale"
+brew "yamllint"
+
+# Dev tools
+brew "cmake"
+# brew "deno"
+brew "difftastic"
+brew "entr"
+brew "gh"
+brew "just"
+brew "lazydocker"
+brew "lazygit"
+brew "llvm"
+brew "stow"
+
+# Build deps & libs
+brew "bzip2"
+brew "cairo"
+brew "gtk4"
+brew "libffi"
+brew "open-mpi"
+brew "openjdk@17"
+brew "pango"
+brew "pkgconf"
+brew "swig"
+brew "xz"
+brew "zlib"
+
+# Apps & utilities
+brew "cbonsai"
+brew "csvlens"
+brew "duckdb"
+brew "ffmpeg"
+brew "fish"
+brew "flyctl"
+brew "glow"
+brew "go-task"
+brew "httpie"
+brew "hugo"
+brew "imagemagick"
+brew "keychain"
+brew "pandoc"
+brew "syncthing", restart_service: :changed
+brew "weasyprint"
+brew "wordnet"
+# brew "yarn"
+
+# Taps
+brew "hudochenkov/sshpass/sshpass"
+if OS.mac?
+  brew "koekeishiya/formulae/skhd"
+end
+brew "koekeishiya/formulae/yabai"
+
+# TODO!!!
+# brew tap databricks/tap
+
+# Casks
+cask "amethyst"
+cask "claude-code"
+cask "darktable"
+cask "dockdoor"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "mactex"
+
+brew "markdownlint-cli"
+cask "copilot-cli"
+brew "azure-cli"
+brew "git-delta"
+cask "keycastr"
+<<<<<<< HEAD:brew/Brewfile
+
+tap "databricks/tap"
+brew "databricks"
+||||||| 5f1ddca:brew/Brewfile
+=======
+brew "marp-cli"
+brew "btop"
+>>>>>>> dacbf2ff02af0435dad113fec6089182f393df64:config/brew/Brewfile

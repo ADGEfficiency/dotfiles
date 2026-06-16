@@ -4,22 +4,23 @@ default:
 .PHONY: setup-common setup-macos setup-ubuntu setup-wsl
 
 setup-common:
-	bash ./tmux/setup.sh
-	bash ./zsh/setup.sh
-	bash ./fzf/setup.sh
+	bash ./config/tmux/setup.sh
+	bash ./config/fzf/setup.sh
+	bash ./scripts/setup-zsh.sh
 	bash ./scripts/setup-pi.sh
 	bash ./scripts/setup-extras.sh
 
 setup-macos: export OS=macos
 setup-macos: brew-pkgs dotfiles setup-common setup-python
-	bash ./macos/setup.sh
+	bash ./os/macos/setup.sh
 
 setup-ubuntu: export OS=ubuntu
 setup-ubuntu: brew-pkgs dotfiles setup-common
-	bash ./ubuntu/setup.sh
+	bash ./os/ubuntu/setup.sh
 
 setup-wsl: export OS=wsl
 setup-wsl: dotfiles setup-common
+	bash ./os/wsl/setup.sh
 
 .PHONY: setup-stow dotfiles setup-uv setup-python
 
@@ -30,21 +31,28 @@ setup-stow:
 dotfiles: setup-stow
 	stow "$(STOW_ARGS)" -d dotfiles -t "$(HOME)" "$(OS)"
 	stow "$(STOW_ARGS)" dotfiles
-	stow "$(STOW_ARGS)" yabai
-	stow "$(STOW_ARGS)" skhd
-	ln -sf ~/dotfiles/fish ~/.config/fish
+
+	# ai agent config
 	mkdir -p "$(HOME)/.agents"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.agents/skills"
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn ~/dotfiles/agents/skills "$(HOME)/.claude/skills"
-	ln -sf ~/dotfiles/config/pi/agent/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
+	ln -sf ~/dotfiles/config/pi/AGENTS.md "$(HOME)/.claude/CLAUDE.md"
+	# PI coding agent is not configured via symlink - uses PI_CODING_AGENT_DIR
 
-setup-uv:
-	bash ./python/setup-uv.sh
+	mkdir -p ~/.config
+	# explicit opt-in to the symlink from config into ~/.config
+	ln -sfn ~/dotfiles/config/fish ~/.config/fish
+	ln -sfn ~/dotfiles/config/nvim ~/.config/nvim
+	ln -sfn ~/dotfiles/config/lazygit ~/.config/lazygit
+	ln -sfn ~/dotfiles/config/direnv ~/.config/direnv
+	ln -sfn ~/dotfiles/config/mise ~/.config/mise
+	ln -sfn ~/dotfiles/config/fzf ~/.config/fzf
+	ln -sfn ~/dotfiles/config/lsd ~/.config/lsd
+	ln -sfn ~/dotfiles/config/kitty ~/.config/kitty
 
-setup-python: setup-uv
-	cd ~ && ~/.local/bin/uv venv --python 3.11.9
-	~/.local/bin/uv pip install -r ./python/pyproject.toml
+setup-python:
+	bash ./scripts/setup-uv.sh
 
 .PHONY: clean-nvim setup-vim
 
@@ -68,4 +76,4 @@ setup-brew:
 	brew update; brew upgrade
 
 brew-pkgs: setup-brew
-	brew bundle --file ~/dotfiles/brew/Brewfile --no-upgrade
+	brew bundle --file ~/dotfiles/config/brew/Brewfile --no-upgrade

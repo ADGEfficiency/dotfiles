@@ -24,7 +24,7 @@ source "$HOME/dotfiles/scripts/aliases.sh"
 source "$HOME/dotfiles/dotfiles/common/setup-path.sh"
 
 starship_init() {
-  export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+  export STARSHIP_CONFIG=~/dotfiles/config/starship/starship.toml
   eval "$(starship init bash)"
 }
 

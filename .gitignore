@@ -39,3 +39,4 @@ temp.*
 temp
 config/pi/auth.json
 config/pi/sessions/
+config/pi/npm

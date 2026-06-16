@@ -1,5 +1,8 @@
 source $HOME/dotfiles/dotfiles/common/.zshrc
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+
+# Enable Nerd Fonts for pi powerline
+export POWERLINE_NERD_FONTS=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 . "$HOME/.local/bin/env"
 

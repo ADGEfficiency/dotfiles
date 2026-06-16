@@ -1,6 +1,6 @@
 bash $HOME/dotfiles/scripts/trace.sh "$0"
 export EDITOR=$(which nvim)
-export XDG_CONFIG_HOME=$HOME/dotfiles
+export XDG_CONFIG_HOME="$HOME/.config"
 if command -v launchctl >/dev/null 2>&1; then
   launchctl setenv XDG_CONFIG_HOME $XDG_CONFIG_HOME
 fi
