@@ -111,8 +111,6 @@ setopt HIST_SAVE_NO_DUPS         # Don't save duplicates to file
 setopt SHARE_HISTORY             # Share history between all sessions
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks from commands
 export AWS_LOG_LEVEL=3
-
-alias brew='arch -arm64 brew'
 source ~/dotfiles/macos/pyenv-flags
 
 # custom ipython config

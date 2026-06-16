@@ -31,6 +31,8 @@ brew "tig"
 brew "tree"
 brew "wget"
 brew "zoxide"
+brew "deno"
+brew "yarn"
 
 # Language servers & linters
 brew "actionlint"
@@ -97,8 +99,13 @@ brew "wordnet"
 
 # Taps
 brew "hudochenkov/sshpass/sshpass"
-brew "koekeishiya/formulae/skhd"
+if OS.mac?
+  brew "koekeishiya/formulae/skhd"
+end
 brew "koekeishiya/formulae/yabai"
+
+# TODO!!!
+# brew tap databricks/tap
 
 # Casks
 cask "amethyst"
@@ -112,7 +119,15 @@ cask "mactex"
 
 brew "markdownlint-cli"
 cask "copilot-cli"
+brew "azure-cli"
 brew "git-delta"
 cask "keycastr"
+<<<<<<< HEAD:brew/Brewfile
+
+tap "databricks/tap"
+brew "databricks"
+||||||| 5f1ddca:brew/Brewfile
+=======
 brew "marp-cli"
 brew "btop"
+>>>>>>> dacbf2ff02af0435dad113fec6089182f393df64:config/brew/Brewfile
