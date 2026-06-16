@@ -35,7 +35,7 @@ return {
 					},
 					sql = { "sqlfluff" },
 					["*"] = {
-						"codespell",
+						-- "codespell",
 						"trim_newlines",
 					},
 				},
