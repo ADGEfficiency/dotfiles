@@ -24,7 +24,6 @@ return {
 					python = {
 						"isort",
 						"ruff_format",
-						"trim_whitespace",
 					},
 					-- markdown = { "injected" },
 					javascript = { "prettier" },
@@ -32,7 +31,8 @@ return {
 					yaml = { "yamlfix" },
 					sql = { "sqlfluff" },
 					["*"] = {
-						"codespell",
+						-- "codespell",
+						"trim_whitespace",
 						"trim_newlines",
 					},
 				},

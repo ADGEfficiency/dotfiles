@@ -113,7 +113,6 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks from commands
 export AWS_LOG_LEVEL=3
 
 alias brew='arch -arm64 brew'
-source ~/dotfiles/macos/pyenv-flags
 
 # custom ipython config
 export IPYTHONDIR="$HOME/dotfiles/.ipython"
@@ -123,7 +122,8 @@ export IPYTHONDIR="$HOME/dotfiles/.ipython"
 # export NODE_PATH=~/.npm-packages/lib/node_modules
 # export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
-pyenv_init
+# source ~/dotfiles/macos/pyenv-flags
+# pyenv_init
 starship_init
 flyctl_init
 

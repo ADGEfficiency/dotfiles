@@ -150,3 +150,11 @@ vim.opt.wildignore:append("*.egg-info/**")
 -- Enable wildmenu for command-line completion
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
+
+--- Folding Config
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- High foldlevel keeps everything open on load; without this, folds start closed
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldtext = ""

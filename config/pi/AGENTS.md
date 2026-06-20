@@ -41,3 +41,10 @@ Only include comments when they explain something that is not obvious from the c
 Always respect existing conventions in each file and across the code base when making changes.
 
 Always ask for permissions before starting work.  Never edit files until you have presented a plat to the user.
+
+## About Me
+
+I like:
+
+- Simple solutions
+- Small edits that I can change
