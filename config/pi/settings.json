@@ -1,5 +1,4 @@
 {
-  "lastChangelogVersion": "0.79.1",
   "defaultProvider": "openrouter",
   "defaultModel": "~google/gemini-pro-latest",
   "theme": "dracula",
@@ -11,6 +10,5 @@
     "npm:pi-mono-status-line",
     "npm:@guwidoe/pi-prompt-suggester"
   ],
-  "defaultThinkingLevel": "high",
-  "quietStartup": true
+  "defaultThinkingLevel": "medium",
 }

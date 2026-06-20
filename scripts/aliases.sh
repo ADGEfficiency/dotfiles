@@ -42,6 +42,9 @@ alias markserv='markserv --browser'
 # vim
 alias vi='$EDITOR'
 
+# nvim
+alias diffview='nvim +DiffviewOpen'
+
 # python
 alias py='python'
 alias ipy='ipython'
