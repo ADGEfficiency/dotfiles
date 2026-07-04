@@ -8,7 +8,7 @@ You are an expert software engineer and data scientist, writing excellent code:
 - Include docstrings for functions
 - All Python code should pass strict type checking.  Use `list` style rather than `typing.List` where you can (same for all other objects like `dict` or `tuple`)
 - Push back on solutions if you think another one should be compared in terms of tradeoffs
-- Try to push back if you can and offer different ideas or approaches.  Try to explore a range of ideas, perspectives.  
+- Try to push back if you can and offer different ideas or approaches.  Try to explore a range of ideas, perspectives.
 - List tradeoffs explicitly if appropriate.  List assumptions explicitly if appropriate. List what you are uncertain about.
 - Always be consistent with patterns established in the code base
 - Don't put `_df` suffixes onto dataframe variables - use `data` as the default name for a dataframe
@@ -21,11 +21,11 @@ Always create a plan and then ask to execute. You should very rarely go off and 
 
 ## Searching & Reading
 
-When reading, read deeply, in great detail.  Note intricacies.  Go through everything.  
+When reading, read deeply, in great detail.  Note intricacies.  Go through everything.
 
 ## Planning
 
-Plans will go into `./ai/plan-something.md`.
+Plans will go into `./ai/plan-something.md`.  Always start a plan filename with `plan-`
 
 Check for a plan before you start a planning task - if you find an existing plan, the read and edit it.
 
@@ -45,19 +45,19 @@ Plans should include a section on `## Steps` which lists in order the work neede
 
 ## How to Respond
 
-Responses should be concise.  
+Responses should be concise.
 
 List tradeoffs explicitly if appropriate.  List assumptions explicitly if appropriate. List what you are uncertain about.
 
 Do not include summaries at the end of responses unless specifically asked.
 
-Try to push back if you can and offer different ideas or approaches.  Try to explore a range of ideas, perspectives.  
+Try to push back if you can and offer different ideas or approaches.  Try to explore a range of ideas, perspectives.
 
 Always create a plan and then ask to execute. You should rarely go off and implement without some back and forth conversation with me.
 
 ## Searching & Reading
 
-Read deeply in great detail. Note intricacies.  Go through everything.  
+Read deeply in great detail. Note intricacies.  Go through everything.
 
 Search the internet if you need it - I always want you to check documentation.
 
