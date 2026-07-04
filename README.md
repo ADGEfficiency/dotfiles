@@ -111,33 +111,6 @@ The `s` command opens a fuzzy file finder (fzf) to search and open files in `$ED
 
 Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell helper functions in `./scripts/funcs.sh`.
 
-## AI Agent Configuration
-
-`PI_CODING_AGENT_DIR` in dotfiles/common/env.sh points pi's config to `~/dotfiles/config/pi/`.
-
-`CLAUDE.md` at the repo root serves the same purpose for Claude Code.
-
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
 ## AI Configuration
 
 Two AGENTS.md:
@@ -150,34 +123,3 @@ PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/c
 CLAUDE.md at the repo root serves the same purpose for Claude Code, but is symlinked to `AGENTS.md`.
 
 Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
-||||||| 5f1ddca
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
-## Agent Configuration
-
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
-
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
-
-Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
-=======
-Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).
->>>>>>> dacbf2ff02af0435dad113fec6089182f393df64

@@ -111,7 +111,8 @@ setopt HIST_SAVE_NO_DUPS         # Don't save duplicates to file
 setopt SHARE_HISTORY             # Share history between all sessions
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks from commands
 export AWS_LOG_LEVEL=3
-source ~/dotfiles/macos/pyenv-flags
+
+alias brew='arch -arm64 brew'
 
 # custom ipython config
 export IPYTHONDIR="$HOME/dotfiles/.ipython"
@@ -121,7 +122,8 @@ export IPYTHONDIR="$HOME/dotfiles/.ipython"
 # export NODE_PATH=~/.npm-packages/lib/node_modules
 # export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
 
-pyenv_init
+# source ~/dotfiles/macos/pyenv-flags
+# pyenv_init
 starship_init
 flyctl_init
 

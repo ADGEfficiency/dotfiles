@@ -103,7 +103,10 @@ km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telesc
 km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for current word
 vim.keymap.set("n", "<leader>g", function()
-	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
+		hidden = true,
+		default_text = vim.fn.expand("<cword>"),
+	}))
 end, opts)
 vim.keymap.set("n", "<leader>.", function()
 	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
@@ -120,16 +123,5 @@ vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
 -- Misc / Unused / Broken
 
--- Move blocks of text up and down
-km("x", "J", ":move '>+1<CR>gv-gv", opts)
-km("x", "K", ":move '<-2<CR>gv-gv", opts)
-
 -- change nvim behaviour of replacing buffer after ciw
 km("v", "p", '"_dP', opts)
-
--- from https://youtu.be/w7i4amO_zaE
--- move selected blocks up and down with J and K
-km("v", "J", ":m '>+1<CR>gv=gv", opts)
-km("v", "K", ":m '>-2<CR>gv=gv", opts)
--- keep cursor in place when using J
-km("n", "J", "mzJ`z", opts)
