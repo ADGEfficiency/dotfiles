@@ -10,5 +10,5 @@
     "npm:pi-mono-status-line",
     "npm:@guwidoe/pi-prompt-suggester"
   ],
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "medium"
 }
