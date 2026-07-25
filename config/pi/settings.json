@@ -1,6 +1,6 @@
 {
   "defaultProvider": "openrouter",
-  "defaultModel": "~google/gemini-pro-latest",
+  "defaultModel": "~moonshotai/kimi-latest",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
@@ -10,5 +10,6 @@
     "npm:pi-mono-status-line",
     "npm:@guwidoe/pi-prompt-suggester"
   ],
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.79.1"
 }

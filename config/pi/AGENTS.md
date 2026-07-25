@@ -33,6 +33,17 @@ If you are making code changes from a plan, update the plan as part of your code
 
 Plans should include a section on `## Steps` which lists in order the work needed.
 
+Plan structure:
+
+- Short description
+- Steps
+- Background
+- Decision register
+- Open decisions
+- Any other required sections
+
+Favour markdown bullet lists over tables where appropriate.  Use multiple levels in the bullet lists to structure the lists.
+
 ## Programming
 
 - When you write Python code, make it type safe, so that it would pass strict type checking with a tool like basedpyright.  Prefer using `list` or `dict` over `typing.List` or `typing.Dict` (same for all other objects like this - avoid `import typing` if possible).
