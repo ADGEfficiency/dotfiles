@@ -1,4 +1,4 @@
-tap "hudochenkov/sshpass"
+# tap "hudochenkov/sshpass"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 
@@ -122,12 +122,10 @@ cask "copilot-cli"
 brew "azure-cli"
 brew "git-delta"
 cask "keycastr"
-<<<<<<< HEAD:brew/Brewfile
 
 tap "databricks/tap"
 brew "databricks"
-||||||| 5f1ddca:brew/Brewfile
-=======
 brew "marp-cli"
 brew "btop"
->>>>>>> dacbf2ff02af0435dad113fec6089182f393df64:config/brew/Brewfile
+
+brew "gum"
