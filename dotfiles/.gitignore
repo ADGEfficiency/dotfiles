@@ -39,3 +39,5 @@ temp.*
 temp
 .databricks
 **/.mypy_cache
+
+**/.claude/.cc-writes/

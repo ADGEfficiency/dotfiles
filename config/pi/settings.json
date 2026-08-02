@@ -1,15 +1,13 @@
 {
   "defaultProvider": "openrouter",
-  "defaultModel": "~openai/gpt-latest",
+  "defaultModel": "moonshotai/kimi-k3",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
     "npm:pi-vim",
     "npm:@ifi/pi-plan",
-    "npm:@ollama/pi-web-search",
-    "npm:pi-mono-status-line",
-    "npm:@guwidoe/pi-prompt-suggester"
+    "npm:@ollama/pi-web-search"
   ],
   "defaultThinkingLevel": "medium",
-  "lastChangelogVersion": "0.79.1"
+  "lastChangelogVersion": "0.83.0"
 }
