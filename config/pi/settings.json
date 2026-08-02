@@ -1,6 +1,6 @@
 {
   "defaultProvider": "openrouter",
-  "defaultModel": "~moonshotai/kimi-latest",
+  "defaultModel": "~openai/gpt-latest",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
