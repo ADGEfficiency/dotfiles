@@ -6,4 +6,6 @@ export PATH="$HOME/personal/area/scripts:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-packages/bin:$PATH"
+# macOS path_helper adds a literal, unexpanded "~/.dotnet/tools" which zsh never resolves
+export PATH="$HOME/.dotnet/tools:$PATH"
 export GOPATH="$HOME/go"

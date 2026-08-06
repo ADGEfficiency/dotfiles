@@ -93,30 +93,37 @@ km(
 )
 -- Search for files in cwd
 km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>", opts)
---- Search through recent files
+
+--- Search through recent files - mapped 3 ways
 km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
+
+-- Search for a string under cursor - mapped twice
+km("n", "<leader>g", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
+vim.keymap.set("n", "<leader>.", function()
+	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
+end, opts)
+
 -- Search for a string
 km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
--- Search for a string under cursor
-km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
--- Search for current word
-vim.keymap.set("n", "<leader>g", function()
+
+-- Search for current word in current buffer
+vim.keymap.set("n", "<leader>rgg", function()
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
 		hidden = true,
 		default_text = vim.fn.expand("<cword>"),
 	}))
-end, opts)
-vim.keymap.set("n", "<leader>.", function()
-	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
 end, opts)
 
 -- Oil
 vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- CopilotChat
-vim.keymap.set("n", "<leader>c", ":CodeCompanionChat<CR>")
+vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
+vim.keymap.set("n", "<leader>sc", function()
+	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
+end, { desc = "Toggle Copilot Chat (horizontal)" })
 
 -- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")

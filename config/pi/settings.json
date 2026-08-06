@@ -1,14 +1,13 @@
 {
   "defaultProvider": "openrouter",
-  "defaultModel": "~google/gemini-pro-latest",
+  "defaultModel": "moonshotai/kimi-k3",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
     "npm:pi-vim",
     "npm:@ifi/pi-plan",
-    "npm:@ollama/pi-web-search",
-    "npm:pi-mono-status-line",
-    "npm:@guwidoe/pi-prompt-suggester"
+    "npm:@ollama/pi-web-search"
   ],
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.83.0"
 }

@@ -183,7 +183,6 @@ return {
 					"dictionary",
 				},
 				per_filetype = {
-					codecompanion = { "codecompanion" },
 					markdown = {
 						"obsidian",
 						"copilot",
