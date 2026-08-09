@@ -2,6 +2,7 @@ return {
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		cmd = "Trouble",
 		keys = {
 			{ "<leader>gt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
 		},

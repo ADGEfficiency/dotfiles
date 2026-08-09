@@ -63,7 +63,6 @@ return {
 			trusted_tools = { "file", "glob", "grep", "buffer", "gitdiff", "selection" },
 			auto_fold = false,
 			auto_insert_mode = true,
-			insert_at_end = true,
 			auto_follow_cursor = false,
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 		},
