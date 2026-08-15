@@ -171,3 +171,5 @@ alias ai='claude'
 alias ai-talk='claude converse'
 
 alias godot='godot-mono'
+
+alias prjct='$EDITOR $PERSONAL_PATH/project/project.md'
