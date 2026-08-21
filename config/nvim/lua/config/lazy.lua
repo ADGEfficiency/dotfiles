@@ -12,7 +12,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-vim.print(lazypath)
 
 local opts = {
 	root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed

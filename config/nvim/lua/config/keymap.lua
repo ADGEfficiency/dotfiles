@@ -78,6 +78,16 @@ end, { desc = "Surround help" })
 
 km("n", "<leader>a", ":ArgWrap<cr>", opts)
 vim.keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
+
+-- Diffview toggle
+vim.keymap.set("n", "<leader>dd", function()
+	if next(require("diffview.lib").views) == nil then
+		vim.cmd("DiffviewOpen")
+	else
+		vim.cmd("DiffviewClose")
+	end
+end, { desc = "Toggle Diffview" })
+
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
 km("v", "<leader>ll", ":Noice dismiss", opts)
 
@@ -124,6 +134,17 @@ vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
 vim.keymap.set("n", "<leader>sc", function()
 	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
 end, { desc = "Toggle Copilot Chat (horizontal)" })
+
+-- Toggle ignoring whitespace in diffs
+vim.keymap.set("n", "<leader>dw", function()
+	if vim.opt.diffopt:get()["iwhite"] then
+		vim.opt.diffopt:remove("iwhite")
+		vim.notify("diffopt: iwhite off")
+	else
+		vim.opt.diffopt:append("iwhite")
+		vim.notify("diffopt: iwhite on")
+	end
+end, { desc = "Toggle diff ignore whitespace" })
 
 -- ZenMode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
