@@ -104,3 +104,4 @@ I like:
 
 - Simple solutions
 - Small edits that I can change
+- Clean low friction interfaces with high information density
