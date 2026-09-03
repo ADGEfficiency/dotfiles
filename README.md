@@ -103,9 +103,29 @@ Neovim config is in `./config/nvim`. To use the Neovim setup alone, put the `nvi
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
+### Gitignore
+
+There is one global ignore file, `./dotfiles/.gitignore`, stowed to `~/.gitignore`. It is wired in by `core.excludesfile` in `./dotfiles/.gitconfig`:
+
+```
+[core]
+  excludesfile = ~/dotfiles/dotfiles/.gitignore
+```
+
+This is the place to add junk that should never be committed in any repo (`.DS_Store`, `__pycache__`, `.venv`, `.wrangler`, `temp*`). Per-repo `.gitignore` files still apply on top of it, for things specific to one project.
+
+Two consequences worth knowing:
+
+- Because `core.excludesfile` is set, git ignores its default fallback location `~/.config/git/ignore`. That file exists on this machine but is dead - entries there have no effect and belong in `./dotfiles/.gitignore` instead.
+- The global file is only read by tools that resolve `core.excludesfile`. `git`, `rg` and `fd` all do; plain `find` does not.
+
 ### `s`
 
-The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory, or pass a path like `s ~/projects`. Supports multi-select with Tab.
+The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory. Supports multi-select with Tab.
+
+The file list comes from `fd` (set as `FZF_DEFAULT_COMMAND` in `./scripts/search.sh`), so the results respect the ignore rules above - both the repo's own `.gitignore` and the global `~/.gitignore`. `--no-require-git` makes those rules apply outside git repos too, and `archive/` is excluded explicitly.
+
+The tradeoff is that gitignored files you sometimes want to open (`.env`, `dist/`, anything matching `temp*`) are not reachable via `s`. Add `--no-ignore-vcs` to that command to get them back.
 
 ### Aliases
 
