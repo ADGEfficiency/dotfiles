@@ -59,7 +59,7 @@ return {
 - List tradeoffs, assumptions, and uncertainties explicitly when relevant
 - Prefer small, targeted edits over large rewrites
 - Produce directly usable code because responses may be copied into the codebase]],
-			model = "claude-sonnet-4.6",
+			-- model = "claude-sonnet-4.6",
 			trusted_tools = { "file", "glob", "grep", "buffer", "gitdiff", "selection" },
 			auto_fold = false,
 			auto_insert_mode = true,
