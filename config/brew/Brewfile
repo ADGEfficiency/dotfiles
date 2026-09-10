@@ -1,4 +1,4 @@
-tap "hudochenkov/sshpass"
+# tap "hudochenkov/sshpass"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 
@@ -127,3 +127,4 @@ tap "databricks/tap"
 brew "databricks"
 brew "marp-cli"
 brew "btop"
+brew "gum"

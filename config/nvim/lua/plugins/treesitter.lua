@@ -15,6 +15,10 @@ return {
 				return
 			end
 
+			-- markdown fence names that don't match the parser name
+			vim.treesitter.language.register("c_sharp", { "csharp", "c#" })
+			vim.treesitter.language.register("gdscript", { "gd", "godot" })
+
 			configs.setup({
 				compilers = { "clang" },
 				-- A list of parser names, or "all"
@@ -28,6 +32,10 @@ return {
 					"bash",
 					"markdown",
 					"markdown_inline",
+					"c_sharp",
+					"gdscript",
+					"godot_resource",
+					"gdshader",
 				},
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,

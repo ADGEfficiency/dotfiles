@@ -1,4 +1,5 @@
 {
+  "CopilotChat.nvim": { "branch": "main", "commit": "f0c2a23ab79dc295f5e0eef0d8b587a39020c852" },
   "Vim-Jinja2-Syntax": { "branch": "master", "commit": "2c17843b074b06a835f88587e1023ceff7e2c7d1" },
   "barbar.nvim": { "branch": "master", "commit": "539d73def39c9172b4d4d769f14090e08f37b29d" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },

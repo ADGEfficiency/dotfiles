@@ -20,6 +20,8 @@ return {
 					jinja = { "djlintJinja" },
 					json = { "jq" },
 					lua = { "stylua" },
+					cs = { "csharpier" },
+					gdscript = { "gdformat" },
 					go = { "gofmt" },
 					python = {
 						"isort",
@@ -119,6 +121,7 @@ return {
 						bash = "sh",
 						c_sharp = "cs",
 						elixir = "exs",
+						gdscript = "gd",
 						javascript = "js",
 						julia = "jl",
 						latex = "tex",

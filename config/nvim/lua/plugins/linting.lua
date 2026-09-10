@@ -45,6 +45,7 @@ return {
 			-- filetype to linter mapping
 			require("lint").linters_by_ft = {
 				dockerfile = { "hadolint" },
+				gdscript = { "gdlint" },
 				go = { "golangcilint" },
 				html = { "djlint" },
 				javascript = { "jshint" },

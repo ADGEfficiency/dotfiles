@@ -106,6 +106,22 @@ return {
 			}
 			vim.lsp.enable("gopls")
 
+			-- csharp
+			vim.lsp.config["csharp_ls"] = {
+				cmd = { "csharp-ls" },
+				filetypes = { "cs" },
+				root_markers = { "*.sln", "*.csproj", "project.godot", ".git" },
+			}
+			vim.lsp.enable("csharp_ls")
+
+			-- gdscript - server runs inside the Godot editor, which must be open
+			vim.lsp.config["gdscript"] = {
+				cmd = vim.lsp.rpc.connect("127.0.0.1", tonumber(os.getenv("GDScript_Port") or "6005")),
+				filetypes = { "gdscript" },
+				root_markers = { "project.godot", ".git" },
+			}
+			vim.lsp.enable("gdscript")
+
 			-- html
 			vim.lsp.config["html"] = {
 				cmd = { "vscode-html-language-server", "--stdio" },
