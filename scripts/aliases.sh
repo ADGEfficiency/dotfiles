@@ -176,3 +176,5 @@ alias godot='godot-mono'
 
 alias prj='$EDITOR $PERSONAL_PATH/project/project.md'
 alias prjct='$EDITOR $PERSONAL_PATH/project/project.md'
+
+alias dr='bash $PERSONAL_PATH/area/scripts/show-drafts.sh'
