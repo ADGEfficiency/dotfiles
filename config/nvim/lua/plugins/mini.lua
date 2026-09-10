@@ -7,12 +7,12 @@ return {
 			require("mini.comment").setup()
 			require("mini.surround").setup({
 				mappings = {
-					add = "sa",            -- sa{motion}{char} - add surround (normal), sa{char} - visual
-					delete = "ds",         -- ds{char} - delete surround
-					replace = "cs",        -- cs{old}{new} - replace surround
-					find = "sf",           -- find surround to the right
-					find_left = "sF",      -- find surround to the left
-					highlight = "sh",      -- highlight surround
+					add = "sa", -- sa{motion}{char} - add surround (normal), sa{char} - visual
+					delete = "ds", -- ds{char} - delete surround
+					replace = "cs", -- cs{old}{new} - replace surround
+					find = "sf", -- find surround to the right
+					find_left = "sF", -- find surround to the left
+					highlight = "sh", -- highlight surround
 					update_n_lines = "sn", -- update n lines
 				},
 			})
@@ -22,7 +22,9 @@ return {
 			require("mini.misc").setup()
 			require("mini.misc").setup_restore_cursor()
 			require("mini.bufremove").setup()
-			vim.api.nvim_create_user_command("BD", function() require("mini.bufremove").delete() end, {})
+			vim.api.nvim_create_user_command("BD", function()
+				require("mini.bufremove").delete()
+			end, {})
 			require("mini.operators").setup()
 
 			-- keymap for zoom
@@ -37,12 +39,7 @@ return {
 					-- Markdown text objects
 					h = require("mini.ai").gen_spec.treesitter({ a = "@markup.heading", i = "@markup.heading" }),
 					-- Code blocks in markdown
-					b = function(ai_type)
-						local pattern = "```.-```"
-						return require("mini.ai").gen_spec.pair(pattern, pattern, {
-							type = "non-balanced",
-						})(ai_type)
-					end,
+					b = require("mini.ai").gen_spec.pair("```", "```", { type = "non-balanced" }),
 				},
 			})
 

@@ -127,6 +127,5 @@ tap "databricks/tap"
 brew "databricks"
 brew "marp-cli"
 brew "btop"
-
 brew "gum"
 brew "ov" # csv viewer
