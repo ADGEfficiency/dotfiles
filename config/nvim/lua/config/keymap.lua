@@ -99,6 +99,11 @@ km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescop
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 
+-- Search for a string
+-- km("n", "<leader>rc", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
+-- Search for a string under cursor
+km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
+km("n", "<leader>rg", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for a string under cursor - mapped twice
 km("n", "<leader>g", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 vim.keymap.set("n", "<leader>.", function()
