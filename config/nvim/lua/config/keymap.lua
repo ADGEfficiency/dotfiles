@@ -97,10 +97,12 @@ km("n", "<leader>j", ":lua require'telescope.builtin'.find_files(require('telesc
 km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
+
 -- Search for a string
-km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
+-- km("n", "<leader>rc", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for a string under cursor
 km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
+km("n", "<leader>rg", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for current word
 vim.keymap.set("n", "<leader>g", function()
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
