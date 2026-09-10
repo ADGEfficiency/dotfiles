@@ -151,6 +151,18 @@ vim.opt.wildignore:append("*.egg-info/**")
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 
+-- Diff options
+vim.opt.diffopt = {
+	"internal",
+	"filler",
+	"closeoff",
+	"context:12",
+	"algorithm:histogram",
+	"linematch:200",
+	"indent-heuristic",
+	"iwhite",
+}
+
 --- Folding Config
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

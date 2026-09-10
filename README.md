@@ -103,9 +103,29 @@ Neovim config is in `./config/nvim`. To use the Neovim setup alone, put the `nvi
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
+### Gitignore
+
+There is one global ignore file, `./dotfiles/.gitignore`, stowed to `~/.gitignore`. It is wired in by `core.excludesfile` in `./dotfiles/.gitconfig`:
+
+```
+[core]
+  excludesfile = ~/dotfiles/dotfiles/.gitignore
+```
+
+This is the place to add junk that should never be committed in any repo (`.DS_Store`, `__pycache__`, `.venv`, `.wrangler`, `temp*`). Per-repo `.gitignore` files still apply on top of it, for things specific to one project.
+
+Two consequences worth knowing:
+
+- Because `core.excludesfile` is set, git ignores its default fallback location `~/.config/git/ignore`. That file exists on this machine but is dead - entries there have no effect and belong in `./dotfiles/.gitignore` instead.
+- The global file is only read by tools that resolve `core.excludesfile`. `git`, `rg` and `fd` all do; plain `find` does not.
+
 ### `s`
 
-The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory, or pass a path like `s ~/projects`. Supports multi-select with Tab.
+The `s` command opens a fuzzy file finder (fzf) to search and open files in `$EDITOR`. Run `s` in any directory. Supports multi-select with Tab.
+
+The file list comes from `fd` (set as `FZF_DEFAULT_COMMAND` in `./scripts/search.sh`), so the results respect the ignore rules above - both the repo's own `.gitignore` and the global `~/.gitignore`. `--no-require-git` makes those rules apply outside git repos too, and `archive/` is excluded explicitly.
+
+The tradeoff is that gitignored files you sometimes want to open (`.env`, `dist/`, anything matching `temp*`) are not reachable via `s`. Add `--no-ignore-vcs` to that command to get them back.
 
 ### Aliases
 
@@ -113,71 +133,13 @@ Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell hel
 
 ## AI Configuration
 
-Two AGENTS.md:
+Agents are configured twice using two AGENTS.md:
 
 - `./AGENTS.md` for this repo
-- `./pi/config/pi/agent/AGENTS.md` for Pi & Claude Code
+- `./pi/config/pi/agent/AGENTS.md` for Pi & Claude Code outside this repo
 
 PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
 
 CLAUDE.md at the repo root serves the same purpose for Claude Code, but is symlinked to `AGENTS.md`.
 
 Skills are defined once in agents/skills/ and symlinked by make dotfiles to both ~/.agents/skills (pi) and ~/.claude/skills (Claude Code).
-<<<<<<< HEAD
-||||||| 5f1ddca
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
-## Agent Configuration
-
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
-
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
-
-Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).
-||||||| 25036fb
-||||||| 5f1ddca
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>setenv.XDG_CONFIG_HOME</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>launchctl setenv XDG_CONFIG_HOME $HOME/dotfiles</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-
-$ launchctl load ~/Library/LaunchAgents/setenv.XDG_CONFIG_HOME.plist
-```
-
-## Agent Configuration
-
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
-
-CLAUDE.md at the repo root serves the same purpose for Claude Code.
-
-Skills are defined once in `.agents/skills/` and symlinked by `make dotfiles` to both `~/.agents/skills` (for Pi) and `~/.claude/skills` (for Claude Code).

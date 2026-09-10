@@ -27,11 +27,15 @@
   renames = true
 
 [delta]
-  navigate = true
-  light = false
-  side-by-side = true
-  line-numbers = true
-  hyperlinks = true
+    navigate = true
+    dark = true
+    side-by-side = true
+    line-numbers = true
+    hyperlinks = true
+    file-style = bold yellow
+    file-decoration-style = yellow ul
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = cyan box
 
 [interactive]
   diffFilter = delta --color-only

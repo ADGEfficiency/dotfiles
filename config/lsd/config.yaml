@@ -11,7 +11,7 @@ classic: false
 # Possible values: permission, user, group, context, size, date, name, inode, links, git
 blocks:
   # - permission
-  - user
+  # - user
   # - group
   - size
   - date
@@ -34,7 +34,7 @@ color:
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>'
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
-date: date
+date: relative
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -60,6 +60,9 @@ icons:
 ignore-globs:
   - .git
   - "*pycache*"
+  - .DS_Store
+  - node_modules
+  - .venv
 
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
@@ -82,7 +85,7 @@ recursion:
 # == Size ==
 # Specifies the format of the size column.
 # Possible values: default, short, bytes
-size: default
+size: short
 
 # == Permission ==
 # Specify the format of the permission column
@@ -99,7 +102,7 @@ sorting:
   # Whether to group directories together and where.
   # When "classic" is set, this is set to "none".
   # Possible values: first, last, none
-  dir-grouping: none
+  dir-grouping: first
 # == No Symlink ==
 # Whether to omit showing symlink targets
 # Possible values: false, true
@@ -113,7 +116,7 @@ total-size: false
 # == Hyperlink ==
 # Attach hyperlink to filenames
 # Possible values: always, auto, never
-hyperlink: never
+hyperlink: auto
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8

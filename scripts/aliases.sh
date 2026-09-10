@@ -25,8 +25,10 @@ alias cls='clear && ls'
 # alias tree='fd --type f | tree --fromfile'
 
 # lsd
-alias ll='lsd --almost-all --group-directories-first'
-alias ls='lsd --almost-all --long --icon always --git --date relative --group-directories-first -a'
+alias ll='lsd --almost-all'
+alias ls='lsd --almost-all --long --icon auto --git --total-size'
+alias lt='lsd --almost-all --long --git --tree --depth 2'
+alias tree='lt'
 
 # program customization
 alias bat='bat --color=always --paging=always'
@@ -171,3 +173,8 @@ alias ai='claude'
 alias ai-talk='claude converse'
 
 alias godot='godot-mono'
+
+alias prj='$EDITOR $PERSONAL_PATH/project/project.md'
+alias prjct='$EDITOR $PERSONAL_PATH/project/project.md'
+
+alias dr='bash $PERSONAL_PATH/area/scripts/show-drafts.sh'
