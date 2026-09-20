@@ -103,6 +103,23 @@ Neovim config is in `./config/nvim`. To use the Neovim setup alone, put the `nvi
 
 I use Lazy for package management in Neovim - it will install packages when you first open the editor.
 
+- `config/nvim/init.lua` for the entrypoint
+- `config/nvim/after` for filetype specific overrides
+- `config/nvim/lua/config` for general configuration
+- `config/nvim/lua/config/keymap.lua` for general configuration
+- `config/nvim/lua/config/lazy.lua` for Lazy init (?)
+- `config/nvim/lua/plugins` for Lazy managed plugins
+- `config/nvim/lua/snippets` for autocompletion snippets
+- `config/nvim/spell` for spell checking
+
+Important keymaps:
+
+- `gl`
+- `gll`
+- `zt`
+- `zz`
+- `zb`
+
 ### Gitignore
 
 There is one global ignore file, `./dotfiles/.gitignore`, stowed to `~/.gitignore`. It is wired in by `core.excludesfile` in `./dotfiles/.gitconfig`:

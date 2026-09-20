@@ -38,6 +38,16 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+		-- blink.cmp maps <Tab> buffer-locally and wins over CopilotChat's <Tab>
+		-- completion; opt out of blink here so resource completion (#file:, #buffer:) works
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "copilot-chat",
+				callback = function()
+					vim.b.completion = false
+				end,
+			})
+		end,
 		opts = {
 			system_prompt = [[You are an expert software engineer and data scientist.
 - Provide clear, concise explanations - favour less verbose implementations

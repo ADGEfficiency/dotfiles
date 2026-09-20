@@ -7,6 +7,16 @@ return {
 			-- TODO - should these be elsewhere?
 			local opts = { noremap = true, silent = true }
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+			-- vim.keymap.set("n", "gll", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", opts)
+			-- vim.keymap.set("n", "gll", function()
+			-- 	vim.diagnostic.open_float({ scope = "buffer" })
+			-- end, opts)
+			-- vim.keymap.set("n", "gll", function()
+			-- 	vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+			-- end, opts)
+			vim.keymap.set("n", "gll", function()
+				vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+			end, opts)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 			vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)

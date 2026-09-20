@@ -91,6 +91,9 @@ Guidelines:
 - Never use f-string SQL — always parameterize
 - Always respect existing conventions in the codebase
 - Only deploy DABs to `dev_developer` target
+- Many functions will have a verb as the first word
+- Use consistent verbs in function names - for example `load_daily_data` and `load_monthly_data` rather than `cache_monthly_data`
+- Consider these two approaches: 1. code is functional bits with other bits that deal with the concrete (ie side-effect free fu) 2. code is functions that do everything.  For mature projects, almost certainly I want the former (functional side-effect functions that I can test).  Always consider be consistent in what style occurs in a codebase.
 
 ## Git Operations
 
@@ -109,6 +112,5 @@ Never perform git operations (branch creation, commits, pushes, merges, checkout
 I like:
 
 - Simple solutions
-- Small edits that I can review
-- Small edits that I can change
+- Small edits that I can review & change
 - Clean low friction interfaces with high information density

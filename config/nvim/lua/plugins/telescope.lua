@@ -45,8 +45,9 @@ return {
 				defaults = {
 					layout_strategy = "flex",
 					layout_config = { width = 0.9 },
-					prompt_prefix = " ",
-					selection_caret = " ",
+					prompt_prefix = "  ",
+					selection_caret = " ",
+					entry_prefix = "  ",
 					path_display = { "smart" },
 					file_ignore_patterns = {
 						"node_modules",
