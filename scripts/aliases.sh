@@ -53,7 +53,7 @@ alias ipy='ipython'
 alias pipr='pip install -r requirements.txt'
 
 # files
-alias cheat='$EDITOR $PERSONAL_PATH/resource/cheat_sheet.md'
+alias cheat='$EDITOR $PERSONAL_PATH/area/cheat_sheet.md'
 alias ideas='$EDITOR $HOME/dss/notes/content/ideas/README.md'
 alias inbox='$EDITOR $PERSONAL_PATH/area/inbox/inbox.md'
 alias ibx='inbox'

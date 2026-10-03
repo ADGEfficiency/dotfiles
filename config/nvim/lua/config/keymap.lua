@@ -50,7 +50,7 @@ km("n", "<leader>fv", ":vsplit | ObsidianFollowLink<CR>", opts)
 km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 
 -- Insert current file path
-km("n", "<leader>r", ":r! echo %:p<cr>", opts)
+km("n", "<leader>R", ":r! echo %:p<cr>", opts)
 
 -- Rebalance windows
 km("n", "<leader>b", "<C-w>=<cr>", opts)
@@ -89,7 +89,6 @@ vim.keymap.set("n", "<leader>dd", function()
 end, { desc = "Toggle Diffview" })
 
 km("n", "<leader>w", ":WinResizerStartResize<cr>", opts)
-km("v", "<leader>ll", ":Noice dismiss", opts)
 
 -- Telescope
 -- Search diagnostics
@@ -109,11 +108,8 @@ km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescop
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 
--- Search for a string
--- km("n", "<leader>rc", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for a string under cursor
 km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
-km("n", "<leader>rg", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 -- Search for a string under cursor - mapped twice
 km("n", "<leader>g", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 vim.keymap.set("n", "<leader>.", function()
@@ -124,7 +120,7 @@ end, opts)
 km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- Search for current word in current buffer
-vim.keymap.set("n", "<leader>rgg", function()
+vim.keymap.set("n", "<leader>rb", function()
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
 		hidden = true,
 		default_text = vim.fn.expand("<cword>"),
@@ -136,7 +132,7 @@ vim.keymap.set("n", "<leader>o", "<CMD>split | Oil<CR>")
 
 -- CopilotChat
 vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
-vim.keymap.set("n", "<leader>sc", function()
+vim.keymap.set("n", "<leader>C", function()
 	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
 end, { desc = "Toggle Copilot Chat (horizontal)" })
 
