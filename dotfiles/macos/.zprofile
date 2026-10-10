@@ -1,2 +1,2 @@
-bash $HOME/dotfiles/scripts/trace.sh /common/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# $0 is "zsh" here, not a path: zsh reads this file directly, not via source
+trace dotfiles/macos/.zprofile

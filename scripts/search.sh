@@ -7,8 +7,9 @@ MIN_HEIGHT=20
 target_dir="${1:-.}"
 cd "$target_dir" || exit
 
-# exclude ./archive from the file list fed to fzf
-FZF_DEFAULT_COMMAND='find . -path ./archive -prune -o -type f -print'
+# respect local .gitignore and the global one (core.excludesFile), plus exclude ./archive
+# --no-require-git applies the gitignore rules outside git repos too
+FZF_DEFAULT_COMMAND='fd --type f --hidden --no-require-git --exclude .git --exclude archive'
 export FZF_DEFAULT_COMMAND
 
 if [ "$TERM_HEIGHT" -ge "$MIN_HEIGHT" ]; then

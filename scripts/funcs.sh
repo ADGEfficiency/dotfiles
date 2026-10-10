@@ -188,6 +188,41 @@ tn () {
 }
 alias t='tn'
 
+# toggle a One Light theme for the current tmux session (default is dracula)
+# note: window options are set per-window, so windows created while this is
+# active get dracula window tabs - re-run the toggle to fix
+onelight() {
+  if [[ -z "$TMUX" ]]; then
+    echo "not in tmux"
+    return 1
+  fi
+
+  local w
+  if [[ -n "$(tmux show -qv @onelight)" ]]; then
+    tmux set -u status-style \; set -u status-left \; set -u status-left-length \
+         \; set -u status-right \; set -u status-right-length \
+         \; set -u message-style \; set -u @onelight
+    for w in $(tmux list-windows -F '#{window_id}'); do
+      tmux setw -u -t "$w" window-status-format \
+           \; setw -u -t "$w" window-status-current-format \
+           \; setw -u -t "$w" window-status-separator
+    done
+  else
+    tmux set status-style 'bg=#f0f0f0,fg=#494b53' \
+         \; set status-left '#[fg=#4078f2,bold] #S #[default]' \
+         \; set status-left-length 40 \
+         \; set status-right '#[fg=#a0a1a7]%H:%M ' \
+         \; set status-right-length 20 \
+         \; set message-style 'bg=#e5e5e6,fg=#494b53' \
+         \; set @onelight 1
+    for w in $(tmux list-windows -F '#{window_id}'); do
+      tmux setw -t "$w" window-status-format '#[fg=#696c77] #I #W ' \
+           \; setw -t "$w" window-status-current-format '#[fg=#fafafa,bg=#4078f2] #I #W ' \
+           \; setw -t "$w" window-status-separator ''
+    done
+  fi
+}
+
 
 #  docker
 

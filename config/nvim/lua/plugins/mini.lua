@@ -28,7 +28,7 @@ return {
 			require("mini.operators").setup()
 
 			-- keymap for zoom
-			vim.keymap.set("n", "<leader>z", require("mini.misc").zoom, { desc = "Zoom current buffer" })
+			vim.keymap.set("n", "<leader>Z", require("mini.misc").zoom, { desc = "Zoom current buffer" })
 
 			-- enhanced text objects
 			require("mini.ai").setup({
