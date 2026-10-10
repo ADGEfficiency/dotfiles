@@ -1,7 +1,6 @@
 export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/checkmake:$PATH"
-export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/personal/area/scripts:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
