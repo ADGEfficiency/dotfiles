@@ -1,4 +1,4 @@
-bash $HOME/dotfiles/scripts/trace.sh "$0"
+trace "$0"
 
 export DISABLE_PYENV=1
 
@@ -15,7 +15,6 @@ pyenv_init() {
 
 fzf_init() {
     export FZF_BASE=/usr/local/bin/fzf
-    bindkey -v
     source $HOME/.fzf.zsh
     export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --line-buffered --ignore-file ~/.gitignore'
     export FZF_DEFAULT_OPTS='--height 40% --preview "bat -p {} 2>/dev/null || tree -C -L 2 {}" --preview-window=down:50%:wrap --border=none'
@@ -97,19 +96,8 @@ autoload -U compinit
 compinit -C
 autoload -Uz $HOME/dotfiles/zsh/custom-autocomplete/todo
 
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=10000000
-export HISTSIZE=$HISTFILESIZE
-SAVEHIST=$HISTSIZE
-
-# History optimization: deduplication and sharing
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first
-setopt HIST_IGNORE_DUPS          # Don't record consecutive duplicates
-setopt HIST_IGNORE_ALL_DUPS      # Remove older duplicate from history
-setopt HIST_FIND_NO_DUPS         # Don't show duplicates in search
-setopt HIST_SAVE_NO_DUPS         # Don't save duplicates to file
-setopt SHARE_HISTORY             # Share history between all sessions
-setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks from commands
+# history is managed by zpretzo
+setopt HIST_REDUCE_BLANKS
 export AWS_LOG_LEVEL=3
 
 alias brew='arch -arm64 brew'
@@ -146,7 +134,6 @@ zi() {
   zi "$@"
 }
 
-eval "$(ssh-agent)"  &>/dev/null &>/dev/null
 eval "$(direnv hook zsh)"
 
 # done twice for a reason

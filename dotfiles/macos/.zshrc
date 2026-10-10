@@ -7,7 +7,6 @@ export POWERLINE_NERD_FONTS=1
 . "$HOME/.local/bin/env"
 
 eval "$(keychain --eval --quiet ~/.ssh/github-air ~/.ssh/macbook-pro)"
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 # do not know if i need/want this...
 alias brew='arch -arm64 brew'
 
