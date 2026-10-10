@@ -41,3 +41,4 @@ temp
 config/pi/auth.json
 config/pi/sessions/
 config/pi/npm
+scripts/todo/todo

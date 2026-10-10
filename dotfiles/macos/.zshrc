@@ -15,3 +15,8 @@ alias brew='arch -arm64 brew'
 # quote
 # echo ""
 # quote
+
+# motherduck cli begin
+# Added by MotherDuck install script on Sat 10 Oct 2026 00:47:33 NZDT
+export PATH="/Users/adamgreen/.motherduck/bin:$PATH"
+# motherduck cli end
