@@ -11,13 +11,13 @@ If it's not obvious whether a task needs a plan, ask the user.
 
 ### Where Plan Files are Stored
 
-Plans should be organized by date — use `YYYY-MM` to group plans.
+Default path for new plans: `./docs/plans/plan-$NAME.md`. Always start filename with `plan-`.
 
-Default path: `./docs/ai/YYYY-MM/plan-$NAME.md`. Always start filename with `plan-`.
+Check for existing plans before starting a planning task — read and edit if found. Look in `./docs/plans/` first, then `./docs/ai/`.
 
-Old plans may exist in `./ai/plan-$NAME.md` or `./ai/docs/plan-$NAME.md` — if found, ask if it's OK to migrate.
+Plans already in `./docs/ai/` stay there — keep editing them in place, don't move them. Only new plans go in `./docs/plans/`.
 
-Check for existing plans before starting a planning task — read and edit if found.
+Older plans may exist in `./ai/plan-$NAME.md` or `./ai/docs/plan-$NAME.md` — if found, ask if it's OK to migrate.
 
 ### When Executing a Plan
 

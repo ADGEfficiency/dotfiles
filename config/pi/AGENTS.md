@@ -25,13 +25,17 @@ Read deeply, in great detail. Note intricacies. Go through everything.
 
 ## Planning
 
-Plans should be organized by date - use a string of `YYYY-MM` to group plans.
+Uncomplete or in-progress plans should be stored in `./docs/plans/plan-$NAME.md`.
 
-Plans go in `./docs/ai/YYYY-MM/plan-$NAME.md`. Always start filename with `plan-`.
+Completed plans should be organized by date - use a string of `YYYY-MM` to group completed plans.
+
+Once completed, plans go in `./docs/plans/YYYY-MM/plan-$NAME.md`. Always start filename with `plan-`.
+
+Plans already in `./docs/ai/` (including `./docs/ai/YYYY-MM/`) stay there — edit them in place, don't move them. Only new plans go in `./docs/plans/`.
 
 Old plans may exist in `./ai/plan-$NAME.md` or `./ai/docs/plan-$NAME.md` — if found, stop and ask what to do.
 
-Check for existing plans before starting a planning task — read and edit if found.
+Check for existing plans before starting a planning task — look in `./docs/plans/` first, then `./docs/ai/` — read and edit if found.
 
 Update the plan as the last step when making code changes from a plan.
 
