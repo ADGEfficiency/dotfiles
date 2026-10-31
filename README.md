@@ -148,6 +148,19 @@ The tradeoff is that gitignored files you sometimes want to open (`.env`, `dist/
 
 Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell helper functions in `./scripts/funcs.sh`.
 
+## Devcontainer
+
+`.devcontainer/` defines a portable dev environment (Ubuntu base) with tmux, mise (+ Node 22), uv and the pi coding agent preinstalled. Pi's config is bind-mounted from the host: `~/dotfiles/config/pi` → `/home/vscode/.pi-config` (via `PI_CODING_AGENT_DIR`), and `OPENROUTER_API_KEY` is passed through from the host environment.
+
+Requires the `devcontainer` CLI on the host. Use `dcu` (in `./scripts/funcs.sh`) to bring it up and drop into zsh:
+
+```shell-session
+$ dcu              # containerize the current directory
+$ dcu ~/some/repo  # containerize a specific folder
+```
+
+`dcu` runs `devcontainer up --remove-existing-container` (rebuilding against the current folder) then `devcontainer exec ... zsh`. The workspace folder is mounted into the container, so edits are shared with the host.
+
 ## AI Configuration
 
 Agents are configured twice using two AGENTS.md:
@@ -155,7 +168,7 @@ Agents are configured twice using two AGENTS.md:
 - `./AGENTS.md` for this repo
 - `./pi/config/pi/agent/AGENTS.md` for Pi & Claude Code outside this repo
 
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, themes, and sessions.
+PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, and themes. Sessions live in PI_CODING_AGENT_SESSION_DIR (~/.pi/sessions) so pi works when dotfiles is mounted read-only (ie devcontainers).
 
 CLAUDE.md at the repo root serves the same purpose for Claude Code, but is symlinked to `AGENTS.md`.
 

@@ -263,3 +263,9 @@ docker_ls () {
 docker_exec_last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
+
+dcu() {
+  local cfg=~/dotfiles/.devcontainer/devcontainer.json
+  devcontainer up --workspace-folder "${1:-$PWD}" --config "$cfg" --remove-existing-container \
+    && devcontainer exec --workspace-folder "${1:-$PWD}" --config "$cfg" zsh
+}
