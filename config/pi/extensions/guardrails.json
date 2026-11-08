@@ -16,6 +16,10 @@
       {
         "kind": "file",
         "path": "/dev/null"
+      },
+      {
+        "kind": "directory",
+        "path": "/workspaces"
       }
     ]
   }

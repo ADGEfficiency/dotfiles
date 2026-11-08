@@ -150,16 +150,27 @@ Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell hel
 
 ## Devcontainer
 
-`.devcontainer/` defines a portable dev environment (Ubuntu base) with tmux, mise (+ Node 22), uv and the pi coding agent preinstalled. Pi's config is bind-mounted from the host: `~/dotfiles/config/pi` → `/home/vscode/.pi-config` (via `PI_CODING_AGENT_DIR`), and `OPENROUTER_API_KEY` is passed through from the host environment.
+`.devcontainer/` defines a portable dev environment (Ubuntu base) with tmux, mise (+ Node 22), uv and the pi coding agent preinstalled. Three bind mounts from the host:
+
+| Host | Container | Why |
+| --- | --- | --- |
+| `~/dotfiles/config/pi` | `/home/vscode/.pi-config` | pi config, via `PI_CODING_AGENT_DIR` |
+| `~/.pi/sessions` | `/home/vscode/.pi/sessions` | pi sessions survive container rebuilds, and are shared with the host |
+| `~/dotfiles/.devcontainer/guardrails.json` | `/home/vscode/.pi-config/extensions/guardrails.json` | turns guardrails off inside the container only |
+
+`OPENROUTER_API_KEY` is passed through from the host environment.
+
+The container is the security boundary, so pi runs unrestricted inside it. The nested file mount shadows the host guardrails config with `{"enabled": false}`, which disables path access, permission gate and policy prompts. The host config is untouched.
 
 Requires the `devcontainer` CLI on the host. Use `dcu` (in `./scripts/funcs.sh`) to bring it up and drop into zsh:
 
 ```shell-session
 $ dcu              # containerize the current directory
 $ dcu ~/some/repo  # containerize a specific folder
+$ dcu -r           # rebuild first, after a Dockerfile or devcontainer.json change
 ```
 
-`dcu` runs `devcontainer up --remove-existing-container` (rebuilding against the current folder) then `devcontainer exec ... zsh`. The workspace folder is mounted into the container, so edits are shared with the host.
+`dcu` runs `devcontainer up` then `devcontainer exec ... zsh`. It re-uses a running container, so several shells can attach at once. Only `dcu -r` adds `--remove-existing-container`, which kills every shell attached to that container. The workspace folder is mounted into the container, so edits are shared with the host.
 
 ## AI Configuration
 
@@ -168,7 +179,7 @@ Agents are configured twice using two AGENTS.md:
 - `./AGENTS.md` for this repo
 - `./pi/config/pi/agent/AGENTS.md` for Pi & Claude Code outside this repo
 
-PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, and themes. Sessions live in PI_CODING_AGENT_SESSION_DIR (~/.pi/sessions) so pi works when dotfiles is mounted read-only (ie devcontainers).
+PI_CODING_AGENT_DIR in dotfiles/common/env.sh points pi's config to ~/dotfiles/config/pi/, which contains agent/AGENTS.md (agent instructions), settings.json, and themes. Sessions live in PI_CODING_AGENT_SESSION_DIR (~/.pi/sessions), outside the repo, and are bind-mounted into the devcontainer so `pi --continue` works across container rebuilds.
 
 CLAUDE.md at the repo root serves the same purpose for Claude Code, but is symlinked to `AGENTS.md`.
 

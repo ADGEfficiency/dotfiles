@@ -13,6 +13,11 @@ km("n", "k", "gk", opts)
 -- Copy entire file
 km("n", "YY", ":%y<cr>", opts)
 
+-- Yank the current file path to the clipboard
+km("n", "<leader>yp", ':let @+ = expand("%:p")<cr>:echo @+<cr>', opts)
+km("n", "<leader>yr", ':let @+ = expand("%")<cr>:echo @+<cr>', opts)
+km("n", "<leader>yl", ':let @+ = expand("%:p") .. ":" .. line(".")<cr>:echo @+<cr>', opts)
+
 -- Move to start / end of line
 km("n", "L", "$", opts)
 km("n", "H", "^", opts)
@@ -108,16 +113,49 @@ km("n", "<leader>'", ":lua require'telescope.builtin'.oldfiles(require('telescop
 km("n", "<leader>ro", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 km("n", "<leader>rr", ":lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({}))<cr>", opts)
 
--- Search for a string under cursor
-km("n", "<leader>rc", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
--- Search for a string under cursor - mapped twice
-km("n", "<leader>g", ":lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
-vim.keymap.set("n", "<leader>.", function()
-	require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({ hidden = true }))
-end, opts)
+-- Grep options: prompt on top, results in the middle, preview stacked below.
+local function grep_opts(text, extra)
+	return vim.tbl_deep_extend("force", {
+		default_text = text,
+		layout_strategy = "vertical",
+		sorting_strategy = "ascending",
+		layout_config = {
+			mirror = true,
+			prompt_position = "top",
+			width = 0.95,
+			height = 0.95,
+			preview_height = 0.5,
+			preview_cutoff = 0,
+		},
+	}, extra or {})
+end
 
--- Search for a string
-km("n", "<leader>rg", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>", opts)
+-- Grep for the word under cursor; prompt stays editable as the rg pattern.
+-- <C-space> in the picker freezes results and switches to fuzzy filtering.
+local function grep_word(extra)
+	return function()
+		require("telescope.builtin").live_grep(grep_opts(vim.fn.expand("<cword>"), extra))
+	end
+end
+
+-- Grep for the visual selection
+local function grep_selection(extra)
+	return function()
+		vim.cmd('noau normal! "vy')
+		require("telescope.builtin").live_grep(
+			grep_opts(vim.fn.escape(vim.fn.getreg("v"), "\\.*+?()[]{}|^$"), extra)
+		)
+	end
+end
+
+-- Mapped four ways; <leader>. also searches hidden files
+vim.keymap.set("n", "<leader>rc", grep_word(), opts)
+vim.keymap.set("n", "<leader>rg", grep_word(), opts)
+vim.keymap.set("n", "<leader>g", grep_word(), opts)
+vim.keymap.set("n", "<leader>.", grep_word({ additional_args = { "--hidden" } }), opts)
+
+vim.keymap.set("v", "<leader>g", grep_selection(), opts)
+vim.keymap.set("v", "<leader>.", grep_selection({ additional_args = { "--hidden" } }), opts)
 
 -- Search for current word in current buffer
 vim.keymap.set("n", "<leader>rb", function()

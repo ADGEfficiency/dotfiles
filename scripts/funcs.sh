@@ -264,8 +264,18 @@ docker_exec_last () {
   docker exec -it "$(docker ps | awk 'NR==2{print $1}')" /bin/bash
 }
 
+# dcu [-r|--rebuild] [folder] - open a zsh shell in the devcontainer for folder.
+# Re-uses a running container so several shells can attach at once.
+# -r removes and rebuilds it, needed after a Dockerfile or devcontainer.json change.
 dcu() {
-  local cfg=~/dotfiles/.devcontainer/devcontainer.json
-  devcontainer up --workspace-folder "${1:-$PWD}" --config "$cfg" --remove-existing-container \
-    && devcontainer exec --workspace-folder "${1:-$PWD}" --config "$cfg" zsh
+  local cfg="$HOME/dotfiles/.devcontainer/devcontainer.json"
+  local rebuild=0
+  if [ "$1" = "-r" ] || [ "$1" = "--rebuild" ]; then rebuild=1; shift; fi
+  local folder="${1:-$PWD}"
+  if [ "$rebuild" -eq 1 ]; then
+    devcontainer up --workspace-folder "$folder" --config "$cfg" --remove-existing-container || return
+  else
+    devcontainer up --workspace-folder "$folder" --config "$cfg" || return
+  fi
+  devcontainer exec --workspace-folder "$folder" --config "$cfg" zsh
 }
