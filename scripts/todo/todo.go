@@ -23,7 +23,7 @@ func main() {
 func Resolve(project string) string {
 	// this is one way to have default args
 	// works, but I don't like it!
-	return ResolveToHome(project, "~/personal/project/")
+	return ResolveToHome(project, "~/personal/project")
 }
 
 func ResolveToHome(project string, home string) string {

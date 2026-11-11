@@ -1,13 +1,17 @@
 {
-  "defaultProvider": "openrouter",
-  "defaultModel": "moonshotai/kimi-k3",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-opus-5",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
     "npm:pi-vim",
     "npm:@ifi/pi-plan",
-    "npm:@ollama/pi-web-search"
+    "npm:pi-web-access"
   ],
-  "defaultThinkingLevel": "medium",
-  "lastChangelogVersion": "0.83.0"
+  "defaultThinkingLevel": "high",
+  "lastChangelogVersion": "1.5.0",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:@aliou/pi-guardrails\",\"scope\":\"user\"}": "0.23.0"
+  }
 }
