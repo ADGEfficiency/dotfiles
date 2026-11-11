@@ -21,6 +21,7 @@
 .python-version
 .testmondata
 .venv
+.wrangler
 Music
 NVIDIA*
 __pycache__

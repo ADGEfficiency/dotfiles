@@ -33,9 +33,30 @@ return {
 			})
 
 			local Rule = require("nvim-autopairs.rule")
-			npairs.add_rules({
-				Rule("/*", "*/", "sql"),
-			})
+			local rules = { Rule("/*", "*/", "sql") }
+
+			-- CriticMarkup: typing `{++` leaves the cursor inside `{++|++}`. blink can't
+			-- complete these as snippets because its keyword scanner treats `{` and `+`
+			-- as non-keyword, so the prefix reads as an empty string.
+			for _, marker in ipairs({
+				{ "{++", "++}" },
+				{ "{--", "--}" },
+				{ "{==", "==}" },
+				{ "{>>", "<<}" },
+				{ "{~~", "~>~~}" },
+			}) do
+				local open, close = marker[1], marker[2]
+				table.insert(
+					rules,
+					Rule(open, close, { "markdown", "pandoc", "text" }):replace_endpair(function(opts)
+						-- the default { } rule has usually already inserted the closing
+						-- brace; it is absent when the next char suppressed pairing
+						return vim.startswith(opts.next_char or "", "}") and close:sub(1, -2) or close
+					end)
+				)
+			end
+
+			npairs.add_rules(rules)
 
 			-- Integration with blink.cmp is handled automatically
 		end,

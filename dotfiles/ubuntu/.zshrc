@@ -1,4 +1,3 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 source $HOME/dotfiles/dotfiles/common/.zshrc
 ssh-add ~/.ssh/github ~/.ssh/ado
 export TODO_DIR=~/docs/project

@@ -4,18 +4,38 @@ return {
 		cmd = "Copilot",
 		build = ":Copilot auth",
 		event = "InsertEnter",
+		dependencies = {
+			{
+				-- next edit suggestions; used as a library by copilot.lua, not as its own LSP
+				"copilotlsp-nvim/copilot-lsp",
+				init = function()
+					vim.g.copilot_nes_debounce = 500
+					-- first <tab> jumps to the edit, second applies it and jumps to its end;
+					-- terminals send the same byte for <tab> and <c-i>, so fall back to the jumplist
+					vim.keymap.set("n", "<tab>", function()
+						if not vim.b[vim.api.nvim_get_current_buf()].nes_state then
+							return "<C-i>"
+						end
+						local nes = require("copilot-lsp.nes")
+						local _ = nes.walk_cursor_start_edit()
+							or (nes.apply_pending_nes() and nes.walk_cursor_end_edit())
+						return nil
+					end, { expr = true, desc = "Copilot NES: go to / accept suggestion" })
+				end,
+			},
+		},
 		opts = {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
-			-- TODO
-			-- nes = {
-			-- 	enabled = true,
-			-- 	keymap = {
-			-- 		accept_and_goto = "<leader>ng",
-			-- 		accept = "<leader>ne",
-			-- 		dismiss = "<leader>nd",
-			-- 	},
-			-- },
+			nes = {
+				enabled = true,
+				-- keymaps handled above in copilot-lsp's init
+				keymap = {
+					accept_and_goto = false,
+					accept = false,
+					dismiss = false,
+				},
+			},
 			filetypes = {
 				["*"] = true,
 				cvs = false,
@@ -38,6 +58,16 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+		-- blink.cmp maps <Tab> buffer-locally and wins over CopilotChat's <Tab>
+		-- completion; opt out of blink here so resource completion (#file:, #buffer:) works
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "copilot-chat",
+				callback = function()
+					vim.b.completion = false
+				end,
+			})
+		end,
 		opts = {
 			system_prompt = [[You are an expert software engineer and data scientist.
 - Provide clear, concise explanations - favour less verbose implementations
@@ -59,11 +89,10 @@ return {
 - List tradeoffs, assumptions, and uncertainties explicitly when relevant
 - Prefer small, targeted edits over large rewrites
 - Produce directly usable code because responses may be copied into the codebase]],
-			model = "claude-sonnet-4.6",
+			-- model = "claude-sonnet-4.6",
 			trusted_tools = { "file", "glob", "grep", "buffer", "gitdiff", "selection" },
 			auto_fold = false,
 			auto_insert_mode = true,
-			insert_at_end = true,
 			auto_follow_cursor = false,
 			history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
 		},

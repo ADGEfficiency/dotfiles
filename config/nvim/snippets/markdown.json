@@ -22,5 +22,29 @@
   "`": {
     "prefix": "`",
     "body": ["```$1", "```"]
+  },
+  "critic-add": {
+    "prefix": "critic-add",
+    "body": ["{++$1++}"]
+  },
+  "critic-delete": {
+    "prefix": "critic-delete",
+    "body": ["{--$1--}"]
+  },
+  "critic-substitute": {
+    "prefix": "critic-substitute",
+    "body": ["{~~$1~>$2~~}"]
+  },
+  "critic-comment": {
+    "prefix": "critic-comment",
+    "body": ["{>>$1<<}"]
+  },
+  "critic-highlight": {
+    "prefix": "critic-highlight",
+    "body": ["{==$1==}"]
+  },
+  "critic-highlight-comment": {
+    "prefix": "critic-highlight-comment",
+    "body": ["{==$1==}{>>$2<<}"]
   }
 }
