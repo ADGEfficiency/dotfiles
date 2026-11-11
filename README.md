@@ -150,10 +150,11 @@ Lot's of aliases - see `./scripts/aliases.sh`.  Some small interactive shell hel
 
 ## Devcontainer
 
-`.devcontainer/` defines a portable dev environment (Ubuntu base) with tmux, mise (+ Node 22), uv and the pi coding agent preinstalled. Three bind mounts from the host:
+`.devcontainer/` defines a portable dev environment (Ubuntu base) with tmux, mise (+ Node 22), uv and the pi coding agent preinstalled. Four bind mounts from the host:
 
 | Host | Container | Why |
 | --- | --- | --- |
+| `~/dotfiles` | `/home/vscode/dotfiles` | the whole dotfiles repo, in every container |
 | `~/dotfiles/config/pi` | `/home/vscode/.pi-config` | pi config, via `PI_CODING_AGENT_DIR` |
 | `~/.pi/sessions` | `/home/vscode/.pi/sessions` | pi sessions survive container rebuilds, and are shared with the host |
 | `~/dotfiles/.devcontainer/guardrails.json` | `/home/vscode/.pi-config/extensions/guardrails.json` | turns guardrails off inside the container only |
