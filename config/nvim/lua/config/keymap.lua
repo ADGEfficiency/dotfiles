@@ -54,8 +54,8 @@ km("n", "<leader>fv", ":vsplit | ObsidianFollowLink<CR>", opts)
 -- Open shell history
 km("n", "<leader>h", ":sp ~/.zsh_history<cr>", opts)
 
--- Insert current file path
-km("n", "<leader>R", ":r! echo %:p<cr>", opts)
+-- Insert current file path at the cursor
+km("n", "<leader>R", '"=expand("%:p")<cr>p', opts)
 
 -- Rebalance windows
 km("n", "<leader>b", "<C-w>=<cr>", opts)
@@ -173,6 +173,9 @@ vim.keymap.set("n", "<leader>c", ":CopilotChat<CR>")
 vim.keymap.set("n", "<leader>C", function()
 	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
 end, { desc = "Toggle Copilot Chat (horizontal)" })
+vim.keymap.set("n", "<leader>v", function()
+	require("CopilotChat").toggle({ window = { layout = "horizontal" } })
+end, { desc = "Toggle Copilot Chat (horizontal split)" })
 
 -- Toggle ignoring whitespace in diffs
 vim.keymap.set("n", "<leader>dw", function()

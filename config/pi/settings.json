@@ -1,6 +1,6 @@
 {
-  "defaultProvider": "github-copilot",
-  "defaultModel": "claude-opus-5",
+  "defaultProvider": "openrouter",
+  "defaultModel": "~openai/gpt-astra-latest",
   "theme": "dracula",
   "packages": [
     "npm:@aliou/pi-guardrails",
