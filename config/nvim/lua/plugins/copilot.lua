@@ -22,6 +22,15 @@ return {
 						return nil
 					end, { expr = true, desc = "Copilot NES: go to / accept suggestion" })
 
+					-- <esc> dismisses a pending NES, otherwise behaves normally
+					vim.keymap.set("n", "<esc>", function()
+						if not vim.b.nes_state then
+							return "<esc>"
+						end
+						require("copilot-lsp.nes").clear()
+						return nil
+					end, { expr = true, desc = "Copilot NES: dismiss suggestion" })
+
 					-- the plugin only clears a suggestion when its line leaves the buffer, so a
 					-- suggestion you typed yourself stays on screen; clear it once the buffer
 					-- already holds the suggested text, so untyped suggestions survive an edit
@@ -69,6 +78,7 @@ return {
 				cvs = false,
 				gitcommit = false,
 				gitrebase = false,
+				go = false,
 				help = true,
 				hgcommit = false,
 				lua = true,
@@ -117,7 +127,7 @@ return {
 - List tradeoffs, assumptions, and uncertainties explicitly when relevant
 - Prefer small, targeted edits over large rewrites
 - Produce directly usable code because responses may be copied into the codebase]],
-			-- model = "claude-sonnet-4.6",
+			model = "gpt-6-luna",
 			trusted_tools = { "file", "glob", "grep", "buffer", "gitdiff", "selection" },
 			auto_fold = false,
 			auto_insert_mode = true,
