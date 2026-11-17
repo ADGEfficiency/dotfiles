@@ -39,20 +39,7 @@ return {
 			},
 			keymap = {
 				["<CR>"] = { "fallback" },
-				-- a pending NES suggestion wins over the completion menu
-				["<Tab>"] = {
-					function(cmp)
-						if not vim.b[vim.api.nvim_get_current_buf()].nes_state then
-							return false
-						end
-						cmp.hide()
-						local nes = require("copilot-lsp.nes")
-						return nes.walk_cursor_start_edit()
-							or (nes.apply_pending_nes() and nes.walk_cursor_end_edit())
-					end,
-					"snippet_forward",
-					"fallback",
-				},
+				["<Tab>"] = { "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "snippet_backward", "fallback" },
 			},
 			completion = {

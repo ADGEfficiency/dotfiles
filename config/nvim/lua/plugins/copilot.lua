@@ -4,75 +4,9 @@ return {
 		cmd = "Copilot",
 		build = ":Copilot auth",
 		event = "InsertEnter",
-		dependencies = {
-			{
-				-- next edit suggestions; used as a library by copilot.lua, not as its own LSP
-				"copilotlsp-nvim/copilot-lsp",
-				init = function()
-					vim.g.copilot_nes_debounce = 150
-					-- first <tab> jumps to the edit, second applies it and jumps to its end;
-					-- terminals send the same byte for <tab> and <c-i>, so fall back to the jumplist
-					vim.keymap.set("n", "<tab>", function()
-						if not vim.b[vim.api.nvim_get_current_buf()].nes_state then
-							return "<C-i>"
-						end
-						local nes = require("copilot-lsp.nes")
-						local _ = nes.walk_cursor_start_edit()
-							or (nes.apply_pending_nes() and nes.walk_cursor_end_edit())
-						return nil
-					end, { expr = true, desc = "Copilot NES: go to / accept suggestion" })
-
-					-- <esc> dismisses a pending NES, otherwise behaves normally
-					vim.keymap.set("n", "<esc>", function()
-						if not vim.b.nes_state then
-							return "<esc>"
-						end
-						require("copilot-lsp.nes").clear()
-						return nil
-					end, { expr = true, desc = "Copilot NES: dismiss suggestion" })
-
-					-- the plugin only clears a suggestion when its line leaves the buffer, so a
-					-- suggestion you typed yourself stays on screen; clear it once the buffer
-					-- already holds the suggested text, so untyped suggestions survive an edit
-					local function nes_already_typed(state)
-						local text = state.newText or state.text
-						if text == "" then
-							return true -- a deletion cannot be verified; treat any edit as stale
-						end
-						local start = state.range.start
-						local lines = vim.split(text, "\n", { plain = true })
-						local last = #lines
-						local end_row = start.line + last - 1
-						local end_col = #lines[last] + (last == 1 and start.character or 0)
-						local ok, got =
-							pcall(vim.api.nvim_buf_get_text, 0, start.line, start.character, end_row, end_col, {})
-						return ok and table.concat(got, "\n") == text
-					end
-
-					vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-						callback = function()
-							local state = vim.b.nes_state
-							if state and nes_already_typed(state) then
-								require("copilot-lsp.nes").clear()
-							end
-						end,
-						desc = "Copilot NES: clear suggestion once typed",
-					})
-				end,
-			},
-		},
 		opts = {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
-			nes = {
-				enabled = true,
-				-- keymaps handled above in copilot-lsp's init
-				keymap = {
-					accept_and_goto = false,
-					accept = false,
-					dismiss = false,
-				},
-			},
 			filetypes = {
 				["*"] = true,
 				cvs = false,
